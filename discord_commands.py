@@ -48,13 +48,13 @@ class LibrarianCommands(commands.Cog):
     @app_commands.command(name="request", description="Search for a book or audiobook")
     @app_commands.describe(
         title="Book title (required)",
-        author="Author name (optional) - improves search accuracy"
+        author="Author name (required)"
     )
     async def request_command(
         self,
         interaction: discord.Interaction,
         title: str,
-        author: Optional[str] = None,
+        author: str,
     ):
         """
         Search for a book and request ebook or audiobook
@@ -62,40 +62,35 @@ class LibrarianCommands(commands.Cog):
         Args:
             interaction: Discord interaction
             title: Book title
-            author: Optional author name
+            author: Author name
         """
         try:
             # DEFER IMMEDIATELY with ephemeral to ensure Discord gets a response
             await interaction.response.defer(ephemeral=True)
 
-            # Build search query
-            query = title.strip()
-            if author:
-                query = f"{title.strip()} {author.strip()}"
+            # Build search query with both title and author
+            query = f"{title.strip()} {author.strip()}"
 
             logger.info(f"Search request from {interaction.user}: {query}")
 
             # Show searching message
             await interaction.followup.send(f"🔍 Searching for: **{query}**...")
 
-            # Search both APIs in parallel
-            logger.debug(f"Searching Google Books and Open Library for: {query}")
-            google_results, ol_results = await asyncio.gather(
-                search_google_books(query, max_results=10),
-                search_open_library(query, max_results=10),
-                return_exceptions=True
-            )
-
-            # Handle any exceptions from parallel searches
-            if isinstance(google_results, Exception):
-                logger.warning(f"Google Books search error: {google_results}")
+            # Search Google Books only (Open Library disabled for now)
+            logger.debug(f"Searching Google Books for: {query}")
+            try:
+                logger.debug("Initiating Google Books API call with max_results=10")
+                google_results = await search_google_books(query, max_results=10)
+                logger.debug(f"Google Books returned {len(google_results)} results")
+            except Exception as e:
+                logger.warning(f"Google Books search error: {e}")
+                logger.debug(f"Exception details: {type(e).__name__}: {str(e)}")
                 google_results = []
-            if isinstance(ol_results, Exception):
-                logger.warning(f"Open Library search error: {ol_results}")
-                ol_results = []
+            ol_results = []  # Open Library disabled
+            logger.debug("Open Library search disabled")
 
             # Merge and deduplicate results
-            book_results = self._merge_book_results(google_results, ol_results)
+            book_results = self._merge_book_results(google_results, ol_results, query)
 
             if not book_results:
                 await interaction.followup.send(
@@ -107,9 +102,9 @@ class LibrarianCommands(commands.Cog):
 
             logger.info(f"Found {len(book_results)} unique books after deduplication")
 
-            # If multiple results, show selection
+            # If multiple results, show selection (but filter to best matches only)
             if len(book_results) > 1:
-                await self._show_book_selection(interaction, book_results)
+                await self._show_book_selection(interaction, book_results, query)
             else:
                 # Single result - proceed directly
                 await self._show_book_request(interaction, book_results[0])
@@ -124,24 +119,30 @@ class LibrarianCommands(commands.Cog):
             except Exception as followup_error:
                 logger.error(f"Could not send error message: {followup_error}")
 
-    def _merge_book_results(self, google_books: list, ol_books: list) -> list:
+    def _merge_book_results(self, google_books: list, ol_books: list, query: str = "") -> list:
         """
-        Merge Google Books and Open Library results, deduplicating by title and author
+        Merge Google Books and Open Library results, deduplicating and scoring by relevance
 
         Args:
             google_books: List of GoogleBookMetadata
             ol_books: List of OLBookMetadata
+            query: Original search query for scoring
 
         Returns:
-            List of deduplicated OLBookMetadata (using Open Library format as standard)
+            List of deduplicated OLBookMetadata sorted by relevance (best first)
         """
         merged = {}  # Use title+authors as key for deduplication
+        scores = {}  # Track relevance score for each book
 
         # Add Open Library results first (they have better structure)
+        books_with_scores = {}  # Map book id to score
         for book in ol_books:
             key = self._get_book_key(book.title, book.authors)
             merged[key] = book
-            logger.debug(f"Added OL book: {book.title}")
+            score = self._score_book_relevance(book.title, book.authors, query)
+            scores[key] = score
+            books_with_scores[id(book)] = score
+            logger.debug(f"Added OL book: {book.title} (score: {score})")
 
         # Add Google Books results, avoiding duplicates
         for gb_book in google_books:
@@ -160,17 +161,110 @@ class LibrarianCommands(commands.Cog):
                     description=gb_book.description,
                     has_ebook=True,  # Assume ebook available from Google Books
                     has_audiobook=False,  # Google Books doesn't explicitly say
+                    image_url=gb_book.image_url,  # PRESERVE Google Books image URL
                 )
                 merged[key] = ol_book
-                logger.debug(f"Added GB book (converted): {gb_book.title}")
+                score = self._score_book_relevance(gb_book.title, gb_book.authors, query)
+                scores[key] = score
+                books_with_scores[id(ol_book)] = score
+                logger.debug(f"Added GB book (converted): {gb_book.title} (score: {score})")
             else:
                 # Book already exists, merge metadata if Google Books has better cover
                 existing = merged[key]
-                if gb_book.image_url and not existing.cover_id:
-                    logger.debug(f"Merging cover data for: {gb_book.title}")
+                if gb_book.image_url and not existing.image_url and not existing.cover_id:
+                    existing.image_url = gb_book.image_url
+                    logger.debug(f"Merging Google Books cover data for: {gb_book.title}")
 
-        logger.info(f"Merged {len(google_books)} Google Books + {len(ol_books)} OL books = {len(merged)} unique")
-        return list(merged.values())
+        # Sort by relevance score (highest first), then by publish year (newest first)
+        sorted_books = sorted(
+            merged.values(),
+            key=lambda b: (
+                -books_with_scores.get(id(b), 0),
+                -(b.first_publish_year or 0)
+            )
+        )
+
+        logger.info(f"Merged {len(google_books)} Google Books + {len(ol_books)} OL books = {len(merged)} unique (sorted by relevance)")
+        return sorted_books
+
+    def _score_book_relevance(self, title: str, authors: list, query: str = "") -> int:
+        """
+        Score book relevance based on exact title/author match
+        Simple scoring: exact match gets highest score
+        
+        Args:
+            title: Book title
+            authors: List of authors
+            query: Original search query (for matching)
+        
+        Returns:
+            Score (higher = better match)
+        """
+        score = 0
+        title_lower = title.lower().strip()
+        query_lower = query.lower().strip()
+        
+        logger.debug(f"Starting score calculation for: {title}")
+        
+        # HEAVILY penalize obviously wrong types (study guides, summaries, etc.)
+        bad_keywords = [
+            "summary", "guide", "study guide", "sparknotes", "cliff", 
+            "cliffsnotes", "bookrags", "quick summary", "key ideas",
+            "analysis", "discussion"
+        ]
+        for keyword in bad_keywords:
+            if keyword in title_lower:
+                score -= 10000  # Very negative so these don't show
+                logger.debug(f"Penalizing wrong type for '{title}': found '{keyword}' in title (-10000)")
+                return score
+        
+        logger.debug(f"Book '{title}' passed support-book filter")
+        
+        # Extract key words from both title and query for matching
+        # Remove common words like "the", "a", "an", "of"
+        stop_words = {"the", "a", "an", "of", "and", "or", "in", "on", "at", "to", "for"}
+        title_words = [w for w in title_lower.split() if w not in stop_words]
+        query_words = [w for w in query_lower.split() if w not in stop_words]
+        
+        logger.debug(f"Title words: {title_words}, Query words: {query_words}")
+        
+        # Count how many title words appear in query
+        matches = sum(1 for w in title_words if any(w in qw or qw in w for qw in query_words))
+        match_ratio = matches / len(title_words) if title_words else 0
+        logger.debug(f"Word match ratio: {matches}/{len(title_words)} = {match_ratio*100:.1f}%")
+        
+        # Exact title match or very close (exact match gets 5000)
+        if title_lower == query_lower or title_lower in query_lower:
+            score += 5000
+            logger.debug(f"Exact title match: {title} (+5000)")
+        elif match_ratio >= 0.9:  # 90%+ match
+            score += 4000
+            logger.debug(f"Very strong title match ({match_ratio*100:.0f}%): {title} (+4000)")
+        elif match_ratio >= 0.7:  # 70%+ match
+            score += 3000
+            logger.debug(f"Strong title match ({match_ratio*100:.0f}%): {title} (+3000)")
+        elif match_ratio >= 0.5:  # 50%+ match
+            score += 1500
+            logger.debug(f"Partial title match ({match_ratio*100:.0f}%): {title} (+1500)")
+        else:
+            score -= 1000  # Wrong book
+            logger.debug(f"Weak match ({match_ratio*100:.0f}%): {title} (-1000)")
+        
+        # Bonus for author match (if we have one from the query)
+        if authors and len(authors) > 0:
+            first_author = (authors[0] if isinstance(authors[0], str) else 
+                          getattr(authors[0], 'name', '')).lower()
+            
+            # HEAVILY penalize "unknown" author when we have a specific author query
+            if first_author == "unknown" and query_lower:
+                score -= 5000  # Disqualify unknown authors
+                logger.debug(f"Penalizing unknown author for query '{query_lower}' (-5000)")
+            elif first_author and first_author in query_lower:
+                score += 2000
+                logger.debug(f"Author match: {first_author} in query (+2000)")
+        
+        logger.debug(f"Score for '{title}': {score}")
+        return score
 
     def _get_book_key(self, title: str, authors: list) -> str:
         """Create deduplication key from title and authors"""
@@ -197,19 +291,90 @@ class LibrarianCommands(commands.Cog):
             return None
 
     async def _show_book_selection(
-        self, interaction: discord.Interaction, books: List[OLBookMetadata]
+        self, interaction: discord.Interaction, books: List[OLBookMetadata], query: str = ""
     ):
-        """Show selection of multiple books"""
+        """Show selection of books, filtering to only show exact/close matches"""
         try:
-            # Create embeds for each book
+            logger.debug(f"_show_book_selection called with {len(books)} books, query: {query}")
+            
+            # Score all books
+            scored_books = []
+            for book in books:
+                score = self._score_book_relevance(book.title, book.authors, query)
+                logger.debug(f"Book score: '{book.title}' = {score}")
+                scored_books.append((book, score))
+            
+            # Sort by score (highest first)
+            scored_books.sort(key=lambda x: -x[1])
+            logger.debug(f"After sorting by score: {[f'{b.title}({s})' for b, s in scored_books[:3]]}")
+            
+            # Filter: Only keep books with high enough score (best matches)
+            # With new scoring: exact match = 5000+, author +2000, wrong type = -10000
+            # Only show books within reasonable distance of best match
+            filtered_books = []
+            if scored_books:
+                top_score = scored_books[0][1]
+                logger.debug(f"Top book score: {top_score}")
+                
+                # If top score is very high (exact match), show ONLY that one or very close matches
+                if top_score >= 5000:
+                    # Exact match found - show only books within 2000 points (still very close matches)
+                    threshold = top_score - 2000
+                    logger.debug(f"Top score >= 5000 (exact match). Threshold: {threshold}")
+                    for book, score in scored_books:
+                        if score >= threshold:
+                            logger.debug(f"  Including (above threshold): {book.title} ({score})")
+                            filtered_books.append(book)
+                        else:
+                            logger.debug(f"  Excluding (below threshold): {book.title} ({score})")
+                            break  # Rest will be lower due to sort
+                elif top_score > 1000:
+                    # Strong match but not exact - show within 1000 points
+                    threshold = top_score - 1000
+                    logger.debug(f"Top score > 1000 (strong match). Threshold: {threshold}")
+                    for book, score in scored_books:
+                        if score >= threshold and score > -5000:
+                            logger.debug(f"  Including: {book.title} ({score})")
+                            filtered_books.append(book)
+                        else:
+                            logger.debug(f"  Excluding: {book.title} ({score})")
+                            break
+                else:
+                    # Weak matches, take top 3-5
+                    logger.debug(f"Top score <= 1000 (weak match). Taking top 5")
+                    filtered_books = [b for b, _ in scored_books[:5] if _[1] > -5000]
+                    for b in filtered_books:
+                        logger.debug(f"  Including: {b.title}")
+            
+            logger.debug(f"After filtering: {len(filtered_books)} books remain")
+            
+            if not filtered_books:
+                filtered_books = [books[0]]  # At least show the first one
+            
+            logger.info(f"Filtered {len(books)} books down to {len(filtered_books)} close matches (top score: {scored_books[0][1] if scored_books else 0})")
+            
+            # If we have only 1 close match, just proceed directly
+            if len(filtered_books) == 1:
+                await self._show_book_request(interaction, filtered_books[0])
+                return
+            
+            # Create embeds for each book with cover/poster and description
             embeds = []
-            for idx, book in enumerate(books[:10], 1):  # Show up to 10
+            for idx, book in enumerate(filtered_books[:5], 1):  # Max 5 options
                 embed = discord.Embed(
-                    title=f"{idx}. {book.title}",
-                    description=f"**Author(s):** {', '.join(book.authors)}",
+                    title=f"{idx}. {truncate_string(book.title, 100)}",
+                    description=truncate_string(book.description, 250) if book.description else "*No description available*",
                     color=discord.Color.blue(),
                 )
 
+                # Add authors
+                embed.add_field(
+                    name="Author(s)",
+                    value=", ".join(book.authors) if book.authors else "Unknown",
+                    inline=False
+                )
+
+                # Add year
                 if book.first_publish_year:
                     embed.add_field(
                         name="Published",
@@ -217,6 +382,7 @@ class LibrarianCommands(commands.Cog):
                         inline=True,
                     )
 
+                # Add availability
                 availability = []
                 if book.has_ebook:
                     availability.append("✓ Ebook")
@@ -230,16 +396,19 @@ class LibrarianCommands(commands.Cog):
                         inline=True,
                     )
 
-                cover_url = book.get_cover_url("M")
+                # Add cover/poster image
+                cover_url = book.get_cover_url("L")
                 if cover_url:
-                    embed.set_thumbnail(url=cover_url)
+                    embed.set_image(url=cover_url)
+                
+                embed.set_footer(text=f"Option {idx}")
 
                 embeds.append(embed)
 
             # Create selection buttons
             options = [
-                discord.SelectOption(label=f"{idx}. {book.title[:100]}", value=str(idx - 1))
-                for idx, book in enumerate(books[:10], 1)
+                discord.SelectOption(label=f"{idx}. {truncate_string(book.title, 80)}", value=str(idx - 1))
+                for idx, book in enumerate(filtered_books[:5], 1)
             ]
 
             class BookSelect(discord.ui.Select):
@@ -274,14 +443,14 @@ class LibrarianCommands(commands.Cog):
             class BookSelectView(discord.ui.View):
                 def __init__(self, cog_instance):
                     super().__init__(timeout=300)
-                    self.add_item(BookSelect(books, cog_instance))
+                    self.add_item(BookSelect(filtered_books, cog_instance))
 
             view = BookSelectView(self)
 
             await interaction.followup.send(
                 embeds=embeds,
                 view=view,
-                content="**Choose a book:**",
+                content="**📚 Choose the correct book:**" if len(embeds) > 1 else "**📚 Is this the right book?**",
             )
 
         except Exception as e:
@@ -299,6 +468,7 @@ class LibrarianCommands(commands.Cog):
             # Create book info embed
             embed = discord.Embed(
                 title=f"📚 {book.title}",
+                description=truncate_string(book.description, 500) if book.description else "*No synopsis available*",
                 color=discord.Color.blue(),
             )
 
@@ -405,6 +575,7 @@ class LibrarianCommands(commands.Cog):
                 "torrents_all": prowlarr_results,
                 "user": interaction.user,
                 "message": message,
+                "isbn": book.isbn_13 or book.isbn_10,  # Store ISBN for completion tracking
             }
 
             # Send to admin channel for approval
@@ -756,6 +927,84 @@ class LibrarianCommands(commands.Cog):
                 "❌ Error getting help",
                 ephemeral=True,
             )
+
+    async def on_download_completed(self, torrent_name: str):
+        """
+        Called when a download is completed and organized
+        Updates the user's message to show "Download Complete - Now Available"
+
+        Args:
+            torrent_name: Name of the completed torrent
+        """
+        try:
+            logger.info(f"📚 Download completed: {torrent_name}")
+
+            # Search through pending requests to find matching download
+            for user_id, request_data in list(self.pending_requests.items()):
+                try:
+                    user = request_data.get("user")
+                    user_message = request_data.get("message")
+                    book = request_data.get("book")
+                    request_type = request_data.get("request_type")
+                    torrent = request_data.get("torrent")
+
+                    if not user_message or not book:
+                        continue
+
+                    # Check if torrent name matches (partial match since names may vary)
+                    if torrent_name.lower() in user_message.content.lower() or \
+                       book.title.lower() in torrent_name.lower():
+                        
+                        logger.info(f"✅ Matched download to request: {book.title}")
+
+                        # Update message with completion status
+                        try:
+                            # Create new embed showing completion
+                            embed = discord.Embed(
+                                title=book.title,
+                                description="✨ Download Complete - Now Available",
+                                color=discord.Color.gold(),
+                                url=user_message.embeds[0].url if user_message.embeds else None,
+                            )
+
+                            # Copy relevant fields from original
+                            if user_message.embeds:
+                                orig_embed = user_message.embeds[0]
+                                for field in orig_embed.fields:
+                                    embed.add_field(
+                                        name=field.name,
+                                        value=field.value,
+                                        inline=field.inline,
+                                    )
+
+                            # Add completion field
+                            embed.add_field(
+                                name="Status",
+                                value="✅ Download Complete - Now Available in Library",
+                                inline=False,
+                            )
+
+                            # Set thumbnail if available
+                            if user_message.embeds and user_message.embeds[0].thumbnail:
+                                embed.set_thumbnail(url=user_message.embeds[0].thumbnail.url)
+
+                            # Update message (remove buttons, update status)
+                            await user_message.edit(embed=embed, view=None)
+                            logger.info(f"✅ Updated message for {user}: {book.title}")
+
+                        except Exception as e:
+                            logger.warning(f"Could not update message: {e}")
+
+                        # Remove from pending since it's complete
+                        del self.pending_requests[user_id]
+                        break
+
+                except Exception as e:
+                    logger.warning(f"Error processing pending request for user {user_id}: {e}")
+                    continue
+
+        except Exception as e:
+            logger.error(f"Error in on_download_completed: {e}", exc_info=True)
 
 
 async def setup(bot: commands.Bot):

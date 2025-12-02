@@ -66,9 +66,9 @@ class LibrarianBot(commands.Bot):
         except Exception as e:
             logger.error(f"❌ Failed to load discord_commands: {e}")
 
-        # Initialize qBit monitor
+        # Initialize qBit monitor (pass self so it can notify cog)
         qbit_client = get_qbit_client()
-        self.qbit_monitor = QBitMonitor(qbit_client, library_organizer)
+        self.qbit_monitor = QBitMonitor(qbit_client, library_organizer, bot=self)
         
         # Start background tasks
         self.monitor_torrents.start()

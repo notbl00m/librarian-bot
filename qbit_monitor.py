@@ -16,16 +16,18 @@ logger = logging.getLogger(__name__)
 class QBitMonitor:
     """Monitors qBittorrent for completed downloads and organizes them"""
     
-    def __init__(self, qbit_client, organizer_module):
+    def __init__(self, qbit_client, organizer_module, bot=None):
         """
         Initialize the monitor
         
         Args:
             qbit_client: QBittorrentAPI instance
             organizer_module: The library_organizer module
+            bot: Optional Discord bot instance for notifications
         """
         self.qbit = qbit_client
         self.organizer = organizer_module
+        self.bot = bot
         self.processed_hashes: Set[str] = set()
         self.monitoring = False
         self.task = None
@@ -99,6 +101,10 @@ class QBitMonitor:
                     # Run organizer
                     await self._organize_download(torrent.name, torrent.save_path)
                     
+                    # Notify bot about completion (for message update)
+                    if self.bot:
+                        await self._notify_bot_completion(torrent.name)
+                    
                     # Mark as processed
                     self.processed_hashes.add(torrent_hash)
                     logger.info(f"📚 Marked as processed: {torrent.name}")
@@ -130,6 +136,21 @@ class QBitMonitor:
             
         except Exception as e:
             logger.error(f"❌ Error organizing {name}: {e}", exc_info=True)
+    
+    async def _notify_bot_completion(self, torrent_name: str):
+        """
+        Notify bot that a download is complete so it can update the message
+        
+        Args:
+            torrent_name: Name of the completed torrent
+        """
+        try:
+            # Get the cog with pending requests
+            cog = self.bot.get_cog('LibrarianCommands')
+            if cog and hasattr(cog, 'on_download_completed'):
+                await cog.on_download_completed(torrent_name)
+        except Exception as e:
+            logger.warning(f"Could not notify bot of completion: {e}")
             
     def _run_organizer(self, source_path: str):
         """

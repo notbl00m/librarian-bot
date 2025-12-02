@@ -27,7 +27,8 @@ class BookMetadata:
     isbn_10: Optional[str] = None
     isbn_13: Optional[str] = None
     categories: List[str] = None
-    image_url: Optional[str] = None
+    image_url: Optional[str] = None  # Cover/poster image
+    thumbnail_url: Optional[str] = None  # Smaller thumbnail
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary"""
@@ -45,95 +46,199 @@ class BookMetadata:
 
 async def search_google_books(query: str, max_results: int = 5) -> List[BookMetadata]:
     """
-    Search Google Books API asynchronously
+    Search Google Books API asynchronously with retry logic
 
     Args:
-        query: Search query
+        query: Search query (can be "title author" format for better results)
         max_results: Maximum results to return
 
     Returns:
         List of BookMetadata objects
     """
-    try:
-        # Validate and clean query
-        if not query or not query.strip():
-            logger.warning("Empty query provided to Google Books search")
-            return []
-        
-        query = query.strip()
-        
-        params = {
-            "q": query,
-            "maxResults": min(max_results, 40),  # API max is 40
-            "printType": "BOOKS",  # Only books, no magazines
-        }
+    # Validate and clean query
+    if not query or not query.strip():
+        logger.warning("Empty query provided to Google Books search")
+        logger.debug("Returning empty list for empty query")
+        return []
+    
+    query = query.strip()
+    logger.debug(f"Google Books search initiated with query: {query}")
+    
+    # Parse query to extract title and author if both provided
+    # Format: "Title Author" or just "Title"
+    parts = query.rsplit(" ", 1)  # Split on last space
+    search_query = query
+    
+    # Don't use complex structured queries - just use the full query as-is
+    # Google Books is better at finding results with simple queries
+    logger.debug(f"Final search query for API: {search_query}")
+    
+    # Retry logic with exponential backoff
+    max_retries = 3
+    retry_delay = 1  # Start with 1 second
+    
+    for attempt in range(max_retries):
+        try:
+            params = {
+                "q": search_query,
+                "maxResults": min(max_results, 40),  # API max is 40
+                "printType": "BOOKS",  # Only books, no magazines
+            }
 
-        # Add API key if available
-        if Config.GOOGLE_BOOKS_API_KEY:
-            params["key"] = Config.GOOGLE_BOOKS_API_KEY
+            # Add API key if available
+            if Config.GOOGLE_BOOKS_API_KEY:
+                params["key"] = Config.GOOGLE_BOOKS_API_KEY
 
-        logger.debug(f"Searching Google Books for: {query}")
+            logger.debug(f"Searching Google Books for: {query} (attempt {attempt + 1}/{max_retries})")
 
-        async with aiohttp.ClientSession() as session:
-            async with session.get(
-                GOOGLE_BOOKS_API_URL, params=params, timeout=aiohttp.ClientTimeout(total=10)
-            ) as response:
-                if response.status == 400:
-                    error_text = await response.text()
-                    logger.error(f"Google Books API returned 400 Bad Request: {error_text}")
-                    logger.debug(f"Query was: {query}, params: {params}")
-                    return []
-                
-                if response.status == 403:
-                    logger.error("Google Books API returned 403 Forbidden - Invalid API key")
-                    return []
-                
-                if response.status == 429:
-                    logger.warning("Google Books API rate limited - Try again later")
-                    return []
-                
-                if response.status != 200:
-                    error_text = await response.text()
-                    logger.warning(f"Google Books API returned status {response.status}: {error_text}")
-                    return []
-
-                data = await response.json()
-                items = data.get("items", [])
-
-                results = []
-                for item in items:
-                    try:
-                        volume_info = item.get("volumeInfo", {})
-                        metadata = BookMetadata(
-                            title=volume_info.get("title", "Unknown"),
-                            authors=volume_info.get("authors", []),
-                            published_date=volume_info.get("publishedDate", ""),
-                            description=volume_info.get("description", ""),
-                            isbn_10=_extract_isbn(volume_info, "ISBN_10"),
-                            isbn_13=_extract_isbn(volume_info, "ISBN_13"),
-                            categories=volume_info.get("categories", []),
-                            image_url=volume_info.get("imageLinks", {}).get("thumbnail"),
-                        )
-                        results.append(metadata)
-                    except Exception as e:
-                        logger.warning(f"Error parsing Google Books result: {e}")
+            async with aiohttp.ClientSession() as session:
+                async with session.get(
+                    GOOGLE_BOOKS_API_URL, params=params, timeout=aiohttp.ClientTimeout(total=15)
+                ) as response:
+                    if response.status == 400:
+                        error_text = await response.text()
+                        logger.error(f"Google Books API returned 400 Bad Request: {error_text}")
+                        return []
+                    
+                    if response.status == 403:
+                        logger.error("Google Books API returned 403 Forbidden - Invalid API key")
+                        return []
+                    
+                    if response.status == 429:
+                        logger.warning(f"Google Books API rate limited (attempt {attempt + 1}/{max_retries}) - Retrying...")
+                        if attempt < max_retries - 1:
+                            await asyncio.sleep(retry_delay)
+                            retry_delay *= 2
+                        continue
+                    
+                    if response.status == 503:
+                        logger.warning(f"Google Books API unavailable (attempt {attempt + 1}/{max_retries}) - Retrying...")
+                        if attempt < max_retries - 1:
+                            await asyncio.sleep(retry_delay)
+                            retry_delay *= 2
+                        continue
+                    
+                    if response.status != 200:
+                        error_text = await response.text()
+                        logger.warning(f"Google Books API returned status {response.status} (attempt {attempt + 1}/{max_retries})")
+                        if attempt < max_retries - 1:
+                            await asyncio.sleep(retry_delay)
+                            retry_delay *= 2
                         continue
 
-                logger.info(f"Found {len(results)} books on Google Books for: {query}")
-                return results
+                    data = await response.json()
+                    items = data.get("items", [])
+                    logger.debug(f"Google Books API returned {len(items)} items")
 
-    except asyncio.TimeoutError:
-        logger.error(f"Google Books API timeout for query: {query}")
-        return []
-    except aiohttp.ClientSSLError as e:
-        logger.error(f"Google Books API SSL error: {e}")
-        return []
-    except aiohttp.ClientError as e:
-        logger.error(f"Google Books API connection error: {e}")
-        return []
-    except Exception as e:
-        logger.error(f"Unexpected error searching Google Books: {e}")
-        return []
+                    results = []
+                    for idx, item in enumerate(items):
+                        try:
+                            volume_info = item.get("volumeInfo", {})
+                            title = volume_info.get("title", "Unknown")
+                            
+                            # FILTER OUT support books (summaries, guides, analysis, etc.)
+                            if _is_support_book(title):
+                                logger.debug(f"Filtered out support/summary book: {title}")
+                                continue
+                            
+                            # Extract cover images with enhancement
+                            image_links = volume_info.get("imageLinks", {})
+                            image_url = _get_best_cover_url(image_links)
+                            
+                            metadata = BookMetadata(
+                                title=title,
+                                authors=volume_info.get("authors", []),
+                                published_date=volume_info.get("publishedDate", ""),
+                                description=volume_info.get("description", ""),
+                                isbn_10=_extract_isbn(volume_info, "ISBN_10"),
+                                isbn_13=_extract_isbn(volume_info, "ISBN_13"),
+                                categories=volume_info.get("categories", []),
+                                image_url=image_url,
+                                thumbnail_url=image_links.get("thumbnail"),
+                            )
+                            logger.debug(f"Added result {len(results)+1}: {title} by {', '.join(metadata.authors or ['Unknown'])}")
+                            results.append(metadata)
+                        except Exception as e:
+                            logger.warning(f"Error parsing Google Books result: {e}")
+                            logger.debug(f"Failed item index: {idx}")
+                            continue
+
+                    logger.info(f"Found {len(results)} books on Google Books for: {query} (filtered from {len(items)} raw results)")
+                    return results
+
+        except asyncio.TimeoutError:
+            logger.warning(f"Google Books API timeout (attempt {attempt + 1}/{max_retries}) - Retrying...")
+            if attempt < max_retries - 1:
+                await asyncio.sleep(retry_delay)
+                retry_delay *= 2
+            continue
+        except aiohttp.ClientSSLError as e:
+            logger.error(f"Google Books API SSL error (attempt {attempt + 1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                await asyncio.sleep(retry_delay)
+                retry_delay *= 2
+            continue
+        except aiohttp.ClientError as e:
+            logger.warning(f"Google Books API connection error (attempt {attempt + 1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                await asyncio.sleep(retry_delay)
+                retry_delay *= 2
+            continue
+        except Exception as e:
+            logger.error(f"Unexpected error searching Google Books (attempt {attempt + 1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                await asyncio.sleep(retry_delay)
+                retry_delay *= 2
+            continue
+    
+    logger.error(f"Google Books search failed for '{query}' after {max_retries} attempts")
+    return []
+
+
+def _get_best_cover_url(image_links: dict) -> Optional[str]:
+    """
+    Extract best quality cover URL from Google Books image links
+    
+    Returns highest quality available:
+    1. extraLarge (highest quality)
+    2. large
+    3. medium
+    4. small
+    5. thumbnail (lowest quality)
+    
+    Then enhances thumbnail URLs by:
+    - Replacing &zoom=1 with &zoom=0
+    - Appending &fife=w800 for up to 800px width
+    - Converting http:// to https://
+    """
+    if not image_links:
+        return None
+    
+    # Try to get best quality in order
+    for size in ["extraLarge", "large", "medium", "small"]:
+        if size in image_links:
+            url = image_links[size]
+            # Convert to https
+            url = url.replace("http://", "https://")
+            return url
+    
+    # Fallback to thumbnail with enhancement
+    if "thumbnail" in image_links:
+        url = image_links["thumbnail"]
+        
+        # Enhance thumbnail quality
+        # Replace &zoom=1 with &zoom=0 for better quality
+        url = url.replace("&zoom=1", "&zoom=0")
+        # Request up to 800px width
+        if "&fife=w" not in url:
+            url += "&fife=w800"
+        # Convert to https
+        url = url.replace("http://", "https://")
+        
+        logger.debug(f"Enhanced thumbnail URL for better quality")
+        return url
+    
+    return None
 
 
 def _extract_isbn(volume_info: dict, isbn_type: str) -> Optional[str]:
@@ -143,6 +248,39 @@ def _extract_isbn(volume_info: dict, isbn_type: str) -> Optional[str]:
         if identifier.get("type") == isbn_type:
             return identifier.get("identifier")
     return None
+
+
+def _is_support_book(title: str) -> bool:
+    """
+    Determine if a book is a support/reference book (summary, guide, analysis, etc.)
+    These are NOT actual books but study aids and should be excluded
+    
+    Args:
+        title: Book title to check
+    
+    Returns:
+        True if support book, False if actual book
+    """
+    title_lower = title.lower()
+    
+    # Keywords that indicate this is a support/reference book
+    support_keywords = [
+        "summary", "summaries", "sparknotes", "cliffsnotes", "cliff notes",
+        "study guide", "study guides", "guide to", "guides to",
+        "quick summary", "key ideas", "key takeaways", "key points",
+        "analysis", "explained", "for dummies", "easy to understand",
+        "discussion guide", "reader's guide", "bookrags",
+        "chapter summary", "chapter summaries",
+        "notes and questions", "study material",
+        "overview of", "introduction to", "beginner's guide",
+        "critical essays", "study notes", "study help"
+    ]
+    
+    for keyword in support_keywords:
+        if keyword in title_lower:
+            return True
+    
+    return False
 
 
 def is_audiobook_or_ebook(metadata: BookMetadata) -> bool:

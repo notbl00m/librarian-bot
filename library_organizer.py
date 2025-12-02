@@ -109,12 +109,17 @@ log_format = '%(asctime)s - %(levelname)s - %(message)s'
 console_handler.setFormatter(ColoredFormatter(log_format))
 file_handler.setFormatter(logging.Formatter(log_format))  # No colors in file
 
+# Get log level from environment (DEBUG or INFO)
+log_level_str = os.getenv("LOG_LEVEL", "INFO").upper()
+log_level = getattr(logging, log_level_str, logging.INFO)
+
 # Setup logger
 logging.basicConfig(
-    level=logging.INFO,
+    level=log_level,
     handlers=[file_handler, console_handler]
 )
 logger = logging.getLogger(__name__)
+logger.debug(f"Logger initialized with level: {log_level_str}")
 
 # ============================================================================
 # Database Management
@@ -123,9 +128,18 @@ logger = logging.getLogger(__name__)
 class ProcessedDB:
     """Simple JSON database to track processed items"""
     
+    # Known items to skip (not books) - will be added on first run
+    KNOWN_SKIPS = {
+        "02d7ed17f8a664a1a87d46d3cc2715e0": "Dostoevsky - Notes from the Underground",
+        "fee4c9c30b53143f16717d3a25885b45": "002_und der Phantomsee",
+        "94c7ad1219ccfc7b1a6457a47bf3031e": "[Organizer]",
+        "a02510c0155dbd655cdbdf51823b690c": "001_und der Super-Papagei"
+    }
+    
     def __init__(self, db_file: str):
         self.db_file = db_file
         self.data = self._load()
+        self._initialize_known_skips()
     
     def _load(self) -> Dict:
         """Load database from file"""
@@ -137,6 +151,28 @@ class ProcessedDB:
                 logger.error(f"Error loading database: {e}")
                 return {}
         return {}
+    
+    def _initialize_known_skips(self):
+        """Add known skipped items on first run if not already in database"""
+        logger.debug(f"Checking {len(self.KNOWN_SKIPS)} known skips against database")
+        added_count = 0
+        for item_hash, item_name in self.KNOWN_SKIPS.items():
+            if item_hash not in self.data:
+                self.data[item_hash] = {
+                    "processed_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "status": "skipped",
+                    "reason": "not_a_book",
+                    "item_name": item_name
+                }
+                added_count += 1
+                logger.debug(f"Added known skip: {item_name}")
+        
+        # Save if any items were added
+        if any(item_hash not in self._load() for item_hash in self.KNOWN_SKIPS.keys()):
+            self._save()
+            logger.info(f"Initialized database with {added_count} known skips")
+        else:
+            logger.debug(f"All {len(self.KNOWN_SKIPS)} known skips already in database")
     
     def _save(self):
         """Save database to file"""
@@ -154,7 +190,17 @@ class ProcessedDB:
         """Mark item as processed with metadata"""
         self.data[item_hash] = {
             "processed_at": time.strftime("%Y-%m-%d %H:%M:%S"),
-            "metadata": metadata
+            "metadata": metadata,
+            "status": "organized"
+        }
+        self._save()
+    
+    def mark_skipped(self, item_hash: str, reason: str):
+        """Mark item as skipped (e.g., not a book) so it won't be processed again"""
+        self.data[item_hash] = {
+            "processed_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "status": "skipped",
+            "reason": reason
         }
         self._save()
     
@@ -375,6 +421,8 @@ def organize_item(item_path: Path, db: ProcessedDB) -> bool:
     # Determine media type
     if not (is_audiobook(item_path) or is_ebook(item_path)):
         logger.info(f"Skipping (not a book): {item_name}")
+        # Mark as skipped in database so we don't re-process it
+        db.mark_skipped(item_hash, "not_a_book")
         return False
     
     # Get metadata
