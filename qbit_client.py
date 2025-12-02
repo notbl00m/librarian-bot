@@ -153,6 +153,9 @@ class QBittorrentClient:
 
             logger.debug(f"Adding torrent: {torrent_input[:50]}...")
 
+            # Get list of torrents before adding
+            before_hashes = {t.hash for t in self.client.torrents_info()}
+            
             self.client.torrents_add(
                 urls=torrent_input,
                 category=self.category,
@@ -161,14 +164,15 @@ class QBittorrentClient:
                 save_path=self.download_path,
             )
 
-            # Get the newly added torrent hash
-            torrents = self.client.torrents_info()
-            for torrent in torrents:
-                if (
-                    torrent.magnet_uri == torrent_input
-                    or torrent_input in str(torrent.name)
-                ):
-                    logger.info(f"Successfully added torrent: {torrent.name}")
+            # Wait a moment for torrent to be added
+            import time
+            time.sleep(2)
+            
+            # Get the newly added torrent hash by comparing with before list
+            after_torrents = self.client.torrents_info()
+            for torrent in after_torrents:
+                if torrent.hash not in before_hashes:
+                    logger.info(f"Successfully added torrent: {torrent.name} (hash: {torrent.hash})")
                     return torrent.hash
 
             logger.warning("Could not verify added torrent")
