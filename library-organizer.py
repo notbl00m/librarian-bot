@@ -53,10 +53,15 @@ CONFIG = {
     "destination_folder": os.getenv("LIBRARY_PATH", "/home/bloomstreaming/downloads/completed/BLOOM-LIBRARY"),
     
     # Database file to track processed items (prevents re-processing)
-    "database_file": os.path.join(os.path.dirname(__file__), "organizer", "organizer.db.json"),
+    # Use /app/data for Docker deployments, local organizer dir otherwise
+    "database_file": os.getenv("ORGANIZER_DATABASE", 
+                               "/app/data/organizer.db.json" if os.path.exists("/app/data") 
+                               else os.path.join(os.path.dirname(__file__), "organizer", "organizer.db.json")),
     
     # Log file location
-    "log_file": os.path.join(os.path.dirname(__file__), "organizer", "organizer.log"),
+    "log_file": os.getenv("ORGANIZER_LOG",
+                         "/app/data/organizer.log" if os.path.exists("/app/data")
+                         else os.path.join(os.path.dirname(__file__), "organizer", "organizer.log")),
     
     # Audiobook extensions
     "audiobook_extensions": [".m4b", ".m4a", ".mp3", ".opus", ".flac"],
