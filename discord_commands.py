@@ -121,28 +121,24 @@ class LibrarianCommands(commands.Cog):
 
     def _merge_book_results(self, google_books: list, ol_books: list, query: str = "") -> list:
         """
-        Merge Google Books and Open Library results, deduplicating and scoring by relevance
+        Merge Google Books and Open Library results, deduplicating.
+        DISABLED: All scoring logic disabled - just return raw API results
 
         Args:
             google_books: List of GoogleBookMetadata
             ol_books: List of OLBookMetadata
-            query: Original search query for scoring
+            query: Original search query (unused - scoring disabled)
 
         Returns:
-            List of deduplicated OLBookMetadata sorted by relevance (best first)
+            List of deduplicated books in order received (no scoring)
         """
         merged = {}  # Use title+authors as key for deduplication
-        scores = {}  # Track relevance score for each book
 
         # Add Open Library results first (they have better structure)
-        books_with_scores = {}  # Map book id to score
         for book in ol_books:
             key = self._get_book_key(book.title, book.authors)
             merged[key] = book
-            score = self._score_book_relevance(book.title, book.authors, query)
-            scores[key] = score
-            books_with_scores[id(book)] = score
-            logger.debug(f"Added OL book: {book.title} (score: {score})")
+            logger.debug(f"Added OL book: {book.title}")
 
         # Add Google Books results, avoiding duplicates
         for gb_book in google_books:
@@ -164,10 +160,7 @@ class LibrarianCommands(commands.Cog):
                     image_url=gb_book.image_url,  # PRESERVE Google Books image URL
                 )
                 merged[key] = ol_book
-                score = self._score_book_relevance(gb_book.title, gb_book.authors, query)
-                scores[key] = score
-                books_with_scores[id(ol_book)] = score
-                logger.debug(f"Added GB book (converted): {gb_book.title} (score: {score})")
+                logger.debug(f"Added GB book (converted): {gb_book.title}")
             else:
                 # Book already exists, merge metadata if Google Books has better cover
                 existing = merged[key]
@@ -175,17 +168,10 @@ class LibrarianCommands(commands.Cog):
                     existing.image_url = gb_book.image_url
                     logger.debug(f"Merging Google Books cover data for: {gb_book.title}")
 
-        # Sort by relevance score (highest first), then by publish year (newest first)
-        sorted_books = sorted(
-            merged.values(),
-            key=lambda b: (
-                -books_with_scores.get(id(b), 0),
-                -(b.first_publish_year or 0)
-            )
-        )
-
-        logger.info(f"Merged {len(google_books)} Google Books + {len(ol_books)} OL books = {len(merged)} unique (sorted by relevance)")
-        return sorted_books
+        # Return in order received (NO SORTING OR SCORING)
+        result_list = list(merged.values())
+        logger.info(f"Merged {len(google_books)} Google Books + {len(ol_books)} OL books = {len(result_list)} unique (NO SCORING - raw order)")
+        return result_list
 
     def _score_book_relevance(self, title: str, authors: list, query: str = "") -> int:
         """
@@ -297,65 +283,19 @@ class LibrarianCommands(commands.Cog):
         try:
             logger.debug(f"_show_book_selection called with {len(books)} books, query: {query}")
             
-            # Score all books
-            scored_books = []
-            for book in books:
-                score = self._score_book_relevance(book.title, book.authors, query)
-                logger.debug(f"Book score: '{book.title}' = {score}")
-                scored_books.append((book, score))
+            # SCORING DISABLED - Just show all results as-is
+            logger.info(f"Showing all {len(books)} raw API results (scoring disabled)")
             
-            # Sort by score (highest first)
-            scored_books.sort(key=lambda x: -x[1])
-            logger.debug(f"After sorting by score: {[f'{b.title}({s})' for b, s in scored_books[:3]]}")
+            if not books:
+                await interaction.response.send_message(
+                    "❌ No books found.",
+                    ephemeral=True
+                )
+                return
             
-            # Filter: Only keep books with high enough score (best matches)
-            # With new scoring: exact match = 5000+, author +2000, wrong type = -10000
-            # Only show books within reasonable distance of best match
-            filtered_books = []
-            if scored_books:
-                top_score = scored_books[0][1]
-                logger.debug(f"Top book score: {top_score}")
-                
-                # If top score is very high (exact match), show ONLY that one or very close matches
-                if top_score >= 5000:
-                    # Exact match found - show only books within 2000 points (still very close matches)
-                    threshold = top_score - 2000
-                    logger.debug(f"Top score >= 5000 (exact match). Threshold: {threshold}")
-                    for book, score in scored_books:
-                        if score >= threshold:
-                            logger.debug(f"  Including (above threshold): {book.title} ({score})")
-                            filtered_books.append(book)
-                        else:
-                            logger.debug(f"  Excluding (below threshold): {book.title} ({score})")
-                            break  # Rest will be lower due to sort
-                elif top_score > 1000:
-                    # Strong match but not exact - show within 1000 points
-                    threshold = top_score - 1000
-                    logger.debug(f"Top score > 1000 (strong match). Threshold: {threshold}")
-                    for book, score in scored_books:
-                        if score >= threshold and score > -5000:
-                            logger.debug(f"  Including: {book.title} ({score})")
-                            filtered_books.append(book)
-                        else:
-                            logger.debug(f"  Excluding: {book.title} ({score})")
-                            break
-                else:
-                    # Weak matches, take top 3-5
-                    logger.debug(f"Top score <= 1000 (weak match). Taking top 5")
-                    filtered_books = [b for b, _ in scored_books[:5] if _[1] > -5000]
-                    for b in filtered_books:
-                        logger.debug(f"  Including: {b.title}")
-            
-            logger.debug(f"After filtering: {len(filtered_books)} books remain")
-            
-            if not filtered_books:
-                filtered_books = [books[0]]  # At least show the first one
-            
-            logger.info(f"Filtered {len(books)} books down to {len(filtered_books)} close matches (top score: {scored_books[0][1] if scored_books else 0})")
-            
-            # If we have only 1 close match, just proceed directly
-            if len(filtered_books) == 1:
-                await self._show_book_request(interaction, filtered_books[0])
+            # If we have only 1 result, just proceed directly
+            if len(books) == 1:
+                await self._show_book_request(interaction, books[0])
                 return
             
             # Create a view with numbered buttons and pagination
@@ -488,7 +428,7 @@ class LibrarianCommands(commands.Cog):
                         )
             
             # Create view and update button states
-            view = BookSelectButtons(self, filtered_books)
+            view = BookSelectButtons(self, books)
             view._update_button_states()
             
             # Disable number buttons if there aren't enough books on current page
