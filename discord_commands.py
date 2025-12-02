@@ -358,13 +358,13 @@ class LibrarianCommands(commands.Cog):
                 await self._show_book_request(interaction, filtered_books[0])
                 return
             
-            # Build simple numbered list format
-            book_list = "**📚 Which book did you mean?**\n\n"
-            emoji_numbers = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+            # Build simple embed showing book options
+            book_text = "**📚 Which book did you mean?**\n\n"
             
             for idx, book in enumerate(filtered_books[:5], 1):  # Max 5 options
                 authors_str = ", ".join(book.authors) if book.authors else "Unknown"
-                year_str = f" ({book.first_publish_year})" if book.first_publish_year else ""
+                year_str = f"{book.first_publish_year}" if book.first_publish_year else ""
+                
                 availability = []
                 if book.has_ebook:
                     availability.append("📖")
@@ -372,8 +372,13 @@ class LibrarianCommands(commands.Cog):
                     availability.append("🎧")
                 avail_str = " " + " ".join(availability) if availability else ""
                 
-                book_list += f"{idx}. **{truncate_string(book.title, 80)}**\n"
-                book_list += f"   by {truncate_string(authors_str, 60)}{year_str}{avail_str}\n\n"
+                book_text += f"{idx}. {truncate_string(book.title, 80)}\n"
+                book_text += f"   by {truncate_string(authors_str, 60)} ({year_str}){avail_str}\n\n"
+            
+            embed = discord.Embed(
+                description=book_text,
+                color=discord.Color.blue()
+            )
             
             # Create a view with numbered buttons
             class BookSelectButtons(discord.ui.View):
@@ -427,7 +432,7 @@ class LibrarianCommands(commands.Cog):
                 view.children[i].disabled = True
 
             await interaction.followup.send(
-                book_list,
+                embed=embed,
                 view=view,
             )
 

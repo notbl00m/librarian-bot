@@ -138,9 +138,10 @@ async def search_google_books(query: str, max_results: int = 5) -> List[BookMeta
                             description = volume_info.get("description", "")
                             
                             # FILTER OUT support books (summaries, guides, analysis, etc.)
-                            # Check both title and description for support book indicators
-                            if _is_support_book(title, description):
-                                logger.debug(f"Filtered out support/summary book: {title}")
+                            # Check title, description, AND authors for support book indicators
+                            authors_list = volume_info.get("authors", [])
+                            if _is_support_book(title, description, authors_list):
+                                logger.debug(f"Filtered out support/summary book: {title} by {authors_list}")
                                 continue
                             
                             # Extract cover images with enhancement
@@ -252,7 +253,7 @@ def _extract_isbn(volume_info: dict, isbn_type: str) -> Optional[str]:
     return None
 
 
-def _is_support_book(title: str, description: str = "") -> bool:
+def _is_support_book(title: str, description: str = "", authors: list = None) -> bool:
     """
     Determine if a book is a support/reference book (summary, guide, analysis, etc.)
     These are NOT actual books but study aids and should be excluded
@@ -260,11 +261,16 @@ def _is_support_book(title: str, description: str = "") -> bool:
     Args:
         title: Book title to check
         description: Book description to check (optional)
+        authors: List of authors to check (optional)
     
     Returns:
         True if support book, False if actual book
     """
+    # Check title, description, AND authors
     combined_text = (title + " " + description).lower()
+    if authors:
+        authors_text = " ".join(str(a).lower() for a in authors)
+        combined_text += " " + authors_text
     
     # Keywords that indicate this is a support/reference book
     support_keywords = [
