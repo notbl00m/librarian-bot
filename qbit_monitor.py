@@ -11,6 +11,8 @@ from datetime import datetime
 import os
 import paramiko
 from pathlib import Path
+from audiobookshelf_api import trigger_library_scan
+from config import Config
 
 logger = logging.getLogger(__name__)
 
@@ -135,7 +137,7 @@ class QBitMonitor:
                     
                     # Notify bot about completion (for message update)
                     if self.bot:
-                        await self._notify_bot_completion(torrent.name)
+                        await self._notify_bot_completion(torrent.hash, torrent.name)
                     
                     # Mark as processed
                     self.processed_hashes.add(torrent_hash)
@@ -170,50 +172,97 @@ class QBitMonitor:
         except Exception as e:
             logger.error(f"❌ Error organizing {name}: {e}", exc_info=True)
     
-    async def _notify_bot_completion(self, torrent_name: str):
+    async def _notify_bot_completion(self, torrent_hash: str, torrent_name: str):
         """
-        Notify bot that a download is complete and update user message
+        Notify the bot when a download completes, so it can update the user's message.
         
         Args:
-            torrent_name: Name of the completed torrent
+            torrent_hash: Hash of the completed torrent
+            torrent_name: Name of the completed torrent (for logging)
         """
-        try:
-            if not self.bot:
-                return
-
-            # Try to update the user's message if we have book_requests_db
-            if self.book_requests_db:
-                try:
-                    # Get request info by torrent name (approximated as book title)
-                    request_info = self.book_requests_db.get_request(book_title=torrent_name)
-                    
-                    if request_info:
-                        message_id = request_info.get("message_id")
-                        channel_id = request_info.get("channel_id")
-                        
-                        if message_id and channel_id:
-                            try:
-                                channel = await self.bot.fetch_channel(channel_id)
-                                message = await channel.fetch_message(message_id)
-                                
-                                # Update message to show approved status
-                                from discord_views import ApprovedView
-                                await message.edit(view=ApprovedView())
-                                logger.info(f"Updated user message for completed download: {torrent_name}")
-                                
-                                # Mark as completed in database
-                                self.book_requests_db.mark_complete(book_title=torrent_name, status="completed")
-                            except Exception as e:
-                                logger.warning(f"Could not update user message for {torrent_name}: {e}")
-                except Exception as e:
-                    logger.debug(f"Could not find book request for {torrent_name}: {e}")
+        # Find approval by torrent hash
+        cog = self.bot.get_cog('LibrarianCommands')
+        if not cog or not hasattr(cog, 'approvals_db'):
+            logger.warning("⚠️ Could not access approvals database from monitor")
+            return
             
-            # Also notify cog if it has the method
-            cog = self.bot.get_cog('LibrarianCommands')
-            if cog and hasattr(cog, 'on_download_completed'):
-                await cog.on_download_completed(torrent_name)
-        except Exception as e:
-            logger.warning(f"Could not notify bot of completion: {e}")
+        # Search through all approvals to find matching torrent_hash
+        approval_id = None
+        approval_data = None
+        
+        all_approvals = cog.approvals_db.get_all_approvals()
+        for appr_id, data in all_approvals.items():
+            stored_hash = data.get("torrent_hash")
+            if stored_hash and stored_hash == torrent_hash:
+                approval_id = appr_id
+                approval_data = data
+                logger.debug(f"✅ Found approval {approval_id} for torrent hash: {torrent_hash}")
+                break
+        
+        if not approval_data:
+            logger.warning(f"⚠️ No approval found for completed torrent: {torrent_name} (hash: {torrent_hash})")
+            return
+            
+        logger.debug(f"✅ Found approval {approval_id} for torrent: {torrent_name}")
+        
+        user_message_id = approval_data.get("user_message_id")
+        user_channel_id = approval_data.get("user_channel_id")
+        book_title = approval_data.get("book_title", "Unknown")
+        
+        if user_message_id and user_channel_id:
+            try:
+                # Fetch the user's original request message
+                channel = await self.bot.fetch_channel(user_channel_id)
+                message = await channel.fetch_message(user_message_id)
+                
+                # Get the existing embed and update it
+                if message.embeds:
+                    import discord
+                    embed = message.embeds[0]
+                    
+                    # Update embed title to show completion
+                    embed.title = f"📚 {book_title}"
+                    embed.description = "✨ Download Complete - Now Available"
+                    
+                    # Update or add Status field
+                    status_field_found = False
+                    for i, field in enumerate(embed.fields):
+                        if field.name.lower() == "status":
+                            embed.set_field_at(i, name="Status", value="✅ Download Complete - Now Available in Library", inline=False)
+                            status_field_found = True
+                            break
+                    
+                    if not status_field_found:
+                        embed.add_field(name="Status", value="✅ Download Complete - Now Available in Library", inline=False)
+                    
+                    # Change embed color to green
+                    embed.color = discord.Color.green()
+                    
+                    # Create view with Open Audiobookshelf button
+                    from discord_views import CompletedView
+                    audiobookshelf_url = Config.AUDIOBOOKSHELF_URL
+                    view = CompletedView(audiobookshelf_url) if audiobookshelf_url else None
+                    
+                    # Update the message with new embed and button
+                    await message.edit(embed=embed, view=view)
+                    
+                    # Trigger AudiobookShelf library scan
+                    try:
+                        scan_success = await trigger_library_scan()
+                        if scan_success:
+                            logger.info("✅ Triggered Audiobookshelf library scan")
+                        else:
+                            logger.warning("⚠️ Audiobookshelf scan trigger failed")
+                    except Exception as scan_error:
+                        logger.warning(f"⚠️ Could not trigger Audiobookshelf scan: {scan_error}")
+                    
+                    logger.info(f"✅ Updated user message {user_message_id} for completed download: {torrent_name}")
+                else:
+                    logger.warning(f"⚠️ No embeds found in message {user_message_id}")
+            except Exception as e:
+                logger.error(f"⚠️ Could not update user message {user_message_id}: {e}")
+        else:
+            logger.warning(f"⚠️ No message IDs in approval data for {approval_id}")
             
     def _run_organizer(self, source_path: str):
         """
