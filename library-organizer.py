@@ -320,22 +320,31 @@ def get_book_metadata(item_name: str, item_path: Path) -> Optional[Dict]:
 
 def create_hardlinks(source_path: Path, dest_path: Path) -> bool:
     """
-    Create hardlinks from source to destination
+    Create hardlinks from source to destination. Falls back to symlinks if hardlinks fail.
     Handles both files and directories
     """
     try:
         dest_path.mkdir(parents=True, exist_ok=True)
+        use_symlinks = False
         
         if source_path.is_file():
             # Single file
             dest_file = dest_path / source_path.name
             if not dest_file.exists():
-                os.link(source_path, dest_file)
-                logger.info(f"Hardlinked: {source_path.name}")
+                try:
+                    os.link(source_path, dest_file)
+                    logger.info(f"Hardlinked: {source_path.name}")
+                except OSError as e:
+                    if e.errno == 18:  # Cross-device link error
+                        dest_file.symlink_to(source_path)
+                        logger.info(f"Symlinked (cross-device): {source_path.name}")
+                        use_symlinks = True
+                    else:
+                        raise
             else:
                 logger.info(f"Already exists: {dest_file.name}")
         else:
-            # Directory - hardlink all files recursively
+            # Directory - hardlink all files recursively, fall back to symlinks if needed
             for item in source_path.rglob('*'):
                 if item.is_file():
                     relative_path = item.relative_to(source_path)
@@ -343,15 +352,26 @@ def create_hardlinks(source_path: Path, dest_path: Path) -> bool:
                     dest_file.parent.mkdir(parents=True, exist_ok=True)
                     
                     if not dest_file.exists():
-                        os.link(item, dest_file)
-                        logger.debug(f"Hardlinked: {relative_path}")
+                        try:
+                            os.link(item, dest_file)
+                            logger.debug(f"Hardlinked: {relative_path}")
+                        except OSError as e:
+                            if e.errno == 18:  # Cross-device link error
+                                dest_file.symlink_to(item)
+                                logger.debug(f"Symlinked (cross-device): {relative_path}")
+                                use_symlinks = True
+                            else:
+                                raise
                     else:
                         logger.debug(f"Already exists: {relative_path}")
+            
+            if use_symlinks:
+                logger.info(f"[SUCCESS] Used symlinks for cross-device files")
         
         return True
         
     except Exception as e:
-        logger.error(f"Error creating hardlinks: {e}")
+        logger.error(f"Error creating hardlinks/symlinks: {e}")
         return False
 
 def organize_item(item_path: Path, db: ProcessedDB) -> bool:
