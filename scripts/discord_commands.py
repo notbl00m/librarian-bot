@@ -174,29 +174,26 @@ class LibrarianCommands(commands.Cog):
 
     @app_commands.command(name="request", description="Search for a book or audiobook")
     @app_commands.describe(
-        title="Book title (required)",
-        author="Author name (required)"
+        query="Book title and/or author (e.g. 'The Timekeeper Mitch Albom' or 'The Timekeeper')"
     )
     async def request_command(
         self,
         interaction: discord.Interaction,
-        title: str,
-        author: str,
+        query: str,
     ):
         """
         Search for a book and request ebook or audiobook
 
         Args:
             interaction: Discord interaction
-            title: Book title
-            author: Author name
+            query: Book title and/or author search query
         """
         try:
             # DEFER IMMEDIATELY with ephemeral to ensure Discord gets a response
             await interaction.response.defer(ephemeral=True)
 
-            # Build search query with both title and author
-            query = f"{title.strip()} {author.strip()}"
+            # Use query directly - Google Books handles free-form queries well
+            query = query.strip()
 
             logger.info(f"Search request from {interaction.user}: {query}")
 
