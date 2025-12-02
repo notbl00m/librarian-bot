@@ -328,6 +328,19 @@ def create_hardlinks(source_path: Path, dest_path: Path) -> bool:
         dest_path.mkdir(parents=True, exist_ok=True)
         use_symlinks = False
         
+        # Get real host paths for symlinks (in Docker, we need to use host paths, not container paths)
+        source_real_path = os.getenv("SOURCE_REAL_PATH", "")
+        dest_real_path = os.getenv("DEST_REAL_PATH", "")
+        
+        def get_host_path(container_path: Path) -> Path:
+            """Convert container path to host path for symlinks"""
+            path_str = str(container_path)
+            if source_real_path and path_str.startswith(CONFIG["source_folder"]):
+                return Path(path_str.replace(CONFIG["source_folder"], source_real_path))
+            if dest_real_path and path_str.startswith(CONFIG["destination_folder"]):
+                return Path(path_str.replace(CONFIG["destination_folder"], dest_real_path))
+            return container_path
+        
         if source_path.is_file():
             # Single file
             dest_file = dest_path / source_path.name
@@ -337,8 +350,10 @@ def create_hardlinks(source_path: Path, dest_path: Path) -> bool:
                     logger.info(f"Hardlinked: {source_path.name}")
                 except OSError as e:
                     if e.errno == 18:  # Cross-device link error
-                        dest_file.symlink_to(source_path)
-                        logger.info(f"Symlinked (cross-device): {source_path.name}")
+                        # Use host path for symlink target
+                        target_path = get_host_path(source_path)
+                        dest_file.symlink_to(target_path)
+                        logger.info(f"Symlinked (cross-device): {source_path.name} → {target_path}")
                         use_symlinks = True
                     else:
                         raise
@@ -358,8 +373,10 @@ def create_hardlinks(source_path: Path, dest_path: Path) -> bool:
                             logger.debug(f"Hardlinked: {relative_path}")
                         except OSError as e:
                             if e.errno == 18:  # Cross-device link error
-                                dest_file.symlink_to(item)
-                                logger.debug(f"Symlinked (cross-device): {relative_path}")
+                                # Use host path for symlink target
+                                target_path = get_host_path(item)
+                                dest_file.symlink_to(target_path)
+                                logger.debug(f"Symlinked (cross-device): {relative_path} → {target_path}")
                                 use_symlinks = True
                             else:
                                 raise
