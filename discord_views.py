@@ -122,6 +122,8 @@ class SearchResultSelect(ui.Select):
     async def callback(self, interaction: Interaction):
         """Handle selection"""
         try:
+            await interaction.response.defer()
+            
             selected_idx = int(self.values[0])
             selected_result = self.results[selected_idx]
 
@@ -133,10 +135,11 @@ class SearchResultSelect(ui.Select):
 
         except Exception as e:
             logger.error(f"Error in search result select: {e}")
-            await interaction.response.send_message(
-                "❌ An error occurred while processing selection",
-                ephemeral=True,
-            )
+            if not interaction.response.is_done():
+                await interaction.response.send_message(
+                    "❌ An error occurred while processing selection",
+                    ephemeral=True,
+                )
 
 
 class SearchResultsView(ui.View):
@@ -170,7 +173,7 @@ class SearchResultsView(ui.View):
     async def _on_select(self, interaction: Interaction, result: dict, idx: int):
         """Internal select handler"""
         self.selected_result = result
-        await interaction.response.defer()
+        # Don't defer here - already done in SearchResultSelect.callback()
 
         if self.on_select:
             result_coro = self.on_select(interaction, result, idx)
@@ -338,11 +341,12 @@ class RoleCheckView(ui.View):
 
 
 class AdminApprovalView(RoleCheckView):
-    """Approval view with admin role check"""
+    """Approval view with admin role check and indexer selection"""
 
     def __init__(
         self,
-        required_role: str = "Admin",
+        torrent_results: List = None,
+        required_role: Optional[str] = None,
         on_approve: Optional[Callable] = None,
         on_deny: Optional[Callable] = None,
         timeout: int = 600,
@@ -351,15 +355,23 @@ class AdminApprovalView(RoleCheckView):
         Initialize admin approval view
 
         Args:
-            required_role: Admin role required
+            torrent_results: List of all torrent results for indexer selection
+            required_role: Admin role required (None to skip role check)
             on_approve: Callback on approve
             on_deny: Callback on deny
             timeout: How long view stays active (seconds)
         """
-        super().__init__(required_role=required_role, timeout=timeout)
+        super().__init__(required_role=required_role or "Admin", timeout=timeout)
         self.on_approve = on_approve
         self.on_deny = on_deny
         self.result = None
+        self.required_role = required_role
+        self.torrent_results = torrent_results or []
+        self.selected_torrent = self.torrent_results[0] if self.torrent_results else None
+
+        # Add indexer dropdown if multiple results
+        if len(self.torrent_results) > 1:
+            self.add_item(IndexerSelect(self, self.torrent_results))
 
         # Add approval buttons
         self.add_item(ApprovalButton(self, is_approve=True))
@@ -369,7 +381,7 @@ class AdminApprovalView(RoleCheckView):
         """Handle approval"""
         try:
             if self.on_approve:
-                result = self.on_approve(interaction)
+                result = self.on_approve(interaction, self)  # Pass self (the view)
                 if hasattr(result, "__await__"):
                     await result
 
@@ -384,7 +396,7 @@ class AdminApprovalView(RoleCheckView):
         """Handle denial"""
         try:
             if self.on_deny:
-                result = self.on_deny(interaction)
+                result = self.on_deny(interaction, self)  # Pass self (the view)
                 if hasattr(result, "__await__"):
                     await result
 
@@ -394,6 +406,53 @@ class AdminApprovalView(RoleCheckView):
         except Exception as e:
             logger.error(f"Error handling denial: {e}")
             raise
+
+
+class IndexerSelect(ui.Select):
+    """Dropdown for selecting torrent indexer"""
+
+    def __init__(self, view: "AdminApprovalView", torrent_results: List):
+        """
+        Initialize indexer dropdown
+
+        Args:
+            view: Parent AdminApprovalView
+            torrent_results: List of torrent results
+        """
+        options = [
+            discord.SelectOption(
+                label=f"{result.indexer} - {result.seeders} seeders",
+                value=str(idx),
+                description=result.title[:50],
+                default=(idx == 0),  # First is default (best seeders)
+            )
+            for idx, result in enumerate(torrent_results)
+        ]
+
+        super().__init__(
+            placeholder="Select torrent/indexer...",
+            min_values=1,
+            max_values=1,
+            options=options,
+        )
+        self._parent_view = view
+
+    async def callback(self, interaction: Interaction):
+        """Handle indexer selection"""
+        try:
+            await interaction.response.defer()
+            selected_idx = int(self.values[0])
+            self._parent_view.selected_torrent = self._parent_view.torrent_results[selected_idx]
+            await interaction.followup.send(
+                f"✅ Selected: {self._parent_view.selected_torrent.indexer}",
+                ephemeral=True,
+            )
+        except Exception as e:
+            logger.error(f"Error in indexer selection: {e}", exc_info=True)
+            await interaction.followup.send(
+                "❌ Error selecting indexer",
+                ephemeral=True,
+            )
 
 
 class ApprovalButton(ui.Button):
@@ -414,22 +473,118 @@ class ApprovalButton(ui.Button):
             super().__init__(label="❌ Deny", style=discord.ButtonStyle.red)
             self.is_approve = False
 
-        self.view = view
+        self._parent_view = view
 
     async def callback(self, interaction: Interaction):
         """Handle button click"""
         try:
             # Role check is done by view's interaction_check
             if self.is_approve:
-                await self.view.handle_approve(interaction)
-                await interaction.response.defer()
+                await self._parent_view.handle_approve(interaction)
             else:
-                await self.view.handle_deny(interaction)
-                await interaction.response.defer()
+                await self._parent_view.handle_deny(interaction)
 
         except Exception as e:
-            logger.error(f"Error in approval button callback: {e}")
-            await interaction.response.send_message(
-                "❌ An error occurred processing your response",
-                ephemeral=True,
+            logger.error(f"Error in approval button callback: {e}", exc_info=True)
+            # Only try to respond if we haven't already
+            if not interaction.response.is_done():
+                await interaction.response.send_message(
+                    "❌ An error occurred processing your response",
+                    ephemeral=True,
+                )
+
+
+class ApprovedView(ui.View):
+    """View for showing approved status (disabled button)"""
+
+    def __init__(self):
+        """Initialize approved view"""
+        super().__init__(timeout=None)
+        self.add_item(
+            ui.Button(
+                label="✅ Approved",
+                style=discord.ButtonStyle.green,
+                disabled=True,
             )
+        )
+
+
+class DeniedView(ui.View):
+    """View for showing denied status (disabled button)"""
+
+    def __init__(self):
+        """Initialize denied view"""
+        super().__init__(timeout=None)
+        self.add_item(
+            ui.Button(
+                label="❌ Denied",
+                style=discord.ButtonStyle.red,
+                disabled=True,
+            )
+        )
+
+
+class PendingApprovalView(ui.View):
+    """View for showing pending approval state (disabled buttons)"""
+
+    def __init__(self, book_title: str, request_type: str):
+        """Initialize pending approval view"""
+        super().__init__(timeout=None)  # Never timeout
+        self.book_title = book_title
+        self.request_type = request_type
+
+        # Only add the button for the selected type
+        if request_type == "ebook":
+            self.add_item(
+                ui.Button(
+                    label="⏳ Pending Approval",
+                    style=discord.ButtonStyle.gray,
+                    disabled=True,
+                )
+            )
+        else:  # audiobook
+            self.add_item(
+                ui.Button(
+                    label="⏳ Pending Approval",
+                    style=discord.ButtonStyle.gray,
+                    disabled=True,
+                )
+            )
+
+
+class RequestTypeView(ui.View):
+    """View for selecting request type (Ebook or Audiobook)"""
+
+    def __init__(self, book_title: str, timeout: int = 300):
+        """
+        Initialize request type view
+
+        Args:
+            book_title: Title of the book being requested
+            timeout: How long view stays active (seconds)
+        """
+        super().__init__(timeout=timeout)
+        self.book_title = book_title
+        self.selected_type = None
+
+    @ui.button(label="📖 Request Ebook", style=discord.ButtonStyle.blurple)
+    async def ebook_button(self, interaction: discord.Interaction, button: ui.Button):
+        """Ebook request button"""
+        try:
+            await interaction.response.defer()
+            self.selected_type = "ebook"
+            self.stop()
+        except Exception as e:
+            logger.error(f"Error in ebook button: {e}")
+
+    @ui.button(label="🎧 Request Audiobook", style=discord.ButtonStyle.blurple)
+    async def audiobook_button(
+        self, interaction: discord.Interaction, button: ui.Button
+    ):
+        """Audiobook request button"""
+        try:
+            await interaction.response.defer()
+            self.selected_type = "audiobook"
+            self.stop()
+        except Exception as e:
+            logger.error(f"Error in audiobook button: {e}")

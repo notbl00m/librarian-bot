@@ -15,19 +15,26 @@ from config import Config, get_config
 from utils import get_timestamp
 from prowlarr_api import test_prowlarr_connection
 from qbit_client import get_qbit_client
+from qbit_monitor import QBitMonitor
+import library_organizer
 
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.StreamHandler(),
+        logging.StreamHandler(sys.stdout),
     ],
 )
 
+# Configure StreamHandler with UTF-8 encoding for Windows
+for handler in logging.root.handlers:
+    if isinstance(handler, logging.StreamHandler):
+        handler.stream.reconfigure(encoding='utf-8')
+
 # Add file logging if configured
 if Config.LOG_FILE:
-    file_handler = logging.FileHandler(Config.LOG_FILE)
+    file_handler = logging.FileHandler(Config.LOG_FILE, encoding='utf-8')
     file_handler.setLevel(logging.DEBUG)
     formatter = logging.Formatter(
         "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -46,6 +53,7 @@ class LibrarianBot(commands.Bot):
         super().__init__(*args, **kwargs)
         self.start_time = None
         self.config = get_config()
+        self.qbit_monitor: Optional[QBitMonitor] = None
 
     async def setup_hook(self):
         """Setup hook - called before bot connects"""
@@ -58,6 +66,10 @@ class LibrarianBot(commands.Bot):
         except Exception as e:
             logger.error(f"❌ Failed to load discord_commands: {e}")
 
+        # Initialize qBit monitor
+        qbit_client = get_qbit_client()
+        self.qbit_monitor = QBitMonitor(qbit_client, library_organizer)
+        
         # Start background tasks
         self.monitor_torrents.start()
         logger.info("✅ Started background tasks")
@@ -89,24 +101,14 @@ class LibrarianBot(commands.Bot):
     @tasks.loop(minutes=5)
     async def monitor_torrents(self):
         """Monitor torrents for completion and trigger organization"""
-        try:
-            client = get_qbit_client()
-            if not client.connect():
-                logger.warning("Could not connect to qBittorrent for monitoring")
-                return
-
-            torrents = client.get_torrents_in_category()
-
-            for torrent in torrents:
-                # Check if completed and not yet processed
-                if torrent.progress >= 1.0:
-                    logger.info(f"🎉 Torrent completed: {torrent.name}")
-
-                    # TODO: Trigger library_organizer here
-                    # This will be called for each completed torrent
-
-        except Exception as e:
-            logger.error(f"Error in torrent monitor: {e}")
+        if not self.qbit_monitor:
+            logger.warning("qBit monitor not initialized")
+            return
+            
+        # Start the monitor (idempotent - won't restart if already running)
+        if not self.qbit_monitor.monitoring:
+            await self.qbit_monitor.start()
+            logger.info("🔄 qBit monitor started")
 
     @monitor_torrents.before_loop
     async def before_monitor_torrents(self):

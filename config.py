@@ -18,6 +18,7 @@ class Config:
     # Discord Configuration
     DISCORD_TOKEN: str = os.getenv("DISCORD_TOKEN", "")
     ADMIN_ROLE: str = os.getenv("ADMIN_ROLE", "Admin")
+    ADMIN_CHANNEL_ID: int = int(os.getenv("ADMIN_CHANNEL_ID", "1291129984353566820"))
 
     # Prowlarr Configuration
     PROWLARR_URL: str = os.getenv("PROWLARR_URL", "http://localhost:9696")
@@ -88,15 +89,16 @@ class Config:
                 f"Missing required environment variables: {', '.join(missing_vars)}"
             )
 
-        # Validate paths exist
-        paths_to_check = [
-            ("QBIT_DOWNLOAD_PATH", cls.QBIT_DOWNLOAD_PATH),
-            ("LIBRARY_PATH", cls.LIBRARY_PATH),
-        ]
+        # Validate paths exist (only for local mode)
+        if cls.SERVER_MODE == "local":
+            paths_to_check = [
+                ("QBIT_DOWNLOAD_PATH", cls.QBIT_DOWNLOAD_PATH),
+                ("LIBRARY_PATH", cls.LIBRARY_PATH),
+            ]
 
-        for name, path in paths_to_check:
-            if not Path(path).exists():
-                raise ValueError(f"{name} does not exist: {path}")
+            for name, path in paths_to_check:
+                if not Path(path).exists():
+                    raise ValueError(f"{name} does not exist: {path}")
 
         # Parse path mappings if enabled
         if cls.ENABLE_PATH_MAPPING and cls._path_mappings_str:

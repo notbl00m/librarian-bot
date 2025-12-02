@@ -137,14 +137,13 @@ class ProwlarrAPI:
             params = {
                 "query": query.strip(),
                 "type": "search",
-                "limit": limit,
             }
 
-            # Add category filter if specified
-            if category != SearchCategory.ALL:
-                params["categories"] = [category.value]
+            # Don't add category filter - let Prowlarr search all categories
+            # Category filtering was causing 0 results
 
-            logger.debug(f"Searching Prowlarr with query: {query}, params: {params}")
+            logger.debug(f"Prowlarr API call: {url}")
+            logger.debug(f"Prowlarr params: {params}")
 
             async with session.get(
                 url, headers=self._get_headers(), params=params
@@ -159,9 +158,10 @@ class ProwlarrAPI:
                     )
 
                 data = await response.json()
+                logger.debug(f"Prowlarr API returned {len(data)} raw results")
                 results = self._parse_search_results(data)
 
-                logger.info(f"Found {len(results)} results for query: {query}")
+                logger.info(f"Found {len(results)} valid results for query: {query} (from {len(data)} API results)")
                 return results
 
         except aiohttp.ClientError as e:
@@ -182,8 +182,9 @@ class ProwlarrAPI:
             List of parsed SearchResult objects
         """
         results = []
+        logger.debug(f"Parsing {len(data)} raw results from Prowlarr")
 
-        for item in data:
+        for idx, item in enumerate(data):
             try:
                 # Extract required fields with defaults
                 title = item.get("title", "Unknown")
@@ -191,8 +192,10 @@ class ProwlarrAPI:
 
                 # Skip if no download URL
                 if not download_url:
-                    logger.warning(f"Skipping result with no download URL: {title}")
+                    logger.debug(f"Result {idx}: Skipping '{title}' (no download URL)")
                     continue
+
+                logger.debug(f"Result {idx}: Accepting '{title}' from {item.get('indexer', 'Unknown')}")
 
                 result = SearchResult(
                     title=title,
@@ -213,6 +216,7 @@ class ProwlarrAPI:
                 logger.warning(f"Error parsing search result: {e}, item: {item}")
                 continue
 
+        logger.debug(f"Parsed {len(results)} valid results from {len(data)} total")
         return results
 
     async def search_audiobook(
@@ -228,7 +232,9 @@ class ProwlarrAPI:
         Returns:
             List of SearchResult objects
         """
-        return await self.search(query, SearchCategory.AUDIOBOOK, limit)
+        # Search without category filter, return all results
+        # Prowlarr category filtering can be too restrictive
+        return await self.search(query, SearchCategory.ALL, limit)
 
     async def search_ebook(self, query: str, limit: int = 50) -> List[SearchResult]:
         """
@@ -241,7 +247,9 @@ class ProwlarrAPI:
         Returns:
             List of SearchResult objects
         """
-        return await self.search(query, SearchCategory.EBOOK, limit)
+        # Search without category filter, return all results
+        # Prowlarr category filtering can be too restrictive
+        return await self.search(query, SearchCategory.ALL, limit)
 
     async def get_indexers(self) -> List[Dict[str, Any]]:
         """

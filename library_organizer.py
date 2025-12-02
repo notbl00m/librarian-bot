@@ -47,16 +47,19 @@ except ImportError:
 
 CONFIG = {
     # Source: Your downloads folder from qBittorrent
-    "source_folder": os.getenv("QBIT_DOWNLOAD_PATH", "/home/bloomstreaming/downloads/completed/MAM/"),
+    "source_folder": os.getenv("QBIT_DOWNLOAD_PATH", "/home/bloomstreaming/downloads/completed/MAM"),
     
     # Destination: Your organized library folder
     "destination_folder": os.getenv("LIBRARY_PATH", "/home/bloomstreaming/downloads/completed/BLOOM-LIBRARY"),
     
+    # Organizer directory (where script and its files live)
+    "organizer_dir": os.getenv("ORGANIZER_REMOTE_PATH", "/home/bloomstreaming/downloads/completed/BLOOM-LIBRARY/[Organizer]"),
+    
     # Database file to track processed items (prevents re-processing)
-    "database_file": os.path.join(os.path.dirname(__file__), "organizer", "organizer.db.json"),
+    "database_file": os.path.join(os.getenv("ORGANIZER_REMOTE_PATH", "/home/bloomstreaming/downloads/completed/BLOOM-LIBRARY/[Organizer]"), "organizer.db.json"),
     
     # Log file location
-    "log_file": os.path.join(os.path.dirname(__file__), "organizer", "organizer.log"),
+    "log_file": os.path.join(os.getenv("ORGANIZER_REMOTE_PATH", "/home/bloomstreaming/downloads/completed/BLOOM-LIBRARY/[Organizer]"), "organizer.log"),
     
     # Audiobook extensions
     "audiobook_extensions": [".m4b", ".m4a", ".mp3", ".opus", ".flac"],
@@ -71,6 +74,10 @@ CONFIG = {
     # Manual overrides: {"folder_name": {"author": "Author Name", "title": "Book Title"}}
     "manual_overrides": {}
 }
+
+# Create organizer directory if it doesn't exist
+organizer_dir = CONFIG["organizer_dir"]
+os.makedirs(organizer_dir, exist_ok=True)
 
 # ============================================================================
 # Setup Logging with Colors
@@ -412,15 +419,31 @@ def scan_and_organize():
     logger.info("MAM Download Organizer - Starting")
     logger.info("="*60)
     
-    # Validate paths
-    source_path = Path(CONFIG["source_folder"])
-    dest_path = Path(CONFIG["destination_folder"])
+    # Get paths from CONFIG
+    source_folder = CONFIG["source_folder"]
+    dest_folder = CONFIG["destination_folder"]
+    
+    # If paths look like Linux paths but we're on Windows, they need to be mapped
+    # For now, just use them as-is and let Path handle it
+    source_path = Path(source_folder)
+    dest_path = Path(dest_folder)
+    
+    logger.info(f"Source: {source_path} (exists: {source_path.exists()})")
+    logger.info(f"Destination: {dest_path}")
     
     if not source_path.exists():
         logger.error(f"Source folder does not exist: {source_path}")
+        logger.error(f"Please check your QBIT_DOWNLOAD_PATH in .env")
+        logger.error(f"If files are on a remote server, ensure they are mounted/mapped to this machine")
         return
     
-    dest_path.mkdir(parents=True, exist_ok=True)
+    # Create destination folder if it doesn't exist
+    try:
+        dest_path.mkdir(parents=True, exist_ok=True)
+        logger.info(f"Destination folder ready: {dest_path}")
+    except Exception as e:
+        logger.error(f"Could not create destination folder: {e}")
+        return
     
     # Initialize database
     db = ProcessedDB(CONFIG["database_file"])

@@ -275,28 +275,32 @@ class QBittorrentClient:
 
         # Determine completion date
         completion_on = None
-        if torrent.completion_on > 0:
-            completion_on = datetime.fromtimestamp(torrent.completion_on).isoformat()
+        completion_time = getattr(torrent, 'completion_on', 0)
+        if completion_time > 0:
+            completion_on = datetime.fromtimestamp(completion_time).isoformat()
 
+        # Get attributes safely (different qBit API versions might use different names)
+        added_time = getattr(torrent, 'added_on', 0)
+        
         return TorrentInfo(
             hash=torrent.hash,
             name=torrent.name,
             state=state,
             progress=torrent.progress,
-            size=torrent.total_size,
-            downloaded=torrent.downloaded,
-            uploaded=torrent.uploaded,
-            ratio=torrent.ratio,
-            download_speed=torrent.dl_speed,
-            upload_speed=torrent.up_speed,
-            num_seeds=torrent.num_seeds,
-            num_complete=torrent.num_complete,
-            num_incomplete=torrent.num_incomplete,
-            added_on=datetime.fromtimestamp(torrent.added_on).isoformat(),
+            size=getattr(torrent, 'total_size', getattr(torrent, 'size', 0)),
+            downloaded=getattr(torrent, 'downloaded', 0),
+            uploaded=getattr(torrent, 'uploaded', 0),
+            ratio=getattr(torrent, 'ratio', 0.0),
+            download_speed=getattr(torrent, 'dlspeed', getattr(torrent, 'dl_speed', 0)),
+            upload_speed=getattr(torrent, 'upspeed', getattr(torrent, 'up_speed', 0)),
+            num_seeds=getattr(torrent, 'num_seeds', 0),
+            num_complete=getattr(torrent, 'num_complete', 0),
+            num_incomplete=getattr(torrent, 'num_incomplete', getattr(torrent, 'num_leechs', 0)),
+            added_on=datetime.fromtimestamp(added_time).isoformat() if added_time > 0 else None,
             completion_on=completion_on,
-            category=torrent.category,
-            save_path=torrent.save_path,
-            magnet_uri=torrent.magnet_uri,
+            category=getattr(torrent, 'category', ''),
+            save_path=getattr(torrent, 'save_path', ''),
+            magnet_uri=getattr(torrent, 'magnet_uri', ''),
         )
 
     def pause_torrent(self, torrent_hash: str) -> bool:

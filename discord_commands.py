@@ -4,15 +4,22 @@ All Discord slash commands and command group
 """
 
 import logging
-from typing import Optional
+from typing import Optional, List
 import discord
 from discord import app_commands
 from discord.ext import commands
 
 from config import Config
-from prowlarr_api import search_prowlarr, search_audiobook, search_ebook, SearchCategory
+from prowlarr_api import (
+    search_prowlarr,
+    search_audiobook,
+    search_ebook,
+    SearchCategory,
+    SearchResult,
+)
 from qbit_client import get_qbit_client
-from discord_views import SearchResultsView, AdminApprovalView, PaginatedView
+from discord_views import SearchResultsView, AdminApprovalView, PaginatedView, RequestTypeView, PendingApprovalView, ApprovedView, DeniedView
+from open_library_api import search_open_library, BookMetadata
 from utils import format_size, truncate_string, split_into_chunks
 
 logger = logging.getLogger(__name__)
@@ -32,48 +39,497 @@ class LibrarianCommands(commands.Cog):
         self.pending_requests = {}  # Track pending search requests
 
     @app_commands.command(name="request", description="Search for a book or audiobook")
-    @app_commands.describe(
-        query="Book/audiobook title or author",
-        media_type="Type of media to search for",
-    )
+    @app_commands.describe(query="Book title (required) and optional author (e.g., 'Fourth Wing' or 'Fourth Wing Rebecca Yarros')")
     async def request_command(
         self,
         interaction: discord.Interaction,
         query: str,
-        media_type: str = "all",
     ):
         """
-        Search for a book or audiobook
+        Search for a book and request ebook or audiobook
 
         Args:
             interaction: Discord interaction
-            query: Search query
-            media_type: "audiobook", "ebook", or "all"
+            query: Search query (title or title+author)
         """
         try:
-            await interaction.response.defer()
+            # DEFER IMMEDIATELY with ephemeral to ensure Discord gets a response
+            await interaction.response.defer(ephemeral=True)
 
-            # Validate media type
-            media_type = media_type.lower()
-            if media_type not in ["audiobook", "ebook", "all"]:
-                await interaction.followup.send(
-                    "❌ Invalid media type. Use: audiobook, ebook, or all",
-                    ephemeral=True,
-                )
-                return
-
-            logger.info(f"Search request from {interaction.user}: {query} ({media_type})")
+            logger.info(f"Search request from {interaction.user}: {query}")
 
             # Show searching message
             await interaction.followup.send(f"🔍 Searching for: **{query}**...")
 
-            # Perform search based on media type
-            if media_type == "audiobook":
-                results = await search_audiobook(query, limit=Config.MAX_RESULTS)
-            elif media_type == "ebook":
-                results = await search_ebook(query, limit=Config.MAX_RESULTS)
+            # Search Open Library
+            logger.debug(f"Searching Open Library for: {query}")
+            book_results = await search_open_library(query, max_results=10)
+
+            if not book_results:
+                await interaction.followup.send(
+                    f"❌ No books found for: **{query}**\n"
+                    f"Please try a different search term or check the spelling.",
+                    ephemeral=True,
+                )
+                return
+
+            # If multiple results, show selection
+            if len(book_results) > 1:
+                await self._show_book_selection(interaction, book_results)
             else:
-                results = await search_prowlarr(query, SearchCategory.ALL, Config.MAX_RESULTS)
+                # Single result - proceed directly
+                await self._show_book_request(interaction, book_results[0])
+
+        except Exception as e:
+            logger.error(f"Error in request command: {e}", exc_info=True)
+            try:
+                await interaction.followup.send(
+                    f"❌ Error processing request: {str(e)}",
+                    ephemeral=True,
+                )
+            except Exception as followup_error:
+                logger.error(f"Could not send error message: {followup_error}")
+
+    async def _show_book_selection(
+        self, interaction: discord.Interaction, books: List[BookMetadata]
+    ):
+        """Show selection of multiple books"""
+        try:
+            # Create embeds for each book
+            embeds = []
+            for idx, book in enumerate(books[:5], 1):  # Max 5 options
+                embed = discord.Embed(
+                    title=f"{idx}. {book.title}",
+                    description=f"**Author(s):** {', '.join(book.authors)}",
+                    color=discord.Color.blue(),
+                )
+
+                if book.first_publish_year:
+                    embed.add_field(
+                        name="Published",
+                        value=str(book.first_publish_year),
+                        inline=True,
+                    )
+
+                availability = []
+                if book.has_ebook:
+                    availability.append("✓ Ebook")
+                if book.has_audiobook:
+                    availability.append("✓ Audiobook")
+
+                if availability:
+                    embed.add_field(
+                        name="Available",
+                        value=" | ".join(availability),
+                        inline=True,
+                    )
+
+                cover_url = book.get_cover_url("M")
+                if cover_url:
+                    embed.set_thumbnail(url=cover_url)
+
+                embeds.append(embed)
+
+            # Create selection buttons
+            options = [
+                discord.SelectOption(label=f"{idx}. {book.title}", value=str(idx - 1))
+                for idx, book in enumerate(books[:5], 1)
+            ]
+
+            class BookSelect(discord.ui.Select):
+                def __init__(self, books_list, cog_instance):
+                    self.books_list = books_list
+                    self.cog = cog_instance
+                    super().__init__(
+                        placeholder="Select a book...",
+                        min_values=1,
+                        max_values=1,
+                        options=options,
+                    )
+
+                async def callback(self, select_interaction: discord.Interaction):
+                    try:
+                        await select_interaction.response.defer()
+                        selected_idx = int(self.values[0])
+                        selected_book = self.books_list[selected_idx]
+
+                        # Show request view for selected book
+                        await self.cog._show_book_request(
+                            select_interaction, selected_book
+                        )
+                        self.view.stop()
+                    except Exception as e:
+                        logger.error(f"Error in book selection: {e}", exc_info=True)
+                        await select_interaction.followup.send(
+                            f"❌ Error selecting book: {str(e)}",
+                            ephemeral=True,
+                        )
+
+            class BookSelectView(discord.ui.View):
+                def __init__(self, cog_instance):
+                    super().__init__(timeout=300)
+                    self.add_item(BookSelect(books, cog_instance))
+
+            view = BookSelectView(self)
+
+            await interaction.followup.send(
+                embeds=embeds,
+                view=view,
+                content="**Choose a book:**",
+            )
+
+        except Exception as e:
+            logger.error(f"Error in book selection: {e}", exc_info=True)
+            await interaction.followup.send(
+                f"❌ Error showing book options: {str(e)}",
+                ephemeral=True,
+            )
+
+    async def _show_book_request(
+        self, interaction: discord.Interaction, book: BookMetadata
+    ):
+        """Show single book with request type buttons"""
+        try:
+            # Create book info embed
+            embed = discord.Embed(
+                title=f"📚 {book.title}",
+                color=discord.Color.blue(),
+            )
+
+            # Add authors
+            if book.authors:
+                embed.add_field(name="Author(s)", value=", ".join(book.authors), inline=False)
+
+            # Add publication year
+            if book.first_publish_year:
+                embed.add_field(
+                    name="First Published",
+                    value=str(book.first_publish_year),
+                    inline=True,
+                )
+
+            # Add ISBN info
+            if book.isbn_13:
+                embed.add_field(name="ISBN-13", value=book.isbn_13, inline=True)
+
+            # Add availability info
+            availability = []
+            if book.has_ebook:
+                availability.append("✓ Ebook available")
+            if book.has_audiobook:
+                availability.append("✓ Audiobook available")
+
+            if availability:
+                embed.add_field(
+                    name="Available Formats",
+                    value="\n".join(availability),
+                    inline=False,
+                )
+
+            # Add cover if available
+            cover_url = book.get_cover_url("L")
+            if cover_url:
+                embed.set_thumbnail(url=cover_url)
+
+            embed.set_footer(text=f"Requested by {interaction.user.name}")
+
+            # Create request type view
+            view = RequestTypeView(book.title)
+
+            # Send book info with request type buttons
+            message = await interaction.followup.send(embed=embed, view=view)
+
+            # Wait for user to select type
+            await view.wait()
+
+            if view.selected_type is None:
+                logger.info(f"Request timed out for {book.title}")
+                return
+
+            request_type = view.selected_type
+            logger.info(
+                f"User {interaction.user} requested {request_type} for: {book.title}"
+            )
+
+            # Update the message with pending approval buttons (edit the message)
+            pending_view = PendingApprovalView(book.title, request_type)
+            try:
+                await message.edit(view=pending_view)
+            except Exception as e:
+                logger.warning(f"Could not edit message: {e}")
+
+            # Search Prowlarr for torrents with correct category
+            # Clean the title - remove series info like "- The Empyrean #1"
+            search_title = book.title.split(" - ")[0].split(" (")[0].strip()
+            search_query = search_title
+            if book.authors:
+                search_query += f" {book.authors[0]}"
+
+            logger.debug(f"Searching Prowlarr for {request_type}: {search_query}")
+
+            if request_type == "audiobook":
+                prowlarr_results = await search_audiobook(search_query, limit=Config.MAX_RESULTS)
+            else:  # ebook
+                prowlarr_results = await search_ebook(search_query, limit=Config.MAX_RESULTS)
+
+            logger.debug(f"Prowlarr returned {len(prowlarr_results)} results for {request_type}: {[r.title for r in prowlarr_results[:3]]}")
+
+            if not prowlarr_results:
+                await interaction.followup.send(
+                    f"❌ No {request_type} torrents found for: **{book.title}**",
+                    ephemeral=True,
+                )
+                return
+
+            logger.info(f"Found {len(prowlarr_results)} {request_type} results")
+
+            # Find best torrent (highest seeders)
+            best_result = max(prowlarr_results, key=lambda x: x.seeders)
+
+            logger.info(
+                f"Selected best torrent: {best_result.title} ({best_result.seeders} seeders)"
+            )
+
+            # Store for admin approval
+            self.pending_requests[interaction.user.id] = {
+                "query": search_query,
+                "request_type": request_type,
+                "book": book,
+                "torrent": best_result,
+                "torrents_all": prowlarr_results,
+                "user": interaction.user,
+                "message": message,
+            }
+
+            # Send to admin channel for approval (pass all results)
+            await self._send_admin_approval(
+                interaction, book, request_type, best_result, interaction.user, prowlarr_results
+            )
+
+        except Exception as e:
+            logger.error(f"Error showing book request: {e}", exc_info=True)
+            await interaction.followup.send(
+                f"❌ Error processing book: {str(e)}",
+                ephemeral=True,
+            )
+
+    async def _send_admin_approval(
+        self,
+        interaction: discord.Interaction,
+        book: BookMetadata,
+        request_type: str,
+        torrent: SearchResult,
+        user: discord.User,
+        all_torrents: List[SearchResult] = None,
+    ):
+        """
+        Send approval request to admin channel
+
+        Args:
+            interaction: Original interaction
+            book: Book metadata
+            request_type: "ebook" or "audiobook"
+            torrent: Best torrent result
+            user: User who requested
+            all_torrents: All available torrent results for selection
+        """
+        try:
+            # Get admin channel
+            admin_channel = self.bot.get_channel(Config.ADMIN_CHANNEL_ID)
+            if not admin_channel:
+                logger.error(f"Admin channel {Config.ADMIN_CHANNEL_ID} not found")
+                await interaction.followup.send(
+                    "⚠️ Admin channel not configured",
+                    ephemeral=True,
+                )
+                return
+
+            # Create approval embed
+            embed = discord.Embed(
+                title=f"📋 Approval Request - {request_type.upper()}",
+                description=f"User: {user.mention} (@{user.name})",
+                color=discord.Color.gold(),
+            )
+
+            embed.add_field(name="Book Title", value=book.title, inline=False)
+
+            if book.authors:
+                embed.add_field(name="Author(s)", value=", ".join(book.authors), inline=False)
+
+            embed.add_field(
+                name="Requested Format",
+                value=f"🎯 {request_type.upper()}",
+                inline=True,
+            )
+
+            # Show all available torrents info
+            if all_torrents:
+                torrent_list = "\n".join(
+                    [f"• {t.indexer}: {t.seeders} seeders" for t in all_torrents[:5]]
+                )
+                embed.add_field(
+                    name="Available Torrents",
+                    value=torrent_list,
+                    inline=False,
+                )
+
+            embed.add_field(
+                name="Recommended (Highest Seeders)",
+                value=f"**{torrent.title}**\n"
+                f"Size: {format_size(torrent.size)}\n"
+                f"Seeders: {torrent.seeders} | Leechers: {torrent.leechers}\n"
+                f"Indexer: {torrent.indexer}",
+                inline=False,
+            )
+
+            embed.set_footer(text=f"User ID: {user.id}")
+
+            # Create approval view with all torrents
+            approval_view = AdminApprovalView(
+                torrent_results=all_torrents or [torrent],
+                on_approve=lambda inter, view: self._handle_admin_approve(
+                    inter, user, book, view.selected_torrent, request_type
+                ),
+                on_deny=lambda inter, view: self._handle_admin_deny(inter, user, book),
+            )
+
+            # Send to admin channel
+            await admin_channel.send(embed=embed, view=approval_view)
+
+        except Exception as e:
+            logger.error(f"Error sending admin approval: {e}", exc_info=True)
+
+    async def _handle_admin_approve(
+        self,
+        interaction: discord.Interaction,
+        user: discord.User,
+        book: BookMetadata,
+        torrent: SearchResult,  # Can be None, we'll use the selected from view
+        request_type: str,
+    ):
+        """Handle admin approval and auto-download"""
+        try:
+            await interaction.response.defer()
+
+            logger.info(
+                f"Admin {interaction.user} approved {request_type} request for {book.title}"
+            )
+
+            # Use the torrent passed in (already selected from view)
+            selected_torrent = torrent
+            logger.info(f"Using torrent: {selected_torrent.title} from {selected_torrent.indexer}")
+
+            # Update user's original message to show Approved button
+            if user.id in self.pending_requests:
+                try:
+                    user_message = self.pending_requests[user.id].get("message")
+                    if user_message:
+                        approved_view = ApprovedView()
+                        await user_message.edit(view=approved_view)
+                except Exception as e:
+                    logger.warning(f"Could not update user message: {e}")
+
+            # Add torrent to qBittorrent
+            qbit = get_qbit_client()
+            download_url = selected_torrent.download_url
+            if not download_url:
+                logger.error(f"No download URL for torrent: {selected_torrent.title}")
+                await interaction.followup.send(
+                    f"❌ Error: No download URL available for {selected_torrent.title}",
+                    ephemeral=True,
+                )
+                return
+
+            # Add to qBittorrent with category
+            qbit.add_torrent(
+                torrent_input=download_url,
+                is_paused=False,
+            )
+
+            logger.info(f"Torrent added to qBittorrent: {selected_torrent.title}")
+
+            # Send confirmation to user
+            try:
+                user_embed = discord.Embed(
+                    title="✅ Request Approved & Downloading",
+                    description=f"Your {request_type} request has been approved!",
+                    color=discord.Color.green(),
+                )
+
+                user_embed.add_field(name="Book", value=book.title, inline=False)
+                user_embed.add_field(
+                    name="Format",
+                    value=request_type.upper(),
+                    inline=True,
+                )
+                user_embed.add_field(
+                    name="Torrent",
+                    value=selected_torrent.title,
+                    inline=False,
+                )
+                user_embed.add_field(
+                    name="Status",
+                    value="📥 Downloading...",
+                    inline=True,
+                )
+
+                await user.send(embed=user_embed)
+            except Exception as e:
+                logger.warning(f"Could not send DM to user {user}: {e}")
+
+            # Send admin confirmation
+            await interaction.followup.send(
+                f"✅ Download started for {user.mention}\n"
+                f"**{book.title}** ({request_type})",
+                ephemeral=True,
+            )
+
+        except Exception as e:
+            logger.error(f"Error in admin approval: {e}", exc_info=True)
+            await interaction.followup.send(
+                f"❌ Error processing approval: {str(e)}",
+                ephemeral=True,
+            )
+
+    async def _handle_admin_deny(
+        self, interaction: discord.Interaction, user: discord.User, book: BookMetadata
+    ):
+        """Handle admin denial"""
+        try:
+            await interaction.response.defer()
+
+            logger.info(f"Admin {interaction.user} denied request for {book.title}")
+
+            # Update user's original message to show Denied button
+            if user.id in self.pending_requests:
+                try:
+                    user_message = self.pending_requests[user.id].get("message")
+                    if user_message:
+                        denied_view = DeniedView()
+                        await user_message.edit(view=denied_view)
+                except Exception as e:
+                    logger.warning(f"Could not update user message: {e}")
+
+            # Notify user
+            try:
+                deny_embed = discord.Embed(
+                    title="❌ Request Denied",
+                    description="Your request has been denied by an admin.",
+                    color=discord.Color.red(),
+                )
+                deny_embed.add_field(name="Book", value=book.title, inline=False)
+
+                await user.send(embed=deny_embed)
+            except Exception as e:
+                logger.warning(f"Could not send DM to user {user}: {e}")
+
+            await interaction.followup.send(
+                f"❌ Request denied for {user.mention}",
+                ephemeral=True,
+            )
+
+        except Exception as e:
+            logger.error(f"Error in admin denial: {e}")
 
             if not results:
                 await interaction.followup.send(
