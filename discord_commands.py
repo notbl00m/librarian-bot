@@ -849,21 +849,18 @@ class LibrarianCommands(commands.Cog):
             }
 
             # Store approval in persistent database
-            # Get user message ID from request tracking database (not from unreliable pending_requests dict)
-            user_message_id = None
+            # Use the user_message_id passed as parameter (already available from caller)
             user_channel_id = None
             
-            # Get the most recent pending request for this user from the tracking database
-            try:
-                all_pending = self.request_tracking_db.get_all_pending_requests_for_user(user.id)
-                if all_pending:
-                    # Get the most recent one (should be the current request we just tracked)
-                    latest_pending = all_pending[-1]  # Last one is most recent
-                    user_message_id = latest_pending.get("user_message_id")
-                    user_channel_id = latest_pending.get("channel_id")
-                    logger.debug(f"Found user message {user_message_id} from tracking db for user {user.id}")
-            except Exception as e:
-                logger.warning(f"Could not find pending request from tracking db: {e}")
+            # Get the user_channel_id from the tracking database if we have user_message_id
+            if user_message_id:
+                try:
+                    request_data = self.request_tracking_db.get_request_by_user_message(user_message_id)
+                    if request_data:
+                        user_channel_id = request_data.get("channel_id")
+                        logger.debug(f"Found user channel {user_channel_id} for message {user_message_id}")
+                except Exception as e:
+                    logger.warning(f"Could not find channel for user message {user_message_id}: {e}")
             
             # Also track the book request so we can update the message when it's organized
             isbn = book.isbn_13 or book.isbn_10
