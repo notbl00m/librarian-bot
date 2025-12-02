@@ -1,0 +1,133 @@
+"""
+Configuration module for Librarian Bot
+Handles all environment variables and configuration settings
+"""
+
+import os
+from pathlib import Path
+from typing import Optional
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+
+class Config:
+    """Main configuration class for the bot"""
+
+    # Discord Configuration
+    DISCORD_TOKEN: str = os.getenv("DISCORD_TOKEN", "")
+    ADMIN_ROLE: str = os.getenv("ADMIN_ROLE", "Admin")
+
+    # Prowlarr Configuration
+    PROWLARR_URL: str = os.getenv("PROWLARR_URL", "http://localhost:9696")
+    PROWLARR_API_KEY: str = os.getenv("PROWLARR_API_KEY", "")
+    PROWLARR_TIMEOUT: int = int(os.getenv("PROWLARR_TIMEOUT", "30"))
+
+    # qBittorrent Configuration
+    QBIT_URL: str = os.getenv("QBIT_URL", "http://localhost:8080")
+    QBIT_USERNAME: str = os.getenv("QBIT_USERNAME", "admin")
+    QBIT_PASSWORD: str = os.getenv("QBIT_PASSWORD", "adminPassword")
+    QBIT_DOWNLOAD_PATH: str = os.getenv("QBIT_DOWNLOAD_PATH", "./downloads")
+    QBIT_TIMEOUT: int = int(os.getenv("QBIT_TIMEOUT", "30"))
+    QBIT_POLL_INTERVAL: int = int(os.getenv("QBIT_POLL_INTERVAL", "5"))  # seconds
+
+    # Library Configuration
+    LIBRARY_PATH: str = os.getenv("LIBRARY_PATH", "./library")
+    GOOGLE_BOOKS_API_KEY: str = os.getenv("GOOGLE_BOOKS_API_KEY", "")
+    DOWNLOAD_CATEGORY: str = os.getenv("DOWNLOAD_CATEGORY", "librarian-bot")
+
+    # Bot Configuration
+    COMMAND_PREFIX: str = os.getenv("COMMAND_PREFIX", "!")
+    MAX_RESULTS: int = int(os.getenv("MAX_RESULTS", "5"))
+    REQUEST_TIMEOUT: int = int(os.getenv("REQUEST_TIMEOUT", "300"))  # 5 minutes
+    APPROVAL_TIMEOUT: int = int(os.getenv("APPROVAL_TIMEOUT", "600"))  # 10 minutes
+    LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
+    LOG_FILE: Optional[str] = os.getenv("LOG_FILE", None)
+
+    # Optional Settings
+    ENABLE_HARDLINKS: bool = os.getenv("ENABLE_HARDLINKS", "true").lower() == "true"
+    AUTO_APPROVE_MIN_SEEDERS: int = int(os.getenv("AUTO_APPROVE_MIN_SEEDERS", "0"))
+    SUPPORTED_AUDIO_FORMATS: list = [".m4b", ".mp3", ".m4a", ".flac", ".wav", ".aac"]
+    SUPPORTED_EBOOK_FORMATS: list = [".epub", ".mobi", ".pdf", ".azw3"]
+
+    @classmethod
+    def validate(cls) -> bool:
+        """Validate all required configuration is present"""
+        required_vars = [
+            ("DISCORD_TOKEN", cls.DISCORD_TOKEN),
+            ("PROWLARR_API_KEY", cls.PROWLARR_API_KEY),
+            ("QBIT_PASSWORD", cls.QBIT_PASSWORD),
+        ]
+
+        missing_vars = [name for name, value in required_vars if not value]
+
+        if missing_vars:
+            raise ValueError(
+                f"Missing required environment variables: {', '.join(missing_vars)}"
+            )
+
+        # Validate paths exist
+        paths_to_check = [
+            ("QBIT_DOWNLOAD_PATH", cls.QBIT_DOWNLOAD_PATH),
+            ("LIBRARY_PATH", cls.LIBRARY_PATH),
+        ]
+
+        for name, path in paths_to_check:
+            if not Path(path).exists():
+                raise ValueError(f"{name} does not exist: {path}")
+
+        return True
+
+    @classmethod
+    def get_config_summary(cls) -> str:
+        """Get a summary of current configuration (without sensitive data)"""
+        return f"""
+Librarian Bot Configuration Summary:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Discord:
+  - Admin Role: {cls.ADMIN_ROLE}
+
+Prowlarr:
+  - URL: {cls.PROWLARR_URL}
+  - Timeout: {cls.PROWLARR_TIMEOUT}s
+
+qBittorrent:
+  - URL: {cls.QBIT_URL}
+  - Download Path: {cls.QBIT_DOWNLOAD_PATH}
+  - Poll Interval: {cls.QBIT_POLL_INTERVAL}s
+  - Category: {cls.DOWNLOAD_CATEGORY}
+
+Library:
+  - Path: {cls.LIBRARY_PATH}
+  - Hardlinks Enabled: {cls.ENABLE_HARDLINKS}
+
+Bot:
+  - Command Prefix: {cls.COMMAND_PREFIX}
+  - Max Results: {cls.MAX_RESULTS}
+  - Request Timeout: {cls.REQUEST_TIMEOUT}s
+  - Log Level: {cls.LOG_LEVEL}
+"""
+
+
+# Alternative config for different environments
+class DevelopmentConfig(Config):
+    """Development environment configuration"""
+
+    LOG_LEVEL = "DEBUG"
+    PROWLARR_TIMEOUT = 60
+    QBIT_TIMEOUT = 60
+
+
+class ProductionConfig(Config):
+    """Production environment configuration"""
+
+    LOG_LEVEL = "INFO"
+
+
+def get_config() -> type:
+    """Get the appropriate config based on environment"""
+    env = os.getenv("ENVIRONMENT", "development").lower()
+    if env == "production":
+        return ProductionConfig
+    return DevelopmentConfig
