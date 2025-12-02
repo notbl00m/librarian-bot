@@ -12,27 +12,28 @@ import asyncio
 import uuid
 
 from config import Config
-from prowlarr_api import (
+from .prowlarr_api import (
     search_audiobook,
     search_ebook,
     SearchResult,
 )
-from qbit_client import get_qbit_client
-from discord_views import (
+from .qbit_client import get_qbit_client
+from .discord_views import (
     AdminApprovalView,
     PaginatedView,
     RequestTypeView,
     PendingApprovalView,
     ApprovedView,
     DeniedView,
+    NoTorrentsFoundView,
 )
-from open_library_api import search_open_library, BookMetadata as OLBookMetadata
-from google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
-from utils import format_size, truncate_string
-from audiobookshelf_api import trigger_library_scan
-from pending_approvals import PendingApprovalsDB
-from book_requests import BookRequestsDB
-from request_tracking import RequestTrackingDB
+from .open_library_api import search_open_library, BookMetadata as OLBookMetadata
+from .google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
+from .utils import format_size, truncate_string
+from .audiobookshelf_api import trigger_library_scan
+from .pending_approvals import PendingApprovalsDB
+from .book_requests import BookRequestsDB
+from .request_tracking import RequestTrackingDB
 
 logger = logging.getLogger(__name__)
 
@@ -174,29 +175,26 @@ class LibrarianCommands(commands.Cog):
 
     @app_commands.command(name="request", description="Search for a book or audiobook")
     @app_commands.describe(
-        title="Book title (required)",
-        author="Author name (required)"
+        query="Book title and/or author (e.g. 'The Timekeeper Mitch Albom' or 'The Timekeeper')"
     )
     async def request_command(
         self,
         interaction: discord.Interaction,
-        title: str,
-        author: str,
+        query: str,
     ):
         """
         Search for a book and request ebook or audiobook
 
         Args:
             interaction: Discord interaction
-            title: Book title
-            author: Author name
+            query: Book title and/or author search query
         """
         try:
             # DEFER IMMEDIATELY with ephemeral to ensure Discord gets a response
             await interaction.response.defer(ephemeral=True)
 
-            # Build search query with both title and author
-            query = f"{title.strip()} {author.strip()}"
+            # Use query directly - Google Books handles free-form queries well
+            query = query.strip()
 
             logger.info(f"Search request from {interaction.user}: {query}")
 
@@ -686,9 +684,9 @@ class LibrarianCommands(commands.Cog):
             logger.debug(f"Prowlarr returned {len(prowlarr_results)} results for {request_type}")
 
             if not prowlarr_results:
-                await interaction.followup.send(
-                    f"❌ No {request_type} torrents found for: **{book.title}**",
-                    ephemeral=True,
+                # Send to admin channel showing no torrents found
+                await self._send_no_torrents_notification(
+                    interaction, book, request_type, user=interaction.user, message=message
                 )
                 return
 
@@ -892,6 +890,77 @@ class LibrarianCommands(commands.Cog):
         except Exception as e:
             logger.error(f"Error sending admin approval: {e}", exc_info=True)
 
+    async def _send_no_torrents_notification(
+        self,
+        interaction: discord.Interaction,
+        book: OLBookMetadata,
+        request_type: str,
+        user: discord.User,
+        message: discord.Message = None,
+    ):
+        """
+        Send notification to admin channel when no torrents are found
+        
+        Args:
+            interaction: Original interaction
+            book: Book metadata
+            request_type: "ebook" or "audiobook"
+            user: User who requested
+            message: User's request message to update
+        """
+        try:
+            # Update user's message with "No Torrents Found" view
+            if message:
+                no_torrents_view = NoTorrentsFoundView()
+                try:
+                    await message.edit(view=no_torrents_view)
+                    logger.debug(f"Updated user message {message.id} with no torrents view")
+                except Exception as e:
+                    logger.warning(f"Could not edit user message: {e}")
+
+            # Get admin channel
+            admin_channel = self.bot.get_channel(Config.ADMIN_CHANNEL_ID)
+            if not admin_channel:
+                logger.error(f"Admin channel {Config.ADMIN_CHANNEL_ID} not found")
+                return
+
+            # Create notification embed
+            embed = discord.Embed(
+                title=f"⚠️ No Torrents Found - {request_type.upper()}",
+                description=f"User: {user.mention} (@{user.name})",
+                color=discord.Color.orange(),
+            )
+
+            embed.add_field(name="Book Title", value=book.title, inline=False)
+
+            if book.authors:
+                embed.add_field(name="Author(s)", value=", ".join(book.authors), inline=False)
+
+            embed.add_field(
+                name="Requested Format",
+                value=f"🎯 {request_type.upper()}",
+                inline=True,
+            )
+
+            embed.add_field(
+                name="Status",
+                value="No torrents found in Prowlarr indexers.\nWaitlist feature coming soon.",
+                inline=False,
+            )
+
+            embed.set_footer(text=f"User ID: {user.id}")
+
+            # Create disabled button view
+            no_torrents_view_admin = NoTorrentsFoundView()
+
+            # Send to admin channel - no tracking needed
+            await admin_channel.send(embed=embed, view=no_torrents_view_admin)
+            
+            logger.info(f"No torrents notification sent for: {book.title} ({request_type})")
+
+        except Exception as e:
+            logger.error(f"Error sending no torrents notification: {e}", exc_info=True)
+
     async def _handle_admin_approve(
         self,
         interaction: discord.Interaction,
@@ -982,6 +1051,10 @@ class LibrarianCommands(commands.Cog):
             
             # Store torrent hash and name in approval database for tracking
             if torrent_hash:
+                # Register torrent for monitoring
+                if self.bot.qbit_monitor:
+                    self.bot.qbit_monitor.track_torrent(torrent_hash)
+                
                 approval_data = self.approvals_db.get_approval(approval_id)
                 if approval_data:
                     approval_data["torrent_hash"] = torrent_hash

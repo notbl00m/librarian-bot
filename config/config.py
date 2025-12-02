@@ -8,8 +8,15 @@ from pathlib import Path
 from typing import Optional
 from dotenv import load_dotenv
 
+# Get the project root directory (parent of config folder)
+PROJECT_ROOT = Path(__file__).parent.parent
+ENV_FILE = PROJECT_ROOT / "config" / ".env"
+
 # Load environment variables from .env file
-load_dotenv()
+if ENV_FILE.exists():
+    load_dotenv(ENV_FILE)
+else:
+    load_dotenv()  # Try to load from current directory as fallback
 
 
 class Config:

@@ -11,7 +11,7 @@ from datetime import datetime
 import os
 import paramiko
 from pathlib import Path
-from audiobookshelf_api import trigger_library_scan
+from .audiobookshelf_api import trigger_library_scan
 from config import Config
 
 logger = logging.getLogger(__name__)
@@ -20,7 +20,10 @@ class QBitMonitor:
     """Monitors qBittorrent for completed downloads and organizes them"""
     
     # Persistent database for tracking processed torrents (survives bot restart)
-    PROCESSED_DB_FILE = ".processed_torrents.json"
+    # Database file in data/ folder
+    from pathlib import Path
+    PROJECT_ROOT = Path(__file__).parent.parent
+    PROCESSED_DB_FILE = str(PROJECT_ROOT / "data" / ".processed_torrents.json")
     
     def __init__(self, qbit_client, organizer_module, bot=None, book_requests_db=None):
         """
@@ -39,6 +42,7 @@ class QBitMonitor:
         self.processed_hashes: Set[str] = self._load_processed_hashes()
         self.monitoring = False
         self.task = None
+        self.active_torrents: Set[str] = set()  # Track torrents we're actively monitoring
     
     def _load_processed_hashes(self) -> Set[str]:
         """Load processed torrent hashes from persistent database"""
@@ -86,14 +90,29 @@ class QBitMonitor:
             except asyncio.CancelledError:
                 pass
         logger.info("qBittorrent monitor stopped")
+    
+    def track_torrent(self, torrent_hash: str):
+        """
+        Register a torrent to be monitored
+        
+        Args:
+            torrent_hash: Hash of the torrent to track
+        """
+        self.active_torrents.add(torrent_hash)
+        logger.info(f"📍 Now tracking torrent: {torrent_hash[:8]}... (Total active: {len(self.active_torrents)})")
         
     async def _monitor_loop(self):
-        """Main monitoring loop"""
+        """Main monitoring loop - only checks qBit when we have active torrents"""
         check_interval = 30  # seconds
         
         while self.monitoring:
             try:
-                await self._check_completed_downloads()
+                # Only check qBittorrent if we have active torrents to monitor
+                if self.active_torrents:
+                    await self._check_completed_downloads()
+                else:
+                    logger.debug("No active torrents to monitor, skipping qBit check")
+                    
                 await asyncio.sleep(check_interval)
             except asyncio.CancelledError:
                 break
@@ -124,10 +143,12 @@ class QBitMonitor:
                 
                 # Skip if already processed
                 if torrent_hash in self.processed_hashes:
+                    # Remove from active tracking if completed
+                    self.active_torrents.discard(torrent_hash)
                     continue
                     
                 # Check if completed (seeding state or progress 100%)
-                from qbit_client import TorrentState
+                from .qbit_client import TorrentState
                 if torrent.state == TorrentState.SEEDING or torrent.progress >= 1.0:
                     logger.info(f"✅ Completed download detected: {torrent.name}")
                     logger.debug(f"Save path: {torrent.save_path}, Progress: {torrent.progress:.1%}")
@@ -139,8 +160,9 @@ class QBitMonitor:
                     if self.bot:
                         await self._notify_bot_completion(torrent.hash, torrent.name)
                     
-                    # Mark as processed
+                    # Mark as processed and remove from active tracking
                     self.processed_hashes.add(torrent_hash)
+                    self.active_torrents.discard(torrent_hash)
                     self._save_processed_hashes()  # Persist to disk
                     logger.info(f"📚 Marked as processed: {torrent.name}")
                     
@@ -239,7 +261,7 @@ class QBitMonitor:
                     embed.color = discord.Color.green()
                     
                     # Create view with Open Audiobookshelf button
-                    from discord_views import CompletedView
+                    from .discord_views import CompletedView
                     audiobookshelf_url = Config.AUDIOBOOKSHELF_URL
                     view = CompletedView(audiobookshelf_url) if audiobookshelf_url else None
                     

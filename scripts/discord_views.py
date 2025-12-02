@@ -423,6 +423,9 @@ class IndexerSelect(ui.Select):
             view: Parent AdminApprovalView
             torrent_results: List of torrent results
         """
+        # Discord limit: max 25 options in a select menu
+        limited_results = torrent_results[:25]
+        
         options = [
             discord.SelectOption(
                 label=f"{result.indexer} - {result.seeders} seeders",
@@ -430,7 +433,7 @@ class IndexerSelect(ui.Select):
                 description=result.title[:50],
                 default=(idx == 0),  # First is default (best seeders)
             )
-            for idx, result in enumerate(torrent_results)
+            for idx, result in enumerate(limited_results)
         ]
 
         super().__init__(
@@ -489,6 +492,21 @@ class ApprovalButton(ui.Button):
                     "❌ An error occurred processing your response",
                     ephemeral=True,
                 )
+
+
+class NoTorrentsFoundView(ui.View):
+    """View for showing no torrents found status (disabled orange button)"""
+
+    def __init__(self):
+        """Initialize no torrents found view"""
+        super().__init__(timeout=None)
+        self.add_item(
+            ui.Button(
+                label="⚠️ No Ebook Torrents Found",
+                style=discord.ButtonStyle.secondary,
+                disabled=True,
+            )
+        )
 
 
 class ApprovedView(ui.View):

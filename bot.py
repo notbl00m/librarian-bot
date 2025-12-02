@@ -12,12 +12,12 @@ import discord
 from discord.ext import commands, tasks
 
 from config import Config, get_config
-from utils import get_timestamp
-from prowlarr_api import test_prowlarr_connection
-from qbit_client import get_qbit_client
-from qbit_monitor import QBitMonitor
-from audiobookshelf_api import test_connection as test_audiobookshelf
-import library_organizer
+from scripts.utils import get_timestamp
+from scripts.prowlarr_api import test_prowlarr_connection
+from scripts.qbit_client import get_qbit_client
+from scripts.qbit_monitor import QBitMonitor
+from scripts.audiobookshelf_api import test_connection as test_audiobookshelf
+from scripts import library_organizer
 
 # Setup logging
 log_level_str = os.getenv("LOG_LEVEL", "INFO").upper()
@@ -65,7 +65,7 @@ class LibrarianBot(commands.Bot):
 
         # Load cogs
         try:
-            await self.load_extension("discord_commands")
+            await self.load_extension("scripts.discord_commands")
             logger.info("✅ Loaded discord_commands cog")
         except Exception as e:
             logger.error(f"❌ Failed to load discord_commands: {e}")
