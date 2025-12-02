@@ -931,8 +931,17 @@ class LibrarianCommands(commands.Cog):
                         user_ch_id = approval_data.get("user_channel_id")
                         admin_msg_id = approval_data.get("message_id")
                         admin_ch_id = approval_data.get("channel_id")
+                        
+                        if user_msg_id and user_ch_id:
+                            logger.info(f"✅ Found tracking data for approval {approval_id}: user_msg={user_msg_id}, user_ch={user_ch_id}")
+                        else:
+                            logger.warning(f"⚠️ Approval {approval_id} exists but missing message IDs (user_msg={user_msg_id}, user_ch={user_ch_id})")
+                    else:
+                        logger.warning(f"⚠️ No approval data found for approval_id: {approval_id} (legacy request?)")
                 except Exception as e:
                     logger.warning(f"Could not fetch approval data: {e}")
+            else:
+                logger.warning("⚠️ No approval_id provided - cannot update user message")
 
             # Update user's original message to show Approved button
             user_message = None
@@ -941,17 +950,22 @@ class LibrarianCommands(commands.Cog):
                     channel = await self.bot.fetch_channel(user_ch_id)
                     if channel:
                         user_message = await channel.fetch_message(user_msg_id)
+                        logger.debug(f"Successfully fetched user message {user_msg_id} from channel {user_ch_id}")
                 except Exception as e:
-                    logger.warning(f"Could not fetch user message {user_msg_id}: {e}")
+                    logger.warning(f"Could not fetch user message {user_msg_id} from channel {user_ch_id}: {e}")
+            else:
+                if not user_msg_id or not user_ch_id:
+                    logger.info(f"⏭️ Skipping user message update (legacy request without tracking data)")
             
             # Update the user message if we found it
             if user_message:
                 try:
+                    # Use ApprovedView from top-level import
                     approved_view = ApprovedView()
                     await user_message.edit(view=approved_view)
-                    logger.info(f"Updated user message {user_msg_id} to show approved status")
+                    logger.info(f"✅ Updated user message {user_msg_id} to show approved status")
                 except Exception as e:
-                    logger.warning(f"Could not update user message {user_msg_id}: {e}")
+                    logger.error(f"❌ Could not update user message {user_msg_id}: {e}")
 
             # Add torrent to qBittorrent
             qbit = get_qbit_client()
@@ -960,15 +974,26 @@ class LibrarianCommands(commands.Cog):
                 logger.error(f"No download URL for torrent: {selected_torrent.title}")
                 return
 
-            # Add to qBittorrent with category
-            qbit.add_torrent(
+            # Add to qBittorrent and get torrent hash
+            torrent_hash = qbit.add_torrent(
                 torrent_input=download_url,
                 is_paused=False,
             )
-
-            logger.info(f"Torrent added to qBittorrent: {selected_torrent.title}")
-
-            # Notify user
+            
+            # Store torrent hash and name in approval database for tracking
+            if torrent_hash:
+                approval_data = self.approvals_db.get_approval(approval_id)
+                if approval_data:
+                    approval_data["torrent_hash"] = torrent_hash
+                    approval_data["torrent_name"] = selected_torrent.title
+                    self.approvals_db.update_approval(
+                        approval_id, 
+                        approval_data.get("status", "approved"), 
+                        result={"torrent_hash": torrent_hash, "torrent_name": selected_torrent.title}
+                    )
+                logger.info(f"Torrent added to qBittorrent: {selected_torrent.title} (hash: {torrent_hash}, approval: {approval_id})")
+            else:
+                logger.warning(f"Could not get torrent hash for: {selected_torrent.title} (approval: {approval_id})")            # Notify user
             try:
                 user_embed = discord.Embed(
                     title="✅ Request Approved & Downloading",
@@ -1019,7 +1044,7 @@ class LibrarianCommands(commands.Cog):
                                     )
                                     approval_embed.color = discord.Color.green()
                                     
-                                    from discord_views import ApprovedView
+                                    # Use ApprovedView from top-level import
                                     status_view = ApprovedView()
                                     await admin_message.edit(embed=approval_embed, view=status_view)
                 except Exception as e:
@@ -1107,7 +1132,7 @@ class LibrarianCommands(commands.Cog):
                             )
                             denial_embed.color = discord.Color.red()
                             
-                            from discord_views import DeniedView
+                            # Use DeniedView from top-level import
                             status_view = DeniedView()
                             await admin_message.edit(embed=denial_embed, view=status_view)
                 except Exception as e:
