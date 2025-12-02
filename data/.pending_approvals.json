@@ -2814,5 +2814,537 @@
       "torrent_hash": "cb2e95856598249f483b09d619810e8b5569e623",
       "torrent_name": "The Name of the Rose by Umberto Eco [ENG / M4B]"
     }
+  },
+  "b32e3b24-d834-4773-89ca-1a31d0361512": {
+    "user_id": 378737013769240587,
+    "book_title": "A Study in Scarlet",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "SNT-1962-12-22 A Study in Scarlet [Arthur Conan Doyle] - redone by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 45403340,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Y3ZzVXpIZlVoZ00yNXE4SnlBU3IzNTgyWnc4ZThMeFJmelBCOEQzVXNSaUE4cHV4ZU5NR0twR05NYlppNXJHU0VPeWt5WmtrWTYyVmtaM2IxdTFlckZKR1Y5Zld3b2RlZVlwdmRPZVJZK2M9&file=SNT-1962-12-22+A+Study+in+Scarlet+%5BArthur+Conan+Doyle%5D+-+redone+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "SNT 1978-01-21 A Study In Scarlet (Conan Doyle) by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 21181236,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dGZIUkFCQndiRG04TksrUUZGVTVOc1dqTlpWbndmanZCYm8zbGQyUTZxNTdmWXZzQnVCUVJoNzlkQ25DOGVUQTdhV09aQS9pVDlWQ3JHaTI2SWNlMnljdms5aXBLT0FKc3VwS1Fyd0dpK1U9&file=SNT+1978-01-21+A+Study+In+Scarlet+(Conan+Doyle)+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 248302800,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RitJd0oxazFReHNFK0Yvb1lMeXIrb1VaOFhZcWU5UXk2MFZldFR5Z241TlBLZ1BJN1IwdEN4cE4xNzU4c0xzeWt5eTQ5T0NRV0lVbGZjZHJDWUxqemJYL2xDOUlOazVkQjVmTjI5bGZTcTg9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 117650224,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Mmo2dXY3OWZlVzJiRUZydE8yUWtTSmxJZG0xRTZ0RENGbXZ1Zm9MLzZVdkIwSUtPcXhEdHdIWXgwcmxkclE2QWlWUmtBL1hYOGc4QWROL21mRVZ4TlRKcGVvM2doY2t1MHZ0d0xDK3ZOUjQ9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 6,
+        "leechers": 0,
+        "size": 110415056,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=a2N4NTR6YWVuaHpBbUxrZ2VCQ2hNVXM3Y25QVGw2T0pEV0hjNGJJL2t3V3c4M0hST1U4NktrRW9yRDBKWlpFdmNMd1RiazJGbllKOGY1YlhBcGM4dXZiekNPNS9XQVRYcXFuaUdXU0xudTg9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "SNT - 78-01-21 (R4X 14-10-19) Sherlock Holmes, A Study in Scarlet (192k) by Michael Hardwick, Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 128240848,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WklJd3VXUTRGL1drY3BkVXQ0Y1hSUXlRck1qdmNIMTZUNElRU3J4NVlRdVdUY2d2Ri8vNHlaUWl4c1Q3SE8yaE1XMFBRUVFabXN4MmMzb21FREcrYkQyZ2RKT042ajVYSWRqaGdhUUZpc3c9&file=SNT+-+78-01-21+(R4X+14-10-19)+Sherlock+Holmes%2C+A+Study+in+Scarlet+(192k)+by+Michael+Hardwick%2C+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle, Alex Woolf [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 44354764,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Y0JkWUZMQnNINDJDZmVzbWcyS3F2bW8vUEhiSFNML1lySDlLWm9GZGJPdGlxQkNLYkE5V0xyZTZyQURlWGxoT0VkdUltb1VFVHpkSmw5T3lXam0rdVlLY1BoZFJQeDREaEh1c01HUFlUTzA9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle%2C+Alex+Woolf+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 46,
+        "leechers": 0,
+        "size": 352460,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=d2Z1eUIzYmJUd1Y0Wmd5aUVSYm94MVpnRzN0T0p1dXpuM0JUbW9DQ0dyTjZQRmtCWDRPYWEyMVhuOExhOStRRjFsSmVadUswbENKNFNUQk5qQVVzNUo4MU9meU5wbzVqZ04rNU9TWHFZWDg9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "BBC R4 A Study in Scarlet  (1989) by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 108108184,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aEE1RFlvZVhmYTRRTmZFa21XbzRVdUU2TWc0bXBrdXo4b3JLOTBBbFQvd3VRRnZ4MmNvSWQrbEVOcVgvbXd3M05BU1ZZQWJBdFhTMEhrRHZCQjVXUFFYRHp5N3lRY1FTU3FERlVrOGtERFU9&file=BBC+R4+A+Study+in+Scarlet++(1989)+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "A Study in Scarlet: A Sherlock Holmes Graphic Novel by Ian Edginton, I N J Culbard, Arthur Conan Doyle [ENG / CBZ]",
+        "indexer": "MyAnonamouse",
+        "seeders": 27,
+        "leechers": 0,
+        "size": 178467632,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dXd6bU00OG84Tmw1WEhpbVl1a0JINEYyWFFiaG42VVNYQU5ZREViS3BrM29oTkpwODVtT2V1ZmpBOWY3elJudDNlM2pLdHhFbkg4VE0rbjI5Rms0WUhyakFpajZKa0p3TGMwanZmaXdkdWc9&file=A+Study+in+Scarlet%3A+A+Sherlock+Holmes+Graphic+Novel+by+Ian+Edginton%2C+I+N+J+Culbard%2C+Arthur+Conan+Doyle+%5BENG+%2F+CBZ%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle [ENG / AZW3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 20,
+        "leechers": 0,
+        "size": 345088,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aVlqTzVKZ1E4dnJGU0gzTXVQdjVxbzJXYi9ndENCSXc2Vkx2Nk55TWIvcGZ2dUsrNjY3alhoR01tbnFpcEVTWkFhKzNlNzVRSGFLYk5uelEyNExLb0xpamgyYk9YSm9teDVWekdJOFFOK3c9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+AZW3%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 21,
+        "leechers": 0,
+        "size": 695835008,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ek5BNVRQRnNqNUp0YU1jWkJsWlZWOTErMStaZkYyODAya2xZbDFzOVUrWWEvSWx5MTJGQkxzYmh0UitPM25nS0tXdXpqKzF3RUlsQlVUd1Vxd2lSdDYwZitCTjh3dUJuajZ3QkVveVpRZVE9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "A Study in Scarlet: A Sherlock Holmes Mystery by Arthur Conan Doyle [ENG / PDF] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 2306867,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NHRxNFFCUmZmUEZNNU1FUnFmS3pHK0V4WjdBdU5ZNUdRNnN0eEUzd1lWWnVEOXpYWDU0Ti9sZDhpV3RJVkR5OVY0NXo0L3VwZENNdXdWMmlieWxPVm5vZXRrSW5odjRoODVYMk84RjliTTA9&file=A+Study+in+Scarlet%3A+A+Sherlock+Holmes+Mystery+by+Arthur+Conan+Doyle+%5BENG+%2F+PDF%5D+%5BVIP%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle, Alex Woolf [ENG / EPUB] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 17,
+        "leechers": 0,
+        "size": 1782579,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Y2dmR0FGYTNmZ1kydXdmRFpTOUh5MkM5RnVuTkFzMkowWW5QbWRhbEo0VDdPZGNmYjYwZDVtM2VRbm4wU1lmRDJweEJNYVdUYnM2OGxJVDkxcG1tL0pnZ3k2b2lzSEpLU2YzQ0gwcktWems9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle%2C+Alex+Woolf+%5BENG+%2F+EPUB%5D+%5BVIP%5D"
+      },
+      {
+        "title": "A Study in Scarlet by Arthur Conan Doyle [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 37,
+        "leechers": 0,
+        "size": 134532304,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZTAwWXAxYnQyME9uREVXSDJBb3JqU2RzUkpESCtQSndjcmxObGI1VDdMWGZHUUpDVnFkSDRCbkVudmZybUVCUTJWQVlEdElJK05QMXR2SkpUcVNnZ2RwTnlwaGdiZXh6NU5NSWw0bUlwUTQ9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "A Study In Scarlet by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 449943968,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZngvaXdlVkcwQSt5dXF2SWxKQlA5ZlhkSkZwUXBrZEpKcjNFWVJ5eHdmL0svQ0RLMWgzNzhlWHdPc3FTcCtmZXdiQTgrQWdZZk8wZzg4MjBGV0hBNU5oNjhIWDlxRWUydjVtaVUySjBBbk09&file=A+Study+In+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "A Study in Scarlet by Arthur Conan Doyle [ENG / EPUB MOBI]",
+      "indexer": "MyAnonamouse",
+      "seeders": 46,
+      "leechers": 0,
+      "size": 352460,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=d2Z1eUIzYmJUd1Y0Wmd5aUVSYm94MVpnRzN0T0p1dXpuM0JUbW9DQ0dyTjZQRmtCWDRPYWEyMVhuOExhOStRRjFsSmVadUswbENKNFNUQk5qQVVzNUo4MU9meU5wbzVqZ04rNU9TWHFZWDg9&file=A+Study+in+Scarlet+by+Arthur+Conan+Doyle+%5BENG+%2F+EPUB+MOBI%5D"
+    },
+    "message_id": 1445487360585502944,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445487299423895633,
+    "user_channel_id": 1445151968082526279,
+    "status": "approved",
+    "created_at": "2025-12-02T13:50:44.215156",
+    "updated_at": "2025-12-02T13:51:10.976860",
+    "torrent_hash": "df39b79a6155c29211c34de1b8da8b60909916f2",
+    "torrent_name": "A Study in Scarlet by Arthur Conan Doyle [ENG / M4B] [VIP]",
+    "result": {
+      "torrent_hash": "df39b79a6155c29211c34de1b8da8b60909916f2",
+      "torrent_name": "A Study in Scarlet by Arthur Conan Doyle [ENG / M4B] [VIP]"
+    }
+  },
+  "d5ca54e0-567a-4805-b250-17b6c345d920": {
+    "user_id": 378737013769240587,
+    "book_title": "The Let Them Theory",
+    "request_type": "audiobook",
+    "torrent_results": [
+      {
+        "title": "The Let Them Theory: A Life-Changing Tool That Millions of People Can\u2019t Stop Talking About by Mel Robbins",
+        "indexer": "seedpool (API)",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 609590912,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Z0E3ZFpKd2VHSXRtZVVPaU55MTlZTFJlK3Q4ZVUzM2NmZGl1YTQ1TFJVS2wwaEhoR0ZUa0pHNXJzSlB0SngrNFFNVTJ6UmxHK1hiaXJMY2dVcFAzRE1vK0RTU1Y1M0VnSzFVbE1rbGpNZmdPSDhEa1MvRW5MdG44NEpHRFpUNnc&file=The+Let+Them+Theory%3A+A+Life-Changing+Tool+That+Millions+of+People+Can%E2%80%99t+Stop+Talking+About+by+Mel+Robbins"
+      },
+      {
+        "title": "The Let Them Theory by Mel Robbins [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 286,
+        "leechers": 1,
+        "size": 608278912,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VnhkN09QN2Z1VHN3ZCtlY2UzSmJpRGQxY0dzRkNSaXc3UUlZUmkxbytxSFVXaU9ub3pCRkg5cU1XNUZNQm1BZG5xMXQrQ2haMWdwR05JSHhyclVnOXBsd3FwYXRaN3g2alBHREtXMXR5U289&file=The+Let+Them+Theory+by+Mel+Robbins+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Let Them Theory by Mel Robbins [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 668,
+        "leechers": 1,
+        "size": 609642112,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UmhDYmVXYnkzcUxpMHBlbkJWaFpuZEEzeFJ1d1d0MDFNV3dGR1VENDFaUVB5bUZaYmRBK0FCQ3A3TXRGb0FQQkZQUzgxWXh1QW5vTWYxV2xQR1dlT01yRzZqdW1CM211TmN4bUR6V3lZclE9&file=The+Let+Them+Theory+by+Mel+Robbins+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Let Them Theory by Mel Robbins [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 112,
+        "leechers": 1,
+        "size": 312999936,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eGJIbHV4YkpZKys3TVpiMjZJRy9iQUhWenpuVFF3bXYrd09kOG5EalR1cDcyOVdta0psZUgxWXV4T1puMWJ6ZjFDd2R5eUhHM0tEOTBVMDhsdGI0VWJTVDNsOU4zMU1iSGt6L3FHbkNSR289&file=The+Let+Them+Theory+by+Mel+Robbins+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Let Them Theory by Mel Robbins [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 934,
+        "leechers": 0,
+        "size": 6606029,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MWt5ZlFuOU1RQSt1bmp1MDF1STZNZXphTkpFQzZNWFNFY21TQmh5MmR4N1NsVDkycXc1NVlGRzdrNDdrSlgzSCtaL1JoWTZBa0FMdE9nK1VLdFpOVnpsa1pkWDdEczU5Y1oxTTdEcVJhVWM9&file=The+Let+Them+Theory+by+Mel+Robbins+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Let Them Theory by Mel Robbins [DUT / EPUB] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 46,
+        "leechers": 0,
+        "size": 561152,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=V2p4MG9ZSUloWGZMZnEvNjJ4b3A2WHo1Sjh5cVYyUUpWNzVjYXdKSW1lSm9UMVJDcXdOQy83UXllMFdRTXdHUFd1MlRMS25pWGdaNnBUTHVQejRacHI2OWpJZXNzdzRuU3dTa0dVRW82bjA9&file=The+Let+Them+Theory+by+Mel+Robbins+%5BDUT+%2F+EPUB%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Let Them Theory by Mel Robbins [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 79,
+        "leechers": 0,
+        "size": 4299161,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=TnhKbmI1eWxqdmY4MjVmQ3lIVG5tY29oaGNzZVA5MTYzaTREeXd6SlFiQzh6dUdyMm9LTG9iMGYyS3NKTkJ5M0VCVDdXVDM1U2F0SEx4OEZZMUxFdWJRQWlzL0l5TXIxV2FrMlhWRzJmeGM9&file=The+Let+Them+Theory+by+Mel+Robbins+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Let Them Theory by Mel Robbins [ENG / MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 66,
+        "leechers": 0,
+        "size": 7340032,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=c2pRTDN4eXJsaTQ5MzZPUHNRTHByNVltc1RRdDNZOERFV0x5TDVlcHJZRWpDdHc5NXJxbGZJbDBOSjNwNzI0c2IwSDRqWVB3TVYrYlFQSHJZanpmbDVoV053aTVDWWJkWGpkUFR4Y3QzVDg9&file=The+Let+Them+Theory+by+Mel+Robbins+%5BENG+%2F+MOBI%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Let Them Theory by Mel Robbins [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 934,
+      "leechers": 0,
+      "size": 6606029,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MWt5ZlFuOU1RQSt1bmp1MDF1STZNZXphTkpFQzZNWFNFY21TQmh5MmR4N1NsVDkycXc1NVlGRzdrNDdrSlgzSCtaL1JoWTZBa0FMdE9nK1VLdFpOVnpsa1pkWDdEczU5Y1oxTTdEcVJhVWM9&file=The+Let+Them+Theory+by+Mel+Robbins+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445493659511296112,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445493599570493472,
+    "user_channel_id": 1445152029784936542,
+    "status": "approved",
+    "created_at": "2025-12-02T14:15:46.180062",
+    "updated_at": "2025-12-02T14:16:12.384721",
+    "torrent_hash": "e11a8109445258800f9ae567d544895c8aca67f9",
+    "torrent_name": "The Let Them Theory by Mel Robbins [ENG / M4B] [VIP]",
+    "result": {
+      "torrent_hash": "e11a8109445258800f9ae567d544895c8aca67f9",
+      "torrent_name": "The Let Them Theory by Mel Robbins [ENG / M4B] [VIP]"
+    }
+  },
+  "b648487e-6c75-4561-9337-5bde282894a6": {
+    "user_id": 378737013769240587,
+    "book_title": "Luca",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Luca by Brenda Rothert [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 292249,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NG8vT3Q4Ymw5TVpYdjN1SVlKenJJQUZoajQ2U1ROSU55Rmtza1JUUTdIdDFTTE9qVXphOHRyREVISkdiakZKT0w1bWRYSTRBYTJRVW53T20wNk00SUhweEFtSm1KdkhBUDg0WDVNRGczSzA9&file=Luca+by+Brenda+Rothert+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Luca by Brenda Rothert [ENG / AZW3 EPUB MOBI PDF]",
+        "indexer": "MyAnonamouse",
+        "seeders": 1,
+        "leechers": 0,
+        "size": 1887436,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=K2J4Wm1tMDlKcTIyTm9wSE05RVc3L2lOY1lnZEtGK1lNN0h0Y24zbDN2QXFOaTRhNVRGZnB2Uzlja2VsNEF0Y0s4eFJ0ZDRBR084Nmt2Rlh1VzNRbGFlK2g4M05OWU1TRGxzMVJ1ckRpUUk9&file=Luca+by+Brenda+Rothert+%5BENG+%2F+AZW3+EPUB+MOBI+PDF%5D"
+      },
+      {
+        "title": "Luca by Brenda Rothert [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 325687712,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=czEyclR2QWdqY2J1Q1U0Y2MrZ294b3VERDY3dWI3U3lvQkt5SUdLbmM4Q2l5TldxVmdETmViWWM5ZVlSNEJiQlkxZDBBZU01NkRUKytYLzlNYUo1QlJmbDVyTDBsL3Ztb1pqR3l1WEVJUVk9&file=Luca+by+Brenda+Rothert+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Luca by Brenda Rothert [ENG / MP3]",
+      "indexer": "MyAnonamouse",
+      "seeders": 4,
+      "leechers": 0,
+      "size": 325687712,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=czEyclR2QWdqY2J1Q1U0Y2MrZ294b3VERDY3dWI3U3lvQkt5SUdLbmM4Q2l5TldxVmdETmViWWM5ZVlSNEJiQlkxZDBBZU01NkRUKytYLzlNYUo1QlJmbDVyTDBsL3Ztb1pqR3l1WEVJUVk9&file=Luca+by+Brenda+Rothert+%5BENG+%2F+MP3%5D"
+    },
+    "message_id": 1445494442889838672,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445494324174520552,
+    "user_channel_id": 1445152029784936542,
+    "status": "denied",
+    "created_at": "2025-12-02T14:18:51.325349",
+    "updated_at": "2025-12-02T14:19:02.726318"
+  },
+  "e4ca22dc-b4a2-442f-8a33-96dc8a17860a": {
+    "user_id": 378737013769240587,
+    "book_title": "The Art of War",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Art of War by Sun Tzu",
+        "indexer": "seedpool (API)",
+        "seeders": 0,
+        "leechers": 0,
+        "size": 121665240,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RFlUb1QzWHEyUDREbi9pNVlrcm9yN1lsTlcwL1pIVWJQcjJ6di9KRjFoa0NqSnVRTXZoK20wQjZJVk1kTTY0TU9RREVTeGRzbmxoMVc0R3BacDdhYmRJaXVtaERNZnJVeFF6Q0tOSkhlend4ZWZ2My92MkFXWHplYlZXczYwOWI&file=The+Art+of+War+by+Sun+Tzu"
+      },
+      {
+        "title": "Sun.Tzu.-.The.Art.Of.War.2006.RETAIL.EPUB.eBook-CTO",
+        "indexer": "seedpool (API)",
+        "seeders": 0,
+        "leechers": 0,
+        "size": 547846,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=M2trZHZCQ3hwbEFOOGk1TEY4ZWZjb0lGWXhQSEFhZTFRc2VNWXZKNTIwUkQrOEtvbitna0NhSUk3Qk5uWDhiSDlYcnpqdUhBamRtYU5mdmVxbnZNUU51aTFGby9zUkFUeWxzeVBDMUw1b04yZzJNczFKVndkL244WUJkbmFsUHM&file=Sun.Tzu.-.The.Art.Of.War.2006.RETAIL.EPUB.eBook-CTO"
+      },
+      {
+        "title": "The Art of War.mp3",
+        "indexer": "seedpool (API)",
+        "seeders": 0,
+        "leechers": 0,
+        "size": 403386688,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RnQvQmdlTHdoU203YlpqN0FxeWc1clJ4U1YrWkcwUTcwRHp0WHFFRnhaYzkzMlpheWljL1NQY3VrYkhFVUhYQTZkNmhMV1BSWllSQ2FjcGFnamNJRE9URHNkU3pOdGRkU2RMS3pTMkh1bkl0NTZCWmZKcWVQMDNqd1J0eTloS2s&file=The+Art+of+War.mp3"
+      },
+      {
+        "title": "The.Art.Of.War.S01E04.1080p.WEB.H264-CBFM",
+        "indexer": "seedpool (API)",
+        "seeders": 0,
+        "leechers": 0,
+        "size": 1831707648,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bXYzWUtOSlViOWJBVDdMMWh0UE5ZR0dCeGZXblByckx6cFVSeGR4Z1VyT1gwWk4waER4NTY2S0RZYXBIVXIwS2x3azBINDdCczVUVE1qZHJxLzUrQS9MK2NHM2xza2FwQk9BY0t5akhENFZXV1FHcjMwZlc3NldLQ25EL1ZWZzM&file=The.Art.Of.War.S01E04.1080p.WEB.H264-CBFM"
+      },
+      {
+        "title": "The.Art.Of.War.S01E03.1080p.WEB.H264-CBFM",
+        "indexer": "seedpool (API)",
+        "seeders": 0,
+        "leechers": 0,
+        "size": 1821149952,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=L2hSaDRGYmxIRDViZG1Sejk1QTNQLzg0RVpyL2IzdnNUS2RXeU13dmhoUVNMSFRseDUzdTYxWDV6UkxZb1Y2VU52ZVBqK2NrSkVSMThwb2FpZVlMckFPY0I4aTJGRllEdkNxU1U3NG5FaEwwTEVvT0ZidWpqeUFwVmtVRnZxOVM&file=The.Art.Of.War.S01E03.1080p.WEB.H264-CBFM"
+      },
+      {
+        "title": "The.Art.Of.War.S01E02.1080p.WEB.H264-CBFM",
+        "indexer": "seedpool (API)",
+        "seeders": 0,
+        "leechers": 0,
+        "size": 1758510080,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WlY3czB6SDFvN0gwMTRrOHZGSDJ6MHlPdnlEV2tCMW45dXRic0dRQzRqOFhucHJNYTNnWThaRmh6aUVNZEZ2QzJWQ280REZtOWQ4ZWNaamk0bEZwYldsV3hUZnI5MzlyYXdFS3dwYzhRRUdxYlNwZzM4OXVmRW5udVNSbTRDa28&file=The.Art.Of.War.S01E02.1080p.WEB.H264-CBFM"
+      },
+      {
+        "title": "The.Art.Of.War.S01E01.1080p.WEB.H264-CBFM",
+        "indexer": "seedpool (API)",
+        "seeders": 0,
+        "leechers": 0,
+        "size": 1863920640,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QmZKY1NzbC9vbTlrdUZjQXNRQVRsRnpHL1c4NDNBbkcvTko4Nk8vRHpJUzZxYzNNWkJ6RFNkdU5jSFJkOXRrQks3bkpqOXJmajVmN2hucjVza1M2RE41Sld0dCtmUmV0YlJQRUVXL09mL3VXL011ODZxRk9DOTVMQ1M3SHdvcTM&file=The.Art.Of.War.S01E01.1080p.WEB.H264-CBFM"
+      },
+      {
+        "title": "The Art of War: Sun Zi's Military Methods by Sun Tzu, Victor H Mair [ENG / PDF]",
+        "indexer": "MyAnonamouse",
+        "seeders": 15,
+        "leechers": 0,
+        "size": 3040870,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZDNkSWxxQ3g5eUMvNVZXRFJwRE1peklEQkFzdXdOc3lHelk5RXd1N1Q4dGI5SCtYWFZLSjhGVkxNLzNDYWtwWVE0eUdwMjVvT1EwcFJVMWNOdC9sQjdwcVl1WXpvMWJBdzA1ZDVSNmxlcGM9&file=The+Art+of+War%3A+Sun+Zi%27s+Military+Methods+by+Sun+Tzu%2C+Victor+H+Mair+%5BENG+%2F+PDF%5D"
+      },
+      {
+        "title": "The Art of War (Marathi Edition) by Sun Tzu [MAR / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 6,
+        "leechers": 0,
+        "size": 174483040,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=cWdrK3ZtQ2VDS2E5N0p6ZGNtNEJseGdnM0pwNitmTDJDRDBmdGpxd1dDc1dDTklrUmJtYUdDSUxvaU03Tnl3dWwwMDcxTklmWFRWZWhHVTFsUE1nWTVaTHROQ0NIOUpPQVlHZ2tROEZtSDA9&file=The+Art+of+War+(Marathi+Edition)+by+Sun+Tzu+%5BMAR+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Art of War by James Clavell, Sun Tzu [ENG / EPUB] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 156,
+        "leechers": 1,
+        "size": 2202009,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZkNWeEdaTmhoMlFFQkswV1pjdDlZcTdUb3loRTdVSUg2Z25NQWgxNncxR1d1enMwa1ZHVk1FSXU5bm5zSmdKKzJOZ01YeHZkUlg0UkxxS1kzT1hETW9OQkVzK1p1YnFqZGFUdHJKUXJhUE09&file=The+Art+of+War+by+James+Clavell%2C+Sun+Tzu+%5BENG+%2F+EPUB%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Art of War: Complete Texts and Commentaries by Thomas Cleary, Sun Tzu [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 75,
+        "leechers": 0,
+        "size": 778854,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Wjc5dnQrM25qNU9JN1MrbCtaYkRLVTFtUGlLVXdTUEFYVS9QOStLaXZ6SUFhK0VUaGMvRXFVMWZKaWE3TzVBRnZWamhFQzlJcHcwb3FOZnZvTG1xVlRGd3ZVWFVDcURTcDRCaGROSDAva1U9&file=The+Art+of+War%3A+Complete+Texts+and+Commentaries+by+Thomas+Cleary%2C+Sun+Tzu+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Sun Tzu's The Art of War and the Ancient Chinese Revealed: More Complete and More Accurate by Sun Tzu, Gary Gagliardi [ENG / AZW4 PDF] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 34,
+        "leechers": 0,
+        "size": 24851252,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dzZaOGF0YlpvbFdWMmw2WmZmZjFiZGpHa1luVnIydTVFYUsweVI3Z1Q3VUNod0NaeXlvampLUHF3VXlYZzliWkFRYXFiN0JtVzMxWnNsdXdST0MwRWRlVDhGbG5HSkNMem1pQ2xPQlQ0VEU9&file=Sun+Tzu%27s+The+Art+of+War+and+the+Ancient+Chinese+Revealed%3A+More+Complete+and+More+Accurate+by+Sun+Tzu%2C+Gary+Gagliardi+%5BENG+%2F+AZW4+PDF%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Art of War - Sun Tzu by Sun Tzu [ENG / AZW3 EPUB MOBI PDF]",
+        "indexer": "MyAnonamouse",
+        "seeders": 267,
+        "leechers": 0,
+        "size": 2202009,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=amJIckZOdDNsSCtkemlnSlBhUEFTTHYvUDJDWnNwKzR2YVByV2FmTm5Ecy9ZWStDTEpXTGxRZ3g4YlJsYldNdHcwazNSZ0V1VnFCZ2xMa0lUcVNlUXd4aFAzZTdZMkNEU0k2MXdEVklRUXM9&file=The+Art+of+War+-+Sun+Tzu+by+Sun+Tzu+%5BENG+%2F+AZW3+EPUB+MOBI+PDF%5D"
+      },
+      {
+        "title": "The Art of War by Sun Tzu - Classic Collector's Edition by Sun Tzu, Lionel Giles, Shawn Conners, Barton Williams, Sian Kim [ENG / AZW3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 32,
+        "leechers": 0,
+        "size": 997990,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ek1IYkRVME5WYVcwNWY0YldYYjF5bmF0b3orR3VCQnFDWVN0cjFHUExWVThjR0w0SHhHNkN5N0U0dXU4Yll3YTZRcno1cnhtRTkzVW9UVVJETjk4M3lBSFVRa3o3WEJVa0dYUzRPd3JSbzg9&file=The+Art+of+War+by+Sun+Tzu+-+Classic+Collector%27s+Edition+by+Sun+Tzu%2C+Lionel+Giles%2C+Shawn+Conners%2C+Barton+Williams%2C+Sian+Kim+%5BENG+%2F+AZW3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Art of War by Sun Tzu, Lionel Giles, Dallas Galvin [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 81,
+        "leechers": 0,
+        "size": 814489,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OG1nNWh2cXlkQ3hVWm5PWit4dVEwNS9VNHdYc0RPN0U4SHVqRjBLYmsrOS9UWUJVNytBcTlJTHR5NE1seXkzbVlTUm8zakIzQkxIWnRoM1ZWNWJabjhDajUwTG9kaU4xcGJ4SGRFT2lFc1E9&file=The+Art+of+War+by+Sun+Tzu%2C+Lionel+Giles%2C+Dallas+Galvin+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Art of War by John Minford, Sun-tzu [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 42,
+        "leechers": 0,
+        "size": 99635,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WXRUWHRQNHBlY1RUbFNoLzIwUUFqcWsxNStXd2Fta1VGenVuczJ1RTRwcFJOaVBJdEY5SitjSUhVM0tkenE5MmRrZ2pZb3pVRVZNNUlscGN6MmxFUTdMM2xMVWRJY3BkUXY0bE1IQXg0VFk9&file=The+Art+of+War+by+John+Minford%2C+Sun-tzu+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Art of War by Sun Tzu [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 36,
+        "leechers": 0,
+        "size": 122263960,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WVd0SHNlQkxNUnl6SWN3TkoySnRJcnByMm5ORkJES3Q5cUJXYTJpWWJyMFhlOUVhWGUzaEZoM1Nqa3JGNGJyNG5MVXJiQTFDZ3ZtV04vRy9IRlAyRUZJSnpFdmg5a1BTY1FaRjZnNTQ2RXc9&file=The+Art+of+War+by+Sun+Tzu+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Sun Tzu - The Art of War by Thomas Cleary, Sun Tzu [ENG / MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 65,
+        "leechers": 0,
+        "size": 3250585,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bVpKTWtpZUVlKzFJTWpvQkd3Y2V6Z2FlbXYvYkhObVZYY2xLTEhkN2FZajR2b2RqVDNaZXlCTGlsQ1NMN0YrMitjb0RZSStCZkd1aXQwcUU0d0t2eTdOM3Yvd3VQTWEzejdPQmd4UzErRFE9&file=Sun+Tzu+-+The+Art+of+War+by+Thomas+Cleary%2C+Sun+Tzu+%5BENG+%2F+MOBI%5D"
+      },
+      {
+        "title": "The Art of War-- Spirituality for Conflict: Annotated & Explained by Marc Benioff, Sun-tzu, Thomas Huynh [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 15,
+        "leechers": 0,
+        "size": 715980,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UzE2c2FRd1R0ZWlGMWtCT0NhLzI1TW1neHhqUFAvY3owSlhUUUVKbU9TZ3ZUNHd3S0V5NmJjYjJ6TCtmcWdZQ2hGem9lWk9xRjF5cWhjaWRwT3pCeVExcVFzN05oMi9MZHIwVlhBUUlYSUk9&file=The+Art+of+War--+Spirituality+for+Conflict%3A+Annotated+%26+Explained+by+Marc+Benioff%2C+Sun-tzu%2C+Thomas+Huynh+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Art of War: The Definitive Interpretation of Sun Tzu's Classic Book of Strategy by Sun Tzu, Stephen F Kaufman [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 15,
+        "leechers": 0,
+        "size": 466022,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dGErL3ROZkE5QWt6NExYazl0TVpvcEpFVUpwelV4NEFEZzUvbTZUQzdYTGhmSGl1YklyM2EwdWJUSDhpUzVUbisyUEl3YVA1Um9mZjU4cGtNS3ErYzBiMFl6NjF3Z2V4UDNsV0lQemNYV2M9&file=The+Art+of+War%3A+The+Definitive+Interpretation+of+Sun+Tzu%27s+Classic+Book+of+Strategy+by+Sun+Tzu%2C+Stephen+F+Kaufman+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Art of War: A New Translation by Michael Nylan by Sun Tzu, Michael Nylan [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 34,
+        "leechers": 0,
+        "size": 9646899,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=d3hBeGthZFkzZzh6bHlwUFZ5MlBrSHlhNmtDeUFnM3pIbjdmZE9tZmxtckFIZUR6aVQ0amtEZ0xkcko2dlU0K1JCb3FwZzFxdU9CdDZUa0F4cDFoNmVSTFZtcjcyaHZHZFpBK2thNkx0UTA9&file=The+Art+of+War%3A+A+New+Translation+by+Michael+Nylan+by+Sun+Tzu%2C+Michael+Nylan+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "The Art of War: Bilingual Chinese and English Text (The Complete Edition) by John Minford, Sun Tzu, Lionel Giles [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 18,
+        "leechers": 0,
+        "size": 9017754,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=S21YaHd5MlVkeVVONmpTQ2tYRmJsNWNncVc0NmUxbEhyN3d5aVRZQXpzaTA3cUhaaTlsSFZMME5SL2hFUHdQVUlkS0JkMHdQUE05R1VPOFdtb1FjMWFoVEdya2RSVm14bUd0SSs0YTIwZEE9&file=The+Art+of+War%3A+Bilingual+Chinese+and+English+Text+(The+Complete+Edition)+by+John+Minford%2C+Sun+Tzu%2C+Lionel+Giles+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Art of War by Sun Tzu [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 21,
+        "leechers": 0,
+        "size": 314467936,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Q0pUcHFycmphTnZoWFJVR1dQTVF1U3lzMXU1a0ZQQUlGdm1Dd1d3bUgvbGdUR1FKTEJ5cWJVS2UydmVVOHJ5UWtaOUdqbWs5OUxtRno2Wnp4ZlBCRUxydE9Wd2lmZHU1RW84M1VBZXZKdWs9&file=The+Art+of+War+by+Sun+Tzu+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Art of War by Sun Tzu, Ralph D Sawyer [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 1677721,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=d2NXQTZYMW9NQXFXK1RuZE1pUUhkR0c2WWxxRmR0SG5Bd0FCNkFCbk9LaGtXTXZ5bkZxNzN3TTdVcHBrSXNML1htcFlYdlcwb0hsc1BCY0Z2aTJvN2NnQUIzQ1JMOVhTRzNxYXVSZ0w2TXM9&file=The+Art+of+War+by+Sun+Tzu%2C+Ralph+D+Sawyer+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Art of War (Marathi Edition) by Sun Tzu [MAR / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 8,
+        "leechers": 0,
+        "size": 172281040,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WnlxK3RjWVBVMWV4bVpQQkJCdXJGTCtjcHJGK1RONElScWNkY1pBSGZtNUViakxVZmVZSWtpMTVvVTQ0MTNROTgwMEp0U3lzaGxWUjNaT3NHOWY1UG1UNWhtVHNKc1pvQ3lFSkhoNTF2MWs9&file=The+Art+of+War+(Marathi+Edition)+by+Sun+Tzu+%5BMAR+%2F+M4B%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Art of War by B H Liddell Hart, Sun Tzu, Samuel B Griffith [ENG / PDF]",
+        "indexer": "MyAnonamouse",
+        "seeders": 17,
+        "leechers": 0,
+        "size": 2726297,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=cE5BNi9zeGlpb2pWNlJ2VDJLNWhndTdIVnMzQ3U1bUpURFo4NUEyZXlobmI3QlZKL01rakJKQkpYWDQyM1ZXUXVCSG5XZndUQk5kQ1I1VDdVS1k1aUVicnBoWjI3bGI3REtVMTlzcDB2MUE9&file=The+Art+of+War+by+B+H+Liddell+Hart%2C+Sun+Tzu%2C+Samuel+B+Griffith+%5BENG+%2F+PDF%5D"
+      },
+      {
+        "title": "The Art of War by Sun Tzu, Lionel Giles [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 40789608,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WE5pT045R2ZmTDhoWjdjWTlGSXpkUW02clZqVkc4T3VpbTVydkU0UkVkMXpDcUl4VkZ3OVFFZUQxQ3ZKZ0UycU4reXgxU3h5bExVZ0tYSmdqYmhRRzRQMGRDRzB3azNhNmRhb1NRSTFhSG89&file=The+Art+of+War+by+Sun+Tzu%2C+Lionel+Giles+%5BENG+%2F+M4B%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Art of War - Sun Tzu by Sun Tzu [ENG / AZW3 EPUB MOBI PDF]",
+      "indexer": "MyAnonamouse",
+      "seeders": 267,
+      "leechers": 0,
+      "size": 2202009,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=amJIckZOdDNsSCtkemlnSlBhUEFTTHYvUDJDWnNwKzR2YVByV2FmTm5Ecy9ZWStDTEpXTGxRZ3g4YlJsYldNdHcwazNSZ0V1VnFCZ2xMa0lUcVNlUXd4aFAzZTdZMkNEU0k2MXdEVklRUXM9&file=The+Art+of+War+-+Sun+Tzu+by+Sun+Tzu+%5BENG+%2F+AZW3+EPUB+MOBI+PDF%5D"
+    },
+    "message_id": 1445498502783307968,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445498452552450128,
+    "user_channel_id": 1445152029784936542,
+    "status": "approved",
+    "created_at": "2025-12-02T14:34:59.354226",
+    "updated_at": "2025-12-02T14:35:15.237635"
   }
 }

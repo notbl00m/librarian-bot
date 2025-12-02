@@ -107,15 +107,31 @@ The `.env` file in `config/` directory must contain all required variables:
 - Audiobookshelf URL and token
 - Library paths
 
-**Important:** Update paths in `.env` to match container paths:
-```bash
-# Inside container, paths should be:
-LIBRARY_PATH=/library
-QBITTORRENT_DOWNLOAD_PATH=/downloads
-```
+**Important for Docker/Unraid deployments:**
+
+1. **Set SERVER_MODE to "local":**
+   ```bash
+   SERVER_MODE=local
+   ```
+   This tells the bot to run the organizer locally instead of via SSH.
+
+2. **Use container paths in .env:**
+   ```bash
+   # Inside container, paths should match the volume mounts:
+   LIBRARY_PATH=/library
+   QBIT_DOWNLOAD_PATH=/downloads
+   ORGANIZER_REMOTE_PATH=/library/[Organizer]
+   ```
+
+3. **Configure qBittorrent category:**
+   - In qBittorrent, create a category called `librarian-bot`
+   - Set the category save path to match your downloads volume mount
+   - Example: If qBit's `/data/Other/Library/Downloads` is mounted to `/downloads` in librarian-bot container, set category save path to `/data/Other/Library/Downloads`
+   
+   This ensures downloaded files end up in the correct location accessible by both containers.
 
 ### SSH Key for Remote Servers
-If your library is on a remote server accessed via SSH:
+If your library is on a remote server accessed via SSH (SERVER_MODE=seedbox or remote):
 
 1. Generate SSH key in container:
    ```bash
@@ -133,6 +149,8 @@ If your library is on a remote server accessed via SSH:
    volumes:
      - ./ssh:/root/.ssh:ro
    ```
+
+**Note:** SSH configuration is only needed when SERVER_MODE is set to "seedbox" or "remote".
 
 ## Management Commands
 
