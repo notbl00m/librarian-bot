@@ -135,9 +135,11 @@ async def search_google_books(query: str, max_results: int = 5) -> List[BookMeta
                         try:
                             volume_info = item.get("volumeInfo", {})
                             title = volume_info.get("title", "Unknown")
+                            description = volume_info.get("description", "")
                             
                             # FILTER OUT support books (summaries, guides, analysis, etc.)
-                            if _is_support_book(title):
+                            # Check both title and description for support book indicators
+                            if _is_support_book(title, description):
                                 logger.debug(f"Filtered out support/summary book: {title}")
                                 continue
                             
@@ -149,7 +151,7 @@ async def search_google_books(query: str, max_results: int = 5) -> List[BookMeta
                                 title=title,
                                 authors=volume_info.get("authors", []),
                                 published_date=volume_info.get("publishedDate", ""),
-                                description=volume_info.get("description", ""),
+                                description=description,
                                 isbn_10=_extract_isbn(volume_info, "ISBN_10"),
                                 isbn_13=_extract_isbn(volume_info, "ISBN_13"),
                                 categories=volume_info.get("categories", []),
@@ -273,7 +275,9 @@ def _is_support_book(title: str) -> bool:
         "chapter summary", "chapter summaries",
         "notes and questions", "study material",
         "overview of", "introduction to", "beginner's guide",
-        "critical essays", "study notes", "study help"
+        "critical essays", "study notes", "study help",
+        "quicklet", "instaread", "summary station", "getabstract",
+        "blinkist", "scribd", "audible study guide"
     ]
     
     for keyword in support_keywords:

@@ -358,99 +358,77 @@ class LibrarianCommands(commands.Cog):
                 await self._show_book_request(interaction, filtered_books[0])
                 return
             
-            # Create embeds for each book with cover/poster and description
-            embeds = []
+            # Build simple numbered list format
+            book_list = "**📚 Which book did you mean?**\n\n"
+            emoji_numbers = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+            
             for idx, book in enumerate(filtered_books[:5], 1):  # Max 5 options
-                embed = discord.Embed(
-                    title=f"{idx}. {truncate_string(book.title, 100)}",
-                    description=truncate_string(book.description, 250) if book.description else "*No description available*",
-                    color=discord.Color.blue(),
-                )
-
-                # Add authors
-                embed.add_field(
-                    name="Author(s)",
-                    value=", ".join(book.authors) if book.authors else "Unknown",
-                    inline=False
-                )
-
-                # Add year
-                if book.first_publish_year:
-                    embed.add_field(
-                        name="Published",
-                        value=str(book.first_publish_year),
-                        inline=True,
-                    )
-
-                # Add availability
+                authors_str = ", ".join(book.authors) if book.authors else "Unknown"
+                year_str = f" ({book.first_publish_year})" if book.first_publish_year else ""
                 availability = []
                 if book.has_ebook:
-                    availability.append("✓ Ebook")
+                    availability.append("📖")
                 if book.has_audiobook:
-                    availability.append("✓ Audiobook")
-
-                if availability:
-                    embed.add_field(
-                        name="Available",
-                        value=" | ".join(availability),
-                        inline=True,
-                    )
-
-                # Add cover/poster image
-                cover_url = book.get_cover_url("L")
-                if cover_url:
-                    embed.set_image(url=cover_url)
+                    availability.append("🎧")
+                avail_str = " " + " ".join(availability) if availability else ""
                 
-                embed.set_footer(text=f"Option {idx}")
-
-                embeds.append(embed)
-
-            # Create selection buttons
-            options = [
-                discord.SelectOption(label=f"{idx}. {truncate_string(book.title, 80)}", value=str(idx - 1))
-                for idx, book in enumerate(filtered_books[:5], 1)
-            ]
-
-            class BookSelect(discord.ui.Select):
-                def __init__(self, books_list, cog_instance):
-                    self.books_list = books_list
+                book_list += f"{idx}. **{truncate_string(book.title, 80)}**\n"
+                book_list += f"   by {truncate_string(authors_str, 60)}{year_str}{avail_str}\n\n"
+            
+            # Create a view with numbered buttons
+            class BookSelectButtons(discord.ui.View):
+                def __init__(self, cog_instance, books_list):
+                    super().__init__(timeout=300)
                     self.cog = cog_instance
-                    super().__init__(
-                        placeholder="Select a book...",
-                        min_values=1,
-                        max_values=1,
-                        options=options,
-                    )
-
-                async def callback(self, select_interaction: discord.Interaction):
+                    self.books_list = books_list
+                
+                @discord.ui.button(label="1", style=discord.ButtonStyle.primary, emoji="1️⃣")
+                async def button_1(self, button_interaction: discord.Interaction, button: discord.ui.Button):
+                    await self._select_book(button_interaction, 0)
+                
+                @discord.ui.button(label="2", style=discord.ButtonStyle.primary, emoji="2️⃣")
+                async def button_2(self, button_interaction: discord.Interaction, button: discord.ui.Button):
+                    await self._select_book(button_interaction, 1)
+                
+                @discord.ui.button(label="3", style=discord.ButtonStyle.primary, emoji="3️⃣")
+                async def button_3(self, button_interaction: discord.Interaction, button: discord.ui.Button):
+                    await self._select_book(button_interaction, 2)
+                
+                @discord.ui.button(label="4", style=discord.ButtonStyle.primary, emoji="4️⃣")
+                async def button_4(self, button_interaction: discord.Interaction, button: discord.ui.Button):
+                    await self._select_book(button_interaction, 3)
+                
+                @discord.ui.button(label="5", style=discord.ButtonStyle.primary, emoji="5️⃣")
+                async def button_5(self, button_interaction: discord.Interaction, button: discord.ui.Button):
+                    await self._select_book(button_interaction, 4)
+                
+                async def _select_book(self, button_interaction: discord.Interaction, book_idx: int):
                     try:
-                        await select_interaction.response.defer()
-                        selected_idx = int(self.values[0])
-                        selected_book = self.books_list[selected_idx]
-
+                        if book_idx >= len(self.books_list):
+                            await button_interaction.response.defer()
+                            return
+                        
+                        await button_interaction.response.defer()
+                        selected_book = self.books_list[book_idx]
+                        
                         # Show request view for selected book
-                        await self.cog._show_book_request(
-                            select_interaction, selected_book
-                        )
-                        self.view.stop()
+                        await self.cog._show_book_request(button_interaction, selected_book)
+                        self.stop()
                     except Exception as e:
                         logger.error(f"Error in book selection: {e}", exc_info=True)
-                        await select_interaction.followup.send(
+                        await button_interaction.followup.send(
                             f"❌ Error selecting book: {str(e)}",
                             ephemeral=True,
                         )
-
-            class BookSelectView(discord.ui.View):
-                def __init__(self, cog_instance):
-                    super().__init__(timeout=300)
-                    self.add_item(BookSelect(filtered_books, cog_instance))
-
-            view = BookSelectView(self)
+            
+            # Only show buttons for available books
+            view = BookSelectButtons(self, filtered_books)
+            for i in range(len(filtered_books), 5):
+                view.children[i].disabled = True
 
             await interaction.followup.send(
-                embeds=embeds,
+                book_list,
                 view=view,
-                content="**📚 Choose the correct book:**" if len(embeds) > 1 else "**📚 Is this the right book?**",
             )
 
         except Exception as e:
