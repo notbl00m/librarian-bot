@@ -491,6 +491,21 @@ class ApprovalButton(ui.Button):
                 )
 
 
+class NoTorrentsFoundView(ui.View):
+    """View for showing no torrents found status (disabled orange button)"""
+
+    def __init__(self):
+        """Initialize no torrents found view"""
+        super().__init__(timeout=None)
+        self.add_item(
+            ui.Button(
+                label="⚠️ No Ebook Torrents Found",
+                style=discord.ButtonStyle.secondary,
+                disabled=True,
+            )
+        )
+
+
 class ApprovedView(ui.View):
     """View for showing approved status (disabled button)"""
 

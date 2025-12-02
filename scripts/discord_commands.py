@@ -25,6 +25,7 @@ from .discord_views import (
     PendingApprovalView,
     ApprovedView,
     DeniedView,
+    NoTorrentsFoundView,
 )
 from .open_library_api import search_open_library, BookMetadata as OLBookMetadata
 from .google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
@@ -683,9 +684,9 @@ class LibrarianCommands(commands.Cog):
             logger.debug(f"Prowlarr returned {len(prowlarr_results)} results for {request_type}")
 
             if not prowlarr_results:
-                await interaction.followup.send(
-                    f"❌ No {request_type} torrents found for: **{book.title}**",
-                    ephemeral=True,
+                # Send to admin channel showing no torrents found
+                await self._send_no_torrents_notification(
+                    interaction, book, request_type, user=interaction.user, message=message
                 )
                 return
 
@@ -888,6 +889,77 @@ class LibrarianCommands(commands.Cog):
 
         except Exception as e:
             logger.error(f"Error sending admin approval: {e}", exc_info=True)
+
+    async def _send_no_torrents_notification(
+        self,
+        interaction: discord.Interaction,
+        book: OLBookMetadata,
+        request_type: str,
+        user: discord.User,
+        message: discord.Message = None,
+    ):
+        """
+        Send notification to admin channel when no torrents are found
+        
+        Args:
+            interaction: Original interaction
+            book: Book metadata
+            request_type: "ebook" or "audiobook"
+            user: User who requested
+            message: User's request message to update
+        """
+        try:
+            # Update user's message with "No Torrents Found" view
+            if message:
+                no_torrents_view = NoTorrentsFoundView()
+                try:
+                    await message.edit(view=no_torrents_view)
+                    logger.debug(f"Updated user message {message.id} with no torrents view")
+                except Exception as e:
+                    logger.warning(f"Could not edit user message: {e}")
+
+            # Get admin channel
+            admin_channel = self.bot.get_channel(Config.ADMIN_CHANNEL_ID)
+            if not admin_channel:
+                logger.error(f"Admin channel {Config.ADMIN_CHANNEL_ID} not found")
+                return
+
+            # Create notification embed
+            embed = discord.Embed(
+                title=f"⚠️ No Torrents Found - {request_type.upper()}",
+                description=f"User: {user.mention} (@{user.name})",
+                color=discord.Color.orange(),
+            )
+
+            embed.add_field(name="Book Title", value=book.title, inline=False)
+
+            if book.authors:
+                embed.add_field(name="Author(s)", value=", ".join(book.authors), inline=False)
+
+            embed.add_field(
+                name="Requested Format",
+                value=f"🎯 {request_type.upper()}",
+                inline=True,
+            )
+
+            embed.add_field(
+                name="Status",
+                value="No torrents found in Prowlarr indexers.\nWaitlist feature coming soon.",
+                inline=False,
+            )
+
+            embed.set_footer(text=f"User ID: {user.id}")
+
+            # Create disabled button view
+            no_torrents_view_admin = NoTorrentsFoundView()
+
+            # Send to admin channel - no tracking needed
+            await admin_channel.send(embed=embed, view=no_torrents_view_admin)
+            
+            logger.info(f"No torrents notification sent for: {book.title} ({request_type})")
+
+        except Exception as e:
+            logger.error(f"Error sending no torrents notification: {e}", exc_info=True)
 
     async def _handle_admin_approve(
         self,
