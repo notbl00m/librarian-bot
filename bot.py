@@ -19,8 +19,11 @@ from qbit_monitor import QBitMonitor
 import library_organizer
 
 # Setup logging
+log_level_str = os.getenv("LOG_LEVEL", "INFO").upper()
+log_level = getattr(logging, log_level_str, logging.INFO)
+
 logging.basicConfig(
-    level=logging.INFO,
+    level=log_level,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
         logging.StreamHandler(sys.stdout),
@@ -35,7 +38,7 @@ for handler in logging.root.handlers:
 # Add file logging if configured
 if Config.LOG_FILE:
     file_handler = logging.FileHandler(Config.LOG_FILE, encoding='utf-8')
-    file_handler.setLevel(logging.DEBUG)
+    file_handler.setLevel(log_level)  # Use same log level as console
     formatter = logging.Formatter(
         "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     )
