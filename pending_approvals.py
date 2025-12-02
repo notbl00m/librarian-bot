@@ -169,6 +169,15 @@ class PendingApprovalsDB:
             aid: data for aid, data in self.data.items()
             if data.get("status") == "pending"
         }
+    
+    def get_all_approvals(self) -> Dict[str, Dict]:
+        """
+        Get all approvals (regardless of status)
+
+        Returns:
+            Dict of approval_id -> approval data
+        """
+        return self.data.copy()
 
     def get_by_message_id(self, message_id: int) -> Optional[Dict]:
         """
