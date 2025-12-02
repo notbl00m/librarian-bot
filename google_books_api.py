@@ -252,18 +252,19 @@ def _extract_isbn(volume_info: dict, isbn_type: str) -> Optional[str]:
     return None
 
 
-def _is_support_book(title: str) -> bool:
+def _is_support_book(title: str, description: str = "") -> bool:
     """
     Determine if a book is a support/reference book (summary, guide, analysis, etc.)
     These are NOT actual books but study aids and should be excluded
     
     Args:
         title: Book title to check
+        description: Book description to check (optional)
     
     Returns:
         True if support book, False if actual book
     """
-    title_lower = title.lower()
+    combined_text = (title + " " + description).lower()
     
     # Keywords that indicate this is a support/reference book
     support_keywords = [
@@ -281,7 +282,7 @@ def _is_support_book(title: str) -> bool:
     ]
     
     for keyword in support_keywords:
-        if keyword in title_lower:
+        if keyword in combined_text:
             return True
     
     return False
