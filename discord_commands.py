@@ -79,8 +79,8 @@ class LibrarianCommands(commands.Cog):
             # Search Google Books only (Open Library disabled for now)
             logger.debug(f"Searching Google Books for: {query}")
             try:
-                logger.debug("Initiating Google Books API call with max_results=10")
-                google_results = await search_google_books(query, max_results=10)
+                logger.debug("Initiating Google Books API call with max_results=40")
+                google_results = await search_google_books(query, max_results=40)
                 logger.debug(f"Google Books returned {len(google_results)} results")
             except Exception as e:
                 logger.warning(f"Google Books search error: {e}")

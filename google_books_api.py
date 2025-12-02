@@ -140,9 +140,10 @@ async def search_google_books(query: str, max_results: int = 40) -> List[BookMet
                             # FILTER OUT support books (summaries, guides, analysis, etc.)
                             # Check title, description, AND authors for support book indicators
                             authors_list = volume_info.get("authors", [])
-                            if _is_support_book(title, description, authors_list):
-                                logger.debug(f"Filtered out support/summary book: {title} by {authors_list}")
-                                continue
+                            # TEMPORARILY DISABLED - Show all results to debug
+                            # if _is_support_book(title, description, authors_list):
+                            #     logger.debug(f"Filtered out support/summary book: {title} by {authors_list}")
+                            #     continue
                             
                             # Extract cover images with enhancement
                             image_links = volume_info.get("imageLinks", {})
