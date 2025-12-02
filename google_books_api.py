@@ -140,10 +140,9 @@ async def search_google_books(query: str, max_results: int = 40) -> List[BookMet
                             # FILTER OUT support books (summaries, guides, analysis, etc.)
                             # Check title, description, AND authors for support book indicators
                             authors_list = volume_info.get("authors", [])
-                            # TEMPORARILY DISABLED - Show all results to debug
-                            # if _is_support_book(title, description, authors_list):
-                            #     logger.debug(f"Filtered out support/summary book: {title} by {authors_list}")
-                            #     continue
+                            if _is_support_book(title, description, authors_list):
+                                logger.debug(f"Filtered out support/summary book: {title} by {authors_list}")
+                                continue
                             
                             # Extract cover images with enhancement
                             image_links = volume_info.get("imageLinks", {})
@@ -273,19 +272,15 @@ def _is_support_book(title: str, description: str = "", authors: list = None) ->
         authors_text = " ".join(str(a).lower() for a in authors)
         combined_text += " " + authors_text
     
-    # Keywords that indicate this is a support/reference book
+    # Keywords that indicate this is CLEARLY a support/reference book
+    # Be VERY STRICT here - only catch obvious study guides and summaries, not actual books
     support_keywords = [
-        "summary", "summaries", "sparknotes", "cliffsnotes", "cliff notes",
-        "study guide", "study guides", "guide to", "guides to",
-        "quick summary", "key ideas", "key takeaways", "key points",
-        "analysis", "explained", "for dummies", "easy to understand",
-        "discussion guide", "reader's guide", "bookrags",
+        "summary of", "summaries of",
+        "sparknotes", "cliffsnotes", "cliff notes",
+        "study guide", "study guides",
+        "quick summary", 
         "chapter summary", "chapter summaries",
-        "notes and questions", "study material",
-        "overview of", "introduction to", "beginner's guide",
-        "critical essays", "study notes", "study help",
         "quicklet", "instaread", "summary station", "getabstract",
-        "blinkist", "scribd", "audible study guide"
     ]
     
     for keyword in support_keywords:

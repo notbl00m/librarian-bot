@@ -417,8 +417,8 @@ class LibrarianCommands(commands.Cog):
                         await button_interaction.response.defer()
                         selected_book = self.books_list[abs_idx]
                         
-                        # Show request view for selected book
-                        await self.cog._show_book_request(button_interaction, selected_book)
+                        # Show request view for selected book, replacing the selection message
+                        await self.cog._show_book_request(button_interaction, selected_book, self.message)
                         self.stop()
                     except Exception as e:
                         logger.error(f"Error in book selection: {e}", exc_info=True)
@@ -437,7 +437,8 @@ class LibrarianCommands(commands.Cog):
                 if i < len(view.children) - 2:  # Don't disable prev/next buttons
                     view.children[i].disabled = True
 
-            await interaction.followup.send(
+            # Store the message in the view so we can edit it later
+            view.message = await interaction.followup.send(
                 embed=view._build_embed(),
                 view=view,
             )
@@ -450,7 +451,7 @@ class LibrarianCommands(commands.Cog):
             )
 
     async def _show_book_request(
-        self, interaction: discord.Interaction, book: OLBookMetadata
+        self, interaction: discord.Interaction, book: OLBookMetadata, selection_message: discord.Message = None
     ):
         """Show single book with request type buttons"""
         try:
@@ -501,8 +502,13 @@ class LibrarianCommands(commands.Cog):
             # Create request type view
             view = RequestTypeView(book.title)
 
-            # Send book info with request type buttons
-            message = await interaction.followup.send(embed=embed, view=view)
+            # Send or edit message with book info and request type buttons
+            if selection_message:
+                # Replace the selection message with book info
+                message = await selection_message.edit(embed=embed, view=view)
+            else:
+                # Create new message if no selection message provided
+                message = await interaction.followup.send(embed=embed, view=view)
 
             # Wait for user to select type
             await view.wait()
@@ -948,34 +954,36 @@ class LibrarianCommands(commands.Cog):
 
                         # Update message with completion status
                         try:
-                            # Create new embed showing completion
-                            embed = discord.Embed(
-                                title=book.title,
-                                description="✨ Download Complete - Now Available",
-                                color=discord.Color.gold(),
-                                url=user_message.embeds[0].url if user_message.embeds else None,
-                            )
-
-                            # Copy relevant fields from original
+                            # Use the original embed and update it
                             if user_message.embeds:
-                                orig_embed = user_message.embeds[0]
-                                for field in orig_embed.fields:
-                                    embed.add_field(
-                                        name=field.name,
-                                        value=field.value,
-                                        inline=field.inline,
-                                    )
-
-                            # Add completion field
-                            embed.add_field(
-                                name="Status",
-                                value="✅ Download Complete - Now Available in Library",
-                                inline=False,
-                            )
-
-                            # Set thumbnail if available
-                            if user_message.embeds and user_message.embeds[0].thumbnail:
-                                embed.set_thumbnail(url=user_message.embeds[0].thumbnail.url)
+                                embed = user_message.embeds[0]
+                                # Update description to show completion
+                                embed.description = "✨ Download Complete - Now Available"
+                                # Change color to gold
+                                embed.color = discord.Color.gold()
+                                
+                                # Add or update the status field
+                                # Remove old status field if exists
+                                embed.remove_field(next((i for i, f in enumerate(embed.fields) if f.name == "Status"), -1))
+                                
+                                # Add completion status field at the end
+                                embed.add_field(
+                                    name="Status",
+                                    value="✅ Download Complete - Now Available in Library",
+                                    inline=False,
+                                )
+                            else:
+                                # Fallback if no embed exists
+                                embed = discord.Embed(
+                                    title=book.title,
+                                    description="✨ Download Complete - Now Available",
+                                    color=discord.Color.gold(),
+                                )
+                                embed.add_field(
+                                    name="Status",
+                                    value="✅ Download Complete - Now Available in Library",
+                                    inline=False,
+                                )
 
                             # Update message (remove buttons, update status)
                             await user_message.edit(embed=embed, view=None)
