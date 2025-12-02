@@ -11,7 +11,7 @@ from datetime import datetime
 import os
 import paramiko
 from pathlib import Path
-from audiobookshelf_api import trigger_library_scan
+from .audiobookshelf_api import trigger_library_scan
 from config import Config
 
 logger = logging.getLogger(__name__)
@@ -20,7 +20,10 @@ class QBitMonitor:
     """Monitors qBittorrent for completed downloads and organizes them"""
     
     # Persistent database for tracking processed torrents (survives bot restart)
-    PROCESSED_DB_FILE = ".processed_torrents.json"
+    # Database file in data/ folder
+    from pathlib import Path
+    PROJECT_ROOT = Path(__file__).parent.parent
+    PROCESSED_DB_FILE = str(PROJECT_ROOT / "data" / ".processed_torrents.json")
     
     def __init__(self, qbit_client, organizer_module, bot=None, book_requests_db=None):
         """
@@ -127,7 +130,7 @@ class QBitMonitor:
                     continue
                     
                 # Check if completed (seeding state or progress 100%)
-                from qbit_client import TorrentState
+                from .qbit_client import TorrentState
                 if torrent.state == TorrentState.SEEDING or torrent.progress >= 1.0:
                     logger.info(f"✅ Completed download detected: {torrent.name}")
                     logger.debug(f"Save path: {torrent.save_path}, Progress: {torrent.progress:.1%}")
@@ -239,7 +242,7 @@ class QBitMonitor:
                     embed.color = discord.Color.green()
                     
                     # Create view with Open Audiobookshelf button
-                    from discord_views import CompletedView
+                    from .discord_views import CompletedView
                     audiobookshelf_url = Config.AUDIOBOOKSHELF_URL
                     view = CompletedView(audiobookshelf_url) if audiobookshelf_url else None
                     

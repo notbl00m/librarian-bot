@@ -11,7 +11,11 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
-BOOK_REQUESTS_FILE = ".book_requests.json"
+# Database file in data/ folder
+import os
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).parent.parent
+BOOK_REQUESTS_FILE = str(PROJECT_ROOT / "data" / ".book_requests.json")
 
 
 class BookRequestsDB:

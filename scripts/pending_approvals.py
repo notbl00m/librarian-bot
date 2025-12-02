@@ -11,7 +11,11 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
-PENDING_APPROVALS_FILE = ".pending_approvals.json"
+# Database file in data/ folder
+import os
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).parent.parent
+PENDING_APPROVALS_FILE = str(PROJECT_ROOT / "data" / ".pending_approvals.json")
 
 
 class PendingApprovalsDB:

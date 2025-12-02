@@ -11,7 +11,11 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
-REQUEST_TRACKING_FILE = ".request_tracking.json"
+# Database file in data/ folder
+import os
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).parent.parent
+REQUEST_TRACKING_FILE = str(PROJECT_ROOT / "data" / ".request_tracking.json")
 
 
 class RequestTrackingDB:

@@ -12,13 +12,13 @@ import asyncio
 import uuid
 
 from config import Config
-from prowlarr_api import (
+from .prowlarr_api import (
     search_audiobook,
     search_ebook,
     SearchResult,
 )
-from qbit_client import get_qbit_client
-from discord_views import (
+from .qbit_client import get_qbit_client
+from .discord_views import (
     AdminApprovalView,
     PaginatedView,
     RequestTypeView,
@@ -26,13 +26,13 @@ from discord_views import (
     ApprovedView,
     DeniedView,
 )
-from open_library_api import search_open_library, BookMetadata as OLBookMetadata
-from google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
-from utils import format_size, truncate_string
-from audiobookshelf_api import trigger_library_scan
-from pending_approvals import PendingApprovalsDB
-from book_requests import BookRequestsDB
-from request_tracking import RequestTrackingDB
+from .open_library_api import search_open_library, BookMetadata as OLBookMetadata
+from .google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
+from .utils import format_size, truncate_string
+from .audiobookshelf_api import trigger_library_scan
+from .pending_approvals import PendingApprovalsDB
+from .book_requests import BookRequestsDB
+from .request_tracking import RequestTrackingDB
 
 logger = logging.getLogger(__name__)
 

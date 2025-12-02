@@ -10,18 +10,18 @@ from discord import app_commands
 from discord.ext import commands
 
 from config import Config
-from prowlarr_api import (
+from .prowlarr_api import (
     search_prowlarr,
     search_audiobook,
     search_ebook,
     SearchCategory,
     SearchResult,
 )
-from qbit_client import get_qbit_client
-from discord_views import SearchResultsView, AdminApprovalView, PaginatedView, RequestTypeView, PendingApprovalView, ApprovedView, DeniedView
-from open_library_api import search_open_library, BookMetadata as OLBookMetadata
-from google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
-from utils import format_size, truncate_string, split_into_chunks
+from .qbit_client import get_qbit_client
+from .discord_views import SearchResultsView, AdminApprovalView, PaginatedView, RequestTypeView, PendingApprovalView, ApprovedView, DeniedView
+from .open_library_api import search_open_library, BookMetadata as OLBookMetadata
+from .google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
+from .utils import format_size, truncate_string, split_into_chunks
 import asyncio
 
 logger = logging.getLogger(__name__)
