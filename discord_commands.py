@@ -358,34 +358,67 @@ class LibrarianCommands(commands.Cog):
                 await self._show_book_request(interaction, filtered_books[0])
                 return
             
-            # Build simple embed showing book options
-            book_text = "**📚 Which book did you mean?**\n\n"
-            
-            for idx, book in enumerate(filtered_books[:5], 1):  # Max 5 options
-                authors_str = ", ".join(book.authors) if book.authors else "Unknown"
-                year_str = f"{book.first_publish_year}" if book.first_publish_year else ""
-                
-                availability = []
-                if book.has_ebook:
-                    availability.append("📖")
-                if book.has_audiobook:
-                    availability.append("🎧")
-                avail_str = " " + " ".join(availability) if availability else ""
-                
-                book_text += f"{idx}. {truncate_string(book.title, 80)}\n"
-                book_text += f"   by {truncate_string(authors_str, 60)} ({year_str}){avail_str}\n\n"
-            
-            embed = discord.Embed(
-                description=book_text,
-                color=discord.Color.blue()
-            )
-            
-            # Create a view with numbered buttons
+            # Create a view with numbered buttons and pagination
             class BookSelectButtons(discord.ui.View):
                 def __init__(self, cog_instance, books_list):
                     super().__init__(timeout=300)
                     self.cog = cog_instance
                     self.books_list = books_list
+                    self.current_page = 0  # Page 0 = books 0-4, page 1 = books 5-9, etc
+                    self.total_pages = (len(books_list) + 4) // 5  # Ceiling division
+                    self.message = None
+                
+                def _get_current_books(self):
+                    """Get the 5 books for current page"""
+                    start = self.current_page * 5
+                    end = start + 5
+                    return self.books_list[start:end]
+                
+                def _build_embed(self):
+                    """Build the embed for current page"""
+                    current_books = self._get_current_books()
+                    book_text = "**📚 Which book did you mean?**\n\n"
+                    
+                    for idx, book in enumerate(current_books, 1):
+                        authors_str = ", ".join(book.authors) if book.authors else "Unknown"
+                        year_str = f"{book.first_publish_year}" if book.first_publish_year else ""
+                        
+                        availability = []
+                        if book.has_ebook:
+                            availability.append("📖")
+                        if book.has_audiobook:
+                            availability.append("🎧")
+                        avail_str = " " + " ".join(availability) if availability else ""
+                        
+                        book_text += f"{idx}. **{truncate_string(book.title, 70)}** by {truncate_string(authors_str, 40)}\n"
+                        book_text += f"   ({year_str}){avail_str}\n\n"
+                    
+                    # Add pagination info
+                    if self.total_pages > 1:
+                        book_text += f"*Page {self.current_page + 1} of {self.total_pages}*"
+                    
+                    embed = discord.Embed(
+                        description=book_text,
+                        color=discord.Color.blue()
+                    )
+                    return embed
+                
+                def _update_button_states(self):
+                    """Enable/disable prev/next buttons based on current page"""
+                    prev_button = None
+                    next_button = None
+                    
+                    for item in self.children:
+                        if isinstance(item, discord.ui.Button):
+                            if item.emoji and item.emoji.name == "arrow_left":
+                                prev_button = item
+                            elif item.emoji and item.emoji.name == "arrow_right":
+                                next_button = item
+                    
+                    if prev_button:
+                        prev_button.disabled = self.current_page == 0
+                    if next_button:
+                        next_button.disabled = self.current_page >= self.total_pages - 1
                 
                 @discord.ui.button(label="1", style=discord.ButtonStyle.primary, emoji="1️⃣")
                 async def button_1(self, button_interaction: discord.Interaction, button: discord.ui.Button):
@@ -407,14 +440,42 @@ class LibrarianCommands(commands.Cog):
                 async def button_5(self, button_interaction: discord.Interaction, button: discord.ui.Button):
                     await self._select_book(button_interaction, 4)
                 
-                async def _select_book(self, button_interaction: discord.Interaction, book_idx: int):
+                @discord.ui.button(label="Previous", style=discord.ButtonStyle.secondary, emoji="◀")
+                async def button_prev(self, button_interaction: discord.Interaction, button: discord.ui.Button):
+                    if self.current_page > 0:
+                        self.current_page -= 1
+                        self._update_button_states()
+                        await button_interaction.response.edit_message(
+                            embed=self._build_embed(),
+                            view=self
+                        )
+                    else:
+                        await button_interaction.response.defer()
+                
+                @discord.ui.button(label="Next", style=discord.ButtonStyle.secondary, emoji="▶")
+                async def button_next(self, button_interaction: discord.Interaction, button: discord.ui.Button):
+                    if self.current_page < self.total_pages - 1:
+                        self.current_page += 1
+                        self._update_button_states()
+                        await button_interaction.response.edit_message(
+                            embed=self._build_embed(),
+                            view=self
+                        )
+                    else:
+                        await button_interaction.response.defer()
+                
+                async def _select_book(self, button_interaction: discord.Interaction, relative_idx: int):
+                    """Select a book from current page"""
                     try:
-                        if book_idx >= len(self.books_list):
+                        # Calculate absolute index in full books list
+                        abs_idx = self.current_page * 5 + relative_idx
+                        
+                        if abs_idx >= len(self.books_list):
                             await button_interaction.response.defer()
                             return
                         
                         await button_interaction.response.defer()
-                        selected_book = self.books_list[book_idx]
+                        selected_book = self.books_list[abs_idx]
                         
                         # Show request view for selected book
                         await self.cog._show_book_request(button_interaction, selected_book)
@@ -426,13 +487,18 @@ class LibrarianCommands(commands.Cog):
                             ephemeral=True,
                         )
             
-            # Only show buttons for available books
+            # Create view and update button states
             view = BookSelectButtons(self, filtered_books)
-            for i in range(len(filtered_books), 5):
-                view.children[i].disabled = True
+            view._update_button_states()
+            
+            # Disable number buttons if there aren't enough books on current page
+            current_books = view._get_current_books()
+            for i in range(len(current_books), 5):
+                if i < len(view.children) - 2:  # Don't disable prev/next buttons
+                    view.children[i].disabled = True
 
             await interaction.followup.send(
-                embed=embed,
+                embed=view._build_embed(),
                 view=view,
             )
 
