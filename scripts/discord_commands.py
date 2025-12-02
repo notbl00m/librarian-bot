@@ -1051,6 +1051,10 @@ class LibrarianCommands(commands.Cog):
             
             # Store torrent hash and name in approval database for tracking
             if torrent_hash:
+                # Register torrent for monitoring
+                if self.bot.qbit_monitor:
+                    self.bot.qbit_monitor.track_torrent(torrent_hash)
+                
                 approval_data = self.approvals_db.get_approval(approval_id)
                 if approval_data:
                     approval_data["torrent_hash"] = torrent_hash
