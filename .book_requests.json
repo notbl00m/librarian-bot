@@ -1,0 +1,252 @@
+{
+  "9780307491732": {
+    "isbn": "9780307491732",
+    "book_title": "Tell No One",
+    "user_id": 378737013769240587,
+    "message_id": 1445447141534335057,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:11:06.842714"
+  },
+  "9780593374191": {
+    "isbn": "9780593374191",
+    "book_title": "Five Survive",
+    "user_id": 378737013769240587,
+    "message_id": 1445447563556818986,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:12:46.833449"
+  },
+  "9781786497628": {
+    "isbn": "9781786497628",
+    "book_title": "My Sister, the Serial Killer",
+    "user_id": 378737013769240587,
+    "message_id": 1445449092691132518,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:18:47.007653"
+  },
+  "9780593513033": {
+    "isbn": "9780593513033",
+    "book_title": "The Thursday Murder Club (Netflix Tie-In)",
+    "user_id": 378737013769240587,
+    "message_id": 1445453832086618347,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:37:37.427665"
+  },
+  "9780679405634": {
+    "isbn": "9780679405634",
+    "book_title": "The Woman in White",
+    "user_id": 378737013769240587,
+    "message_id": 1445467181537296464,
+    "channel_id": 1291129984353566820,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:30:47.005265"
+  },
+  "9781580493864": {
+    "isbn": "9781580493864",
+    "book_title": "The Hound of the Baskervilles",
+    "user_id": 378737013769240587,
+    "message_id": 1445454498716713074,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:40:15.548709"
+  },
+  "9780394757681": {
+    "isbn": "9780394757681",
+    "book_title": "The Long Goodbye",
+    "user_id": 378737013769240587,
+    "message_id": 1445467885051969677,
+    "channel_id": 1291129984353566820,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:33:41.588034"
+  },
+  "9781427080257": {
+    "isbn": "9781427080257",
+    "book_title": "The Leavenworth Case",
+    "user_id": 378737013769240587,
+    "message_id": 1445454765571182644,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:41:19.501236"
+  },
+  "the silence of the lambs, thomas harris": {
+    "isbn": null,
+    "book_title": "The Silence of the Lambs, Thomas Harris",
+    "user_id": 378737013769240587,
+    "message_id": 1445457671120752810,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:52:59.248666"
+  },
+  "9780369401229": {
+    "isbn": "9780369401229",
+    "book_title": "The Big Sleep",
+    "user_id": 378737013769240587,
+    "message_id": 1445457759893192880,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:53:17.382553"
+  },
+  "9780684803869": {
+    "isbn": "9780684803869",
+    "book_title": "The Daughter of Time",
+    "user_id": 378737013769240587,
+    "message_id": 1445457845289226323,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T11:53:35.673727"
+  },
+  "and then there were none": {
+    "isbn": null,
+    "book_title": "And Then There Were None",
+    "user_id": 378737013769240587,
+    "message_id": 1445462504091160608,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:12:09.553176"
+  },
+  "gaudy night": {
+    "isbn": null,
+    "book_title": "Gaudy Night",
+    "user_id": 378737013769240587,
+    "message_id": 1445462602607231100,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:12:28.547063"
+  },
+  "9781853260445": {
+    "isbn": "9781853260445",
+    "book_title": "The Moonstone",
+    "user_id": 378737013769240587,
+    "message_id": 1445462683393724666,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:12:50.128887"
+  },
+  "the thin man": {
+    "isbn": null,
+    "book_title": "The Thin Man",
+    "user_id": 378737013769240587,
+    "message_id": 1445463461621665866,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:15:55.653677"
+  },
+  "9781250301710": {
+    "isbn": "9781250301710",
+    "book_title": "The Silent Patient",
+    "user_id": 378737013769240587,
+    "message_id": 1445463975792738458,
+    "channel_id": 1291129984353566820,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:17:58.338515"
+  },
+  "9780143186373": {
+    "isbn": "9780143186373",
+    "book_title": "Tinker Tailor Soldier Spy",
+    "user_id": 378737013769240587,
+    "message_id": 1445464953539792951,
+    "channel_id": 1291129984353566820,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:21:49.857485"
+  },
+  "9780307949950": {
+    "isbn": "9780307949950",
+    "book_title": "A Coffin for Dimitrios",
+    "user_id": 378737013769240587,
+    "message_id": 1445469102087995574,
+    "channel_id": 1291129984353566820,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:38:20.155790"
+  },
+  "9780593565377": {
+    "isbn": "9780593565377",
+    "book_title": "One of Us Is Lying (TV Series Tie-In Edition)",
+    "user_id": 378737013769240587,
+    "message_id": 1445470810075566233,
+    "channel_id": 1291129984353566820,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:45:11.392385"
+  },
+  "9781982167981": {
+    "isbn": "9781982167981",
+    "book_title": "Postmortem",
+    "user_id": 378737013769240587,
+    "message_id": 1445471932899131536,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:49:37.290538"
+  },
+  "9781443452588": {
+    "isbn": "9781443452588",
+    "book_title": "Magpie Murders",
+    "user_id": 378737013769240587,
+    "message_id": 1445472334751207587,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:51:09.364142"
+  },
+  "9780099496939": {
+    "isbn": "9780099496939",
+    "book_title": "The Curious Incident of the Dog in the Night-time",
+    "user_id": 378737013769240587,
+    "message_id": 1445472455719391364,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T12:51:38.627598"
+  },
+  "9780593595732": {
+    "isbn": "9780593595732",
+    "book_title": "Promise Me Sunshine",
+    "user_id": 378737013769240587,
+    "message_id": 1445474749852680263,
+    "channel_id": 1445151968082526279,
+    "request_type": "audiobook",
+    "status": "pending",
+    "created_at": "2025-12-02T13:00:47.765564"
+  },
+  "9780743442534": {
+    "isbn": "9780743442534",
+    "book_title": "The Spy Who Came In from the Cold",
+    "user_id": 378737013769240587,
+    "message_id": 1445478158433259747,
+    "channel_id": 1332181903901458504,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T13:14:19.853482"
+  },
+  "9780156001311": {
+    "isbn": "9780156001311",
+    "book_title": "The Name of the Rose",
+    "user_id": 378737013769240587,
+    "message_id": 1445480710424105015,
+    "channel_id": 1445152029784936542,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T13:24:27.357119"
+  }
+}
