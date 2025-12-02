@@ -8,26 +8,21 @@ from typing import Optional, List
 import discord
 from discord import app_commands
 from discord.ext import commands
-import asyncio
 
 from config import Config
 from prowlarr_api import (
+    search_prowlarr,
     search_audiobook,
     search_ebook,
+    SearchCategory,
     SearchResult,
 )
 from qbit_client import get_qbit_client
-from discord_views import (
-    AdminApprovalView,
-    PaginatedView,
-    RequestTypeView,
-    PendingApprovalView,
-    ApprovedView,
-    DeniedView,
-)
+from discord_views import SearchResultsView, AdminApprovalView, PaginatedView, RequestTypeView, PendingApprovalView, ApprovedView, DeniedView
 from open_library_api import search_open_library, BookMetadata as OLBookMetadata
 from google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
-from utils import format_size, truncate_string
+from utils import format_size, truncate_string, split_into_chunks
+import asyncio
 
 logger = logging.getLogger(__name__)
 
@@ -61,8 +56,7 @@ class LibrarianCommands(commands.Cog):
 
         Args:
             interaction: Discord interaction
-            title: Book title
-            author: Optional author name
+            query: Search query (title or title+author)
         """
         try:
             # DEFER IMMEDIATELY with ephemeral to ensure Discord gets a response
@@ -196,14 +190,14 @@ class LibrarianCommands(commands.Cog):
         except (ValueError, IndexError):
             return None
 
-    async def _show_book_selection(
-        self, interaction: discord.Interaction, books: List[OLBookMetadata]
+    def _show_book_selection(
+        self, interaction: discord.Interaction, books: List[BookMetadata]
     ):
         """Show selection of multiple books"""
         try:
             # Create embeds for each book
             embeds = []
-            for idx, book in enumerate(books[:10], 1):  # Show up to 10
+            for idx, book in enumerate(books[:5], 1):  # Max 5 options
                 embed = discord.Embed(
                     title=f"{idx}. {book.title}",
                     description=f"**Author(s):** {', '.join(book.authors)}",
@@ -238,8 +232,8 @@ class LibrarianCommands(commands.Cog):
 
             # Create selection buttons
             options = [
-                discord.SelectOption(label=f"{idx}. {book.title[:100]}", value=str(idx - 1))
-                for idx, book in enumerate(books[:10], 1)
+                discord.SelectOption(label=f"{idx}. {book.title}", value=str(idx - 1))
+                for idx, book in enumerate(books[:5], 1)
             ]
 
             class BookSelect(discord.ui.Select):
@@ -357,15 +351,15 @@ class LibrarianCommands(commands.Cog):
                 f"User {interaction.user} requested {request_type} for: {book.title}"
             )
 
-            # Update the message with pending approval buttons
+            # Update the message with pending approval buttons (edit the message)
             pending_view = PendingApprovalView(book.title, request_type)
             try:
                 await message.edit(view=pending_view)
             except Exception as e:
                 logger.warning(f"Could not edit message: {e}")
 
-            # Search Prowlarr for torrents
-            # Clean the title - remove series info
+            # Search Prowlarr for torrents with correct category
+            # Clean the title - remove series info like "- The Empyrean #1"
             search_title = book.title.split(" - ")[0].split(" (")[0].strip()
             search_query = search_title
             if book.authors:
@@ -378,7 +372,7 @@ class LibrarianCommands(commands.Cog):
             else:  # ebook
                 prowlarr_results = await search_ebook(search_query, limit=Config.MAX_RESULTS)
 
-            logger.debug(f"Prowlarr returned {len(prowlarr_results)} results for {request_type}")
+            logger.debug(f"Prowlarr returned {len(prowlarr_results)} results for {request_type}: {[r.title for r in prowlarr_results[:3]]}")
 
             if not prowlarr_results:
                 await interaction.followup.send(
@@ -407,7 +401,7 @@ class LibrarianCommands(commands.Cog):
                 "message": message,
             }
 
-            # Send to admin channel for approval
+            # Send to admin channel for approval (pass all results)
             await self._send_admin_approval(
                 interaction, book, request_type, best_result, interaction.user, prowlarr_results
             )
@@ -468,7 +462,7 @@ class LibrarianCommands(commands.Cog):
                 inline=True,
             )
 
-            # Show available torrents info
+            # Show all available torrents info
             if all_torrents:
                 torrent_list = "\n".join(
                     [f"• {t.indexer}: {t.seeders} seeders" for t in all_torrents[:5]]
@@ -510,7 +504,7 @@ class LibrarianCommands(commands.Cog):
         interaction: discord.Interaction,
         user: discord.User,
         book: OLBookMetadata,
-        torrent: SearchResult,
+        torrent: SearchResult,  # Can be None, we'll use the selected from view
         request_type: str,
     ):
         """Handle admin approval and auto-download"""
@@ -637,6 +631,239 @@ class LibrarianCommands(commands.Cog):
         except Exception as e:
             logger.error(f"Error in admin denial: {e}")
 
+            if not results:
+                await interaction.followup.send(
+                    f"❌ No results found for: **{query}**",
+                    ephemeral=True,
+                )
+                return
+
+            # Format results for display
+            result_dicts = [r.to_dict() for r in results]
+
+            # Create embeds for results
+            embeds = []
+            for idx, result in enumerate(results[:Config.MAX_RESULTS], 1):
+                embed = discord.Embed(
+                    title=f"📚 Result {idx}: {truncate_string(result.title, 150)}",
+                    description=f"**Indexer:** {result.indexer}\n"
+                    f"**Size:** {format_size(result.size)}\n"
+                    f"**Seeders:** {result.seeders} | **Leechers:** {result.leechers}\n"
+                    f"**Published:** {result.publish_date}",
+                    color=discord.Color.blue(),
+                )
+                embed.set_footer(text=f"Result {idx} of {len(results)}")
+                embeds.append(embed)
+
+            # Create selection view
+            async def on_result_select(inter, selected, idx):
+                await inter.response.defer()
+                # Store selection for next step
+                self.pending_requests[interaction.user.id] = {
+                    "query": query,
+                    "results": result_dicts,
+                    "selected_idx": idx,
+                    "selected_result": selected,
+                }
+                await inter.followup.send(
+                    f"✅ Selected: **{selected['title']}**\n\n"
+                    f"Awaiting admin approval...",
+                    ephemeral=True,
+                )
+                # Send approval request to admins
+                await self._send_approval_request(interaction, selected, idx)
+
+            # Send results with dropdown
+            view = SearchResultsView(result_dicts, on_select=on_result_select)
+            await interaction.followup.send(
+                embeds=embeds[:1] if len(embeds) > 1 else embeds,
+                view=view,
+            )
+
+            # Send pagination if multiple results
+            if len(embeds) > 1:
+                paginated_view = PaginatedView(embeds)
+                await interaction.followup.send(
+                    "📖 **Scroll through results:**",
+                    view=paginated_view,
+                    ephemeral=True,
+                )
+
+        except Exception as e:
+            logger.error(f"Error in request command: {e}")
+            await interaction.followup.send(
+                f"❌ Error searching: {str(e)}",
+                ephemeral=True,
+            )
+
+    async def _send_approval_request(
+        self,
+        interaction: discord.Interaction,
+        result: dict,
+        result_idx: int,
+    ):
+        """
+        Send approval request to admins
+
+        Args:
+            interaction: Original user interaction
+            result: Selected search result
+            result_idx: Result index
+        """
+        try:
+            # Create approval embed
+            embed = discord.Embed(
+                title="📥 Download Approval Requested",
+                description=f"**Requester:** {interaction.user.mention}\n"
+                f"**Title:** {truncate_string(result['title'], 100)}\n"
+                f"**Indexer:** {result['indexer']}\n"
+                f"**Size:** {format_size(result['size'])}\n"
+                f"**Seeders:** {result['seeders']}",
+                color=discord.Color.orange(),
+            )
+
+            # Create approval view
+            async def on_approve(inter):
+                await self._approve_download(inter, interaction.user, result)
+
+            async def on_deny(inter):
+                await self._deny_download(inter, interaction.user, result)
+
+            approval_view = AdminApprovalView(
+                required_role=Config.ADMIN_ROLE,
+                on_approve=on_approve,
+                on_deny=on_deny,
+            )
+
+            # Find admin channel or use current channel
+            admin_channel = None
+            for channel in interaction.guild.text_channels:
+                if "admin" in channel.name.lower() or "approval" in channel.name.lower():
+                    admin_channel = channel
+                    break
+
+            if not admin_channel:
+                admin_channel = interaction.channel
+
+            await admin_channel.send(
+                embed=embed,
+                view=approval_view,
+            )
+
+            logger.info(
+                f"Approval request sent for: {result['title']} "
+                f"(Requester: {interaction.user})"
+            )
+
+        except Exception as e:
+            logger.error(f"Error sending approval request: {e}")
+
+    async def _approve_download(
+        self,
+        interaction: discord.Interaction,
+        requester: discord.User,
+        result: dict,
+    ):
+        """
+        Approve and start download
+
+        Args:
+            interaction: Admin interaction
+            requester: User who requested
+            result: Search result to download
+        """
+        try:
+            await interaction.response.defer()
+
+            # Create approval embed
+            embed = discord.Embed(
+                title="✅ Download Approved",
+                description=f"**Requester:** {requester.mention}\n"
+                f"**Title:** {truncate_string(result['title'], 100)}\n"
+                f"**Indexer:** {result['indexer']}\n"
+                f"**Approved by:** {interaction.user.mention}",
+                color=discord.Color.green(),
+            )
+
+            await interaction.channel.send(embed=embed)
+
+            # Add torrent to qBittorrent
+            client = get_qbit_client()
+            if not client.connect():
+                await requester.send(
+                    "❌ Failed to connect to download client. Please try again later."
+                )
+                logger.error("Failed to connect to qBittorrent")
+                return
+
+            torrent_hash = client.add_torrent(result["download_url"])
+            if not torrent_hash:
+                await requester.send(
+                    "❌ Failed to add torrent to download queue. Please try again later."
+                )
+                logger.error(f"Failed to add torrent: {result['download_url']}")
+                return
+
+            # Notify requester
+            await requester.send(
+                f"✅ **Download Approved!**\n\n"
+                f"**Title:** {result['title']}\n"
+                f"**Status:** Added to download queue\n\n"
+                f"I'll notify you when it's complete and organized."
+            )
+
+            logger.info(
+                f"Download approved for: {result['title']} "
+                f"(Requester: {requester}, Torrent: {torrent_hash})"
+            )
+
+        except Exception as e:
+            logger.error(f"Error approving download: {e}")
+
+    async def _deny_download(
+        self,
+        interaction: discord.Interaction,
+        requester: discord.User,
+        result: dict,
+    ):
+        """
+        Deny download request
+
+        Args:
+            interaction: Admin interaction
+            requester: User who requested
+            result: Search result that was denied
+        """
+        try:
+            await interaction.response.defer()
+
+            # Create denial embed
+            embed = discord.Embed(
+                title="❌ Download Denied",
+                description=f"**Requester:** {requester.mention}\n"
+                f"**Title:** {truncate_string(result['title'], 100)}\n"
+                f"**Denied by:** {interaction.user.mention}",
+                color=discord.Color.red(),
+            )
+
+            await interaction.channel.send(embed=embed)
+
+            # Notify requester
+            await requester.send(
+                f"❌ **Download Denied**\n\n"
+                f"**Title:** {result['title']}\n"
+                f"**Reason:** Admin approval denied\n\n"
+                f"You can try requesting a different result."
+            )
+
+            logger.info(
+                f"Download denied for: {result['title']} "
+                f"(Requester: {requester}, Denier: {interaction.user})"
+            )
+
+        except Exception as e:
+            logger.error(f"Error denying download: {e}")
+
     @app_commands.command(name="status", description="View active downloads")
     async def status_command(self, interaction: discord.Interaction):
         """
@@ -717,10 +944,10 @@ class LibrarianCommands(commands.Cog):
             )
 
             embed.add_field(
-                name="/request <title> [author]",
+                name="/request <query> [media_type]",
                 value="Search for a book or audiobook\n"
-                "- `title`: Book title (required)\n"
-                "- `author`: Author name (optional, improves accuracy)",
+                "- `query`: Book title or author\n"
+                "- `media_type`: audiobook, ebook, or all (default: all)",
                 inline=False,
             )
 
@@ -738,11 +965,11 @@ class LibrarianCommands(commands.Cog):
 
             embed.add_field(
                 name="How it works:",
-                value="1. Use `/request` to search Google Books & Open Library\n"
-                "2. Select the correct book from results\n"
-                "3. Choose ebook or audiobook\n"
-                "4. Admin approves the best torrent\n"
-                "5. Download starts automatically & organizes when done",
+                value="1. Use `/request` to search\n"
+                "2. Select a result from the dropdown\n"
+                "3. Admin approves or denies\n"
+                "4. Approved downloads start automatically\n"
+                "5. Receive DM when complete and organized",
                 inline=False,
             )
 
