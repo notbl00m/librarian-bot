@@ -360,23 +360,23 @@ class LibrarianCommands(commands.Cog):
                     if next_button:
                         next_button.disabled = self.current_page >= self.total_pages - 1
                 
-                @discord.ui.button(label="1", style=discord.ButtonStyle.primary, emoji="1️⃣")
+                @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="1️⃣")
                 async def button_1(self, button_interaction: discord.Interaction, button: discord.ui.Button):
                     await self._select_book(button_interaction, 0)
                 
-                @discord.ui.button(label="2", style=discord.ButtonStyle.primary, emoji="2️⃣")
+                @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="2️⃣")
                 async def button_2(self, button_interaction: discord.Interaction, button: discord.ui.Button):
                     await self._select_book(button_interaction, 1)
                 
-                @discord.ui.button(label="3", style=discord.ButtonStyle.primary, emoji="3️⃣")
+                @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="3️⃣")
                 async def button_3(self, button_interaction: discord.Interaction, button: discord.ui.Button):
                     await self._select_book(button_interaction, 2)
                 
-                @discord.ui.button(label="4", style=discord.ButtonStyle.primary, emoji="4️⃣")
+                @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="4️⃣")
                 async def button_4(self, button_interaction: discord.Interaction, button: discord.ui.Button):
                     await self._select_book(button_interaction, 3)
                 
-                @discord.ui.button(label="5", style=discord.ButtonStyle.primary, emoji="5️⃣")
+                @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="5️⃣")
                 async def button_5(self, button_interaction: discord.Interaction, button: discord.ui.Button):
                     await self._select_book(button_interaction, 4)
                 

@@ -44,7 +44,7 @@ class BookMetadata:
         }
 
 
-async def search_google_books(query: str, max_results: int = 5) -> List[BookMetadata]:
+async def search_google_books(query: str, max_results: int = 40) -> List[BookMetadata]:
     """
     Search Google Books API asynchronously with retry logic
 
