@@ -9,6 +9,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 import asyncio
+import uuid
 
 from config import Config
 from prowlarr_api import (
@@ -28,6 +29,10 @@ from discord_views import (
 from open_library_api import search_open_library, BookMetadata as OLBookMetadata
 from google_books_api import search_google_books, BookMetadata as GoogleBookMetadata
 from utils import format_size, truncate_string
+from audiobookshelf_api import trigger_library_scan
+from pending_approvals import PendingApprovalsDB
+from book_requests import BookRequestsDB
+from request_tracking import RequestTrackingDB
 
 logger = logging.getLogger(__name__)
 
@@ -44,6 +49,128 @@ class LibrarianCommands(commands.Cog):
         """
         self.bot = bot
         self.pending_requests = {}  # Track pending search requests
+        self.approvals_db = PendingApprovalsDB()  # Persistent approval storage
+        self.request_tracking_db = RequestTrackingDB()  # Track user↔admin message links
+        self.book_requests_db = BookRequestsDB()  # Track ISBN→message mapping
+
+    async def cog_load(self):
+        """Called when cog is loaded - restore pending approvals to Discord"""
+        try:
+            logger.info("Loading persistent approval requests...")
+            pending = self.approvals_db.get_pending_approvals()
+            logger.info(f"Found {len(pending)} pending approvals to restore")
+
+            for approval_id, approval_data in pending.items():
+                try:
+                    # Only restore if we have all needed data
+                    if not all([
+                        approval_data.get("message_id"),
+                        approval_data.get("channel_id"),
+                        approval_data.get("torrent_results"),
+                    ]):
+                        logger.warning(f"Skipping incomplete approval: {approval_id}")
+                        continue
+
+                    channel_id = approval_data["channel_id"]
+                    message_id = approval_data["message_id"]
+
+                    # Try to get the channel and message
+                    try:
+                        channel = await self.bot.fetch_channel(channel_id)
+                        message = await channel.fetch_message(message_id)
+                    except discord.NotFound:
+                        logger.warning(f"Message {message_id} not found in channel {channel_id}, skipping")
+                        continue
+                    except Exception as e:
+                        logger.warning(f"Could not fetch message {message_id}: {e}")
+                        continue
+
+                    # Reconstruct torrent results from stored data
+                    torrent_results = []
+                    for t_dict in approval_data.get("torrent_results", []):
+                        # Create a simple object that acts like SearchResult
+                        class TorrentResult:
+                            def __init__(self, data):
+                                self.title = data.get("title", "")
+                                self.indexer = data.get("indexer", "")
+                                self.seeders = data.get("seeders", 0)
+                                self.leechers = data.get("leechers", 0)
+                                self.size = data.get("size", 0)
+                                self.download_url = data.get("download_url", "")
+                        torrent_results.append(TorrentResult(t_dict))
+
+                    # Create callbacks that restore from stored data
+                    user_id = approval_data["user_id"]
+                    book_title = approval_data["book_title"]
+                    request_type = approval_data["request_type"]
+                    selected_torrent_data = approval_data.get("selected_torrent", {})
+
+                    async def make_approve_callback(aid, uid, book_t, req_type, sel_tor_data):
+                        async def callback(inter, view):
+                            # Reconstruct the torrent from stored data
+                            class TorrentResult:
+                                def __init__(self, data):
+                                    self.title = data.get("title", "")
+                                    self.indexer = data.get("indexer", "")
+                                    self.seeders = data.get("seeders", 0)
+                                    self.leechers = data.get("leechers", 0)
+                                    self.size = data.get("size", 0)
+                                    self.download_url = data.get("download_url", "")
+                            torrent = TorrentResult(sel_tor_data)
+
+                            # Get user object
+                            try:
+                                user = await self.bot.fetch_user(uid)
+                            except:
+                                user = None
+
+                            # Get book metadata (minimal)
+                            class BookMeta:
+                                def __init__(self, title):
+                                    self.title = title
+                                    self.authors = []
+                            book = BookMeta(book_t)
+
+                            await self._handle_admin_approve(inter, user, book, torrent, req_type, aid)
+                        return callback
+
+                    async def make_deny_callback(aid, uid, book_t):
+                        async def callback(inter, view):
+                            # Get user object
+                            try:
+                                user = await self.bot.fetch_user(uid)
+                            except:
+                                user = None
+
+                            # Get book metadata (minimal)
+                            class BookMeta:
+                                def __init__(self, title):
+                                    self.title = title
+                            book = BookMeta(book_t)
+
+                            await self._handle_admin_deny(inter, user, book, aid)
+                        return callback
+
+                    # Create new view for this message
+                    new_view = AdminApprovalView(
+                        torrent_results=torrent_results,
+                        approval_id=approval_id,
+                        on_approve=await make_approve_callback(approval_id, user_id, book_title, request_type, selected_torrent_data),
+                        on_deny=await make_deny_callback(approval_id, user_id, book_title),
+                    )
+
+                    # Attach the view to the message
+                    try:
+                        self.bot.add_view(new_view, message_id=message_id)
+                        logger.info(f"Restored approval buttons for message {message_id} (approval: {approval_id})")
+                    except Exception as e:
+                        logger.error(f"Error attaching view to message: {e}")
+
+                except Exception as e:
+                    logger.error(f"Error restoring approval {approval_id}: {e}", exc_info=True)
+
+        except Exception as e:
+            logger.error(f"Error loading persistent approvals: {e}", exc_info=True)
 
     @app_commands.command(name="request", description="Search for a book or audiobook")
     @app_commands.describe(
@@ -529,6 +656,19 @@ class LibrarianCommands(commands.Cog):
             except Exception as e:
                 logger.warning(f"Could not edit message: {e}")
 
+            # Track this request message with unique message ID (for multiple requests per user)
+            try:
+                self.request_tracking_db.add_request_message(
+                    user_message_id=message.id,
+                    user_id=interaction.user.id,
+                    channel_id=message.channel.id,
+                    book_title=book.title,
+                    request_type=request_type
+                )
+                logger.debug(f"Tracked user message {message.id} for {interaction.user.id}")
+            except Exception as e:
+                logger.error(f"Failed to track request message: {e}")
+
             # Search Prowlarr for torrents
             # Clean the title - remove series info
             search_title = book.title.split(" - ")[0].split(" (")[0].strip()
@@ -571,11 +711,12 @@ class LibrarianCommands(commands.Cog):
                 "user": interaction.user,
                 "message": message,
                 "isbn": book.isbn_13 or book.isbn_10,  # Store ISBN for completion tracking
+                "channel_id": message.channel.id,  # Store user's channel for fetching message later
             }
 
             # Send to admin channel for approval
             await self._send_admin_approval(
-                interaction, book, request_type, best_result, interaction.user, prowlarr_results
+                interaction, book, request_type, best_result, interaction.user, prowlarr_results, message.id
             )
 
         except Exception as e:
@@ -593,6 +734,7 @@ class LibrarianCommands(commands.Cog):
         torrent: SearchResult,
         user: discord.User,
         all_torrents: List[SearchResult] = None,
+        user_message_id: int = None,
     ):
         """
         Send approval request to admin channel
@@ -656,17 +798,99 @@ class LibrarianCommands(commands.Cog):
 
             embed.set_footer(text=f"User ID: {user.id}")
 
+            # Generate unique approval ID
+            approval_id = str(uuid.uuid4())
+
             # Create approval view with all torrents
             approval_view = AdminApprovalView(
                 torrent_results=all_torrents or [torrent],
+                approval_id=approval_id,
                 on_approve=lambda inter, view: self._handle_admin_approve(
-                    inter, user, book, view.selected_torrent, request_type
+                    inter, user, book, view.selected_torrent, request_type, approval_id
                 ),
-                on_deny=lambda inter, view: self._handle_admin_deny(inter, user, book),
+                on_deny=lambda inter, view: self._handle_admin_deny(inter, user, book, approval_id),
             )
 
             # Send to admin channel
-            await admin_channel.send(embed=embed, view=approval_view)
+            message = await admin_channel.send(embed=embed, view=approval_view)
+
+            # Link user message to admin approval message for later updates
+            if user_message_id:
+                try:
+                    self.request_tracking_db.link_admin_message(
+                        user_message_id=user_message_id,
+                        admin_message_id=message.id,
+                        admin_channel_id=admin_channel.id
+                    )
+                    logger.debug(f"Linked user message {user_message_id} to admin message {message.id}")
+                except Exception as e:
+                    logger.error(f"Failed to link admin message to tracking db: {e}")
+
+            # Convert torrent results to storable dicts
+            torrent_dicts = [
+                {
+                    "title": t.title,
+                    "indexer": t.indexer,
+                    "seeders": t.seeders,
+                    "leechers": t.leechers,
+                    "size": t.size,
+                    "download_url": t.download_url,
+                }
+                for t in (all_torrents or [torrent])
+            ]
+
+            selected_torrent_dict = {
+                "title": torrent.title,
+                "indexer": torrent.indexer,
+                "seeders": torrent.seeders,
+                "leechers": torrent.leechers,
+                "size": torrent.size,
+                "download_url": torrent.download_url,
+            }
+
+            # Store approval in persistent database
+            # Get user message ID from request tracking database (not from unreliable pending_requests dict)
+            user_message_id = None
+            user_channel_id = None
+            
+            # Get the most recent pending request for this user from the tracking database
+            try:
+                all_pending = self.request_tracking_db.get_all_pending_requests_for_user(user.id)
+                if all_pending:
+                    # Get the most recent one (should be the current request we just tracked)
+                    latest_pending = all_pending[-1]  # Last one is most recent
+                    user_message_id = latest_pending.get("user_message_id")
+                    user_channel_id = latest_pending.get("channel_id")
+                    logger.debug(f"Found user message {user_message_id} from tracking db for user {user.id}")
+            except Exception as e:
+                logger.warning(f"Could not find pending request from tracking db: {e}")
+            
+            # Also track the book request so we can update the message when it's organized
+            isbn = book.isbn_13 or book.isbn_10
+            if user_message_id and user_channel_id:
+                self.book_requests_db.add_request(
+                    isbn=isbn,
+                    book_title=book.title,
+                    user_id=user.id,
+                    message_id=user_message_id,
+                    channel_id=user_channel_id,
+                    request_type=request_type,
+                )
+            
+            self.approvals_db.add_approval(
+                approval_id=approval_id,
+                user_id=user.id,
+                book_title=book.title,
+                request_type=request_type,
+                torrent_results=torrent_dicts,
+                selected_torrent=selected_torrent_dict,
+                message_id=message.id,
+                channel_id=admin_channel.id,
+                user_message_id=user_message_id,
+                user_channel_id=user_channel_id,
+            )
+
+            logger.info(f"Approval request stored: {approval_id} for {book.title}")
 
         except Exception as e:
             logger.error(f"Error sending admin approval: {e}", exc_info=True)
@@ -678,6 +902,7 @@ class LibrarianCommands(commands.Cog):
         book: OLBookMetadata,
         torrent: SearchResult,
         request_type: str,
+        approval_id: str = None,
     ):
         """Handle admin approval and auto-download"""
         try:
@@ -691,25 +916,51 @@ class LibrarianCommands(commands.Cog):
             selected_torrent = torrent
             logger.info(f"Using torrent: {selected_torrent.title} from {selected_torrent.indexer}")
 
-            # Update user's original message to show Approved button
-            if user.id in self.pending_requests:
+            # Update approval status in database
+            if approval_id:
+                self.approvals_db.update_approval(approval_id, "approved")
+
+            # Get user message ID from tracking database using approval_id
+            user_msg_id = None
+            user_ch_id = None
+            admin_msg_id = None
+            admin_ch_id = None
+            
+            if approval_id:
                 try:
-                    user_message = self.pending_requests[user.id].get("message")
-                    if user_message:
-                        approved_view = ApprovedView()
-                        await user_message.edit(view=approved_view)
+                    approval_data = self.approvals_db.get_approval(approval_id)
+                    if approval_data:
+                        user_msg_id = approval_data.get("user_message_id")
+                        user_ch_id = approval_data.get("user_channel_id")
+                        admin_msg_id = approval_data.get("message_id")
+                        admin_ch_id = approval_data.get("channel_id")
                 except Exception as e:
-                    logger.warning(f"Could not update user message: {e}")
+                    logger.warning(f"Could not fetch approval data: {e}")
+
+            # Update user's original message to show Approved button
+            user_message = None
+            if user_msg_id and user_ch_id:
+                try:
+                    channel = await self.bot.fetch_channel(user_ch_id)
+                    if channel:
+                        user_message = await channel.fetch_message(user_msg_id)
+                except Exception as e:
+                    logger.warning(f"Could not fetch user message {user_msg_id}: {e}")
+            
+            # Update the user message if we found it
+            if user_message:
+                try:
+                    approved_view = ApprovedView()
+                    await user_message.edit(view=approved_view)
+                    logger.info(f"Updated user message {user_msg_id} to show approved status")
+                except Exception as e:
+                    logger.warning(f"Could not update user message {user_msg_id}: {e}")
 
             # Add torrent to qBittorrent
             qbit = get_qbit_client()
             download_url = selected_torrent.download_url
             if not download_url:
                 logger.error(f"No download URL for torrent: {selected_torrent.title}")
-                await interaction.followup.send(
-                    f"❌ Error: No download URL available for {selected_torrent.title}",
-                    ephemeral=True,
-                )
                 return
 
             # Add to qBittorrent with category
@@ -720,7 +971,7 @@ class LibrarianCommands(commands.Cog):
 
             logger.info(f"Torrent added to qBittorrent: {selected_torrent.title}")
 
-            # Send confirmation to user
+            # Notify user
             try:
                 user_embed = discord.Embed(
                     title="✅ Request Approved & Downloading",
@@ -749,22 +1000,39 @@ class LibrarianCommands(commands.Cog):
             except Exception as e:
                 logger.warning(f"Could not send DM to user {user}: {e}")
 
-            # Send admin confirmation
-            await interaction.followup.send(
-                f"✅ Download started for {user.mention}\n"
-                f"**{book.title}** ({request_type})",
-                ephemeral=True,
-            )
+            # Update admin message to show approval status (replace buttons with status)
+            if approval_id:
+                try:
+                    approval_data = self.approvals_db.get_approval(approval_id)
+                    if approval_data:
+                        admin_msg_id = approval_data.get("message_id")
+                        admin_ch_id = approval_data.get("channel_id")
+                        if admin_msg_id and admin_ch_id:
+                            admin_channel = await self.bot.fetch_channel(admin_ch_id)
+                            if admin_channel:
+                                admin_message = await admin_channel.fetch_message(admin_msg_id)
+                                # Create approval status embed based on current message
+                                approval_embed = admin_message.embeds[0] if admin_message.embeds else None
+                                if approval_embed:
+                                    # Add approval info to embed
+                                    approval_embed.add_field(
+                                        name="✅ APPROVED",
+                                        value=f"Approved by {interaction.user.mention}\nDownload started",
+                                        inline=False
+                                    )
+                                    approval_embed.color = discord.Color.green()
+                                    
+                                    from discord_views import ApprovedView
+                                    status_view = ApprovedView()
+                                    await admin_message.edit(embed=approval_embed, view=status_view)
+                except Exception as e:
+                    logger.warning(f"Could not update admin message: {e}")
 
         except Exception as e:
             logger.error(f"Error in admin approval: {e}", exc_info=True)
-            await interaction.followup.send(
-                f"❌ Error processing approval: {str(e)}",
-                ephemeral=True,
-            )
 
     async def _handle_admin_deny(
-        self, interaction: discord.Interaction, user: discord.User, book: OLBookMetadata
+        self, interaction: discord.Interaction, user: discord.User, book: OLBookMetadata, approval_id: str = None
     ):
         """Handle admin denial"""
         try:
@@ -772,15 +1040,45 @@ class LibrarianCommands(commands.Cog):
 
             logger.info(f"Admin {interaction.user} denied request for {book.title}")
 
-            # Update user's original message to show Denied button
-            if user.id in self.pending_requests:
+            # Update approval status in database
+            if approval_id:
+                self.approvals_db.update_approval(approval_id, "denied")
+
+            # Get user message ID from tracking database using approval_id
+            user_msg_id = None
+            user_ch_id = None
+            admin_msg_id = None
+            admin_ch_id = None
+            
+            if approval_id:
                 try:
-                    user_message = self.pending_requests[user.id].get("message")
-                    if user_message:
-                        denied_view = DeniedView()
-                        await user_message.edit(view=denied_view)
+                    approval_data = self.approvals_db.get_approval(approval_id)
+                    if approval_data:
+                        user_msg_id = approval_data.get("user_message_id")
+                        user_ch_id = approval_data.get("user_channel_id")
+                        admin_msg_id = approval_data.get("message_id")
+                        admin_ch_id = approval_data.get("channel_id")
                 except Exception as e:
-                    logger.warning(f"Could not update user message: {e}")
+                    logger.warning(f"Could not fetch approval data: {e}")
+
+            # Update user's original message to show Denied button
+            user_message = None
+            if user_msg_id and user_ch_id:
+                try:
+                    channel = await self.bot.fetch_channel(user_ch_id)
+                    if channel:
+                        user_message = await channel.fetch_message(user_msg_id)
+                except Exception as e:
+                    logger.warning(f"Could not fetch user message {user_msg_id}: {e}")
+            
+            # Update the user message if we found it
+            if user_message:
+                try:
+                    denied_view = DeniedView()
+                    await user_message.edit(view=denied_view)
+                    logger.info(f"Updated user message {user_msg_id} to show denied status")
+                except Exception as e:
+                    logger.warning(f"Could not update user message {user_msg_id}: {e}")
 
             # Notify user
             try:
@@ -795,10 +1093,28 @@ class LibrarianCommands(commands.Cog):
             except Exception as e:
                 logger.warning(f"Could not send DM to user {user}: {e}")
 
-            await interaction.followup.send(
-                f"❌ Request denied for {user.mention}",
-                ephemeral=True,
-            )
+            # Update admin message to show denial status (replace buttons with status)
+            if admin_msg_id and admin_ch_id:
+                try:
+                    admin_channel = await self.bot.fetch_channel(admin_ch_id)
+                    if admin_channel:
+                        admin_message = await admin_channel.fetch_message(admin_msg_id)
+                        # Create denial status embed based on current message
+                        denial_embed = admin_message.embeds[0] if admin_message.embeds else None
+                        if denial_embed:
+                            # Add denial info to embed
+                            denial_embed.add_field(
+                                name="❌ DENIED",
+                                value=f"Denied by {interaction.user.mention}",
+                                inline=False
+                            )
+                            denial_embed.color = discord.Color.red()
+                            
+                            from discord_views import DeniedView
+                            status_view = DeniedView()
+                            await admin_message.edit(embed=denial_embed, view=status_view)
+                except Exception as e:
+                    logger.warning(f"Could not update admin message: {e}")
 
         except Exception as e:
             logger.error(f"Error in admin denial: {e}")
@@ -988,6 +1304,9 @@ class LibrarianCommands(commands.Cog):
                             # Update message (remove buttons, update status)
                             await user_message.edit(embed=embed, view=None)
                             logger.info(f"✅ Updated message for {user}: {book.title}")
+                            
+                            # Trigger AudiobookShelf library scan if configured
+                            await trigger_library_scan()
 
                         except Exception as e:
                             logger.warning(f"Could not update message: {e}")

@@ -55,6 +55,12 @@ class Config:
     UNRAID_PASSWORD: str = os.getenv("UNRAID_PASSWORD", "")
     UNRAID_LIBRARY_PATH: str = os.getenv("UNRAID_LIBRARY_PATH", "/mnt/user/library")
     
+    # AudiobookShelf Configuration
+    AUDIOBOOKSHELF_URL: str = os.getenv("AUDIOBOOKSHELF_URL", "http://localhost:13378")
+    AUDIOBOOKSHELF_API_KEY: str = os.getenv("AUDIOBOOKSHELF_API_KEY", "")
+    AUDIOBOOKSHELF_LIBRARY_ID: str = os.getenv("AUDIOBOOKSHELF_LIBRARY_ID", "")
+    AUDIOBOOKSHELF_TIMEOUT: int = int(os.getenv("AUDIOBOOKSHELF_TIMEOUT", "30"))
+    
     # Path Mappings: parse from env variable
     _path_mappings_str: str = os.getenv("PATH_MAPPINGS", "")
     PATH_MAPPINGS: dict = {}  # Will be parsed in __post_init__

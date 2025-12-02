@@ -16,6 +16,7 @@ from utils import get_timestamp
 from prowlarr_api import test_prowlarr_connection
 from qbit_client import get_qbit_client
 from qbit_monitor import QBitMonitor
+from audiobookshelf_api import test_connection as test_audiobookshelf
 import library_organizer
 
 # Setup logging
@@ -72,6 +73,20 @@ class LibrarianBot(commands.Bot):
         # Initialize qBit monitor (pass self so it can notify cog)
         qbit_client = get_qbit_client()
         self.qbit_monitor = QBitMonitor(qbit_client, library_organizer, bot=self)
+        
+        # Update qbit_monitor with book_requests_db from the cog after a short delay
+        # (gives the cog time to fully initialize)
+        async def setup_book_requests_db():
+            await asyncio.sleep(0.5)
+            try:
+                cog = self.get_cog('LibrarianCommands')
+                if cog and hasattr(cog, 'book_requests_db'):
+                    self.qbit_monitor.book_requests_db = cog.book_requests_db
+                    logger.info("✅ Linked book_requests_db to qbit_monitor")
+            except Exception as e:
+                logger.warning(f"Could not link book_requests_db: {e}")
+        
+        asyncio.create_task(setup_book_requests_db())
         
         # Start background tasks
         self.monitor_torrents.start()
@@ -167,6 +182,13 @@ async def main():
             logger.info("✅ qBittorrent connection OK")
         else:
             logger.warning("⚠️  qBittorrent connection failed (non-blocking)")
+
+        # Test AudiobookShelf
+        abs_ok = await test_audiobookshelf()
+        if abs_ok:
+            logger.info("✅ AudiobookShelf connection OK")
+        else:
+            logger.debug("ℹ️  AudiobookShelf not configured or unreachable (non-blocking)")
 
         # Create and run bot
         logger.info("🚀 Starting Discord bot...")

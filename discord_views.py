@@ -349,7 +349,8 @@ class AdminApprovalView(RoleCheckView):
         required_role: Optional[str] = None,
         on_approve: Optional[Callable] = None,
         on_deny: Optional[Callable] = None,
-        timeout: int = 600,
+        approval_id: str = None,
+        timeout: int = None,
     ):
         """
         Initialize admin approval view
@@ -359,8 +360,10 @@ class AdminApprovalView(RoleCheckView):
             required_role: Admin role required (None to skip role check)
             on_approve: Callback on approve
             on_deny: Callback on deny
-            timeout: How long view stays active (seconds)
+            approval_id: Unique ID for this approval request
+            timeout: How long view stays active (None = never timeout for persistence)
         """
+        # Never timeout so buttons remain active indefinitely
         super().__init__(required_role=required_role or "Admin", timeout=timeout)
         self.on_approve = on_approve
         self.on_deny = on_deny
@@ -368,6 +371,7 @@ class AdminApprovalView(RoleCheckView):
         self.required_role = required_role
         self.torrent_results = torrent_results or []
         self.selected_torrent = self.torrent_results[0] if self.torrent_results else None
+        self.approval_id = approval_id
 
         # Add indexer dropdown if multiple results
         if len(self.torrent_results) > 1:
@@ -443,16 +447,9 @@ class IndexerSelect(ui.Select):
             await interaction.response.defer()
             selected_idx = int(self.values[0])
             self._parent_view.selected_torrent = self._parent_view.torrent_results[selected_idx]
-            await interaction.followup.send(
-                f"✅ Selected: {self._parent_view.selected_torrent.indexer}",
-                ephemeral=True,
-            )
+            # Silently update selection without sending a message
         except Exception as e:
             logger.error(f"Error in indexer selection: {e}", exc_info=True)
-            await interaction.followup.send(
-                "❌ Error selecting indexer",
-                ephemeral=True,
-            )
 
 
 class ApprovalButton(ui.Button):

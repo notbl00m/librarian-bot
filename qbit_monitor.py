@@ -5,6 +5,7 @@ Monitors qBittorrent for completed downloads and triggers organization
 
 import asyncio
 import logging
+import json
 from typing import Set, Dict, Any
 from datetime import datetime
 import os
@@ -16,7 +17,10 @@ logger = logging.getLogger(__name__)
 class QBitMonitor:
     """Monitors qBittorrent for completed downloads and organizes them"""
     
-    def __init__(self, qbit_client, organizer_module, bot=None):
+    # Persistent database for tracking processed torrents (survives bot restart)
+    PROCESSED_DB_FILE = ".processed_torrents.json"
+    
+    def __init__(self, qbit_client, organizer_module, bot=None, book_requests_db=None):
         """
         Initialize the monitor
         
@@ -24,13 +28,41 @@ class QBitMonitor:
             qbit_client: QBittorrentAPI instance
             organizer_module: The library_organizer module
             bot: Optional Discord bot instance for notifications
+            book_requests_db: Optional BookRequestsDB for updating user messages
         """
         self.qbit = qbit_client
         self.organizer = organizer_module
         self.bot = bot
-        self.processed_hashes: Set[str] = set()
+        self.book_requests_db = book_requests_db
+        self.processed_hashes: Set[str] = self._load_processed_hashes()
         self.monitoring = False
         self.task = None
+    
+    def _load_processed_hashes(self) -> Set[str]:
+        """Load processed torrent hashes from persistent database"""
+        try:
+            if Path(self.PROCESSED_DB_FILE).exists():
+                with open(self.PROCESSED_DB_FILE, 'r') as f:
+                    data = json.load(f)
+                    hashes = set(data.get("processed_hashes", []))
+                    logger.debug(f"Loaded {len(hashes)} previously processed torrents from disk")
+                    return hashes
+        except Exception as e:
+            logger.warning(f"Could not load processed torrents database: {e}")
+        return set()
+    
+    def _save_processed_hashes(self):
+        """Save processed torrent hashes to persistent database"""
+        try:
+            data = {
+                "processed_hashes": list(self.processed_hashes),
+                "last_updated": datetime.now().isoformat()
+            }
+            with open(self.PROCESSED_DB_FILE, 'w') as f:
+                json.dump(data, f, indent=2)
+            logger.debug(f"Saved {len(self.processed_hashes)} processed torrents to disk")
+        except Exception as e:
+            logger.error(f"Could not save processed torrents database: {e}")
         
     async def start(self):
         """Start monitoring qBittorrent"""
@@ -107,6 +139,7 @@ class QBitMonitor:
                     
                     # Mark as processed
                     self.processed_hashes.add(torrent_hash)
+                    self._save_processed_hashes()  # Persist to disk
                     logger.info(f"📚 Marked as processed: {torrent.name}")
                     
         except Exception as e:
@@ -139,13 +172,43 @@ class QBitMonitor:
     
     async def _notify_bot_completion(self, torrent_name: str):
         """
-        Notify bot that a download is complete so it can update the message
+        Notify bot that a download is complete and update user message
         
         Args:
             torrent_name: Name of the completed torrent
         """
         try:
-            # Get the cog with pending requests
+            if not self.bot:
+                return
+
+            # Try to update the user's message if we have book_requests_db
+            if self.book_requests_db:
+                try:
+                    # Get request info by torrent name (approximated as book title)
+                    request_info = self.book_requests_db.get_request(book_title=torrent_name)
+                    
+                    if request_info:
+                        message_id = request_info.get("message_id")
+                        channel_id = request_info.get("channel_id")
+                        
+                        if message_id and channel_id:
+                            try:
+                                channel = await self.bot.fetch_channel(channel_id)
+                                message = await channel.fetch_message(message_id)
+                                
+                                # Update message to show approved status
+                                from discord_views import ApprovedView
+                                await message.edit(view=ApprovedView())
+                                logger.info(f"Updated user message for completed download: {torrent_name}")
+                                
+                                # Mark as completed in database
+                                self.book_requests_db.mark_complete(book_title=torrent_name, status="completed")
+                            except Exception as e:
+                                logger.warning(f"Could not update user message for {torrent_name}: {e}")
+                except Exception as e:
+                    logger.debug(f"Could not find book request for {torrent_name}: {e}")
+            
+            # Also notify cog if it has the method
             cog = self.bot.get_cog('LibrarianCommands')
             if cog and hasattr(cog, 'on_download_completed'):
                 await cog.on_download_completed(torrent_name)
@@ -200,13 +263,23 @@ class QBitMonitor:
             stdin, stdout, stderr = ssh.exec_command(f"mkdir -p '{organizer_remote_dir}'")
             stdout.channel.recv_exit_status()
             
-            # Upload organizer script
-            logger.info(f"📤 Uploading organizer script to seedbox...")
+            # Check if organizer script already exists on seedbox
             sftp = ssh.open_sftp()
-            sftp.put(local_script, organizer_script_path)
-            logger.info(f"✅ Uploaded: {organizer_script_path}")
+            script_exists = False
+            try:
+                sftp.stat(organizer_script_path)
+                script_exists = True
+                logger.info(f"✅ Organizer script already exists on seedbox (skipping upload)")
+            except FileNotFoundError:
+                script_exists = False
             
-            # Create .env file on seedbox with correct paths
+            # Only upload if it doesn't exist (preserves database in that directory)
+            if not script_exists:
+                logger.info(f"📤 Uploading organizer script to seedbox...")
+                sftp.put(local_script, organizer_script_path)
+                logger.info(f"✅ Uploaded: {organizer_script_path}")
+            
+            # Create .env file on seedbox with correct paths (update each time in case config changed)
             env_content = f"""QBIT_DOWNLOAD_PATH={os.getenv("QBIT_DOWNLOAD_PATH", "/home/bloomstreaming/downloads/completed/MAM/")}
 LIBRARY_PATH={os.getenv("LIBRARY_PATH", "/home/bloomstreaming/downloads/completed/BLOOM-LIBRARY")}
 ORGANIZER_REMOTE_PATH={organizer_remote_dir}
@@ -214,7 +287,7 @@ ORGANIZER_REMOTE_PATH={organizer_remote_dir}
             env_path = f"{organizer_remote_dir}/.env"
             with sftp.open(env_path, 'w') as f:
                 f.write(env_content)
-            logger.info(f"✅ Created .env: {env_path}")
+            logger.info(f"✅ .env configured: {env_path}")
             
             sftp.close()
             
