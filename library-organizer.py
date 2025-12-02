@@ -20,8 +20,9 @@ import logging
 import sys
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from /app/config/.env if it exists (Docker), otherwise from local .env
+env_path = Path("/app/config/.env") if Path("/app/config/.env").exists() else None
+load_dotenv(dotenv_path=env_path)
 
 # Color support for Windows and Unix
 try:
