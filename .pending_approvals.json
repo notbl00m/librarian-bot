@@ -358,5 +358,2461 @@
     "status": "approved",
     "created_at": "2025-12-02T10:27:20.644702",
     "updated_at": "2025-12-02T10:27:50.495975"
+  },
+  "556373b2-da59-4eec-8f81-84b54c24abd2": {
+    "user_id": 378737013769240587,
+    "book_title": "How to Solve Your Own Murder",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Kristen.Perrin.-.How.To.Solve.Your.Own.Murder.A.Novel.2024.RETAIL.EPUB.eBook-CTO",
+        "indexer": "seedpool (API)",
+        "seeders": 1,
+        "leechers": 0,
+        "size": 2886525,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZFFMWnBoVzBrbXk4SDFNbWgxd3BBZW9TTXd6MVovMDI2bGQ2cnozcld1dU12MitNMWtqZE8xa015NTVBZE9oUUt4Qml6ZGJnek4xYS9LdTdqZVcwL05uSktUemRrc3BoSlhpTEY4VVhKN01wTC9TUENreGY5alFLa25KSVFEaHk&file=Kristen.Perrin.-.How.To.Solve.Your.Own.Murder.A.Novel.2024.RETAIL.EPUB.eBook-CTO"
+      },
+      {
+        "title": "How to Solve Your Own Murder by Kristen Perrin [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 52,
+        "leechers": 0,
+        "size": 313419360,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VVlFYWRib0NpOS85cUg2VWxhS0Q3ZGQrdmZtTDdsSWIwWW5RSnBYcS9NTzd0ZW1PeUJrZzRTSFExbXprSEZXczVpNi9JeC9pYkhQTDBtYmQzVjlpQXphQ2FERE1uaW80cGE3WnNocGhSOHM9&file=How+to+Solve+Your+Own+Murder+by+Kristen+Perrin+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "How to Solve Your Own Murder by Kristen Perrin [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 83,
+        "leechers": 0,
+        "size": 621805568,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=M0IyRWxJY2FIbVlKdEIwbE5iRmk2engzeUNrb2hPOVl0bEo4M1AxNk1PR2poNEtnTjVPa1I2Z2F5NjNkRWhYSktuNEVrK0NKUm54Vlk1dG1TOUFIazVZSGczOTBmdmVCdDJOVFZId1MxU2M9&file=How+to+Solve+Your+Own+Murder+by+Kristen+Perrin+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      },
+      {
+        "title": "How to Solve Your Own Murder by Kristen Perrin [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 156,
+        "leechers": 0,
+        "size": 1153433,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=TzBieHB3UUJoMmZRRHlVemJOZjVBZ2pZaEtlKzJ5NFpjTUY0Sm9yZ3lKZkhPejBBaitzOTljTE5pK256YlJnV29TYnZROUh2RDBZZ2ZzQ1lTb1FHZXF1d2hKcGxEdnFYc1VmdlhacFFQRE09&file=How+to+Solve+Your+Own+Murder+by+Kristen+Perrin+%5BENG+%2F+EPUB%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "How to Solve Your Own Murder by Kristen Perrin [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 156,
+      "leechers": 0,
+      "size": 1153433,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=TzBieHB3UUJoMmZRRHlVemJOZjVBZ2pZaEtlKzJ5NFpjTUY0Sm9yZ3lKZkhPejBBaitzOTljTE5pK256YlJnV29TYnZROUh2RDBZZ2ZzQ1lTb1FHZXF1d2hKcGxEdnFYc1VmdlhacFFQRE09&file=How+to+Solve+Your+Own+Murder+by+Kristen+Perrin+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445444031072047315,
+    "channel_id": 1291129984353566820,
+    "user_message_id": null,
+    "user_channel_id": null,
+    "status": "approved",
+    "created_at": "2025-12-02T10:58:32.587180",
+    "updated_at": "2025-12-02T10:59:55.191581"
+  },
+  "3aace3a5-1379-456b-887b-d948c233b127": {
+    "user_id": 378737013769240587,
+    "book_title": "The Murder of Roger Ackroyd",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 32,
+        "leechers": 0,
+        "size": 203214032,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OVM3K0Zxbng3NVU1cnFZajdTQlJGRGdRNjhiSGJMS3I1SWs0MEJKSXh4YTBSSVRDUGVOWk5RR3haY3Z1VU1zT2krSUlBRE9UWi9sQUlkQUl1UFNvUHFCaDhUWnBXcE5uWnloUzJaRmlnbGM9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie, BBC Radio 4 [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 7,
+        "leechers": 0,
+        "size": 83571504,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=cHNJTW5MS2F1V1R3eW5landKeVVvREU3aHdMMzhDeTI3ZlBZY2FqOGEyU01YVS9iVWFxc3ZKSHR3REF2TmRVM1Y4ZHdvVGV5dXZ4Y0xTSTBRallHMHRxbm5WVFk3NlVWTGNMUnR3cEpCdlE9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie%2C+BBC+Radio+4+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / TXT]",
+        "indexer": "MyAnonamouse",
+        "seeders": 35,
+        "leechers": 0,
+        "size": 389427,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=L1V4YVNlQ3lqUmExM1FXUlhic1NaMzE4alp0UnhYY1gwMktHMi9wKzZlRVZFY3hNU2xEL0R4dXpNYU9wTEk0NGxsWHM5ak1FRUNUbk1rdDdNbWFMRzQrekV5T00wbFRNa0w4VXpwWVFqSTQ9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+TXT%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 7,
+        "leechers": 0,
+        "size": 400765760,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Rmp5NGFzT1RIUlEwWFZOYTExNTNmTEJQZ0htcWc1WVZLSURHN0FIc0hkaXVabFF1RVhTeG5RdlF3VnYvQldCZkZQZ05MN2kzQ2NFYXNEYmEzSENHVDFrSHRlS0JwclRpSDNqM09rVmNyeVU9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 45,
+        "leechers": 0,
+        "size": 434634752,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NENLS2FMdENFQjBMOVZWbXVzMHhwRVNrZWU5T1JmRkFQMXd4aXY3WHp5dDJyenlzZWtqWGN0SDE5OHB2S21IUUdFdVRIS1JGeWw0c3BVbHg1a1E5ZFo0UUlxa1JpRzVNdHduWnZvSFV6V2s9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 80,
+        "leechers": 0,
+        "size": 6186598,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RlhDb1REaklxWVliSjlselczaU9Fdm5jaUNwVUp4cjc1MXVjSldCWHBpaU05MEZtclJVaG1VMDdkQVJXbC9ibFNPbzZVTSszWWVzUE9XdUw0N1lsaUNuY2cyZ0FGVXFtQlBHKzFzUVEvRFk9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 200068304,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dElVaysvNUFYRTY3R1FoZXplR05zU2R3RW5janBCRlc2WU9mY2U0eUE1VjhXbFYwUjY1a2QrdGJ1N1BLQ3NEc2o0eTRnUnZKdmtpR2U0eUJLMW5KTUFSd2p6KzFnVU96blNUc3lWZjVtOHM9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 56,
+        "leechers": 0,
+        "size": 394579136,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=TjdTeTB5M0xHcjNlc2UrckxaRVM1U2RCcEVndCs4b1RwMTc2Y20zNFI3b2grL3VNQXljdi9tZ0FnbHZjSHpRbTZWMUZEL1NCSk9jM0J1U1hRU3VOUkhDdEFoUmJJelI3ZVhyVUxDRFY1VXc9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 39,
+        "leechers": 0,
+        "size": 235824736,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Z3JmdUdwOGtHbEtXZ1d5OGVKUytUN1drT2dLRkxTbEpCTENRMldvaDJTaU5qNHFldHpSZElPS3ZkTXlnZDdFcW9sT3gwekkwRnRaZFpKWjRwYU9ob1NLTzlWZ2UvR1JHSUxLOUl3cHFKajg9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 34,
+        "leechers": 0,
+        "size": 429287008,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eDdZeHpEM29HRnVqZ2pOcHFQQjJ1aStkSGcyMzZNeXNOazdVc3loR3hzYjVmVkJpM0J3QWRQOXZCMG5zekpzMHROVUpERFZDRXFTRTd6YVFtcHNDaXZudzFpZHlUSDZEbnB1WnVIeGxQamc9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 13,
+        "leechers": 0,
+        "size": 146800640,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=R0xhWkVUSFBwcVVMWUs5Qi9UYlJUV05VemdNUXV5Vk03d2pGQ1ZwT2Juc3V3TTltUXJCelpZY0Jsb0U3Um1oei9hR0Ntazg2UVRFTHFrWERwMnVKT1N1RkExYVFGalIvaEdEN2ozdEVTSmM9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Murder of Roger Ackroyd by Agatha Christie [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 80,
+      "leechers": 0,
+      "size": 6186598,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RlhDb1REaklxWVliSjlselczaU9Fdm5jaUNwVUp4cjc1MXVjSldCWHBpaU05MEZtclJVaG1VMDdkQVJXbC9ibFNPbzZVTSszWWVzUE9XdUw0N1lsaUNuY2cyZ0FGVXFtQlBHKzFzUVEvRFk9&file=The+Murder+of+Roger+Ackroyd+by+Agatha+Christie+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445444147367641238,
+    "channel_id": 1291129984353566820,
+    "user_message_id": null,
+    "user_channel_id": null,
+    "status": "approved",
+    "created_at": "2025-12-02T10:59:00.303961",
+    "updated_at": "2025-12-02T11:00:13.866722"
+  },
+  "d5915b83-a0e2-44a6-8d6e-13e7ba15a9d8": {
+    "user_id": 378737013769240587,
+    "book_title": "The Wife Before",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Wife Before by Shanora Williams [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 297271296,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=N2p6cXJvamtYSkJKSkU3VWtHZVNyRk40eGs5TlZsbDZIcytNQ2ZmQnltdzRGcWNnQXU2RlZSSGZTOFN3NGdqMGlNaHd4WWxVaTdtOU1TdElVK1pKNE4yMnRRdllWOFVUTjBTeU52WjcyZ3M9&file=The+Wife+Before+by+Shanora+Williams+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Wife Before by Shanora Williams [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 294335296,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ektLTkNmYnVyQVoyWjdKd1BLZDluOGVCWU1URnRoaGlyVytQREhiN3FiNWVMeStRSVRHSWtHQWQranlYdXVRZlo2UklrMTMwSEI0dk4zT0J2SU43NWdBcEJJYktqNnlLMkVKWEI1TGxJUUE9&file=The+Wife+Before+by+Shanora+Williams+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Wife Before by Shanora Williams [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 769433,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SW5Sa2RPZWRQN0lRNmRqbmhpeElidHdxQTB5UktVMHpjVDAyTkh5NmMxSzNnY1JNcGdLMnA2MTZ2cnJRcW5jK1pCN0UxS1JlRkFNWWIvYmFrVXpHdmg5OFM1WkpKblhBUENzeUNFNFk2ZWM9&file=The+Wife+Before+by+Shanora+Williams+%5BENG+%2F+EPUB%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Wife Before by Shanora Williams [ENG / M4B]",
+      "indexer": "MyAnonamouse",
+      "seeders": 12,
+      "leechers": 0,
+      "size": 297271296,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=N2p6cXJvamtYSkJKSkU3VWtHZVNyRk40eGs5TlZsbDZIcytNQ2ZmQnltdzRGcWNnQXU2RlZSSGZTOFN3NGdqMGlNaHd4WWxVaTdtOU1TdElVK1pKNE4yMnRRdllWOFVUTjBTeU52WjcyZ3M9&file=The+Wife+Before+by+Shanora+Williams+%5BENG+%2F+M4B%5D"
+    },
+    "message_id": 1445445176796381186,
+    "channel_id": 1291129984353566820,
+    "user_message_id": null,
+    "user_channel_id": null,
+    "status": "approved",
+    "created_at": "2025-12-02T11:03:05.886309",
+    "updated_at": "2025-12-02T11:05:51.438382"
+  },
+  "82f79c09-9d92-4f00-a63b-588b952eacdb": {
+    "user_id": 378737013769240587,
+    "book_title": "Tell No One",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Tell No One by Harlan Coben [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 38,
+        "leechers": 0,
+        "size": 219886384,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NERMN0w2c2dZNEh0YXVjSHF1QzlZZUdUZkFJZVVwYTVYWnE2L1dIUzBFYm1KdEtHVmt3VGpPY3IwdzNPa0V6UVVBd2pJaEpwQnM1UUJuSjAydXRRcDhTUDZkUEh6bnBrdy80c1QrTEl4SWs9&file=Tell+No+One+by+Harlan+Coben+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Tell No One by Harlan Coben [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 51,
+        "leechers": 0,
+        "size": 604504064,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=S0NTcGFydERweDk2ZGtuRGtVb3N1ZklESjRiSEh5U2NzakEyVzByZm02b1kxVU8zdU9nWEQ5WTVZR21uUmNmWjVmRG1sNlhzZ1ZqTVVJUVVsK1REY3puVEhXWFRFNzNRU3VFb0kzNkJUK1E9&file=Tell+No+One+by+Harlan+Coben+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "Tell No One by Harlan Coben [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 57,
+        "leechers": 0,
+        "size": 248627,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=R3FSbDlES2pnWHM3TG9GTHBEZEgwZExkWHNXY2hnT3U1SHdyUVFBM25NZ0hocC9uTDJFc3ZkcVdVeGlnQituRURralNWSTA5cFRWUWtXSDVST2VlYmZRNGt5SThYV3FBOUFhbUlRTG91SDQ9&file=Tell+No+One+by+Harlan+Coben+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Tell No One by Harlan Coben [ENG / MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 659558,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=U2MrQnloWGZKQ0h0c1llTkdzK0I3RmlrMUtXSGNIL2xVcFpFV2JBT0ZYdXhMWmVyTDlnTHFuOERibDRBUEEyTWRndGVTMTQvMVVXRkZ0REduWVpHT0F3Z3dwV01YM20vbXQyUk1nYjA2KzQ9&file=Tell+No+One+by+Harlan+Coben+%5BENG+%2F+MOBI%5D"
+      },
+      {
+        "title": "Tell No One by Harlan Coben [FRE / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 797442048,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Ym8rRUtXb3lhMlA3cnVlL0pFeWZNRlptbnZkTm13WVNWOStVZitCaXFONUF2YlEvMytDaG16akxPNkEwVGFIZ1lqZTRSTEdaSE8yVDJFMjNHSW4venY5TXVDY3lHbW1JbE43RjVpLzg5ZGM9&file=Tell+No+One+by+Harlan+Coben+%5BFRE+%2F+MP3%5D"
+      },
+      {
+        "title": "Tell No One by Harlan Coben [HEB / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 231001296,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=b3dpNFBjUXdiUnQxeDlGTzFkYzdYUEtqdmhRa0U5VUE3QWJRV054dXczTFIxbVptdGtOd25sWnd3WlAvbmtkdmlMeER5bk15ZDloclVyZEFCakRhNVBHMG53Y2ZxdVFlRm9QeVcvTjFMcnM9&file=Tell+No+One+by+Harlan+Coben+%5BHEB+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Tell No One by Harlan Coben [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 57,
+      "leechers": 0,
+      "size": 248627,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=R3FSbDlES2pnWHM3TG9GTHBEZEgwZExkWHNXY2hnT3U1SHdyUVFBM25NZ0hocC9uTDJFc3ZkcVdVeGlnQituRURralNWSTA5cFRWUWtXSDVST2VlYmZRNGt5SThYV3FBOUFhbUlRTG91SDQ9&file=Tell+No+One+by+Harlan+Coben+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445447194378244237,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445447141534335057,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:11:06.843715",
+    "updated_at": "2025-12-02T11:16:30.811629"
+  },
+  "c52e35d7-c8bb-47fa-8246-84c2292b4bd3": {
+    "user_id": 378737013769240587,
+    "book_title": "Five Survive",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Five Survive by Holly Jackson [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 114,
+        "leechers": 0,
+        "size": 9437184,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZlR5YXdRaEtWQ0ZWaFcxc2gyUEtWYy9ZNVZKeFdxVWlaL3F0elY0STFPR1pOY3ZrMmRYRVlPdXp2ZDV5c1BFSG5Ja2dKdUNSTk1DQUx1QmZVZWFzWTFjMUV3elRnblBpSloxUUxQdGg3UTA9&file=Five+Survive+by+Holly+Jackson+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Five Survive by Holly Jackson [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 67,
+        "leechers": 0,
+        "size": 615618944,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dFczSGJYM2ZYbkM3Rlg1S05KUkgyWGl6SUZLc1NDTXAyNHh6TUltRDlzTzQwTFJNSHJjSXZtS21GS1IwT25IVHQ1L3I4WjMrK3N4NE1BT1NwMXRkRGJ6bkgwNCtPQnZHWVFFMkNOSlVhZnc9&file=Five+Survive+by+Holly+Jackson+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Five Survive by Holly Jackson [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 114,
+      "leechers": 0,
+      "size": 9437184,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZlR5YXdRaEtWQ0ZWaFcxc2gyUEtWYy9ZNVZKeFdxVWlaL3F0elY0STFPR1pOY3ZrMmRYRVlPdXp2ZDV5c1BFSG5Ja2dKdUNSTk1DQUx1QmZVZWFzWTFjMUV3elRnblBpSloxUUxQdGg3UTA9&file=Five+Survive+by+Holly+Jackson+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445447613129429013,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445447563556818986,
+    "user_channel_id": 1332181903901458504,
+    "status": "pending",
+    "created_at": "2025-12-02T11:12:46.835464"
+  },
+  "88d54414-1866-4739-8ef6-75f8178e0820": {
+    "user_id": 378737013769240587,
+    "book_title": "My Sister, the Serial Killer",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "My Sister, the Serial Killer by Oyinkan Braithwaite [ENG / EPUB MOBI] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 117,
+        "leechers": 1,
+        "size": 3774873,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aTlpYzA4aVhLY0JVN3FlNk10d1hRY3ZNcXIyMzYxS3Q5V0EwTUxKTnp5cjNiUTRwdVhNMXhLTkc0c1dDazE3RG0yWkxVQkc4bWxpTFAwTW8vM1BHb2xCc1JtSmpqdFZQbERJQ2I0V1ZpY0E9&file=My+Sister%2C+the+Serial+Killer+by+Oyinkan+Braithwaite+%5BENG+%2F+EPUB+MOBI%5D+%5BVIP%5D"
+      },
+      {
+        "title": "My Sister, the Serial Killer by Oyinkan Braithwaite [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 54,
+        "leechers": 0,
+        "size": 245681360,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UjMwMTROcHBCZENlZSszcGROZ3BSK01UTFdiMkJoelN5UitZbHI4b3dtWm40Rmx6ZS9PMThUMnR0eVErOSsvNW4vRWVuY3llVFNBbFJqZG1TWlNWd1YrQ2FQcnE5SjA4cUpPYS80blFlWVE9&file=My+Sister%2C+the+Serial+Killer+by+Oyinkan+Braithwaite+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "My Sister, the Serial Killer by Oyinkan Braithwaite [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 5,
+        "leechers": 0,
+        "size": 130862288,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=T0xLYW5YdHVvOENqTEgxMThsWTN4ajhBY0pEMlZrczRqMWFpbXRYQndLNW1OTEw2azNWZ1p5WmFPRGJoZnVnNmZNQ3N6NndqOGNnaStzdDk5V044TkZGTHpUcHpjMWYzNDhWYy83Y1A2OUk9&file=My+Sister%2C+the+Serial+Killer+by+Oyinkan+Braithwaite+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "My Sister, the Serial Killer by Oyinkan Braithwaite [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 31,
+        "leechers": 0,
+        "size": 122263960,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=U3dsSWpzbHpBMElDaXRrV0kwaWt6MVlMS2hNS3l5TWdrelNkcjRJMWFINHhTbmJ3aGY0blZXL2s4VTJyQmpxUEpYOTc5emNuMEpoQkI2RXB0dS84OWovV0JkREtaR2ptU3kxNUlCcHViN3c9&file=My+Sister%2C+the+Serial+Killer+by+Oyinkan+Braithwaite+%5BENG+%2F+M4B%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "My Sister, the Serial Killer by Oyinkan Braithwaite [ENG / EPUB MOBI] [VIP]",
+      "indexer": "MyAnonamouse",
+      "seeders": 117,
+      "leechers": 1,
+      "size": 3774873,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aTlpYzA4aVhLY0JVN3FlNk10d1hRY3ZNcXIyMzYxS3Q5V0EwTUxKTnp5cjNiUTRwdVhNMXhLTkc0c1dDazE3RG0yWkxVQkc4bWxpTFAwTW8vM1BHb2xCc1JtSmpqdFZQbERJQ2I0V1ZpY0E9&file=My+Sister%2C+the+Serial+Killer+by+Oyinkan+Braithwaite+%5BENG+%2F+EPUB+MOBI%5D+%5BVIP%5D"
+    },
+    "message_id": 1445449124181839911,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445449092691132518,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:18:47.009332",
+    "updated_at": "2025-12-02T11:19:06.684246"
+  },
+  "fceaf082-ccee-43dd-aeaa-62f11c1680a7": {
+    "user_id": 378737013769240587,
+    "book_title": "The Thursday Murder Club (Netflix Tie-In)",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Thursday Murder Club by Richard Osman.m4b",
+        "indexer": "seedpool (API)",
+        "seeders": 7,
+        "leechers": 0,
+        "size": 723276032,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dDQvMng0NW5hdExzUVZvUWZWVW1QY3hUUjM1RU5UVjZVQlhjSnc0SjVJZXo3S1FhWDhUamp2djdCb0UvTzFoVS9pc010cTlBdVZKTHBVbmFWUEgyZk5EalVmZmJZamR1dFJ0VTRqMHhlTXJBRW9pR0tPM2dGTldYY21ESUNTM1Y&file=The+Thursday+Murder+Club+by+Richard+Osman.m4b"
+      },
+      {
+        "title": "The Thursday Murder Club by Richard Osman [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 384,
+        "leechers": 0,
+        "size": 720266880,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bndSdEhrNXJwa0UxSGxkZGlha0lWWFJxRFR5c2dvYkh4aWJaRnhCU1FDUDdTUHVWWE5waEY4c1prSzdIZFU2dU1DMVpyM2JQTHFjUWVWM1MvT0ViMGdlUlRKZ0tFdXhVZnoxazJYWC96NWs9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "BBC R4 - The Thursday Murder Club (2021) by Richard Osman, Sara Davies [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 66,
+        "leechers": 0,
+        "size": 129289424,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NVlMaC9DZDVHekJXakhod2dZRDg5SjhBM1NnU3lMK29BandNaVAxclpsZXl5c3NWZG5iUXlGM1ZxNEluUFZSZEpWZmpPL1JLNVVQVW9VeXFZRUM5cWNmcUdPeFA1ajZlYTN6Ymc4WkJHOE09&file=BBC+R4+-+The+Thursday+Murder+Club+(2021)+by+Richard+Osman%2C+Sara+Davies+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Thursday Murder Club by Richard Osman [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 461,
+        "leechers": 0,
+        "size": 723307712,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WjRka2xnM3FKbm1LNVNPbU9jRFZRRXhFVUxBOFZpckN2RjY5aGJDTWFZZ1BCM2diVWdTRHpOQzFnT3ZxZTI3ckZDTCtzbjZQcW43by9Tbnd5RzJCWTJiQ2JwYTZEREJqR3drdTVPQ3Rwc0E9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Thursday Murder Club by Richard Osman [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 1229,
+        "leechers": 0,
+        "size": 549376,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Sm9oRnNOaDJoOStTeTNEVFJhWDNYeHYzb2xxUWwxZDJ1R1dGRjRVNkNENHQ0N2pYN1FnVEV0M3hLbjZkbDhuL3VWb2kzdFlwdDhVTk10S1prRTNOb0tjUDBEMzJiK2dLbTN2T2lDYUtoalk9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Thursday Murder Club by Richard Osman [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 270,
+        "leechers": 0,
+        "size": 368679328,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bDVUR0tkWlc1ZWtjRmE2S29IMEwvRXlXOHFwM0o4M2Uxb283WEpHODhiR205dE0xbWt4d2oxOFVsNnBPUVhGYWlpN0ljQzJsY013aXZSUE43Qng4dHNnV0NJMUtDenNwdEdDblhqZysyaFU9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+M4B%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Thursday Murder Club by Richard Osman [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 1229,
+      "leechers": 0,
+      "size": 549376,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Sm9oRnNOaDJoOStTeTNEVFJhWDNYeHYzb2xxUWwxZDJ1R1dGRjRVNkNENHQ0N2pYN1FnVEV0M3hLbjZkbDhuL3VWb2kzdFlwdDhVTk10S1prRTNOb0tjUDBEMzJiK2dLbTN2T2lDYUtoalk9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445449505339211828,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445449472732561621,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:20:17.896952",
+    "updated_at": "2025-12-02T11:22:47.360893"
+  },
+  "0ca12d32-edd0-4878-978a-7f776597ef6f": {
+    "user_id": 378737013769240587,
+    "book_title": "The Woman in White",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "BBC R4 -  Wilkie Collins - The Woman In White by Wilkie Collins [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 5,
+        "leechers": 0,
+        "size": 219152384,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RTRDVkhHbEdjMHluVFE3U0QzZGxwOFBaOThLL2tVZWJWUnFSS2paQ1NydGJQNnR1V0lNamhGMXJ5MHhXWmk1TWhKUnlPR2ZmUWx6a055N0FVS1E2Tk8vSGVzU3M2Vm0rbjRMVGt0YThEV289&file=BBC+R4+-++Wilkie+Collins+-+The+Woman+In+White+by+Wilkie+Collins+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 52,
+        "leechers": 0,
+        "size": 1887436,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MVM4NXFzOFg0WVZNdHlFdVcxREVDejY2RWk0V29hSCt4SEk1OTNWS2FURENVR2hxOFhHL1dkTno1dWwwK0lKTTZwVE1UZWlZdlZ6c3BGSFhzMXpXc3hjWHF5RFRSa1FrRnZYNXJyT01QS289&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 16,
+        "leechers": 0,
+        "size": 1288490240,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=L3JJVnNGSnBBcmhIZkxZWHlOMnR0MURqM3BOLzJFQVptWXB2dUYwQjhHeURQOWQvVnJaeFVKZ2J4WjEzc0lhQjRmdzVONEJUdEZwajV2aFV3a1FpSitibyt1cXd2aFN2UTcvZWJQaHJvb2s9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 806459776,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZVNkQTJDWnB6dWdGR2xzcnBPdTVRK3JBMGFJbzZrcWxpQ0NwUEU5dWFrWkl3ejdlK04xWHZuUDJVRVFGN0hBelpwVGxkT044bDlkMmJqTTRXeHZOdG8vSnNaUTU3WTNGNVpkOTBETkVnZms9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 801216896,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=anNXSjAvYXZjTi9PMURRejNHQyt0Yy8wNDBmbVlobGdzR0FnQzJWQ3F2b05TNGpUT1dBSkFMZ0JmRDljd3hQZ3BTWlB6OTh5K0dpMURRZ1BZNEdXSWphSzh3b0c5MnowNGQwUjVrN0lBTHM9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 718379392,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VVJDZk9haE5pblFPdTJHOUxSUEVMc2M5SmFQbGZLSU1LYmhmSDl5RldESXJ1b2FNM1JkK2N2SU02MDBYcHE3M0hvcUd3L3RWNTh1WkRENmIvdkU1NVd5cGFtZUQxbHBmbnBLcmpyMHVGYUU9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 22,
+        "leechers": 0,
+        "size": 707054784,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QTFtRWtDWWpqSlZ5OHJzdzdXaXRYS01FRERqQ0t2NGNXbVoxVlA4S29meHNFN0U2L1l3TzQ0NDZ4NWw3NGFoS01pVUxPeHVjck45ZWFxcWRKbzYxdmhLb1hSM3Z1Z29maU1qNUNzaDhUMUk9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / DOC]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 2726297,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QXJWckhucEtoTWd3MGttVGxPcXpyditGMkZwMFg5enErbC9wcTBtTGFqK3l1QVd2N0liSFppNmE0TXZieUNyTDBSZlVtMnM3U0hQYzIyR1FpdHR0L21YSVo4Y2dSNDZaT1UxVTlQTFFpbnM9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+DOC%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / PDF] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 1677721,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UW91ZGhhc1pUTWxDZjlGQis0Q0xXdHJXZ3E3MFduZUZMZUNzQTJiemV3c2o2LzZHSW1FQitrWHRxTTROMkJpT2dxK1pqelgwVmhUc2pjMHR6WldYYjVrLzhIYzNaUFNQZ1RML3QvZTVjMU09&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+PDF%5D+%5BVIP%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Woman in White by Wilkie Collins [ENG / EPUB MOBI]",
+      "indexer": "MyAnonamouse",
+      "seeders": 52,
+      "leechers": 0,
+      "size": 1887436,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MVM4NXFzOFg0WVZNdHlFdVcxREVDejY2RWk0V29hSCt4SEk1OTNWS2FURENVR2hxOFhHL1dkTno1dWwwK0lKTTZwVE1UZWlZdlZ6c3BGSFhzMXpXc3hjWHF5RFRSa1FrRnZYNXJyT01QS289&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+EPUB+MOBI%5D"
+    },
+    "message_id": 1445449785116065926,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445449753751195912,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:21:24.773763",
+    "updated_at": "2025-12-02T11:23:08.361009"
+  },
+  "0f221c95-d94f-4258-a228-810f61b35f2b": {
+    "user_id": 378737013769240587,
+    "book_title": "The Hound of the Baskervilles",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 47,
+        "leechers": 0,
+        "size": 163472992,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WnArZzVHNmFmRFg0MU1DWUJ5QWtReXdWT2YxQVFKQktyR0ZnZkp5bmZ5RHNuMThwb0pHMDNhZDBBSHhZMGdRckNtOU1peFIwZGNQZHNxNzBybFJqcm1lNnc5dFBDR0JqamNoWXJBTnYwNlU9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 15,
+        "leechers": 0,
+        "size": 318033088,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aGZFOUhWRld1K0g3TUdVUDBzQ3c4T1EybkhoV3BhYS9lQ0Z1SzZHR3k1QkQ1RklHaWtRWllQZmhPRmtyUlVibnNuekVZdllobGZOblhLQjI5WmQzeHZEM09FQ3Q0KzNlMUYxRHB6bWFrRkE9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "BBC HS SNT - The Hound Of The Baskervilles by Arthur Conan Doyle (08 May 1961) by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 20,
+        "leechers": 0,
+        "size": 106011032,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bEN0UzUvRmwyRGRFWlJjL3VydEVPdnBsQ1cwazJkeE5sbXNGVm9tc0taR0gwOTJwR2cza2x4WHhMR29QUnVsdmh5bU1hOWFadW9QQ0NYUE1YWUZwL3RTSjRrUUQrMWVXQkp0ZGVQVkcxTUE9&file=BBC+HS+SNT+-+The+Hound+Of+The+Baskervilles+by+Arthur+Conan+Doyle+(08+May+1961)+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 87,
+        "leechers": 0,
+        "size": 658329,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Ry9vZ05jMXJCbFhnbUhlYlJyOXJPOGJSZDl3Vmw3TEs1bzFNZlByWi9RNGFGRUdiUWlkZGlKeW9ITE9Ua2E0ck8zRlRaOHVwUkZyVVkwNjA3MEluSjJic245WHpKY0J6SUdyMUpNMEpKT2s9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles: A Sherlock Holmes Graphic Novel by Ian Edginton, I N J Culbard, Arthur Conan Doyle [ENG / CBR] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 105381888,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=YlpDSG4xRkFSRmlTeThWekk3YWRyUEwzV2dpUXczQUdTS1dPTVZEdURENHFnOG95SnN3SENYSHJWU3N4QkQ0a3V4MXJqWEZBTXU1SldVczRwZDlpVGR6bHhEdW4xem5senpzVXRtUkdXZ2M9&file=The+Hound+of+the+Baskervilles%3A+A+Sherlock+Holmes+Graphic+Novel+by+Ian+Edginton%2C+I+N+J+Culbard%2C+Arthur+Conan+Doyle+%5BENG+%2F+CBR%5D+%5BVIP%5D"
+      },
+      {
+        "title": "BBC R4X - Classic Serial: Sherlock Holmes - The Hound of the Baskervilles (R4 May 1988 rpt Nov 2014 by Bert Coules, Arthur Conan Doyle [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 8,
+        "leechers": 0,
+        "size": 156971824,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WU9RcHhtdVVnTmZXS2llSDR1WkNXU1p5NzlIbUhTR0J0aWEzTFlHTHNUbk80WjhTODVwYThJSEVzMEk4aEhlV0d1Yk9hTmlqSEVmYVYvUm94UXc5dm42QlF0cnZSTTc0eWlVU0VIcHhxdlU9&file=BBC+R4X+-+Classic+Serial%3A+Sherlock+Holmes+-+The+Hound+of+the+Baskervilles+(R4+May+1988+rpt+Nov+2014+by+Bert+Coules%2C+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Richard Dinnick, Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 16,
+        "leechers": 0,
+        "size": 149736656,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eUVYMExMQkZWVjNPTFFvODZVY2VldU1ZeWF3RlJma056aWJFTEFRN3NpMnVTdlcxN0JDb1pMSCtwQnJrTG9qbFlFUDAyQ1A3LzVGbHZRbllXMUFYdk9scGo3cTVya0FsSVVmUXlmdlZwVTQ9&file=The+Hound+of+the+Baskervilles+by+Richard+Dinnick%2C+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / AZW3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 22,
+        "leechers": 0,
+        "size": 466841,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MDVlWFRQQWpLSTlkdHYwL0Z2RHhZckFjRE1rbmpDM3JUMkN5QXRoUWo2emFSNXdnTTlESis1UzlmU1dsVjNTdzN6VVh6eTA3Ry8veFlWOWdwOUVSRU5ETWk5TU9VaVVieStqdkVtc1Y2M0E9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+AZW3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 620861824,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eW9NV2hTb3ZTU3VrcWFJZ253eitrVWVwdzVYV2JHRFhDWnlnVjJwQlpSRUx6bnoxYnc5QlBHVGVJOTBKanY1c3IzdmxBVVZZYTAzUkFyUXZ0RkJDeUoyRXJSYmNvNG5nRXQ3S1Fkb2krczg9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 34,
+        "leechers": 0,
+        "size": 182452224,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bnZRdlZPRUtVOFRZSTRVeTNkUzZId2RFdUZDenp3WXZSNzRCTy8vQUhGbCtCZzFlMmhWREErNzNJa0RiR2FzUmlscjJYcUNxN1l4OHlXNVRzSTFiS1RIb1hmSFFMSzFycTRseVdkRFFIb2c9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "LA Theatre Works - Hound of the Baskervilles (Full Cast Recording) by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 156762112,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aHlVYXc0MnJZeTFVWjR4NElYL2VFYnN1WEhmSDJtcXFEalVGaTVQaGtaWlJjbTU0Z2RES1lFS2ZyakhjeENhcFZtSGNZRExkTCtFYmdZc3JURjVQOGNmOVZ1RHEra2xVd3FoajZSR0JjS1k9&file=LA+Theatre+Works+-+Hound+of+the+Baskervilles+(Full+Cast+Recording)+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / EPUB MOBI]",
+      "indexer": "MyAnonamouse",
+      "seeders": 87,
+      "leechers": 0,
+      "size": 658329,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Ry9vZ05jMXJCbFhnbUhlYlJyOXJPOGJSZDl3Vmw3TEs1bzFNZlByWi9RNGFGRUdiUWlkZGlKeW9ITE9Ua2E0ck8zRlRaOHVwUkZyVVkwNjA3MEluSjJic245WHpKY0J6SUdyMUpNMEpKT2s9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+EPUB+MOBI%5D"
+    },
+    "message_id": 1445453667007467611,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445453601408421989,
+    "user_channel_id": 1332181903901458504,
+    "status": "pending",
+    "created_at": "2025-12-02T11:36:50.254514"
+  },
+  "e0cacd70-8a84-4828-a10d-264959dcff18": {
+    "user_id": 378737013769240587,
+    "book_title": "The Long Goodbye",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 52638516,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QzlSQmNoQVIvd2IvcGpvZTFRSENBWE1PcUI1SzRab21NaS9rUlczdTRnVmx0THhZWFF5UmhFOERBRnpOMitpcTQ5NTZQMGxxNjIzblYza0ppaVBOenYrNGJ1RFNYR2dzd0VpaHlHZ0F0Yms9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "BBC R4 1978-01-16 The Long Goodbye by Raymond Chandler by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 104857600,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=YlQ1a2ZKa1ByNWx5L0FuQlU5RWY4NW1jTUl4MFVCYlFGYkdyWHdjOWJuOXBTV3dkeVJPUU1ydFMxb1pxY3lpWEdxcHlBS1pnQWRSbkRyZXpRV2g1NXFPZ1pyZWVnSjZCY0JTUEZZS2FaRGM9&file=BBC+R4+1978-01-16+The+Long+Goodbye+by+Raymond+Chandler+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 53,
+        "leechers": 0,
+        "size": 768186752,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Nis5VDBxUi9mc2RscFJjWWNpL1BBUmdTejBveDhxSm10ajNxeHlzZU9sK3VMb3gzT1hsdnJaenM1QldLQVhoUHVkN0phMTFSeFdJeDg2QWdWT1NvblBYM2gydS8zZlR5Kzd5N2ZVUWdDaE09&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / AZW3 EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 49,
+        "leechers": 0,
+        "size": 861696,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OEZCSEw3cEtOUXhpN1F1bjFXeStlTnVORTYzQm91RFpLd3I5WTJhT3pFZEIwVThKNUNmTmZlU3hreW56T3NyS21LWEg0ei92N0R6c0F4MUlReGpKdXJRY0ZxUWhvNWRIN3ZqZ0o5L3NHa0E9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+AZW3+EPUB%5D"
+      },
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 18,
+        "leechers": 0,
+        "size": 372019,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aTBPN2VwR3hlL1ZkTkJxZU1yQ2Q1K1RLODEyQXlwMlBwdyt3MFVNVWswaGYweWpUaCsxTTgvblNjdHN1UjFheGQ4YVVNNHVEbUVnci9Od1N4ZnUrK1RoY1lxTklSaFJrWEVUclJNNUViY3M9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 21,
+        "leechers": 0,
+        "size": 336173472,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=YXZRNGN5YVNwcXNjSzA2dE8rNHkyN1EvS0RKZlRoeE9RMTdiSTJaa2taOTc3akdqMEhRamhpYzV1WDV1VzJORTdkTFluYUQ3S0lWWVZqREpwWDIyZUNFb3RQVUpscXFubXorTWxRU3grNkE9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Long Goodbye by Raymond Chandler [ENG / M4B]",
+      "indexer": "MyAnonamouse",
+      "seeders": 53,
+      "leechers": 0,
+      "size": 768186752,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Nis5VDBxUi9mc2RscFJjWWNpL1BBUmdTejBveDhxSm10ajNxeHlzZU9sK3VMb3gzT1hsdnJaenM1QldLQVhoUHVkN0phMTFSeFdJeDg2QWdWT1NvblBYM2gydS8zZlR5Kzd5N2ZVUWdDaE09&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+M4B%5D"
+    },
+    "message_id": 1445453786502926561,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445453734699204733,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:37:18.836597",
+    "updated_at": "2025-12-02T11:45:14.934658"
+  },
+  "271ba32a-1911-4f46-afb7-6fcab5f7a92a": {
+    "user_id": 378737013769240587,
+    "book_title": "The Thursday Murder Club (Netflix Tie-In)",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Thursday Murder Club by Richard Osman.m4b",
+        "indexer": "seedpool (API)",
+        "seeders": 7,
+        "leechers": 0,
+        "size": 723276032,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WFNsV0lwRTFOa2dBTUM1aForRzFiT0ZyY3lGVEk4bU5BWW9QYk5rSG5OZWpHREFEejZjRU9yVFVTc3dSSEJiVmtvT1BhaFJFeUJGQWpmbnQ3TEc4NjczRTcwa05KSTJvWENDR0w0YlpURFlkeFFoUU5SNjVhRjRhS09kRXpubGI&file=The+Thursday+Murder+Club+by+Richard+Osman.m4b"
+      },
+      {
+        "title": "Richard Osman - 2020 - The Thursday Murder Club (Mystery)",
+        "indexer": "FearNoPeer",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 357871360,
+        "download_url": "https://grab.bloomstream.ca/58/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WlBDSTlwMG1KNlJMNHFqbDR3QkNUN1lxL0pQdzM1UHhibzBWbkxwRXZNbnhadXl0TkRZY041VFlOaVh6Ly9jY2Uzcmlha0FTcTJ4Rjk3enB3MmZ3L3dZUjhIbGdxNTFkUU14Wng3d1JDcm1Fd3RwWHUzTmlOVUx0SmtKbjhFdWU&file=Richard+Osman+-+2020+-+The+Thursday+Murder+Club+(Mystery)"
+      },
+      {
+        "title": "The Thursday Murder Club by Richard Osman [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 386,
+        "leechers": 0,
+        "size": 720266880,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VlE0Q1Vtb2w1R0FaRW5IYTdwNFFUN2hhTXB1ZHV6Y3JjeWpTYVVXb1ArRUZjYnZEVk4rcFFyT1FUcmdOaFJuWWR2eVVMYUREa1NPSXpENWNvNFNuUnJHbkUrZTNaS1F3OEp5RWIvak9PNTg9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "BBC R4 - The Thursday Murder Club (2021) by Richard Osman, Sara Davies [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 66,
+        "leechers": 0,
+        "size": 129289424,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=anE2QXRMNWQ1bC8xbDhXcjc5R1JJSHl1eFZKUGgxRFlJUkh5bWthSVVZeHN6eit0amNwTlZ0R0pGOHZpejIvTzl3UldLKzJSMXQ3Q2lyREw5YmZ0c1VUVVJOZjJ1angrMFdrUW5iWkw3SGs9&file=BBC+R4+-+The+Thursday+Murder+Club+(2021)+by+Richard+Osman%2C+Sara+Davies+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Thursday Murder Club by Richard Osman [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 460,
+        "leechers": 0,
+        "size": 723307712,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=S1RVT05PT3pRc1BPdnkzbXRWd0J2bUYyRFJVdjNYbTQwaDlZeXpkcWMvZ00rY0g5eVFNY2VjOE5tdHVaZTJQTXA2SXB3T244ZkhOWExTMHBjRytMSmIzdWZpM3FIOXFrZ0hyck9LbXJlQzg9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Thursday Murder Club by Richard Osman [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 1236,
+        "leechers": 0,
+        "size": 549376,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Zjkxc0s4c0xPQTJ5U3JXZ3p1bm96Y2VvWEVWaTkzNjA0UXgzUFczSjl5K3d2QlBTVWd0NGtwNG1JUnRTK3NXSE5sTnZxZDhDd1BJNlZHZXQ0cnlCdHhsNEMzSGw1N01UUVFVRnEwM3NTWUk9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Thursday Murder Club by Richard Osman [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 273,
+        "leechers": 0,
+        "size": 368679328,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WENodjF3S0tUS2wzTEVucE9LS2VlSHdqc0tUR05ZTklVajVlTDNMaVZhbDBkb3JVUkJwdHJ3VkREVmw1djFFWDFuL2ExTjBVc3hTM2lxUzhxNjhYblNscnZRQi9vRXN4eko1N0F4cWR2Snc9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+M4B%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Thursday Murder Club by Richard Osman [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 1236,
+      "leechers": 0,
+      "size": 549376,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Zjkxc0s4c0xPQTJ5U3JXZ3p1bm96Y2VvWEVWaTkzNjA0UXgzUFczSjl5K3d2QlBTVWd0NGtwNG1JUnRTK3NXSE5sTnZxZDhDd1BJNlZHZXQ0cnlCdHhsNEMzSGw1N01UUVFVRnEwM3NTWUk9&file=The+Thursday+Murder+Club+by+Richard+Osman+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445453864911376656,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445453832086618347,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:37:37.434657",
+    "updated_at": "2025-12-02T11:44:39.466147"
+  },
+  "544c0f5a-ce0a-4b15-9865-f44070e1f7c3": {
+    "user_id": 378737013769240587,
+    "book_title": "The Hound of the Baskervilles",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 47,
+        "leechers": 0,
+        "size": 163472992,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=T3pVWmRncGRUZnZhVVNUQ3Rsb1Q0WDVxL0k5M3FWNnZUSEdiVk00cFVMdlZJdEh0SE4yQVBWQnJwT0s1eGlsSkEzU0lMUmNhZVBFcG9IakwzUnVvM1BzZFIyYk50ZGQrYVFJWERpSktNam89&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 15,
+        "leechers": 0,
+        "size": 318033088,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=TEN2SGc0ZkdvM0piZVhYZXFJMkU2eEprRXBETlhmRUlwbURZTS9wU2dkTDlBQy9wN3JQWXppZXRQQVNRTUVScW80T2hEOEdoeDgxWFpEbVl1bVNvdVlpL0hnMFBCRlh2cjBNcHo4RUdkc1k9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "BBC HS SNT - The Hound Of The Baskervilles by Arthur Conan Doyle (08 May 1961) by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 20,
+        "leechers": 0,
+        "size": 106011032,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NDhGYVc1enlMQkZpNUQ1TmE5aFlDa3pTOXh0eTJIZ2NWWmt2M3dsWUt2TzkrZGFKaElKaERHbXY2U2pZWUk2SlBTN0VubGxNODFYRm4zUFNwd25HRnRhMUs1UDBkbE9XS3FCcXA2L3VkVk09&file=BBC+HS+SNT+-+The+Hound+Of+The+Baskervilles+by+Arthur+Conan+Doyle+(08+May+1961)+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 87,
+        "leechers": 0,
+        "size": 658329,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VG1IM3FpVzV6TVhRRUxkQ3E1eUl1RVlXdU5SMWVJYXh0L1FsQVdlajkzVmdLSUxLdkoxdklLNG5zeDFCUUdyREM4QWxPcGJFZWxoNkVjV281Y0hhNy9LTXZVeG16TGRNc1pHSzJ4MCtiTDA9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles: A Sherlock Holmes Graphic Novel by Ian Edginton, I N J Culbard, Arthur Conan Doyle [ENG / CBR] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 105381888,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=K2JGUjQ2eW96T0QzQ0hnRk9CSHdMckJqYzJLZU5YcjJhVmdmamQ0clRlL3YrcGo2bktiQ0RCT09TUExXV2VuV09YOS9UY1FicnJwT24zQnlkcGdWZWJiT2VHV1gxZTZHalgwT1MzZGswRVU9&file=The+Hound+of+the+Baskervilles%3A+A+Sherlock+Holmes+Graphic+Novel+by+Ian+Edginton%2C+I+N+J+Culbard%2C+Arthur+Conan+Doyle+%5BENG+%2F+CBR%5D+%5BVIP%5D"
+      },
+      {
+        "title": "BBC R4X - Classic Serial: Sherlock Holmes - The Hound of the Baskervilles (R4 May 1988 rpt Nov 2014 by Bert Coules, Arthur Conan Doyle [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 8,
+        "leechers": 0,
+        "size": 156971824,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=R3NXMlBzQWdVZklvWThFZ0lIaExGTHFmR0lTTzR5YmhFRDBFOUx4bGpwRXF6M2o1M2RYSEZCYXcxSkdDNVYwUENWc3AxMFduOTJ0U0pFYUpUZ3h2RTFoL3hqTXlaRURqWk5vTVc5L0l0RkU9&file=BBC+R4X+-+Classic+Serial%3A+Sherlock+Holmes+-+The+Hound+of+the+Baskervilles+(R4+May+1988+rpt+Nov+2014+by+Bert+Coules%2C+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Richard Dinnick, Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 16,
+        "leechers": 0,
+        "size": 149736656,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dzZyMmdiQnJpTy9NYTNiRGpianlaOTd1ZCtaR0trTnhucml0RitkWE9RQWNJaFR6SVhTeTBwVG14RTlrN0cwQ3NuTFIxeHlVM2N6S1BJSWtieStMazZ5b0tjYnpnR2c1K09UQWoyQnk2V0k9&file=The+Hound+of+the+Baskervilles+by+Richard+Dinnick%2C+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / AZW3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 22,
+        "leechers": 0,
+        "size": 466841,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VWpjT3pIYkhmcFhldGlSSEtaSUpzQTBiU1BXYUhNOEpmVHhXZSszL2hxVUwzY0luTW5JcmNtS05wOGJ1LzNXdTN3d25OeUt6UFRRNmdhMFpEK244dVIrcVZMYUg4SXo5VlIxZjU4OUl4Qkk9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+AZW3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 620861824,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=cExkSldmeTZKeGRtaFh0VlBuNVh4V3ZZT2FaTGNEMm1IMzJqS3ZkRzFZYUoxbnFDMXJNd2FGcXpsVW9Tc1dJZDBGSXlNMTdUZVJCb0tjQXZndzdRSlRZOVhEblh4RE1Jc1d0WGpKdHU4cWM9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 34,
+        "leechers": 0,
+        "size": 182452224,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bGVjbVJ0V0ovS0hrYXgvZnF3djlocE13U0d3Njd2Q1FQWlU0a2ZkOS90WEwybGUxaHZ3di8zc1ZuQnp5ek9CbUxjc2lOZk9QdWcwWm1idGhnS1ZoMXNjUFlKZEtjazFvN2Q5alZGbWt6aTA9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "LA Theatre Works - Hound of the Baskervilles (Full Cast Recording) by Arthur Conan Doyle [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 156762112,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RDVWbFZkN3NRSWlZRVBLNEx5NlZlWFdpbmY5OVFWaDZoaE5IRnkxNnZod0w2dlhHeXI2L3lnSFNuSzlSOW82VTdkUHlGT1Z3MzBRZTluQUU3Rm9XQUErYk9DSElLWXl4b1dkRWNMY2EzbGs9&file=LA+Theatre+Works+-+Hound+of+the+Baskervilles+(Full+Cast+Recording)+by+Arthur+Conan+Doyle+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Hound of the Baskervilles by Arthur Conan Doyle [ENG / EPUB MOBI]",
+      "indexer": "MyAnonamouse",
+      "seeders": 87,
+      "leechers": 0,
+      "size": 658329,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VG1IM3FpVzV6TVhRRUxkQ3E1eUl1RVlXdU5SMWVJYXh0L1FsQVdlajkzVmdLSUxLdkoxdklLNG5zeDFCUUdyREM4QWxPcGJFZWxoNkVjV281Y0hhNy9LTXZVeG16TGRNc1pHSzJ4MCtiTDA9&file=The+Hound+of+the+Baskervilles+by+Arthur+Conan+Doyle+%5BENG+%2F+EPUB+MOBI%5D"
+    },
+    "message_id": 1445454527963725835,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445454498716713074,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:40:15.550770",
+    "updated_at": "2025-12-02T11:44:54.297447"
+  },
+  "3034c1f0-cd8d-4e25-a8dd-4d5fb1d2df07": {
+    "user_id": 378737013769240587,
+    "book_title": "The Leavenworth Case",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Leavenworth Case by Anna Katharine Green [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 162948704,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UlFSYm84R3JIb3kvN3NVMzhYWWlpdkgzZWpKbmtlYzJ4ZE5valNzdFYvV29WVDRIaGZxVmdhU21YZldHQTExYUFsRFlmWlhUZDJRNkZ6UitjWVR0OUdZOFR3Qi9zTVB2VlUrZ1BuUWx4OEE9&file=The+Leavenworth+Case+by+Anna+Katharine+Green+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Leavenworth Case by Anna Katharine Green [ENG / MP3] [VIP]",
+      "indexer": "MyAnonamouse",
+      "seeders": 3,
+      "leechers": 0,
+      "size": 162948704,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UlFSYm84R3JIb3kvN3NVMzhYWWlpdkgzZWpKbmtlYzJ4ZE5valNzdFYvV29WVDRIaGZxVmdhU21YZldHQTExYUFsRFlmWlhUZDJRNkZ6UitjWVR0OUdZOFR3Qi9zTVB2VlUrZ1BuUWx4OEE9&file=The+Leavenworth+Case+by+Anna+Katharine+Green+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+    },
+    "message_id": 1445454796277682339,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445454765571182644,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:41:19.501236",
+    "updated_at": "2025-12-02T11:45:02.267176"
+  },
+  "a329ecd2-688f-448b-9a9d-1b3dbadda50c": {
+    "user_id": 378737013769240587,
+    "book_title": "The Silence of the Lambs, Thomas Harris",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Silence of the Lambs by Thomas Harris [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 31981568,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QmViZEI4VGNwSUdFSDRpTFkwT1kyT25VQVplT3Exai9BVVpBRTByRW1zeUgxZzUvSU1wM0RwZWxoaVh4Q2NBUkFaKzArQ3ZqWW9qSUtibVZ1ZEJhdDUrS2RYNHEvZnJ0eEFxU05QOEs1T0U9&file=The+Silence+of+the+Lambs+by+Thomas+Harris+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Silence of the Lambs [25th Anniversary Edition] by Thomas Harris [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 146,
+        "leechers": 0,
+        "size": 306813344,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SUdWbHU1ZVYrQU9lU1RlZFRVdW81VkF1dTlkWWpRVzlkZEdXVGNvZWNxZXdnM1ZheGYwQmJsWHFScmFvY3ZqUUliNVRIZTJza2xUWEljbDJPVnJSdi9XdjZ5azh5Slh4K0Fyamd6ekg2SmM9&file=The+Silence+of+the+Lambs+%5B25th+Anniversary+Edition%5D+by+Thomas+Harris+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Silence of The Lambs by Thomas Harris [ENG / PDF]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 33554432,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=V1RqVnNPMHIyT2tZZDArZEI0Q1BEdlJtblI2MndLRXd0SXhYSytrVFh0RG9jZk9rR01WOUxGZ2FOQkQ4ZURjR1QzWnMvNEpyMS81OTJFVUxXRFE4b1RJM2VTWGZaQ1hiS3FJQ1B4aTE0TVk9&file=The+Silence+of+The+Lambs+by+Thomas+Harris+%5BENG+%2F+PDF%5D"
+      },
+      {
+        "title": "Silence of the Lambs - Red Dragon - Hannibal - Hannibal Rising by Thomas Harris [ENG / AZW3 EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 177,
+        "leechers": 0,
+        "size": 13212058,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WUhiUjlyZnk5bHdRSWZrRGpra3dSbE9pbW5ia1hxM3FYUSs4TytIalpiVkRXUHNrTHcxMjZESDVVMjg5R2haL0hseVhPZWhMU01OcEdHbHdDTjd0dnpkZmJYTnpuN2dhMTlCSXJLMW94LzQ9&file=Silence+of+the+Lambs+-+Red+Dragon+-+Hannibal+-+Hannibal+Rising+by+Thomas+Harris+%5BENG+%2F+AZW3+EPUB+MOBI%5D"
+      },
+      {
+        "title": "Silence of the Lambs by Thomas Harris [ENG / MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 84,
+        "leechers": 0,
+        "size": 475648,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MTI3SWhGMW9Xc2NtWVVkcmdyWVEvbEsrNVZxRGVPbk5VNHlSNDEzdUpiOXd1a21VK0YxcUpsVWdMcXN2enpMTFBQUUsrUWF2ZTBvN29hQ2NBVlpwQldTOFg5M3Z3OTlGZHlGY01zMW5aS009&file=Silence+of+the+Lambs+by+Thomas+Harris+%5BENG+%2F+MOBI%5D"
+      },
+      {
+        "title": "Silence of the Lambs by Thomas Harris [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 34,
+        "leechers": 0,
+        "size": 472173760,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QTJsRE0yZ0hPeWJOS1hPWFo5K0Z1QmtXaFdsSmdzRXNFbElhaE1OVmJoQUtPMWpPRWhLZG1pTWtXN24rS2xFWlFXTmM0VEZtNE0yRjg4cmw0SmpvU3RYdVIxbTA4Zm1YcFNNaGN4TExua3c9&file=Silence+of+the+Lambs+by+Thomas+Harris+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Silence of the Lambs - Red Dragon - Hannibal - Hannibal Rising by Thomas Harris [ENG / AZW3 EPUB MOBI]",
+      "indexer": "MyAnonamouse",
+      "seeders": 177,
+      "leechers": 0,
+      "size": 13212058,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WUhiUjlyZnk5bHdRSWZrRGpra3dSbE9pbW5ia1hxM3FYUSs4TytIalpiVkRXUHNrTHcxMjZESDVVMjg5R2haL0hseVhPZWhMU01OcEdHbHdDTjd0dnpkZmJYTnpuN2dhMTlCSXJLMW94LzQ9&file=Silence+of+the+Lambs+-+Red+Dragon+-+Hannibal+-+Hannibal+Rising+by+Thomas+Harris+%5BENG+%2F+AZW3+EPUB+MOBI%5D"
+    },
+    "message_id": 1445457730637664267,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445457671120752810,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:52:59.249665",
+    "updated_at": "2025-12-02T11:54:34.715162"
+  },
+  "d4d59439-bfa8-4afd-8d73-785d255dcc6c": {
+    "user_id": 378737013769240587,
+    "book_title": "The Big Sleep",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Big Sleep by Raymond Chandler [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 13,
+        "leechers": 0,
+        "size": 95525272,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=cS96WFhQcldnY0pUK3VRbnljVTdDQmJFT0RlcEV4emx0dWxjRkZlejZ5N2Q1b3FzNFBGc3puY2lZWUhrVFViYXg2T1Z3dzJPMkJvbWJSM2hodHhTTWs1Z3QyZHRrZzJoRCtjcldSMW5LaGc9&file=The+Big+Sleep+by+Raymond+Chandler+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Big Sleep by Raymond Chandler [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 239,
+        "leechers": 0,
+        "size": 136908,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aXpBMVFrelFzRk1WSXQrcHVVRGVUOHVRMmg5OTJvcFJ4QzI1cWZQTC85cTdEVVA1TnliYVRIeGlqb0hPMlZLTSthR01YeVRaQUZ2UG85Qk9pc2NkZGpXWW1LRzRKYWpvSHZTSzB2c242MGs9&file=The+Big+Sleep+by+Raymond+Chandler+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Big Sleep by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 55,
+        "leechers": 0,
+        "size": 183081376,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SHB0VW5WRFI4blJpMlJJcCs5SWFUUXVhbXhQZlNVWHUvSVRma01MWHJjN3UyNHdndklNeStkanZYcUcxcEVSKzNNSHBTVnBscDFQekNvem5OSVZ2YWdDTTBORGZVWE11Q2d2WWR3NEFDTEE9&file=The+Big+Sleep+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Big Sleep by Raymond Chandler [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 71,
+        "leechers": 0,
+        "size": 179516208,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eGkxOXhyV1AwRHlFaG9wQ0d2R0Y4Z2xFOHdUT2pDcTMwaTVWVm1kMHBVbWJEUHlVb3hoVHdMZ2tPTnM2bTVsa1ZjcGc5SHo3NThTczBvN01pZXpyOU5QbnBFZWZUaDVKVDVWUjZrd2hBQWM9&file=The+Big+Sleep+by+Raymond+Chandler+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Big Sleep by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 361863584,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QS9EaHB2YkxWc2tOWkF6Q3VybHZVYWRuOTNXeDdjZGlzbkU5ZEdTWFE4YTZhR2tLSUg0V0gvM2NDczJ4blR1UXh5U3dRaVQwVXVKWWRvMXVJVGVscWdLVEJrQ1Y0a09NbW41cUVnSTEyWE09&file=The+Big+Sleep+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Big Sleep by Raymond Chandler [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 64,
+        "leechers": 0,
+        "size": 374656192,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=L0hwT1laVzVXZERHREk3SnBsUkhwSHExcVJBL2RpQkJNOE01WW9Hb2d1aEtRcmEzR3lFS0F0S3lUdDJaemlPMUZ4Q2NIM0M5UU53aUp5K0w0WjdodXkzVXExbE9kNEZ4RHYyR0NSSUhObzA9&file=The+Big+Sleep+by+Raymond+Chandler+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Big Sleep by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 13,
+        "leechers": 0,
+        "size": 203423744,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dWduUkRWekVZMzRhdEhLSVRVZkYzM1pET09EQlVFUjBoSzh6NFY3OFZ5eCtoWDJpbHhheFRNNlNOWk9WSkxuT1hoVEF2MkhQNnl6aDNHRlZLRGN6RG91OHFkTE9BeVhhUFJWZ1FnRHlRYlU9&file=The+Big+Sleep+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Annotated Big Sleep by Raymond Chandler, Pamela Jackson, Owen Hill, Anthony Dean Rizzuto [ENG / EPUB] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 27,
+        "leechers": 0,
+        "size": 121215384,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=R2JwT2lVQ2tZWFhqeENpaFpUa0pLTExTaU5ZMFdQTWltZFVET3V0TTFuRWFaaTZNVzgxS0I5c1FMTDVGbWtRVy8wSktxMFNRZVYxNHozNWd6VSswa1B2YXZLa05tWlMrSWphTFZnNGw1TmM9&file=The+Annotated+Big+Sleep+by+Raymond+Chandler%2C+Pamela+Jackson%2C+Owen+Hill%2C+Anthony+Dean+Rizzuto+%5BENG+%2F+EPUB%5D+%5BVIP%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Big Sleep by Raymond Chandler [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 239,
+      "leechers": 0,
+      "size": 136908,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aXpBMVFrelFzRk1WSXQrcHVVRGVUOHVRMmg5OTJvcFJ4QzI1cWZQTC85cTdEVVA1TnliYVRIeGlqb0hPMlZLTSthR01YeVRaQUZ2UG85Qk9pc2NkZGpXWW1LRzRKYWpvSHZTSzB2c242MGs9&file=The+Big+Sleep+by+Raymond+Chandler+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445457806953152704,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445457759893192880,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:53:17.383559",
+    "updated_at": "2025-12-02T11:54:43.715610"
+  },
+  "7d6f045e-9efa-4d3c-884a-6df83ebde78d": {
+    "user_id": 378737013769240587,
+    "book_title": "The Daughter of Time",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Daughter of Time by Josephine Tey [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 41,
+        "leechers": 0,
+        "size": 142186912,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=M1g3UUtNRlJ6OGdScnZBUmZHTFQwZ1hNQnRKTDFsdUNUOVdHMWlVZlBieVBCTVpKWVAxNkZrdGdCdmlQNy9xMzdZMzhBNW9nNlZ4RkxmTDBlcE9ub0xUOVVvTHRBV1Yrc3dScElzRE1kWjA9&file=The+Daughter+of+Time+by+Josephine+Tey+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Josephine Tey: The Daughter of Time & Other Mysteries: A BBC Radio Crime Collection by Josephine Tey [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 537500032,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=T3RIK3hXY1ZuVWhWV0EwSldVVnA1RGlCTHZ0Nk9BTlNuTWxQbEJ3eDdrNURWTVhWNzBvaWhSbHhydlV0a09nVGpuT0RRcHlYbWNzTVdUKy9ieE1xa1I4MEJRb05FUFdDazIxODY0QlRDOVk9&file=Josephine+Tey%3A+The+Daughter+of+Time+%26+Other+Mysteries%3A+A+BBC+Radio+Crime+Collection+by+Josephine+Tey+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Daughter of Time by Josephine Tey [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 42,
+        "leechers": 0,
+        "size": 296857,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VWFvYzllTXF2enJTTVVObmhDQWIraGc5MWtrNVlNbGZCSkswT0h2U0p3bjJ2Y2dwVDFBWjdxVGVHWDdsTmVmN25ZWklkYysvQ1hKNnZKaTdVWFBGMXBaSm9XR3JWUlJENXhwdkxOeEJTNmM9&file=The+Daughter+of+Time+by+Josephine+Tey+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Daughter of Time by Josephine Tey [ENG / DOC]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 538624,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bDhkaXNneEp6SE0xb2tjcHVoVlVBbmJ5ak5CVzYxR1B4VGJRb1krdUlySXZ2SUppOG9DcjNlaXV5SFN4b0p3b1ZFVldmb3NsVEZnaHVJSnpBWENNc0tsMk4zM1RNUTFRTzFMVVNNK3FWd0U9&file=The+Daughter+of+Time+by+Josephine+Tey+%5BENG+%2F+DOC%5D"
+      },
+      {
+        "title": "The Daughter of Time by Josephine Tey [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 47,
+        "leechers": 0,
+        "size": 152777520,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=c29uMStIdlQwNVlyRVFaSk5tV204cHFKekJHVitWVW9jNFZJNzlWcGMwTzU0MHBsUk5XK0JDaG5GQy9xYmIxTlUwUUVuWCs0ajRtMDhEeEpiRHhIMGJtdkZuUTUveEIzbm1MZjRuYysyaEE9&file=The+Daughter+of+Time+by+Josephine+Tey+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Daughter of Time by Josephine Tey [ENG / MP3]",
+      "indexer": "MyAnonamouse",
+      "seeders": 47,
+      "leechers": 0,
+      "size": 152777520,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=c29uMStIdlQwNVlyRVFaSk5tV204cHFKekJHVitWVW9jNFZJNzlWcGMwTzU0MHBsUk5XK0JDaG5GQy9xYmIxTlUwUUVuWCs0ajRtMDhEeEpiRHhIMGJtdkZuUTUveEIzbm1MZjRuYysyaEE9&file=The+Daughter+of+Time+by+Josephine+Tey+%5BENG+%2F+MP3%5D"
+    },
+    "message_id": 1445457883587153920,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445457845289226323,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T11:53:35.680440",
+    "updated_at": "2025-12-02T11:54:51.269924"
+  },
+  "b3bac236-457c-45cb-8be7-e679ae7c3b81": {
+    "user_id": 378737013769240587,
+    "book_title": "And Then There Were None",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "And Then There Were None by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 85,
+        "leechers": 0,
+        "size": 170393600,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SFJYRncwUHdYREwyTktxTDhnVHhISi9PS0pieGc0WUxSTXMxenB1VFdwSDE3K1VsZWJiQWU3QWVXNDZ2TFo0aXI4ekJVbVkwVStkUXJiZmdXNEpPUHNGKzdHZ0VaVlpGQ2dzc0FlWGRXZE09&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "And Then There Were None by Agatha Christie [FRE / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 26,
+        "leechers": 0,
+        "size": 544315776,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WUdaSWk1azJHQUN1ekk4TDZDQTR1OXA5ZXdCaTF1aUxKUHRyMWpiRUE3d2srQ01INXVyNDYyb1Q0N3NxcTJ3L0Z5RGpFNlU2eXJha3V3UEVVWlZEbFhXNUswZkhiVjJUakpJSDQ4VHl2cHM9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BFRE+%2F+MP3%5D"
+      },
+      {
+        "title": "And Then There Were None by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 146,
+        "leechers": 0,
+        "size": 174063616,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=azJ1Y3BGaHhWMnJBSzNrSzd6MUFpdjBoTm51ME1ka3A2T1RkRVZuMHN5Y0gvellSc2VVeGZBRFZMdllQdTd2dFFYMlRYWGNjL0VhZFBUdUU2QWJJcXdPYSsyUm1Ld2NNVlVKYnpBN0gxZjg9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "And Then There Were None - Agatha Christie BBC Radio by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 42,
+        "leechers": 0,
+        "size": 41733324,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OHJmV1RySG9oVU1XdHFLWWRYTXRGVWdLQjBFSmpWS25kUDY5L3QwMytlWGhHVkUybHMrdlo3SVdwbXBZSXQzWlFLWndZSG5oeW9wdVh3bVp5WUpIVFNMaUVpMEZObTZ3OWNNQzFLQWFMZ289&file=And+Then+There+Were+None+-+Agatha+Christie+BBC+Radio+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "And Then There Were None by Agatha Christie [ENG / AZW3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 71,
+        "leechers": 0,
+        "size": 397721,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eWlTbWo5UitqN0VkeVNhMnJTeUV5c1Uzbzg1M2I4S2tkd09kdzhOWlhyVzYrcnU5RHJBRDdJeGYrUHkxMGhaTk43dkQvMkgwbkpNUkdHRTRwcFBDa1VtSWk0cDBCT0Nia0UvaFBaRmo5ZHM9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+AZW3%5D"
+      },
+      {
+        "title": "And Then There Were None by Agatha Christie [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 362,
+        "leechers": 0,
+        "size": 169984,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VGxtRmV4c1pmd2tsQ1BPci9lVklaTTl0M1FDajdQeUtEZS8ybEZYL3RnQmhybUdkU1h1ZmZ1S0oxK2Z6MjhyRGFhcVIvVkJFR3NVa0haMnFGMGpsK2kwUjMvZUpjQXhTWWU5OXB4UVFGRms9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "And Then There Were None by Agatha Christie [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 93,
+        "leechers": 0,
+        "size": 132225432,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eUNBMkQ5L2VIMXBmSWs3M0ZIcTQzVFhHZDJBZmQxRUpvR3BqVVVNR3R1K2tXMW1UMmZTRk0rWVFwSzA2YVZpOGN2UkZ4WnFBREFXd1hkNVFnb3pyZms1TjNJdDE3TVBLM2ZXVGx6NXVVbmc9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "And Then There Were None by Agatha Christie [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 115,
+        "leechers": 0,
+        "size": 557977,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ekpFOC9mRUpOQUdYY2IyeURQOFlSRTNBNlVEd3c2WitTcWlDN1N6SS9XQUVVVmxKODVSZGdVTEdMUExpcjVFYjczd1R5SHorV1gwTitITXVoRmJpT1RHOHNhdUhtTXpUZWlveWtXRTNLcUU9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "And Then There Were None by Agatha Christie [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 173749040,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RUZzQWpJV0ZlbWF0Rk1KN1RKc01YSy83SG9rVjNzQXVid041eEJLNC8xU1NLdjgwMW5LemtOTDc2Mm9sVUtsS1VqbnBrT1RWNStTc3pWVFNjd1hTaGRhUjJ4Q1dIWlVaWDNrd3BOSDhPQmM9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "And Then There Were None by Agatha Christie [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 66,
+        "leechers": 0,
+        "size": 158020400,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QU5Va3JIeXNSQmRXLzZKYTVVNVdXcDd5RmJrUy9vZUc4Zlg1TlNTcG5xdjlmcUprL2hsUlBjNk5nKzJaUUoxVHZrbWI5bXAxaU9PNE4rYWdTbDg0WWp5Y1hNaTZNa2RHdFJIdTllRE9WcGM9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+M4B%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "And Then There Were None by Agatha Christie [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 362,
+      "leechers": 0,
+      "size": 169984,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VGxtRmV4c1pmd2tsQ1BPci9lVklaTTl0M1FDajdQeUtEZS8ybEZYL3RnQmhybUdkU1h1ZmZ1S0oxK2Z6MjhyRGFhcVIvVkJFR3NVa0haMnFGMGpsK2kwUjMvZUpjQXhTWWU5OXB4UVFGRms9&file=And+Then+There+Were+None+by+Agatha+Christie+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445462555064533238,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445462504091160608,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T12:12:09.557891",
+    "updated_at": "2025-12-02T12:13:15.717606"
+  },
+  "9c011d44-a93c-4c99-89d6-7bfc72249da5": {
+    "user_id": 378737013769240587,
+    "book_title": "Gaudy Night",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Gaudy Night by Dorothy L Sayers [ENG / AZW3 EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 5242880,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=M0k5N0c5a0gxZXpPK09NYUFyV0Vtb1hLVG9aV1k3SFd6RFZpekE5cnNXOXd2dXo2aVBxc0lGQWgzRzR2SkVrb2ZWQXZmMjROSEIyUVhWTUppWFNscWZVVUlJbFdXTC93S2YvNkUrZU5aVkU9&file=Gaudy+Night+by+Dorothy+L+Sayers+%5BENG+%2F+AZW3+EPUB%5D"
+      },
+      {
+        "title": "Gaudy Night by Dorothy L Sayers [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 6,
+        "leechers": 0,
+        "size": 129708848,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=K1M5TFNlaGpCamsrblB0Y1RjS0lVWEw0WmEzaHdFSWlMY2V0UGZsYjFrT1E5ZnR6a3JPWFpaTW1pY25xVXZHUDVwTDBRUXhVb3EyWE1RVE42M0c0cG1aaXVtZ3hWZEpqY1NXY3RvWUUxaXc9&file=Gaudy+Night+by+Dorothy+L+Sayers+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Gaudy Night by Dorothy L Sayers [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 13,
+        "leechers": 0,
+        "size": 468398912,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bnEya2tsQU5hOFF4VW1rblpRMktvSm51U3dVa1FGU2RBd3lQcndJS0ZkVFM1OUIrT0EzWHN2alF4TVlJS2J6bmYwWjJLOFE5aDlUaW5wKzBSb3cwbm9mcU13Z0RYRlRORkt3UVhHZmUvQzg9&file=Gaudy+Night+by+Dorothy+L+Sayers+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "Gaudy Night by Dorothy L Sayers [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 623616,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UW9nWjdiRjExdnRMdFdQNm00bTJ2MUlGRjdUUC8yS3VjR2JJMGJwUkE0aEF2c3cyRno2RllvN0pFekd1cXZkb0k5V2VueGVUd1orem4yYUZpMC9wNFp1WkQzckFjUWd5UGIzSEM4SmhacGM9&file=Gaudy+Night+by+Dorothy+L+Sayers+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Gaudy Night by Dorothy L Sayers [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 8,
+        "leechers": 0,
+        "size": 448475968,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=enlBbkhRNGluREtqb2dISXdtRk9Caytxcmdob0NkTmRHSjFoQjJjOHZ4MlBqcmdrc25BZXVGY2VscUpzamhLVlRIZ2srWFdMc2JPZXhlUDliOFgybG0wVFBlK1ZyMXdSdjlHNE9ER2ZFeXc9&file=Gaudy+Night+by+Dorothy+L+Sayers+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Gaudy Night by Dorothy L Sayers [ENG / AZW3 EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 14,
+      "leechers": 0,
+      "size": 5242880,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=M0k5N0c5a0gxZXpPK09NYUFyV0Vtb1hLVG9aV1k3SFd6RFZpekE5cnNXOXd2dXo2aVBxc0lGQWgzRzR2SkVrb2ZWQXZmMjROSEIyUVhWTUppWFNscWZVVUlJbFdXTC93S2YvNkUrZU5aVkU9&file=Gaudy+Night+by+Dorothy+L+Sayers+%5BENG+%2F+AZW3+EPUB%5D"
+    },
+    "message_id": 1445462634940862726,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445462602607231100,
+    "user_channel_id": 1332181903901458504,
+    "status": "pending",
+    "created_at": "2025-12-02T12:12:28.550639"
+  },
+  "b9e3d5d7-fccc-49e0-aad3-c982695f7e5b": {
+    "user_id": 378737013769240587,
+    "book_title": "The Moonstone",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 28,
+        "leechers": 0,
+        "size": 647915136,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WWhGenE0WkFlbkthMzQ0UXZGS25mSDFwSE8zMitXV1RjWHF4Z0VrMG05SEJxVGdSZm5IMjdjZGwwSnN5OHZ4c1JHTXpkQzE4V3lSTTh3ZGYxVTNFeU5haWN3MWQ3YklRWEhNbUd2RkFGSm89&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 6,
+        "leechers": 0,
+        "size": 539072896,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VDVUQUViSDFEYkF2VHVKd2o1R0NhU1ZYR0NZRTFGNWlKaUI4dzkvZXZ1TFZnOFZjSWFoK3Z0QnJOeWh5NHJZN0tOZk9oYktKQkhYcm1iVW0rblpEMk5pVklnd0hQLy9yUWtjREI3VWU1UkU9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 647076224,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NmpHUlRkeGhhZ3VDQm81a1Z0cTBSY0R3L25JN2pVajhQMGtuNm1EaE93L0lhWnVqNndNNVNrTTd4MjFHY2d6a0lZWVpjVnhYc0J3ZTA1NXdvMEdiR2pIWDJoY3FZRlIwdHl6MGhOR1ZOdGM9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 28,
+        "leechers": 0,
+        "size": 1887436,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UUxlVzk5dXZReFhjS3ByVjlHeU9MR1U3bVZ0cURPYmFTbDRaMlQvbzlNODN4cytvcG0wQTRqTFI1cDdUWEMzdUhxWkp1ckdWcnZHcmluNnZObldlZkVFM21OSWo4aTd6OVpySWVkZitmZ2M9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 536556352,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MlFZMWFXNXNDVU83bWxDQTJwaHI1ZDZ1K3c2WU9xdEkwQ1prMFFzTFVmS3FTdmpURDVnMksrMGViS2xMUzl5MlhQQVkrUGpzdno5emtXeXhPRXR2UEZuYlhibEdSOUE3UDd4ekE1MWNGV1k9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 6,
+        "leechers": 0,
+        "size": 537185472,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=STQ5USs2Y1g0MjZvdEVBY3pWNUhCaTdDb2hBanJQZnlVV3lCVlFEdGtSSXR3Q3ZuT2dxUmptLytQTzN4MS9NckhNa2drOFVGckg1Q2pnWVV5T2tVTGJFU0U4eXRORHQ1djA4RXVFcEowY1E9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 626943616,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QnpiSHZwMTduMlhYVEpPUWhLb3QwbS8vbXRLNVVWdUpsTDdic1VFQndVajk3NVZvMU1CTm4wYjY1ajdoaC9kR1EzK1doK0FqS2lYNG0yYzJaUHdUb3lZOHI0WnZ0VWRUdEFHSHMwTWJpWDA9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 642672256,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=N2pFVWJFTlNiOUJsV2l6cnBPMi9reVA2aWdrZTlRSmR5OFI4VVpmbWtzU1dyRk1CMklEZGlVRUtCb0s2YkZROVpRczhjMDVOcE04d1hnbUFjQk1vNG0yN1hWNWtyeUwxVWNZdjg0aE4wVzg9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 5,
+        "leechers": 0,
+        "size": 585629696,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aXBQSkxRZjJCQmpXRVFNc2VXdCtYSnNoU0JNT0IrcEpJZVZRV0wzZ1FiOVd5cHFmME0xYzJjUVdVSmJ4b0YvL0Y4Q1psM2ZLc2s4dG5tODhZUWVIdXdPUGZjVGloYzJqUmR1bFhadmJ4Tkk9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / AZW3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 731648,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=U0dFWlNkZG9qdit3R0pRZmMyN0FDN2tDMEdmc29TY0YxdzdPQzYyQmpXZUsvMVlaNk9xSHI4TnpxVlZBRlQxdnVPZzBhWFVQbVBObW5PWWhlZGJCdFlNWGpXOTVYQVFWVTdzWlFlSW8wQUE9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+AZW3%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 5,
+        "leechers": 0,
+        "size": 362073280,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Q09KaUV1dzgvWWZxc215TGFod3JKSE9UQ014T1UrdzRqeFVxQ0k1dkxwd01UVjZsdmF2RkpnYTZEa3JaaDFtenA0bWhyclhuNXppcml5a0NwQ3RrNURubGRweFlkSHZXZDVOZS9DcmN3Ums9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Moonstone by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 34,
+        "leechers": 0,
+        "size": 635856512,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=T0ZPTEpybGZBeFJUUDRXeW40Zm5YOFAxSnpWNXQyZ21DVTFSTmxXM1pLT3B3ejF1czVLdTNVSERsYUxnZEJWRzBmSjVyQXFzZ2J3aHRnTS9Femp0RXlVRlgvMkIyM09OQXBTQlRxemRCaHM9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Moonstone by William Wilkie Collins [ENG / PDF]",
+        "indexer": "MyAnonamouse",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 1887436,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bEJVMDY2UmNPdk9kMmpueEJBL1A2M1A4RTFvTlJVWXZmTVIxdXFNSGtESWRhTmgxaVhxMDFva1loQXB2OHFWZ1k4UHBzcm1iVTB6Q2dWY1hrNkRnTzYySk81S2tpTy9HMEhTSFF0cGdxSHc9&file=The+Moonstone+by+William+Wilkie+Collins+%5BENG+%2F+PDF%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Moonstone by Wilkie Collins [ENG / M4B]",
+      "indexer": "MyAnonamouse",
+      "seeders": 34,
+      "leechers": 0,
+      "size": 635856512,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=T0ZPTEpybGZBeFJUUDRXeW40Zm5YOFAxSnpWNXQyZ21DVTFSTmxXM1pLT3B3ejF1czVLdTNVSERsYUxnZEJWRzBmSjVyQXFzZ2J3aHRnTS9Femp0RXlVRlgvMkIyM09OQXBTQlRxemRCaHM9&file=The+Moonstone+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+    },
+    "message_id": 1445462725449879614,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445462683393724666,
+    "user_channel_id": 1332181903901458504,
+    "status": "pending",
+    "created_at": "2025-12-02T12:12:50.130050"
+  },
+  "2cb800ff-b56f-4837-8e6a-c5b5f959a7ed": {
+    "user_id": 378737013769240587,
+    "book_title": "The Thin Man",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Thin Man by Dashiell Hammett",
+        "indexer": "seedpool (API)",
+        "seeders": 1,
+        "leechers": 0,
+        "size": 171630848,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=S1VpZGh5d1dGODk5Q0psZG5zK2wzVEQxMXNPaUtCSzRTQ0FMSURCbVJpWWJoWDV6bmkxRytRaGk1RFlINDNFN00xcmowRTB6MEFqcDNacEg0WVJacTdsdTZSWDQ5OWdxVWtSeHRVc2dhOXZtZEhXNS90clFvUXJiM2FYaUNnUFU&file=The+Thin+Man+by+Dashiell+Hammett"
+      },
+      {
+        "title": "Return of the Thin Man by Dashiell Hammett [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 15,
+        "leechers": 0,
+        "size": 6186598,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Y284dXJQd0Y5VEZLRlZESERoMk5NYWpzMklybTJsdkFoMSt4bGRPODRiWWdYejNoUTJ6SkxkNzlMOTVHQnJEVGNIRXdMS0grQlltRWhWVDh1Nm5FbDhlVzhMb3B0YUd0azZVRzU5MjZadXM9&file=Return+of+the+Thin+Man+by+Dashiell+Hammett+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Thin Man by Dashiell Hammett [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 56,
+        "leechers": 0,
+        "size": 171651888,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UnRMVmd6K3JCTTVPTHkxeUhoK0lUeVFqbTA0NTkya2NvRHRFeHA1VENSaTd3d2xBYUl4ZWhTWERaNmpRS3E4cjNnWmovZUloYVN3OHpBK0NWZ1JPc0lIQTQxaTdtRVU5SDNsVHRmeUk2VHc9&file=The+Thin+Man+by+Dashiell+Hammett+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Return of the Thin Man by Dashiell Hammett [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 215167792,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VzBZM3hKQzFaV1FpSzBuZXlwREVpZjZWSVhZMTlGdXJjMHZWd3dEdDNxN1gzVVBGT0tGc2NGZ2tidnRXY3NBRHVIY0xDOXpBVll6RUtUUHBWYnJkNTcvU1NoTFpNUlY1RXVOdW41ODNiMWs9&file=Return+of+the+Thin+Man+by+Dashiell+Hammett+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Thin Man by Dashiell Hammett [ENG / MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 47,
+        "leechers": 0,
+        "size": 302592,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=QlF5MUpReFhEY0xzU25XMENFZnJzZ01aQzRqR2VySHlPUDR6Y0dhRU5BVWFrRWc2SmE4U3dZUmNodXo2RFVRL0IzWWJ5NVRDaXRpUUhyQ2JBU0lPb1RyOFF2WDNKOUt4YW5DQlBkZ2pKYWc9&file=The+Thin+Man+by+Dashiell+Hammett+%5BENG+%2F+MOBI%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Thin Man by Dashiell Hammett [ENG / MP3]",
+      "indexer": "MyAnonamouse",
+      "seeders": 56,
+      "leechers": 0,
+      "size": 171651888,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UnRMVmd6K3JCTTVPTHkxeUhoK0lUeVFqbTA0NTkya2NvRHRFeHA1VENSaTd3d2xBYUl4ZWhTWERaNmpRS3E4cjNnWmovZUloYVN3OHpBK0NWZ1JPc0lIQTQxaTdtRVU5SDNsVHRmeUk2VHc9&file=The+Thin+Man+by+Dashiell+Hammett+%5BENG+%2F+MP3%5D"
+    },
+    "message_id": 1445463503455387769,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445463461621665866,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T12:15:55.654674",
+    "updated_at": "2025-12-02T12:15:57.680133"
+  },
+  "40c9b1f6-8949-4622-abf3-d8547bd930cf": {
+    "user_id": 378737013769240587,
+    "book_title": "The Silent Patient",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Silent Patient by Alex Michaelides [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 167,
+        "leechers": 0,
+        "size": 318033088,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZkxneEFYUVFGREV5YmFOcUVaSzh0SEY1YXZwQUJ5dFM0RkdWN2Z4ZjhFY2RRdHBMVXJmQk9ZK1JXZ3EyOE1laVRPYjJWTnVQNWJ4ZEp6dytQK2VKdGtzakdoQTRGTkRVcDAxdEdHR09wSWc9&file=The+Silent+Patient+by+Alex+Michaelides+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Silent Patient by Alex Michaelides [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 202,
+        "leechers": 0,
+        "size": 249665952,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OVhrOHVkQmhwdEdmRStCeGtlUFpjNUhsOWF1Mlh5ay9Jd3dScEkwMEcvUzlkaFY3WlFwUThINU9VT1Bhcm1ndWY1dVBGTm9HRmZQNVZhdDFuM2pvVERyRXQ2N1hrZzdaK0pmWUx4T3F0RTA9&file=The+Silent+Patient+by+Alex+Michaelides+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Silent Patient by Alex Michaelides [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 988,
+        "leechers": 2,
+        "size": 1018880,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=cDNCenp0LzY4ejFOWjljL3RHaDNiazVBSlVLSFZaaW1qcGFFWVFBSnRwMFdNaXhZT0FKS01QMEFFY215R2JoZDFLV2d0SGxUTW9zWVV5Z3Y1ZEJrcTdVWHNhZnM1OGJyMEhBZFJRQ1IzdFk9&file=The+Silent+Patient+by+Alex+Michaelides+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "The Silent Patient by Alex Michaelides [ENG / M4B] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 137,
+        "leechers": 0,
+        "size": 505937920,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZnZ1TFJlNlZBbEh0b01raTIwWkNXMFJEbEVKSjF1ek5xcGk3Ly9tazk0bGx5czFSUVU2NDhndkdEQWNpeUdUN3FIWW9McFdOR3RtTmxJT2FZZkhLSVFkYklKUURvd0UyVWpVRFc2K2FYd3c9&file=The+Silent+Patient+by+Alex+Michaelides+%5BENG+%2F+M4B%5D+%5BVIP%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Silent Patient by Alex Michaelides [ENG / EPUB MOBI]",
+      "indexer": "MyAnonamouse",
+      "seeders": 988,
+      "leechers": 2,
+      "size": 1018880,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=cDNCenp0LzY4ejFOWjljL3RHaDNiazVBSlVLSFZaaW1qcGFFWVFBSnRwMFdNaXhZT0FKS01QMEFFY215R2JoZDFLV2d0SGxUTW9zWVV5Z3Y1ZEJrcTdVWHNhZnM1OGJyMEhBZFJRQ1IzdFk9&file=The+Silent+Patient+by+Alex+Michaelides+%5BENG+%2F+EPUB+MOBI%5D"
+    },
+    "message_id": 1445464017803149464,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445463975792738458,
+    "user_channel_id": 1291129984353566820,
+    "status": "approved",
+    "created_at": "2025-12-02T12:17:58.339517",
+    "updated_at": "2025-12-02T12:18:00.899897"
+  },
+  "20e621e5-3424-4bc5-9237-8597b49cbd8a": {
+    "user_id": 378737013769240587,
+    "book_title": "Tinker Tailor Soldier Spy",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Tinker Tailor Soldier Spy and Other George Stories by John le Carr\u00e9 [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 20,
+        "leechers": 0,
+        "size": 741238400,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MUlGU2V6Mzg5S2YvTEN4VXU0OUZpcnVVckg3NXluNlcvbFFBVk1nRytUbnhKUEQ5WnNlblNQT2M5dE9NNjJvczhYTGMwMm1NOFpXSFRaYTZmMmxlMklvS1dRSDZDMjZpbUdqWWQzWEc3STg9&file=Tinker+Tailor+Soldier+Spy+and+Other+George+Stories+by+John+le+Carr%C3%A9+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "Tinker, Tailor, Soldier, Spy by John le Carr\u00e9 [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 95,
+        "leechers": 0,
+        "size": 370776480,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Tjk3RTV5ZU5aOHdNMEhqZk9VN0JwTG9KRExORndEQ3dkbmxFdXRKWXdodnJyNm1veUQ0ZkRwckdFRHp0TWNjSkFzbEsySitrUmlXV2tRTCs4dzBnamNydk02NUV0N2VoNk5VOWI0ZVE1c009&file=Tinker%2C+Tailor%2C+Soldier%2C+Spy+by+John+le+Carr%C3%A9+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "John Le Carre - Tinker, Tailor, Soldier, Spy (BBC dramatisation) by John le Carr\u00e9 [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 16,
+        "leechers": 0,
+        "size": 90596968,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MFk3TmUyWXN6T3hhclM2RzMrZFJyU1NXTmxIQ05sZmpRVTRQUjcwRGFrVm1nL0ZoeHBRamtYSm5wVXh0SG84R01uVGhiYVBDc0FJaUdIRm1NaUxIakdLTERtTFBmWDR1eEZ0dTdLT3RaaDQ9&file=John+Le+Carre+-+Tinker%2C+Tailor%2C+Soldier%2C+Spy+(BBC+dramatisation)+by+John+le+Carr%C3%A9+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Tinker, Tailor, Soldier, Spy by John le Carr\u00e9 [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 74,
+        "leechers": 0,
+        "size": 691221312,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=S1daRGVpNHB3NmxZMmJNL1VpM09TYUJzSTF0QkhNTnZ0Wm5qeHlqVnRrRE5tOU04ZjlmY3l1QXVjaU1kY1BmaUtsQmtIL2ZFK2l2YkhlVUUwWlorVUExUlpGRVRXbVIxMFZuUFZlVS9WSE09&file=Tinker%2C+Tailor%2C+Soldier%2C+Spy+by+John+le+Carr%C3%A9+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "Tinker, Tailor, Soldier, Spy by John le Carr\u00e9 [ENG / MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 48,
+        "leechers": 0,
+        "size": 469811,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SmRhTHRUYkw2bkhOeXNTakl4dTJIRjAxRmJrc2l1cHlHbmtIdnRGQTQ0TmZQWGNxd0VPdERGMFJSdXd0OHFHeGVqbGRiUjNGdENkTUZ4L2c2TDR1dElpcDZFQnZFVFNYMlhLZXlXdzN6S1E9&file=Tinker%2C+Tailor%2C+Soldier%2C+Spy+by+John+le+Carr%C3%A9+%5BENG+%2F+MOBI%5D"
+      },
+      {
+        "title": "Tinker Tailor Soldier Spy by John le Carr\u00e9 [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 20,
+        "leechers": 0,
+        "size": 368993888,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eE1DTjIwTE9tMC9YczdoS3RjM0JDV1V5YjVqM0g2Mk00S3N4eXJtOG9MTGZ3dmdwZThPcThYY1dVc0JvUHRjSkF0N21KbDY4WWpWTXFHMVA4THVyTDZiMFkzY2ppRks1UUxuV1VkL1RqYTg9&file=Tinker+Tailor+Soldier+Spy+by+John+le+Carr%C3%A9+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "Tinker Tailor Soldier Spy by John le Carr\u00e9 [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 1073741824,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eGt0Z0NZS3JlNnNsYm5ybmMvVjQram0xUVhLMVBrSTJocnpXVURkTC9jSlYyT2drZjJ1QXlPMlhjSkRSVHhoUUNMQmZHVjh5U29nMElpYU9TMEhZTFF3YnVFTDlCblEyd1NIaktjQXFZb009&file=Tinker+Tailor+Soldier+Spy+by+John+le+Carr%C3%A9+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Tinker, Tailor, Soldier, Spy by John le Carr\u00e9 [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 82,
+        "leechers": 0,
+        "size": 303001,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Q3RlWi9iMFlTVEdXU2lCUEtwWmNFV3VVUnFzeC9yMHo1aVY1VUxEM1pNK214U1VsOU9sR2J0RVBBRjVqenM0WnhYbjluUnEyNllHQVJTcUdWbmgwYngyelgxaDJvckZRSUFBL3libG4yTkU9&file=Tinker%2C+Tailor%2C+Soldier%2C+Spy+by+John+le+Carr%C3%A9+%5BENG+%2F+EPUB%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Tinker, Tailor, Soldier, Spy by John le Carr\u00e9 [ENG / MP3]",
+      "indexer": "MyAnonamouse",
+      "seeders": 95,
+      "leechers": 0,
+      "size": 370776480,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=Tjk3RTV5ZU5aOHdNMEhqZk9VN0JwTG9KRExORndEQ3dkbmxFdXRKWXdodnJyNm1veUQ0ZkRwckdFRHp0TWNjSkFzbEsySitrUmlXV2tRTCs4dzBnamNydk02NUV0N2VoNk5VOWI0ZVE1c009&file=Tinker%2C+Tailor%2C+Soldier%2C+Spy+by+John+le+Carr%C3%A9+%5BENG+%2F+MP3%5D"
+    },
+    "message_id": 1445464988625145978,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445464953539792951,
+    "user_channel_id": 1291129984353566820,
+    "status": "approved",
+    "created_at": "2025-12-02T12:21:49.858492",
+    "updated_at": "2025-12-02T12:21:52.354346"
+  },
+  "c756aa93-741f-465b-93f0-1c8e483797ad": {
+    "user_id": 378737013769240587,
+    "book_title": "The Woman in White",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "BBC R4 -  Wilkie Collins - The Woman In White by Wilkie Collins [ENG / MP3] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 5,
+        "leechers": 0,
+        "size": 219152384,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VVVLci9JTGc3dGJQUkpIdUhiVFZuc1d0SEJ2YVlxNmFnZmZ6ZngzZFVFWHZBK3g0YlJDdWhNNWJjZ2VzdElZdTV0d2x0N1dxNHVOY0VNOWNRMEhsMm9FaG15Z2VoNDF0djA0djk3TEQ0VzA9&file=BBC+R4+-++Wilkie+Collins+-+The+Woman+In+White+by+Wilkie+Collins+%5BENG+%2F+MP3%5D+%5BVIP%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 52,
+        "leechers": 0,
+        "size": 1887436,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=V1JEdEFMdTZURk5TMDFsV1lBdTZWV3haUlQ3SEdIdWV3aUxRanIxcmpOYlhJempuUVcwOW1qVk5PL1lnSDNuYTErUEdwUGFJQTJwSEEwZ3BHVnN4Y3gvWlJyem45VFFTK1p5bFNWMUZobGc9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 16,
+        "leechers": 0,
+        "size": 1288490240,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eUN1ek1OelcwRmgxVmxJL3BwRnJtNnFyZnNQVmU1NTFBaytBcFUvRFFsRjJGMHNCMzFKTDlIdW41U2ZxWUxTNkpRR3R5QmpjdE9GM081cVV3QzZvNDJ1bE9OWFQrTS84U0lDbXdWOTg3b0k9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 12,
+        "leechers": 0,
+        "size": 806459776,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dElYc0tLOEtPV3JyV0xCU2lidk9RczdhWXNRb3lPQ3hBY2dwcDlHdjlYQnlXTFdLU05iZVRlZEJZdDZWUGxMVll1N1ByVFdnRlVxelJURVNGN2grS3d2MGtIWTY3MmV6QkpCN0tGVzZqQVk9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 801216896,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bm5KOU9ydzN6RjZnTlJ0VXpCOGovOVl5M1ErLzA5LzBJMXFHMWx6eEdJaStoeUFxdnZJbERBQXhhZTlHdWZCNExoR2RLTHA2OURHOHBxdmhVaTdoOW9IS21IdXFsM1EwSTJIeFEyQzM2RGc9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 718379392,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OGhZV0drQWh6cWdZNmkwUHluVUh5UVd6dk9rVXNNSVU1cGpZM0hwcExhZHlNSit3QjBVWXRLYWZldWhvQWRxbUZDaURJTVJjUnF5cjRsbWxHdCtmdzV0T3l2djgrMG9KYnFYVHBYbFF4UTQ9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 21,
+        "leechers": 0,
+        "size": 707054784,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RkxNL3FTd29EUFJBcUN2SlMxTW5xcGNyalNaQjRBaXVmcHVQTzFuWjAxUjJzSGZoeW0vTkJ6R1Z0K2REVTFZeUlNamhHZjBERWc4MFVQNEhIZm1rQWV4Tmd0cjIrSmJWN09zRHFyTjVSQ0E9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / DOC]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 2726297,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=V2lRcWI5NXk3Vy9EclJCY0JyK1haWXB0Qis4NHR1bFQ2QTB5K1Q2aXp4b3JOVnVhc0JFRjlYd01KdVR1ZzFXVVF0dUQyZUR6K082UkZDMFVIVGticlA2ZnJUYTUySlIxSVVJSDlQRnJZL3c9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+DOC%5D"
+      },
+      {
+        "title": "The Woman in White by Wilkie Collins [ENG / PDF] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 1677721,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eFdOZTRDV1JncFkvZEJRM1VDbmw3OWUrSjJ3Rk1uS1hEWUVWclVWTHRuQ2ZUZ3hpc2Jma3FjTStrbUNuK3RCOVJhbFUya2FlN3ErSXR1T1RoV3RSMGlJT2Y3N3RUdi9zeHd0VnZtQmJNSHM9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+PDF%5D+%5BVIP%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Woman in White by Wilkie Collins [ENG / EPUB MOBI]",
+      "indexer": "MyAnonamouse",
+      "seeders": 52,
+      "leechers": 0,
+      "size": 1887436,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=V1JEdEFMdTZURk5TMDFsV1lBdTZWV3haUlQ3SEdIdWV3aUxRanIxcmpOYlhJempuUVcwOW1qVk5PL1lnSDNuYTErUEdwUGFJQTJwSEEwZ3BHVnN4Y3gvWlJyem45VFFTK1p5bFNWMUZobGc9&file=The+Woman+in+White+by+Wilkie+Collins+%5BENG+%2F+EPUB+MOBI%5D"
+    },
+    "message_id": 1445467241591345193,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445467181537296464,
+    "user_channel_id": 1291129984353566820,
+    "status": "approved",
+    "created_at": "2025-12-02T12:30:47.007267",
+    "updated_at": "2025-12-02T12:31:06.920159",
+    "torrent_name": "The Woman in White by Wilkie Collins [ENG / EPUB MOBI]",
+    "result": {
+      "torrent_name": "The Woman in White by Wilkie Collins [ENG / EPUB MOBI]"
+    }
+  },
+  "f3b14144-8ecf-43c5-80be-6723579ee7c3": {
+    "user_id": 378737013769240587,
+    "book_title": "The Long Goodbye",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 52638516,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RjJTOXNuU3BKOTR1TkEwK1NkOTVPMmpvdTNZUEYwZ1NNTFBValZMbDNEL3RuWmFZVkZLL0dCeDN4Y0N0SWx3RnJnQ2RhSFNMK1RCcFd5aDhYZVJDRnlNeWlBSmkrODN3Uy9BSzJ6bktOU1k9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "BBC R4 1978-01-16 The Long Goodbye by Raymond Chandler by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 3,
+        "leechers": 0,
+        "size": 104857600,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bTVENHZmSUNKYmM0QXhqQmlXaVA2aWxMMWxsdG9LRFdQY21xV1B0ZVd0SmRsN3hsWTVFRDRaTTFNS2g0cHRCaEpHQ0dqSXVQVWU0SGtCMmVLUW04dTBVdVIvNkVFN3dLYkVtcGZEOS9lSmM9&file=BBC+R4+1978-01-16+The+Long+Goodbye+by+Raymond+Chandler+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 53,
+        "leechers": 0,
+        "size": 768186752,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=K2JUcWhGMnlnMHlZN0k1bnZsdFFiZHIyMHVhUzBtdW9mRHpiWlRkN21VUkFKVnhmQkFtM0N1S296Q1ZsdkcyV0k1dHg1WER2Vy9uTG1haVVYWitFTFZRNjNrUnNUYmsvMFlaTTFTSFhzUkk9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / AZW3 EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 49,
+        "leechers": 0,
+        "size": 861696,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VzMvVFVqRzZsOEZ1cDhmcFlicTBCaUc2Ui9oeGlmMm5RSkhGdW83TEhXeXFwWCs5WjRpNXlBYzVvZU04UEI5MnZmNWtDNmQ3cUI4ZHBRWjZzRmFhaFRjb1c3M2tLeXlodG9xVmF3NXk2dGM9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+AZW3+EPUB%5D"
+      },
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 18,
+        "leechers": 0,
+        "size": 372019,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=c1dLTGIrZWdPcVFGWCtVMUg0SmRQQXU3eWlqZUtpZzFHYW1hY0VuN3RXakhZS3lVV0phbGE3N3ZTK3hkRjdHRUlYTGJEMXRKL3c0U2dOTDR3ZEtBQytpVzYwUFUyMkFMWmJ1dzU1Yk1GZXM9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Long Goodbye by Raymond Chandler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 21,
+        "leechers": 0,
+        "size": 336173472,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SWpZVDB2MHBHaWFZQlRXM1p6bGsxWXJKYlhtMlY2cXl0SkpxMHZGRk52aDdpVTFWclVTSDlXUFovL2xtZVBjWDVkYkdUWEdTVUhScHdTdW50bTM1Q3NFRXViaXVLZi9SdUNod1IvdGJhVk09&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Long Goodbye by Raymond Chandler [ENG / M4B]",
+      "indexer": "MyAnonamouse",
+      "seeders": 53,
+      "leechers": 0,
+      "size": 768186752,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=K2JUcWhGMnlnMHlZN0k1bnZsdFFiZHIyMHVhUzBtdW9mRHpiWlRkN21VUkFKVnhmQkFtM0N1S296Q1ZsdkcyV0k1dHg1WER2Vy9uTG1haVVYWitFTFZRNjNrUnNUYmsvMFlaTTFTSFhzUkk9&file=The+Long+Goodbye+by+Raymond+Chandler+%5BENG+%2F+M4B%5D"
+    },
+    "message_id": 1445467973404987494,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445467885051969677,
+    "user_channel_id": 1291129984353566820,
+    "status": "approved",
+    "created_at": "2025-12-02T12:33:41.589050",
+    "updated_at": "2025-12-02T12:33:53.704956",
+    "torrent_name": "The Long Goodbye by Raymond Chandler [ENG / M4B]",
+    "result": {
+      "torrent_name": "The Long Goodbye by Raymond Chandler [ENG / M4B]"
+    }
+  },
+  "e802779e-fb45-4cef-9c63-e2c9ece7aab3": {
+    "user_id": 378737013769240587,
+    "book_title": "A Coffin for Dimitrios",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "A Coffin for Dimitrios by Eric Ambler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 227750704,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ODd1UjQxQjdoT1N3SFFodzJxY2I0WDBSa2tkV0ZWS0ZDU0tIUDhJZGI2TU9ZSS9ueEdVQTVBL216WHUwQjRRNit1a2RxM0liTEI1WHZ5QWg4Q3hPaXNKOHFwdlUycWRlOWVta1JuU0ZVVW89&file=A+Coffin+for+Dimitrios+by+Eric+Ambler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Mask of Dimitrios (aka A Coffin for Dimitrios) by Eric Ambler [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 13,
+        "leechers": 0,
+        "size": 236768464,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=czV0bWJVaFM4NXFlNzdTbzBNSUxrN3ZVUzVWR1JOTGZxaTJrZDJlZDZaWGduWGVrdTRTMmtXcXhCalYrSGtHQ21kUlF4dG8wazZib0thZ3dZa0ZSNmxNWEoxY3UvNU9wVm9oTHJRbW4rVDA9&file=The+Mask+of+Dimitrios+(aka+A+Coffin+for+Dimitrios)+by+Eric+Ambler+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "A Coffin for Dimitrios by Eric Ambler [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 8,
+        "leechers": 0,
+        "size": 390451,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NjN6QWVZUGl3TitjZzhqWXExbmZEN0Fyb3pVck0zajYxQ2c4UmVWOE9VRjV5MFdrQVFCcHgydjJpU0JVdGYvSDM3bjcwaFRPeFVGWDJ4VWRKVG5UbFV1RVhPTE5La2JyaVN3clJqTXoycUE9&file=A+Coffin+for+Dimitrios+by+Eric+Ambler+%5BENG+%2F+EPUB%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Mask of Dimitrios (aka A Coffin for Dimitrios) by Eric Ambler [ENG / MP3]",
+      "indexer": "MyAnonamouse",
+      "seeders": 13,
+      "leechers": 0,
+      "size": 236768464,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=czV0bWJVaFM4NXFlNzdTbzBNSUxrN3ZVUzVWR1JOTGZxaTJrZDJlZDZaWGduWGVrdTRTMmtXcXhCalYrSGtHQ21kUlF4dG8wazZib0thZ3dZa0ZSNmxNWEoxY3UvNU9wVm9oTHJRbW4rVDA9&file=The+Mask+of+Dimitrios+(aka+A+Coffin+for+Dimitrios)+by+Eric+Ambler+%5BENG+%2F+MP3%5D"
+    },
+    "message_id": 1445469142269300888,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445469102087995574,
+    "user_channel_id": 1291129984353566820,
+    "status": "approved",
+    "created_at": "2025-12-02T12:38:20.156781",
+    "updated_at": "2025-12-02T12:38:34.181666",
+    "torrent_name": "The Mask of Dimitrios (aka A Coffin for Dimitrios) by Eric Ambler [ENG / MP3]",
+    "result": {
+      "torrent_name": "The Mask of Dimitrios (aka A Coffin for Dimitrios) by Eric Ambler [ENG / MP3]"
+    }
+  },
+  "21c4bf35-2b3e-4520-baf2-835760df25c6": {
+    "user_id": 378737013769240587,
+    "book_title": "One of Us Is Lying (TV Series Tie-In Edition)",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Karen_M._McManus-One_Of_Us_Is_Lying-AUDiOBOOK-CD-MP3-DE-2020-PaZ",
+        "indexer": "seedpool (API)",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 651905600,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RDZyTGd1SnU0Q3dCYXJWekpkWEsybGM5aVJOMy84aGFVL1NiSUJvai9ianlGNEx0Q3VpZ0hlV1Bydzc1SHgrNnM1WXdYYUtWNk85YzBvT0xIaXF1a0ptTXFtWldwSDJmWG9IL1JZQ3JGYmxLdEp2RDBnc1VHSGJFbUtSa09xblA&file=Karen_M._McManus-One_Of_Us_Is_Lying-AUDiOBOOK-CD-MP3-DE-2020-PaZ"
+      },
+      {
+        "title": "One of Us Is Lying by Karen M McManus [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 51,
+        "leechers": 0,
+        "size": 309120192,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=TXBhR25WbkF2djlvSGtQeldIcnpTUW5aak94bGhlL3JYd3psUW5EcmFib1F2S21lcWtIS2tmOGdXb3NzbzdyQmxYMGcxWGFVUmcyei9QaUs1dTc4cUdYVEtzY1kvN0g3cFNQVGNqVmprQkk9&file=One+of+Us+Is+Lying+by+Karen+M+McManus+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "One of Us Is Lying by Karen M McManus [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 46,
+        "leechers": 0,
+        "size": 306603616,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZFM5ci9IWWtZaEVQL3FiNTlMdkZaOXlIUCtqMmhUVk5Sb05LeDFBS21NZG5ZWmU2Kyt1b21vK1diVGNaZnVuOXl0OEw3K3ozbE9EZythNFdJWUNhbjhXZmRYTWo0OUV4OUN5N1JybG8yZnc9&file=One+of+Us+Is+Lying+by+Karen+M+McManus+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "One of Us Is Lying by Karen M McManus [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 203,
+        "leechers": 0,
+        "size": 1677721,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=YXBSMXl4TDVTZ3NhbXlRbHpBcDh2NkNKL2drdWJITHBUWU1FdXBiWW1LMzB6a3VrdVhZcDZOSXJ6WWk0NXBmMjRHeC9adFRVUEQvSjVKTG13bytrY09Xa01Dbm85NmpZNGxLdXlkOEsyTTQ9&file=One+of+Us+Is+Lying+by+Karen+M+McManus+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "One of Us Is Lying by Karen M McManus [ENG / AZW3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 29,
+        "leechers": 0,
+        "size": 3879731,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OXRZcDQ5U3piZWxRVy9iclFLREFQdnRWcmhiN09qaVI5eGdvZHI2Mkt1YnNrT0JvRmhPRWtpMXY5VnNZUk1xQ1Vud2lwWlZ6UCtmdUFZUE5uMFV0eVY2VzNLSHJxVmxlMGxJT0p2dEV2clU9&file=One+of+Us+Is+Lying+by+Karen+M+McManus+%5BENG+%2F+AZW3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "One of Us Is Lying by Karen M McManus [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 203,
+      "leechers": 0,
+      "size": 1677721,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=YXBSMXl4TDVTZ3NhbXlRbHpBcDh2NkNKL2drdWJITHBUWU1FdXBiWW1LMzB6a3VrdVhZcDZOSXJ6WWk0NXBmMjRHeC9adFRVUEQvSjVKTG13bytrY09Xa01Dbm85NmpZNGxLdXlkOEsyTTQ9&file=One+of+Us+Is+Lying+by+Karen+M+McManus+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445470866539548826,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445470810075566233,
+    "user_channel_id": 1291129984353566820,
+    "status": "approved",
+    "created_at": "2025-12-02T12:45:11.394363",
+    "updated_at": "2025-12-02T12:45:29.013029",
+    "torrent_hash": "5ca705a274c027deb2d45e5abe13f96feec7f079",
+    "torrent_name": "One of Us Is Lying by Karen M McManus [ENG / MP3]",
+    "result": {
+      "torrent_hash": "5ca705a274c027deb2d45e5abe13f96feec7f079",
+      "torrent_name": "One of Us Is Lying by Karen M McManus [ENG / MP3]"
+    }
+  },
+  "9ad7a862-3d8e-4cfe-9c74-8a7c0935fb07": {
+    "user_id": 378737013769240587,
+    "book_title": "Postmortem",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Postmortem by Patricia Cornwell [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 16,
+        "leechers": 0,
+        "size": 660917440,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UmhsOVFLWGVjKzdjTXJjYlNWVUVHd0dzaERiRU9jOXMvbys1NEtFd2E1bDg4bXZkOFI1WnA3Ykh2V0lKVUhkZzh2Mk5FMEZwK284ckYvUDcrR2QyTXI0a0RMZ2Q3TjZBVXY2d2ppblpYaHM9&file=Postmortem+by+Patricia+Cornwell+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Postmortem by Patricia Cornwell [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 17,
+        "leechers": 0,
+        "size": 281647520,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=R0FIcm1kekJHZGgzQjBzbXBvdkdCenFaU1p3WkZLd1J0eUN5QjBnR09ZSXVyS2c5WVA1OWhnNWN2V29ZVkdWaVhEazRjMjJ1dFRLS04va2lrb0YyOENkdzZ2bCs0VnJVK2NkdjJCUFJ3QWc9&file=Postmortem+by+Patricia+Cornwell+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Postmortem by Patricia Cornwell [FRE / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 7,
+        "leechers": 0,
+        "size": 255692,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ci9jMWVTRHJHUk5Db1FMSVkvZU9yRWh4SS9wREhqclo4K1A2Njl3L0NvWTF0WmJ6cGluaURzRXJJVHRNSmhxc1RyQlg1UFYvYVg4MDM4eldoZjFjaXozNlFOQ2d0TytLOFUvUWhDbkFZMXM9&file=Postmortem+by+Patricia+Cornwell+%5BFRE+%2F+EPUB%5D"
+      },
+      {
+        "title": "Postmortem by Patricia Cornwell [ENG / EPUB] [VIP]",
+        "indexer": "MyAnonamouse",
+        "seeders": 24,
+        "leechers": 0,
+        "size": 251904,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=bVhPN1FleWwrYjZBQmRqKzNBM0JaeXVNd0tvdFN2a1BXeDZDek1qQmxoZUoxMUZ5UTEvWHJoTDVXZjEzVU8rZ3hTNnRxckNlZmIwV1N5ejUxMHZDcFhEQkd3ZjNldGJsM0NLY1I4aG9Id3c9&file=Postmortem+by+Patricia+Cornwell+%5BENG+%2F+EPUB%5D+%5BVIP%5D"
+      },
+      {
+        "title": "Postmortem by Patricia Cornwell [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 27,
+        "leechers": 0,
+        "size": 327994560,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UmtJSWlJdk9oS2pyb3VsemZvQjhIVXR4dzJ2SnBqcnJiS1Q3SDJWdnlFL3pPdkNRdFNSdzBlT2tKZ1hFaTJ2bkJ4QWZtZ3ZwY3FSTFNtNFoxdmV0QXVYZ1ZlVUh1OUNEb3J4RXFiVzZ1QzQ9&file=Postmortem+by+Patricia+Cornwell+%5BENG+%2F+M4B%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Postmortem by Patricia Cornwell [ENG / M4B]",
+      "indexer": "MyAnonamouse",
+      "seeders": 27,
+      "leechers": 0,
+      "size": 327994560,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UmtJSWlJdk9oS2pyb3VsemZvQjhIVXR4dzJ2SnBqcnJiS1Q3SDJWdnlFL3pPdkNRdFNSdzBlT2tKZ1hFaTJ2bkJ4QWZtZ3ZwY3FSTFNtNFoxdmV0QXVYZ1ZlVUh1OUNEb3J4RXFiVzZ1QzQ9&file=Postmortem+by+Patricia+Cornwell+%5BENG+%2F+M4B%5D"
+    },
+    "message_id": 1445471981779550229,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445471932899131536,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T12:49:37.294414",
+    "updated_at": "2025-12-02T12:49:57.096004",
+    "torrent_hash": "4612dbdf7393be75957422acea5bdfdf03913298",
+    "torrent_name": "Postmortem by Patricia Cornwell [ENG / MP3]",
+    "result": {
+      "torrent_hash": "4612dbdf7393be75957422acea5bdfdf03913298",
+      "torrent_name": "Postmortem by Patricia Cornwell [ENG / MP3]"
+    }
+  },
+  "29c85d76-5021-4b7e-9897-bac554949726": {
+    "user_id": 378737013769240587,
+    "book_title": "Magpie Murders",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Magpie Murders by Anthony Horowitz [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 21,
+        "leechers": 0,
+        "size": 227226416,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WS8ybUdqekJqMEk5cERiUU92THRUZGRhM00xU3RvdkhtUmp2QkFvaVpZYndQUXRFNCtHR0lIci9QN3Z0dGVPV2QwelpESUZPcUNjdkEwaVFZbWtvQklmT2RyZnI4K0dZd3VCdlEyVGtzMW89&file=Magpie+Murders+by+Anthony+Horowitz+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Magpie Murders by Anthony Horowitz [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 228,
+        "leechers": 0,
+        "size": 542924,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZTROZ0c3UVlXT01hZU00OGhoc2prQ3RyUjFlQ0xyYjJNNnpoWnpVRkJiWEdEQzhWcGtTSUlpbXh6OHVTUVpRQVk4RGV6ck9LUnFzbUtvQUZWUml1TVBhRGg5amYvcml4am5xbXFjQkRjT2c9&file=Magpie+Murders+by+Anthony+Horowitz+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Magpie Murders by Anthony Horowitz [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 45,
+        "leechers": 0,
+        "size": 1395864320,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MmhEYXN6N0NXV1JmenVhNHN5SlZmK3BrbXlwcEJQVU00TzQwaGROL0VLdENZZlY5U2ZqbUhqbEtGUi9qaSs5b3Rlcnh3S0tyMFZ5amdzbWJGenRqcDR5Y1NaVXRmejdMQVVrblBWQW1hOTg9&file=Magpie+Murders+by+Anthony+Horowitz+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Magpie Murders by Anthony Horowitz [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 57,
+        "leechers": 0,
+        "size": 920125440,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=RmVjS1M1aFRQOVV6UFVzMjFTamY5UlpuOXpLZWwxYjllU1pvVWV1WlVBR2RsYXg4Y3RVQnZYSDM0TWNiSDV5eVpCaEw0Q0xMbFhncWVzK0VpQWRaSU5wUEc1V1ZEL1pFK1gvSVhqZGVkVTg9&file=Magpie+Murders+by+Anthony+Horowitz+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "Magpie Murders by Anthony Horowitz [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 78,
+        "leechers": 0,
+        "size": 1258291,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=TFMreGpidW5iQ0pJWVM5TzduVEZWVFlpNGNTNk4yckZaRkZkdGUrd1BzN1NFNmQyendzdytoUXpNYmNCTXkrR2Q2a0l4ZWpZclExM2xIMStNb3E3Q2xYcWFVMWVGa2cxeGllSkY5clR1ZHc9&file=Magpie+Murders+by+Anthony+Horowitz+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "Magpie Murders by Anthony Horowitz [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 65,
+        "leechers": 0,
+        "size": 453089696,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=WW85U2JNYWE1MXJLazB4bmlvMzM5S0cyU2RuWTVxcjdNUkg2TXM5S3dWMERUM210cmJXb09HWDM1NzU5TUN0TzMzcllNbkJiWWNKeXJpVUF6WFFiWmFWQWpTQmRwNXMrWm5sdFRzZ085MHM9&file=Magpie+Murders+by+Anthony+Horowitz+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Magpie Murders by Anthony Horowitz [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 228,
+      "leechers": 0,
+      "size": 542924,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ZTROZ0c3UVlXT01hZU00OGhoc2prQ3RyUjFlQ0xyYjJNNnpoWnpVRkJiWEdEQzhWcGtTSUlpbXh6OHVTUVpRQVk4RGV6ck9LUnFzbUtvQUZWUml1TVBhRGg5amYvcml4am5xbXFjQkRjT2c9&file=Magpie+Murders+by+Anthony+Horowitz+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445472367987134546,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445472334751207587,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T12:51:09.366520",
+    "updated_at": "2025-12-02T12:52:08.092812",
+    "torrent_hash": "62c8758d5a60f694efda499cf3f6055826799222",
+    "torrent_name": "Magpie Murders by Anthony Horowitz [ENG / M4B]",
+    "result": {
+      "torrent_hash": "62c8758d5a60f694efda499cf3f6055826799222",
+      "torrent_name": "Magpie Murders by Anthony Horowitz [ENG / M4B]"
+    }
+  },
+  "08259a3b-ce3d-4750-902d-a2fcb7b972ba": {
+    "user_id": 378737013769240587,
+    "book_title": "The Curious Incident of the Dog in the Night-time",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Curious Incident of the Dog in the Night-Time - Haddon, Mark by Mark Haddon [ENG / MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 24,
+        "leechers": 0,
+        "size": 923955,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dnEyRkJwMm1zTHFUeFBLN0xxb2dCTENaRzVFa2UybEVZOXZuMnExRHk2US94TUdLUVZlZkptMk1nRjlZUFp5cmtpc3cya005YkFqUDNwMlBSaHBQZzhUTUNwVUR6Zm5zZjhqYmNmdHRUVTA9&file=The+Curious+Incident+of+the+Dog+in+the+Night-Time+-+Haddon%2C+Mark+by+Mark+Haddon+%5BENG+%2F+MOBI%5D"
+      },
+      {
+        "title": "The Curious Incident of the Dog in the Night-Time by Mark Haddon [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 23,
+        "leechers": 0,
+        "size": 349595232,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NzJzVzBYT3g5ZTRNNWVQaUtMVFd1NTloREZPMXRnTjZNcjd1cmdQcC9DTkVJZ0c4U00yeFA1VzY0OFhqNnRrd1BJMHdyMHA0TGYvZkMxMHVaRmtyamppWm1qcFlQL2l5ZHF0T1dnRS9Ed0U9&file=The+Curious+Incident+of+the+Dog+in+the+Night-Time+by+Mark+Haddon+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Curious Incident of the Dog in the Night-time by Mark Haddon [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 59,
+        "leechers": 0,
+        "size": 172700464,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MzRuWExwS252TG1naG9aOUdGU3FWNXhuQ0xWQTk0ZG5vZTh0OEFLVURBeUtSS3RKUUw2eERmY3hqYXQwN3hoMjZtdDRkUWpld29Qa1hSeXd4U3JsR1BrK1dJNzNEQkJpRFlySStLK1crVkU9&file=The+Curious+Incident+of+the+Dog+in+the+Night-time+by+Mark+Haddon+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Curious Incident of the Dog in the Night-Time by Mark Haddon [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 10,
+        "leechers": 0,
+        "size": 87031808,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=cUlXNFVaZ1oveXpaRG9keTg3SGdQY0NsclY5K2srcEhkSjhHS1B1Y1VJdGZIaUtEd3pGbTkzZ0kyc1R3cWFYTmFwOUg0KzU5eERIbXQ4TW15N3RTTFVCUSt4a1c0OUJaV1lNK2pjbjlDUU09&file=The+Curious+Incident+of+the+Dog+in+the+Night-Time+by+Mark+Haddon+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Curious Incident of the Dog in the Night-Time (Dramatised) by Mark Haddon [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 19,
+        "leechers": 0,
+        "size": 172910176,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UFJjNFJmQzZEc3l2L21rTnNqODdpakdHOHV0TTlHY2wxQmlyQ3RYTDg4ZE1obzl5bXp3aTgxbTJLaUpWdU8zTCt5Tkh3Q0FIWHg2VVRra1NoU3Fmb2pmM0tWMlJkS0JyTThSeXoxczBtTTQ9&file=The+Curious+Incident+of+the+Dog+in+the+Night-Time+(Dramatised)+by+Mark+Haddon+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Curious Incident of the Dog in the Night-Time by Mark Haddon, Simon Stephens [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 128,
+        "leechers": 0,
+        "size": 198246,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SWpEa2M5c1JlWC9RTmhwUUVJWXlmSCtEMnRZNTdpNCtlbllwL2d4ZE9DL0p2ZmlnRG50SC94N2lhQzR6QmxhUkJON2l2ZVJmRkREaERiU3crVTRTejdKT0k5NWNCTlZpeHVSVHZtWlFWRFE9&file=The+Curious+Incident+of+the+Dog+in+the+Night-Time+by+Mark+Haddon%2C+Simon+Stephens+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Curious Incident of the Dog in the Night-Time by Mark Haddon [ENG / EPUB MOBI]",
+        "indexer": "MyAnonamouse",
+        "seeders": 84,
+        "leechers": 0,
+        "size": 444928,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=K29haGxyQlRWNllTNTFmWEpJUHhDeFAxWEs0bU1kUGN4VnJPSHk0QlFGRW1VeURNS2VMeWtVbUVrZmh5TU9OZSszODY0Wnc0SGxDdWhTK0RESi8wKzZkLzNUdW43c1RJcUNoaks0bG50eHM9&file=The+Curious+Incident+of+the+Dog+in+the+Night-Time+by+Mark+Haddon+%5BENG+%2F+EPUB+MOBI%5D"
+      },
+      {
+        "title": "The Curious Incident of the Dog in the Night-time by Mark Haddon [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 99,
+        "leechers": 0,
+        "size": 8388608,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=dlZIL0ppVGRHOTl1TU9jZWU0VW5LYUdpRlY5LzJLZG5KZ0hzMzV0OGYwY2p4MnkvSEIvSzdiemt0Q0x2TXZjVkE2MUhudkZNYitDK3JVN3ZxbEUxajU3YUp3Ymdvdk16bm4xR2FkQ3FxUWM9&file=The+Curious+Incident+of+the+Dog+in+the+Night-time+by+Mark+Haddon+%5BENG+%2F+EPUB%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Curious Incident of the Dog in the Night-Time by Mark Haddon, Simon Stephens [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 128,
+      "leechers": 0,
+      "size": 198246,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SWpEa2M5c1JlWC9RTmhwUUVJWXlmSCtEMnRZNTdpNCtlbllwL2d4ZE9DL0p2ZmlnRG50SC94N2lhQzR6QmxhUkJON2l2ZVJmRkREaERiU3crVTRTejdKT0k5NWNCTlZpeHVSVHZtWlFWRFE9&file=The+Curious+Incident+of+the+Dog+in+the+Night-Time+by+Mark+Haddon%2C+Simon+Stephens+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445472490720592096,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445472455719391364,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T12:51:38.629592",
+    "updated_at": "2025-12-02T12:52:22.284640",
+    "torrent_hash": "dce849a9986798ee3e00cd8acc1cca8801a40552",
+    "torrent_name": "The Curious Incident of the Dog in the Night-Time - Haddon, Mark by Mark Haddon [ENG / MOBI]",
+    "result": {
+      "torrent_hash": "dce849a9986798ee3e00cd8acc1cca8801a40552",
+      "torrent_name": "The Curious Incident of the Dog in the Night-Time - Haddon, Mark by Mark Haddon [ENG / MOBI]"
+    }
+  },
+  "c5f0fddb-46c5-41ea-8dad-d5f526d4aab1": {
+    "user_id": 378737013769240587,
+    "book_title": "Promise Me Sunshine",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "Cara.Bastone-Promise.Me.Sunshine.A.Novel.2025.RETAIL.EPUB.eBook-CTO",
+        "indexer": "seedpool (API)",
+        "seeders": 2,
+        "leechers": 0,
+        "size": 4255569,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UmRPcUJwazJWOXA0NU5Ta2puTVFZU1pPZS9sSW5ZaWZNSk9ObUxqbW9Ebk1XaGc3WjdhSmNmeDVzNnpxaDNlVm8vTWk5dml0blplc2FQdTZqWkxXTGJiZUdQaFJ0NnlhZnU1Z2hoOXorM1Z6L0NBNkpTVTJEYUwyajZoaDNjZHY&file=Cara.Bastone-Promise.Me.Sunshine.A.Novel.2025.RETAIL.EPUB.eBook-CTO"
+      },
+      {
+        "title": "Promise Me Sunshine by Cara Bastone [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 86,
+        "leechers": 0,
+        "size": 634598208,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=N3lTTjVabkNZbyt5TDQ4Rm1pUXRyckdMRE1jNXRNM2NzZ0ZHSXZiRGVXbDI0N2k0TWdOTGczMTE2NzFGVDNFdjhOQ3h6Z3JkbEdnNTNBZGpsMEc5WFhlOFdRMXA1NHVPbmZDZDlvZ2tTYnM9&file=Promise+Me+Sunshine+by+Cara+Bastone+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "Promise Me Sunshine by Cara Bastone [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 124,
+        "leechers": 0,
+        "size": 4299161,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OE9yOGR2enBYUUEzZkVOaHBoemdxc0UrazJ2d1Vic2pheDROckp2V3JKc2tVQitteDIxWkNYemlqeUlydUYvMTI5b2pFRkRFZGE5L1hSdmZ0Wjd4UnFRdG1UQVo4V3pjVFJJOXp3b1JrNUU9&file=Promise+Me+Sunshine+by+Cara+Bastone+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Promise Me Sunshine by Cara Bastone [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 645503360,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=VU1VUFVHbFg1aEJ6dnpEK2JFRUhjWWlBalJXNXVIVVRmZTJVVE5qeW5mNHNPVCtTQkZiYzRkTEVoRklyQUIyNTVRSGMwekIzVXh4SEtUMFRiM0hHemNlVTlEMTh3R0E4VCtrMEVpdHJGTXM9&file=Promise+Me+Sunshine+by+Cara+Bastone+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Promise Me Sunshine by Cara Bastone [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 124,
+      "leechers": 0,
+      "size": 4299161,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OE9yOGR2enBYUUEzZkVOaHBoemdxc0UrazJ2d1Vic2pheDROckp2V3JKc2tVQitteDIxWkNYemlqeUlydUYvMTI5b2pFRkRFZGE5L1hSdmZ0Wjd4UnFRdG1UQVo4V3pjVFJJOXp3b1JrNUU9&file=Promise+Me+Sunshine+by+Cara+Bastone+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445473995439869953,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445473938695258253,
+    "user_channel_id": 1445151968082526279,
+    "status": "approved",
+    "created_at": "2025-12-02T12:57:37.395865",
+    "updated_at": "2025-12-02T12:58:03.467275",
+    "torrent_hash": "af3e88f3334ae839fe20a684d35bba9bedb6f09a",
+    "torrent_name": "Promise Me Sunshine by Cara Bastone [ENG / M4B]",
+    "result": {
+      "torrent_hash": "af3e88f3334ae839fe20a684d35bba9bedb6f09a",
+      "torrent_name": "Promise Me Sunshine by Cara Bastone [ENG / M4B]"
+    }
+  },
+  "d2c17bfa-af5d-4062-bab1-f2e38f92839e": {
+    "user_id": 378737013769240587,
+    "book_title": "Promise Me Sunshine",
+    "request_type": "audiobook",
+    "torrent_results": [
+      {
+        "title": "Cara.Bastone-Promise.Me.Sunshine.A.Novel.2025.RETAIL.EPUB.eBook-CTO",
+        "indexer": "seedpool (API)",
+        "seeders": 2,
+        "leechers": 0,
+        "size": 4255569,
+        "download_url": "https://grab.bloomstream.ca/36/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MVBYYzZRaE9RZmNyVUhnaWtIOGpTTU9Yc1dqOVM4MWxZZWI4VmtEeHlBR1JqOVQvQy9aVzd4MndSelY4dzhILzcrOEJLQkR6KytpY3BXdCtGTkx5Y2RvQytVV1dvOGtNYThnMXpKQ3dPaWY2dmtYbk1XYjlSdEdyb3I4eWxkNUE&file=Cara.Bastone-Promise.Me.Sunshine.A.Novel.2025.RETAIL.EPUB.eBook-CTO"
+      },
+      {
+        "title": "Promise Me Sunshine by Cara Bastone [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 86,
+        "leechers": 0,
+        "size": 634598208,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MmlIUjc5bS9laUp6anRBbCt3OTY0SEw0SldmQ1owc1ZEbG1rN3BTSU1UL1RQU25pR1ExTXp3aHM3SjFkWGVqMmF6ZElLczJNQ09Ea1U0Mkk3M0JmVDVJRUdmVGVhRVkvSldYTU9EZFREaWc9&file=Promise+Me+Sunshine+by+Cara+Bastone+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "Promise Me Sunshine by Cara Bastone [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 124,
+        "leechers": 0,
+        "size": 4299161,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=YVcrd1NEMC83dkVNck52RHBQYWlIUmV2OWZ4MGVzL052dW5Hc1hvQkt0Y28yY1FwR2x0MFF1TFNZeGFGNUJaZVU1Y1VZcUhadmFIak1YZEtid2lGOG5ORGdxNkYvdFNrR3NsOWFzYzlhTnM9&file=Promise+Me+Sunshine+by+Cara+Bastone+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Promise Me Sunshine by Cara Bastone [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 9,
+        "leechers": 0,
+        "size": 645503360,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=c2F5WENIWkJFZkZzUmpkQVJrYVhDVVhiVHI5TWpVeUE1Q2Q4SkNwTkVwQVJxQ2ZYek1VNEdTR0hsVzVUdFMwenpNSjlreGI1K2J6S29XVnBkNlpDbzhlQ21OYmU4eGpraEg0VjBzWXlEb0k9&file=Promise+Me+Sunshine+by+Cara+Bastone+%5BENG+%2F+MP3%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "Promise Me Sunshine by Cara Bastone [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 124,
+      "leechers": 0,
+      "size": 4299161,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=YVcrd1NEMC83dkVNck52RHBQYWlIUmV2OWZ4MGVzL052dW5Hc1hvQkt0Y28yY1FwR2x0MFF1TFNZeGFGNUJaZVU1Y1VZcUhadmFIak1YZEtid2lGOG5ORGdxNkYvdFNrR3NsOWFzYzlhTnM9&file=Promise+Me+Sunshine+by+Cara+Bastone+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445474793519579157,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445474749852680263,
+    "user_channel_id": 1445151968082526279,
+    "status": "approved",
+    "created_at": "2025-12-02T13:00:47.766736",
+    "updated_at": "2025-12-02T13:01:04.603065"
+  },
+  "32ffb01c-b44b-471a-b4e9-0a2867b2b9cf": {
+    "user_id": 378737013769240587,
+    "book_title": "The Spy Who Came In from the Cold",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Spy Who Came in From the Cold by John le Carr\u00e9 [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 13,
+        "leechers": 0,
+        "size": 38797312,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eW85TFowcmFRREwxV2xXeElIYmhVcERmaTU3cmpyVDRPOEpOaGdYY2tLL2JnL2ZXcVE1NXJON2FOTmY2b0NwUm44RElTL2RlMGU1K0p5L2dRdy85R3MzUnJ0NHZGQTVPN01DQ2xaN3FhMTA9&file=The+Spy+Who+Came+in+From+the+Cold+by+John+le+Carr%C3%A9+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Spy Who Came in from the Cold by John le Carr\u00e9 [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 40,
+        "leechers": 0,
+        "size": 203633456,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=V1RQdWpCckFteTQrMWJYUy9XUUxiaStnSGpHaHVsUzJJVWpjZ3Q5Rm04RSsxL1FiQjBrMytoeGM4Ymh6THVrNHgxRU51Z1l1dUdhZmV3MDYzYTVaejBmbTJEeXRpaUlKR2VyV0F3M1FERGs9&file=The+Spy+Who+Came+in+from+the+Cold+by+John+le+Carr%C3%A9+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Spy Who Came In from the Cold by John le Carr\u00e9 [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 20,
+        "leechers": 0,
+        "size": 154874672,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=am8rL1VTeUlwdFBqcERCU1VlMWN2b25FeHhpWlRVdWFobDFyMzNYR1BtWEV4cnJpaTJ6cm9vMThnR2JLeDNIUlZvQnphN09qcUVySlYwWGVaTUl1V0Q0RGxsT3ZqMERkckVueHhhUlZsNlk9&file=The+Spy+Who+Came+In+from+the+Cold+by+John+le+Carr%C3%A9+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Spy Who Came in From the Cold by John le Carr\u00e9 [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 212,
+        "leechers": 0,
+        "size": 264294,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aFhUZmxnMnpVRFdSQmhpVVpKMGdPYng2U2FKUlBmR3V6NzluNHJYMk9lMEMwUjVJcXdvY0NtY1Rua3B1OGdtTjRZdmlZWkhSamF1RG9pQldXVFVrdjJSY2JlcVpNd1grVkk4TjlCc01HL1U9&file=The+Spy+Who+Came+in+From+the+Cold+by+John+le+Carr%C3%A9+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "The Spy Who Came in from the Cold by John le Carr\u00e9 [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 68,
+        "leechers": 0,
+        "size": 212022064,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=SkxmdVEyVmZkZnkyWjJ4K0h5aW02Tld0Y0VPT2pJSFExeGJWK0NKeEtaYmFkRCtYaG5QL25COWltWitFSmxKNGYvNUdYL1lSMHFsWEJYVFoyWFRBckV0aEVtTzRKaC95QUQ1L2VMTHU5MUE9&file=The+Spy+Who+Came+in+from+the+Cold+by+John+le+Carr%C3%A9+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Spy Who Came in from the Cold by John le Carr\u00e9 [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 30,
+        "leechers": 0,
+        "size": 200487728,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=M0FGTGgwTU9EZ3c0ZUhwNjRJNkhHLzB1NlBLYUJOYnVmUXQxN0JNdGo5ZGZ2Yy9lR3ZKM1dlQkZhTlBTOVdkSDZnWEU2dFFiYklWYVdlTGMyYnBnZExlUUo3ejZlVHdTSXVnZHlyZFRrSjQ9&file=The+Spy+Who+Came+in+from+the+Cold+by+John+le+Carr%C3%A9+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Spy Who Came in From the Cold by John le Carr\u00e9 [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 4,
+        "leechers": 0,
+        "size": 160536992,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=OStZL1BCZDNCVTVvQkJ0c1lJQmRCNHBIazlvc3QvaW56eEk2M1dqU1g5OE9IRDBzbTJCcFBWb0w3czlBcjJrNzFLYURvVVJmNWtSWmpJbWFXQ0cxVVZTSmsrdDJ2U2N1MUtXRWEraTROTUk9&file=The+Spy+Who+Came+in+From+the+Cold+by+John+le+Carr%C3%A9+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "Novels, Volume 1: Call for the Dead / A Murder of Quality / The Spy Who Came in from the Cold / The Looking Glass War / A Small Town in Germany by John le Carr\u00e9 [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 63,
+        "leechers": 0,
+        "size": 30408704,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=TmxwMlhBdDhzWXRtMlRONkc1Vytod2ZTbUVERFM4VER4My9WL3N0UFZ6N0pObGptZ3BMcHdYcks2em1VVWU5Tk42ZTVXZnd1L2JBblR2dE1VSCtzSmVyQjR3WUhxZjZyOEY5NzVyQ0JBVUE9&file=Novels%2C+Volume+1%3A+Call+for+the+Dead+%2F+A+Murder+of+Quality+%2F+The+Spy+Who+Came+in+from+the+Cold+%2F+The+Looking+Glass+War+%2F+A+Small+Town+in+Germany+by+John+le+Carr%C3%A9+%5BENG+%2F+EPUB%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Spy Who Came in From the Cold by John le Carr\u00e9 [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 212,
+      "leechers": 0,
+      "size": 264294,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aFhUZmxnMnpVRFdSQmhpVVpKMGdPYng2U2FKUlBmR3V6NzluNHJYMk9lMEMwUjVJcXdvY0NtY1Rua3B1OGdtTjRZdmlZWkhSamF1RG9pQldXVFVrdjJSY2JlcVpNd1grVkk4TjlCc01HL1U9&file=The+Spy+Who+Came+in+From+the+Cold+by+John+le+Carr%C3%A9+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445478199541633095,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445478158433259747,
+    "user_channel_id": 1332181903901458504,
+    "status": "approved",
+    "created_at": "2025-12-02T13:14:19.856485",
+    "updated_at": "2025-12-02T13:14:42.766821",
+    "torrent_hash": "073fd893a43d20558e6d87ac7a228195a0e96410",
+    "torrent_name": "The Spy Who Came in From the Cold by John le Carr\u00e9 [ENG / EPUB]",
+    "result": {
+      "torrent_hash": "073fd893a43d20558e6d87ac7a228195a0e96410",
+      "torrent_name": "The Spy Who Came in From the Cold by John le Carr\u00e9 [ENG / EPUB]"
+    }
+  },
+  "650a6187-05b5-4c98-bade-16d0c9ebfaa5": {
+    "user_id": 378737013769240587,
+    "book_title": "The Name of the Rose",
+    "request_type": "ebook",
+    "torrent_results": [
+      {
+        "title": "The Name Of The Rose by Umberto Eco [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 36,
+        "leechers": 0,
+        "size": 568223360,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=MjZzMWhKTzdWTk9EeXVLS3E0VElQZ1hOV2RpTkhYNVNER01DbUwwYzRubjhDcENONjZvYjU3eElSSEtIZFBlTEdRUzhKQStCa2Y0MUhCOTQ4M3ljSkFldEkxRU9Ja2ZEbFVITUVYSkZXR0k9&file=The+Name+Of+The+Rose+by+Umberto+Eco+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Name of the Rose by Umberto Eco [ENG / OGG]",
+        "indexer": "MyAnonamouse",
+        "seeders": 14,
+        "leechers": 0,
+        "size": 173224752,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=ekEyVW5VVzVrcW5KaE1tVnlIZzc1b2JLdlM4NXZTV2pDRFE2MW5sTmpJT0M0WUdrbnpLS3BKUE9TdGFyaHc3bUF5OEhxL1I4emtlaEZ3S1pZT2xXaU5qbERLSmtHcHVOalNHNC9qd2FzOTg9&file=The+Name+of+the+Rose+by+Umberto+Eco+%5BENG+%2F+OGG%5D"
+      },
+      {
+        "title": "The Name of the Rose by Umberto Eco [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 48,
+        "leechers": 1,
+        "size": 1181116032,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=eXhvdkN6ellEUlRoWmx2ZFQydkdOdFdPSnZLdk0vYVM1aVVNaU5YNjhwMnNicS9weUM2RlhvRmVQelZRQ2M5bXk1MTRmU3ByV1dkbkkxQjN3RllDT2xTSXczekQrTUF3SjIweVZUWmF1cVk9&file=The+Name+of+the+Rose+by+Umberto+Eco+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Name of the Rose by Umberto Eco [ENG / M4B]",
+        "indexer": "MyAnonamouse",
+        "seeders": 101,
+        "leechers": 0,
+        "size": 603036032,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NlFOSHlYdzQzSm5qbmxZeXVubVlPNzBRQzZYZ2VHUkNLRXdEUC8vMzZ2M0s2NjlXZU1jMzlTVFZGaHNSSjZJcVNUYzNTMHNobDNmU0xNeE1xc3JQWFZhdnA2S1Y3N2xUbVNiMXE2WDlRVGs9&file=The+Name+of+the+Rose+by+Umberto+Eco+%5BENG+%2F+M4B%5D"
+      },
+      {
+        "title": "The Name of the Rose by Umberto Eco [ENG / MP3]",
+        "indexer": "MyAnonamouse",
+        "seeders": 40,
+        "leechers": 0,
+        "size": 607754624,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=NEFuMHR4WGFraTBzc1hpejI5QnlMOUFTaEtaQ2ZzVEY5QjVtNFlUeWduUHRnalowUnV5WGt1TUZBWDE2M0M0NDVHa1BWUXU3OXBHNWpuSCtzeGY0dFhjNG1tTXFmdHphc1lPcWxMQmJEZ289&file=The+Name+of+the+Rose+by+Umberto+Eco+%5BENG+%2F+MP3%5D"
+      },
+      {
+        "title": "The Name of the Rose by Umberto Eco [ENG / EPUB]",
+        "indexer": "MyAnonamouse",
+        "seeders": 129,
+        "leechers": 0,
+        "size": 1363148,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UXA4SFNOcUhlb1BVYW9EYUNjUW42M3lZa1BOb1dtM2Y5YmZuZ2NYaUJLSE9abGVYYXp2YkhSVktnUjZUUlR6bWJzR0hkRXFvNXA0MmtpOXcvS1ZSSE4zTjRkWEVISHF1R2xhaG13bzNIblE9&file=The+Name+of+the+Rose+by+Umberto+Eco+%5BENG+%2F+EPUB%5D"
+      },
+      {
+        "title": "Umberto Eco Collection: Foucault's Pendulum, The Island of the Day Before, The Name of the Rose by Umberto Eco [ENG / LIT]",
+        "indexer": "MyAnonamouse",
+        "seeders": 39,
+        "leechers": 0,
+        "size": 2306867,
+        "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=aVBPZ0I4S3NKaEpLTlAwYVIzREl4alArbk9tQ2xhQnlEcXZSR1ZMRnBueHVoR2l5dEN0cmZSUmNDTllGaUVJV2lDdmZ3TzF6SzBxUW5sVzRTU1ZZVUJqbW15RFV4NGJhN3VXZDloVzNPd2s9&file=Umberto+Eco+Collection%3A+Foucault%27s+Pendulum%2C+The+Island+of+the+Day+Before%2C+The+Name+of+the+Rose+by+Umberto+Eco+%5BENG+%2F+LIT%5D"
+      }
+    ],
+    "selected_torrent": {
+      "title": "The Name of the Rose by Umberto Eco [ENG / EPUB]",
+      "indexer": "MyAnonamouse",
+      "seeders": 129,
+      "leechers": 0,
+      "size": 1363148,
+      "download_url": "https://grab.bloomstream.ca/59/download?apikey=40d1b9009efb4fd2a455e12c78430a7c&link=UXA4SFNOcUhlb1BVYW9EYUNjUW42M3lZa1BOb1dtM2Y5YmZuZ2NYaUJLSE9abGVYYXp2YkhSVktnUjZUUlR6bWJzR0hkRXFvNXA0MmtpOXcvS1ZSSE4zTjRkWEVISHF1R2xhaG13bzNIblE9&file=The+Name+of+the+Rose+by+Umberto+Eco+%5BENG+%2F+EPUB%5D"
+    },
+    "message_id": 1445480747501621342,
+    "channel_id": 1291129984353566820,
+    "user_message_id": 1445480710424105015,
+    "user_channel_id": 1445152029784936542,
+    "status": "approved",
+    "created_at": "2025-12-02T13:24:27.359120",
+    "updated_at": "2025-12-02T13:24:49.849374",
+    "torrent_hash": "cb2e95856598249f483b09d619810e8b5569e623",
+    "torrent_name": "The Name of the Rose by Umberto Eco [ENG / M4B]",
+    "result": {
+      "torrent_hash": "cb2e95856598249f483b09d619810e8b5569e623",
+      "torrent_name": "The Name of the Rose by Umberto Eco [ENG / M4B]"
+    }
   }
 }
