@@ -506,6 +506,25 @@ class ApprovedView(ui.View):
         )
 
 
+class CompletedView(ui.View):
+    """View for showing download complete status with Audiobookshelf link"""
+
+    def __init__(self, audiobookshelf_url: str):
+        """Initialize completed view
+        
+        Args:
+            audiobookshelf_url: URL to the Audiobookshelf library
+        """
+        super().__init__(timeout=None)
+        self.add_item(
+            ui.Button(
+                label="📖 Open Audiobookshelf",
+                style=discord.ButtonStyle.link,
+                url=audiobookshelf_url,
+            )
+        )
+
+
 class DeniedView(ui.View):
     """View for showing denied status (disabled button)"""
 
