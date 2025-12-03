@@ -37,7 +37,7 @@ Librarian Bot is a comprehensive Discord automation system that integrates multi
 
 ### Installation
 
-#### Option 1: Docker (Recommended for Unraid)
+#### Option 1: Docker on Unraid (Recommended)
 
 ```bash
 # Clone the repository
@@ -46,7 +46,36 @@ cd librarian-bot
 
 # Configure environment
 cp config/.env.example config/.env
-# Edit config/.env with your settings
+# Edit config/.env with your settings (see Unraid Setup below)
+
+# Build and deploy
+docker build -t librarian-bot .
+docker run -d --name librarian-bot \
+  --restart unless-stopped \
+  -v /mnt/user/appdata/librarian-bot/config/.env:/app/config/.env:ro \
+  -v /mnt/user/appdata/librarian-bot/data:/app/data \
+  -v /mnt/user/upload/Other/Library/Downloads:/downloads \
+  -v /mnt/user/upload/Other/Library/BLOOM-Library:/library \
+  librarian-bot
+
+# View logs
+docker logs -f librarian-bot
+```
+
+📖 See [DOCKER.md](DOCKER.md) for detailed Docker setup instructions, Unraid-specific configuration, and troubleshooting.
+
+#### Option 2: Docker with Seedbox Mode
+
+When your qBittorrent instance runs on a seedbox but the bot runs elsewhere:
+
+```bash
+# Clone the repository
+git clone https://github.com/notbl00m/librarian-bot.git
+cd librarian-bot
+
+# Configure environment for seedbox mode (see Seedbox Setup below)
+cp config/.env.example config/.env
+# Edit config/.env with seedbox settings
 
 # Start with Docker Compose
 docker-compose up -d
@@ -55,9 +84,7 @@ docker-compose up -d
 docker-compose logs -f librarian-bot
 ```
 
-📖 See [DOCKER.md](DOCKER.md) for detailed Docker setup instructions, Unraid-specific configuration, and troubleshooting.
-
-#### Option 2: Python (Native)
+#### Option 3: Python (Native)
 
 ```bash
 # Clone the repository
@@ -121,9 +148,54 @@ librarian-bot/
 
 ## ⚙️ Configuration
 
-### Required Environment Variables
+### Deployment Scenarios
 
-Create `config/.env` with these settings:
+#### Scenario 1: Unraid Deployment (Bot + qBittorrent on Same Server)
+
+**When to use:** Bot and qBittorrent both run on Unraid, files are local.
+
+```env
+# Discord Configuration
+DISCORD_TOKEN=your_discord_bot_token
+ADMIN_ROLE=Admin
+ADMIN_CHANNEL_ID=1234567890
+
+# Prowlarr Configuration
+PROWLARR_URL=http://192.168.1.100:9696
+PROWLARR_API_KEY=your_prowlarr_api_key
+
+# qBittorrent Configuration (Unraid paths as seen by qBittorrent)
+QBIT_URL=https://upload.yourserver.com  # or http://192.168.1.100:8080
+QBIT_USERNAME=admin
+QBIT_PASSWORD=your_password
+QBIT_DOWNLOAD_PATH=/data/Other/Library/Downloads  # qBittorrent's path
+DOWNLOAD_CATEGORY=bloom-library  # Must match qBittorrent category
+
+# Library Configuration (Docker container paths)
+LIBRARY_PATH=/library  # Maps to /mnt/user/upload/Other/Library/BLOOM-Library
+
+# Path Mapping (for organizer to work with host paths)
+ENABLE_PATH_MAPPING=false
+SERVER_MODE=local
+
+# Real paths on Unraid host (for symlink creation)
+SOURCE_REAL_PATH=/mnt/user/upload/Other/Library/Downloads
+DEST_REAL_PATH=/mnt/user/upload/Other/Library/BLOOM-Library
+
+# Audiobookshelf Configuration (Optional)
+AUDIOBOOKSHELF_URL=http://192.168.1.100:13378
+AUDIOBOOKSHELF_API_KEY=your_api_key
+AUDIOBOOKSHELF_LIBRARY_ID=your_library_id
+```
+
+**Important for Unraid:**
+- `QBIT_DOWNLOAD_PATH` must match the qBittorrent category's save path
+- `SOURCE_REAL_PATH` and `DEST_REAL_PATH` are the actual Unraid host paths for creating symlinks
+- Docker volumes map: `/downloads` → `SOURCE_REAL_PATH`, `/library` → `DEST_REAL_PATH`
+
+#### Scenario 2: Seedbox Deployment (qBittorrent on Remote Seedbox)
+
+**When to use:** Bot runs on Unraid/local machine, but qBittorrent runs on a remote seedbox.
 
 ```env
 # Discord Configuration
@@ -135,16 +207,67 @@ ADMIN_CHANNEL_ID=1234567890
 PROWLARR_URL=http://localhost:9696
 PROWLARR_API_KEY=your_prowlarr_api_key
 
-# qBittorrent Configuration
+# qBittorrent Configuration (Seedbox)
+QBIT_URL=https://your.seedbox.com:8080
+QBIT_USERNAME=admin
+QBIT_PASSWORD=your_seedbox_password
+QBIT_DOWNLOAD_PATH=/home/user/downloads/completed/books  # Path on seedbox
+DOWNLOAD_CATEGORY=librarian-bot
+
+# Library Configuration (Seedbox)
+LIBRARY_PATH=/home/user/library/BLOOM-Library  # Path on seedbox
+
+# Seedbox SSH Configuration
+SERVER_MODE=seedbox
+SEEDBOX_HOST=your.seedbox.com
+SEEDBOX_USER=username
+SEEDBOX_PASSWORD=ssh_password
+SEEDBOX_SSH_PORT=22
+
+# Organizer Remote Path (where script will be uploaded on seedbox)
+# This directory will contain: library_organizer.py, .env, organizer.db.json
+ORGANIZER_REMOTE_PATH=/home/user/downloads/completed/books/[Organizer]
+
+# Path Mapping (if you need to sync files back to local storage)
+ENABLE_PATH_MAPPING=true
+SEEDBOX_DOWNLOAD_PATH=/home/user/downloads/completed/books
+UNRAID_LIBRARY_PATH=/mnt/user/library  # If syncing to Unraid
+```
+
+**How Seedbox Mode Works:**
+1. Bot connects to qBittorrent on seedbox via HTTP API
+2. When download completes, bot uploads `library_organizer.py` to `ORGANIZER_REMOTE_PATH` via SSH
+3. Bot creates `.env` file on seedbox with correct paths
+4. Bot executes organizer remotely: files are organized on the seedbox itself
+5. Optionally sync organized files back to local storage (e.g., using rclone, rsync)
+
+#### Scenario 3: Local Development
+
+**When to use:** Everything runs on your local machine for testing.
+
+```env
+# Discord Configuration
+DISCORD_TOKEN=your_discord_bot_token
+ADMIN_ROLE=Admin
+ADMIN_CHANNEL_ID=1234567890
+
+# Prowlarr Configuration
+PROWLARR_URL=http://localhost:9696
+PROWLARR_API_KEY=your_prowlarr_api_key
+
+# qBittorrent Configuration (Local)
 QBIT_URL=http://localhost:8080
 QBIT_USERNAME=admin
 QBIT_PASSWORD=your_password
-QBIT_DOWNLOAD_PATH=/downloads/books
+QBIT_DOWNLOAD_PATH=C:/Users/YourUser/Downloads/Books
 DOWNLOAD_CATEGORY=librarian-bot
 
-# Library Configuration
-LIBRARY_PATH=/library/books
-GOOGLE_BOOKS_API_KEY=your_api_key_optional
+# Library Configuration (Local)
+LIBRARY_PATH=C:/Users/YourUser/Library/Books
+
+# Local Mode
+SERVER_MODE=local
+ENABLE_PATH_MAPPING=false
 
 # Audiobookshelf Configuration (Optional)
 AUDIOBOOKSHELF_URL=http://localhost:13378
@@ -152,7 +275,9 @@ AUDIOBOOKSHELF_API_KEY=your_api_key
 AUDIOBOOKSHELF_LIBRARY_ID=your_library_id
 ```
 
-See `config/.env.example` for all available options.
+### Required Environment Variables
+
+See `config/.env.example` for all available options and detailed comments.
 
 ---
 
@@ -312,21 +437,37 @@ await trigger_library_scan()          # Non-blocking scan
 
 ### Seedbox Integration
 
-Bot supports remote organizer execution via SSH:
+Bot supports remote organizer execution via SSH when qBittorrent runs on a seedbox:
 
-```python
+```env
 # Configured in .env
-SEEDBOX_HOST=user@seedbox.example.com
-SEEDBOX_SSH_PORT=22
+SERVER_MODE=seedbox
+SEEDBOX_HOST=your.seedbox.com
+SEEDBOX_USER=username
 SEEDBOX_PASSWORD=your_password
-ORGANIZER_REMOTE_PATH=/path/to/organizer
+SEEDBOX_SSH_PORT=22
 
-# Automatically:
-- Uploads library_organizer.py to seedbox
-- Executes remotely after download
-- Organizes files in-place
-- No data transfer needed
+# Seedbox paths
+QBIT_DOWNLOAD_PATH=/home/user/downloads/completed/books
+LIBRARY_PATH=/home/user/library/BLOOM-Library
+ORGANIZER_REMOTE_PATH=/home/user/downloads/completed/books/[Organizer]
 ```
+
+**What happens automatically:**
+1. When download completes, bot connects to seedbox via SSH
+2. Creates `[Organizer]` directory at `ORGANIZER_REMOTE_PATH`
+3. Uploads `library_organizer.py` (only on first run)
+4. Creates `.env` file with `QBIT_DOWNLOAD_PATH` and `LIBRARY_PATH`
+5. Installs Python dependencies if needed (`python-dotenv`, `requests`)
+6. Executes organizer remotely: `python3 library_organizer.py`
+7. Files are organized on seedbox (no data transfer to bot server)
+8. Organizer database and logs stay in `[Organizer]` directory
+
+**Benefits:**
+- No need to download files to bot server
+- Files organized directly on seedbox
+- Fast local file operations on seedbox
+- Persistent organizer state across runs
 
 ### Audiobookshelf Integration
 
