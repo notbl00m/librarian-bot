@@ -248,5 +248,45 @@
     "request_type": "ebook",
     "status": "pending",
     "created_at": "2025-12-02T13:24:27.357119"
+  },
+  "9780198856047": {
+    "isbn": "9780198856047",
+    "book_title": "A Study in Scarlet",
+    "user_id": 378737013769240587,
+    "message_id": 1445487299423895633,
+    "channel_id": 1445151968082526279,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T13:50:44.214160"
+  },
+  "9781401971373": {
+    "isbn": "9781401971373",
+    "book_title": "The Let Them Theory",
+    "user_id": 378737013769240587,
+    "message_id": 1445493599570493472,
+    "channel_id": 1445152029784936542,
+    "request_type": "audiobook",
+    "status": "pending",
+    "created_at": "2025-12-02T14:15:46.178058"
+  },
+  "luca": {
+    "isbn": null,
+    "book_title": "Luca",
+    "user_id": 378737013769240587,
+    "message_id": 1445494324174520552,
+    "channel_id": 1445152029784936542,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T14:18:51.325349"
+  },
+  "9780486425573": {
+    "isbn": "9780486425573",
+    "book_title": "The Art of War",
+    "user_id": 378737013769240587,
+    "message_id": 1445498452552450128,
+    "channel_id": 1445152029784936542,
+    "request_type": "ebook",
+    "status": "pending",
+    "created_at": "2025-12-02T14:34:59.352191"
   }
 }

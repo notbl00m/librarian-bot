@@ -76,7 +76,6 @@ class QBittorrentClient:
         self.url = Config.QBIT_URL
         self.username = Config.QBIT_USERNAME
         self.password = Config.QBIT_PASSWORD
-        self.download_path = Config.QBIT_DOWNLOAD_PATH
         self.category = Config.DOWNLOAD_CATEGORY
         self.client: Optional[qbittorrentapi.Client] = None
 
@@ -161,7 +160,6 @@ class QBittorrentClient:
                 category=self.category,
                 use_auto_torrent_management=use_auto_torrent_management,
                 is_paused=is_paused,
-                save_path=self.download_path,
             )
 
             # Wait a moment for torrent to be added
@@ -173,6 +171,24 @@ class QBittorrentClient:
             for torrent in after_torrents:
                 if torrent.hash not in before_hashes:
                     logger.info(f"Successfully added torrent: {torrent.name} (hash: {torrent.hash})")
+                    
+                    # If ATM is disabled but qBittorrent global ATM is enabled,
+                    # we need to explicitly set the location to use category's save path
+                    if not use_auto_torrent_management:
+                        try:
+                            # Get the category's save path
+                            categories = self.client.torrents_categories()
+                            if self.category in categories:
+                                category_save_path = categories[self.category].get('savePath')
+                                if category_save_path:
+                                    logger.info(f"Setting location to category save path: {category_save_path}")
+                                    self.client.torrents_set_location(
+                                        location=category_save_path,
+                                        torrent_hashes=torrent.hash
+                                    )
+                        except Exception as e:
+                            logger.warning(f"Failed to set torrent location: {e}")
+                    
                     return torrent.hash
 
             logger.warning("Could not verify added torrent")

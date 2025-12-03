@@ -372,5 +372,115 @@
     "admin_channel_id": 1291129984353566820,
     "status": "pending",
     "created_at": "2025-12-02T13:24:24.642911"
+  },
+  "1445487299423895633": {
+    "user_message_id": 1445487299423895633,
+    "user_id": 378737013769240587,
+    "channel_id": 1445151968082526279,
+    "book_title": "A Study in Scarlet",
+    "request_type": "ebook",
+    "admin_message_id": 1445487360585502944,
+    "admin_channel_id": 1291129984353566820,
+    "status": "pending",
+    "created_at": "2025-12-02T13:50:39.726186"
+  },
+  "1445489495498686586": {
+    "user_message_id": 1445489495498686586,
+    "user_id": 378737013769240587,
+    "channel_id": 1332181903901458504,
+    "book_title": "The Cambridge Introduction to Shakespeare's Poetry",
+    "request_type": "ebook",
+    "admin_message_id": null,
+    "admin_channel_id": null,
+    "status": "pending",
+    "created_at": "2025-12-02T13:59:46.850074"
+  },
+  "1445491187019419688": {
+    "user_message_id": 1445491187019419688,
+    "user_id": 378737013769240587,
+    "channel_id": 1332181903901458504,
+    "book_title": "The Cambridge Introduction to Shakespeare's Poetry",
+    "request_type": "ebook",
+    "admin_message_id": null,
+    "admin_channel_id": null,
+    "status": "pending",
+    "created_at": "2025-12-02T14:06:05.633216"
+  },
+  "1445491795265061019": {
+    "user_message_id": 1445491795265061019,
+    "user_id": 378737013769240587,
+    "channel_id": 1332181903901458504,
+    "book_title": "The Cambridge Introduction to Shakespeare's Poetry",
+    "request_type": "ebook",
+    "admin_message_id": null,
+    "admin_channel_id": null,
+    "status": "pending",
+    "created_at": "2025-12-02T14:08:29.258585"
+  },
+  "1445493599570493472": {
+    "user_message_id": 1445493599570493472,
+    "user_id": 378737013769240587,
+    "channel_id": 1445152029784936542,
+    "book_title": "The Let Them Theory",
+    "request_type": "audiobook",
+    "admin_message_id": 1445493659511296112,
+    "admin_channel_id": 1291129984353566820,
+    "status": "pending",
+    "created_at": "2025-12-02T14:15:44.155179"
+  },
+  "1445494324174520552": {
+    "user_message_id": 1445494324174520552,
+    "user_id": 378737013769240587,
+    "channel_id": 1445152029784936542,
+    "book_title": "Luca",
+    "request_type": "ebook",
+    "admin_message_id": 1445494442889838672,
+    "admin_channel_id": 1291129984353566820,
+    "status": "pending",
+    "created_at": "2025-12-02T14:18:48.886960"
+  },
+  "1445494642610143285": {
+    "user_message_id": 1445494642610143285,
+    "user_id": 378737013769240587,
+    "channel_id": 1445152029784936542,
+    "book_title": "The Art of War",
+    "request_type": "ebook",
+    "admin_message_id": null,
+    "admin_channel_id": null,
+    "status": "pending",
+    "created_at": "2025-12-02T14:19:48.251160"
+  },
+  "1445496473608392896": {
+    "user_message_id": 1445496473608392896,
+    "user_id": 378737013769240587,
+    "channel_id": 1445152029784936542,
+    "book_title": "The Art of War",
+    "request_type": "ebook",
+    "admin_message_id": null,
+    "admin_channel_id": null,
+    "status": "pending",
+    "created_at": "2025-12-02T14:27:00.752178"
+  },
+  "1445497538533658760": {
+    "user_message_id": 1445497538533658760,
+    "user_id": 378737013769240587,
+    "channel_id": 1445152029784936542,
+    "book_title": "The Art of War",
+    "request_type": "ebook",
+    "admin_message_id": null,
+    "admin_channel_id": null,
+    "status": "pending",
+    "created_at": "2025-12-02T14:31:16.293646"
+  },
+  "1445498452552450128": {
+    "user_message_id": 1445498452552450128,
+    "user_id": 378737013769240587,
+    "channel_id": 1445152029784936542,
+    "book_title": "The Art of War",
+    "request_type": "ebook",
+    "admin_message_id": 1445498502783307968,
+    "admin_channel_id": 1291129984353566820,
+    "status": "pending",
+    "created_at": "2025-12-02T14:34:54.088252"
   }
 }

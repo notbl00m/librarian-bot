@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  librarian-bot:
+    build: .
+    container_name: librarian-bot
+    restart: unless-stopped
+    
+    # Mount config and data directories
+    volumes:
+      - ./config/.env:/app/config/.env:ro
+      - ./data:/app/data
+      # Mount your library path (adjust to your Unraid share path)
+      - /mnt/user/BLOOM-LIBRARY:/library
+      # Mount your download path (adjust to your qBittorrent download path)
+      - /mnt/user/downloads/completed/MAM:/downloads
+    
+    # Network mode for accessing other services
+    network_mode: bridge
+    
+    environment:
+      - TZ=America/New_York
+      - PYTHONUNBUFFERED=1
+    
+    # Optional: Limit resources
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '1'
+    #       memory: 512M

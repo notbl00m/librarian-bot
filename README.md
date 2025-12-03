@@ -29,13 +29,35 @@ Librarian Bot is a comprehensive Discord automation system that integrates multi
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.8+ (or Docker)
 - Discord Bot Token ([Create one](https://discord.com/developers/applications))
 - Prowlarr instance (for indexer search)
 - qBittorrent instance (for downloads)
 - Audiobookshelf instance (optional, for library management)
 
 ### Installation
+
+#### Option 1: Docker (Recommended for Unraid)
+
+```bash
+# Clone the repository
+git clone https://github.com/notbl00m/librarian-bot.git
+cd librarian-bot
+
+# Configure environment
+cp config/.env.example config/.env
+# Edit config/.env with your settings
+
+# Start with Docker Compose
+docker-compose up -d
+
+# View logs
+docker-compose logs -f librarian-bot
+```
+
+📖 See [DOCKER.md](DOCKER.md) for detailed Docker setup instructions, Unraid-specific configuration, and troubleshooting.
+
+#### Option 2: Python (Native)
 
 ```bash
 # Clone the repository

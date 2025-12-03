@@ -10,6 +10,8 @@ from typing import Set, Dict, Any
 from datetime import datetime
 import os
 import paramiko
+import subprocess
+import sys
 from pathlib import Path
 from .audiobookshelf_api import trigger_library_scan
 from config import Config
@@ -131,11 +133,11 @@ class QBitMonitor:
                 logger.debug("Could not connect to qBittorrent")
                 return
             
-            # Get all torrents with category "librarian-bot" (synchronous call in executor)
+            # Get all torrents with configured category (synchronous call in executor)
             torrents = await loop.run_in_executor(
                 None,
                 self.qbit.get_torrents_in_category,
-                "librarian-bot"
+                Config.DOWNLOAD_CATEGORY
             )
             
             for torrent in torrents:
@@ -288,18 +290,59 @@ class QBitMonitor:
             
     def _run_organizer(self, source_path: str):
         """
-        Run the organizer synchronously - via SSH on the seedbox
+        Run the organizer synchronously - locally or via SSH depending on SERVER_MODE
         
         Args:
             source_path: Path to organize from (not used directly, organizer uses CONFIG)
         """
         try:
-            # Always run on seedbox via SSH since files are there
-            self._run_organizer_ssh()
+            # Check SERVER_MODE to determine how to run organizer
+            server_mode = Config.SERVER_MODE.lower()
+            
+            if server_mode == "local":
+                # Run organizer locally (for Docker/Unraid deployments)
+                self._run_organizer_local()
+            else:
+                # Run on seedbox via SSH (for remote seedbox setups)
+                self._run_organizer_ssh()
             
         except Exception as e:
             logger.error(f"Organizer error: {e}", exc_info=True)
             raise
+    
+    def _run_organizer_local(self):
+        """Run organizer locally using subprocess (for Docker/Unraid deployments)"""
+        try:
+            logger.info("🔧 Running organizer locally...")
+            
+            # Get the path to the organizer script
+            organizer_script = Path(__file__).parent.parent / "library-organizer.py"
+            
+            if not organizer_script.exists():
+                logger.error(f"Organizer script not found: {organizer_script}")
+                return
+            
+            # Run the organizer script
+            result = subprocess.run(
+                [sys.executable, str(organizer_script)],
+                capture_output=True,
+                text=True,
+                timeout=300  # 5 minute timeout
+            )
+            
+            if result.returncode == 0:
+                logger.info("✅ Organizer completed successfully")
+                if result.stdout:
+                    logger.debug(f"Organizer output:\n{result.stdout}")
+            else:
+                logger.error(f"❌ Organizer failed with exit code {result.returncode}")
+                if result.stderr:
+                    logger.error(f"Organizer error:\n{result.stderr}")
+                    
+        except subprocess.TimeoutExpired:
+            logger.error("❌ Organizer timed out after 5 minutes")
+        except Exception as e:
+            logger.error(f"❌ Failed to run organizer locally: {e}", exc_info=True)
     
     def _run_organizer_ssh(self):
         """Upload organizer to seedbox and execute it"""
