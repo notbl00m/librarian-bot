@@ -105,7 +105,8 @@ class Config:
         # Validate paths exist (only for local mode)
         if cls.SERVER_MODE == "local":
             paths_to_check = [
-                ("QBIT_DOWNLOAD_PATH", cls.QBIT_DOWNLOAD_PATH),
+                # Note: QBIT_DOWNLOAD_PATH is now managed by qBittorrent category settings
+                # and may not exist in the container, so we don't validate it
                 ("LIBRARY_PATH", cls.LIBRARY_PATH),
             ]
 
