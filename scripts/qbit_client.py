@@ -76,7 +76,6 @@ class QBittorrentClient:
         self.url = Config.QBIT_URL
         self.username = Config.QBIT_USERNAME
         self.password = Config.QBIT_PASSWORD
-        self.download_path = Config.QBIT_DOWNLOAD_PATH
         self.category = Config.DOWNLOAD_CATEGORY
         self.client: Optional[qbittorrentapi.Client] = None
 
@@ -161,7 +160,6 @@ class QBittorrentClient:
                 category=self.category,
                 use_auto_torrent_management=use_auto_torrent_management,
                 is_paused=is_paused,
-                save_path=self.download_path,
             )
 
             # Wait a moment for torrent to be added
