@@ -133,11 +133,11 @@ class QBitMonitor:
                 logger.debug("Could not connect to qBittorrent")
                 return
             
-            # Get all torrents with category "librarian-bot" (synchronous call in executor)
+            # Get all torrents with configured category (synchronous call in executor)
             torrents = await loop.run_in_executor(
                 None,
                 self.qbit.get_torrents_in_category,
-                "librarian-bot"
+                Config.DOWNLOAD_CATEGORY
             )
             
             for torrent in torrents:

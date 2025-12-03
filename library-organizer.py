@@ -65,7 +65,7 @@ CONFIG = {
                          else os.path.join(os.path.dirname(__file__), "organizer", "organizer.log")),
     
     # Audiobook extensions
-    "audiobook_extensions": [".m4b", ".m4a", ".mp3", ".opus", ".flac"],
+    "audiobook_extensions": [".m4b", ".m4a", ".mp3", ".opus", ".flac", ".ogg"],
     
     # Ebook extensions
     "ebook_extensions": [".epub", ".mobi", ".azw3", ".pdf", ".cbz", ".cbr"],
